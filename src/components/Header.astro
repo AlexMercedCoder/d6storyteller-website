@@ -1,0 +1,293 @@
+---
+const AMAZON_URL = 'https://www.amazon.com/dp/B0HC4XMKW3?binding=paperback&ref_=saga_sdp_cft_dsk';
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { href: '/', label: 'Home' },
+  { href: '/get-started/', label: 'Get Started' },
+  { href: '/books/', label: 'Books' },
+  { href: '/system/', label: 'How It Works' },
+  { href: '/optional-mechanics/', label: 'Optional Mechanics' },
+  { href: '/settings/', label: 'Settings' },
+  { href: '/community-settings/', label: 'Community' },
+  { href: '/faq/', label: 'FAQ' },
+  { href: '/about/', label: 'About' },
+];
+---
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <!-- Logo -->
+    <a href="/" class="site-header__logo" aria-label="D6 Storyteller — Home">
+      <span class="site-header__logo-icon" aria-hidden="true">⚄</span>
+      <span class="site-header__logo-text">D6 Storyteller</span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="site-header__nav" aria-label="Primary navigation">
+      <ul class="site-header__nav-list">
+        {navItems.map(item => (
+          <li>
+            <a
+              href={item.href}
+              class={`site-header__nav-link ${currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href)) ? 'site-header__nav-link--active' : ''}`}
+              aria-current={currentPath === item.href ? 'page' : undefined}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <!-- Amazon CTA + Mobile Toggle -->
+    <div class="site-header__actions">
+      <a
+        href={AMAZON_URL}
+        class="btn btn--primary site-header__amazon-btn"
+        target="_blank"
+        rel="noopener noreferrer"
+        onclick="try{if(window.gtag)gtag('event','amazon_click',{book_slug:'series',placement:'header',destination:'series_page'});}catch(e){}"
+      >
+        Buy on Amazon
+      </a>
+      <button
+        class="site-header__mobile-toggle"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+        aria-label="Open navigation menu"
+        type="button"
+        id="mobile-toggle"
+      >
+        <span class="site-header__hamburger" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true" role="dialog" aria-label="Navigation menu">
+    <nav aria-label="Mobile navigation">
+      <ul class="mobile-menu__list">
+        {navItems.map(item => (
+          <li>
+            <a
+              href={item.href}
+              class={`mobile-menu__link ${currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href)) ? 'mobile-menu__link--active' : ''}`}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+        <li>
+          <a
+            href={AMAZON_URL}
+            class="btn btn--primary mobile-menu__amazon"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Explore the Series on Amazon →
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('mobile-toggle');
+  const menu = document.getElementById('mobile-menu');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+    menu?.setAttribute('aria-hidden', String(isOpen));
+    menu?.classList.toggle('mobile-menu--open');
+    document.body.style.overflow = isOpen ? '' : 'hidden';
+  });
+
+  // Close on escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menu?.classList.contains('mobile-menu--open')) {
+      toggle?.setAttribute('aria-expanded', 'false');
+      menu.setAttribute('aria-hidden', 'true');
+      menu.classList.remove('mobile-menu--open');
+      document.body.style.overflow = '';
+      toggle?.focus();
+    }
+  });
+</script>
+
+<style>
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(7, 17, 31, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201, 162, 39, 0.2);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  height: 68px;
+}
+
+/* Logo */
+.site-header__logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.site-header__logo-icon {
+  font-size: 1.75rem;
+  filter: drop-shadow(0 0 8px rgba(201,162,39,0.6));
+}
+
+.site-header__logo-text {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  color: var(--gold-300);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-shadow: 0 0 20px rgba(201,162,39,0.3);
+}
+
+/* Desktop nav */
+.site-header__nav { display: none; }
+
+.site-header__nav-list {
+  display: flex;
+  gap: var(--space-1);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.site-header__nav-link {
+  display: block;
+  padding: 0.4em 0.75em;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(232, 224, 208, 0.7);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast), background var(--transition-fast);
+  white-space: nowrap;
+}
+
+.site-header__nav-link:hover,
+.site-header__nav-link--active {
+  color: var(--gold-300);
+  background: rgba(201, 162, 39, 0.08);
+  text-shadow: none;
+}
+
+/* Actions */
+.site-header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.site-header__amazon-btn {
+  display: none;
+  font-size: 0.75rem;
+  padding: 0.5em 1.25em;
+}
+
+/* Mobile toggle */
+.site-header__mobile-toggle {
+  background: none;
+  border: 1px solid rgba(201,162,39,0.3);
+  border-radius: var(--radius-sm);
+  padding: 8px;
+  cursor: pointer;
+  min-height: 44px;
+  min-width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.site-header__hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 20px;
+}
+
+.site-header__hamburger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--gold-400);
+  border-radius: 2px;
+  transition: all var(--transition-fast);
+}
+
+/* Mobile menu */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 68px 0 0;
+  background: var(--navy-950);
+  border-top: 1px solid rgba(201,162,39,0.2);
+  z-index: 99;
+  overflow-y: auto;
+  padding: var(--space-6);
+}
+
+.mobile-menu--open { display: block; }
+
+.mobile-menu__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.mobile-menu__link {
+  display: block;
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  color: rgba(232,224,208,0.8);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.mobile-menu__link:hover,
+.mobile-menu__link--active {
+  color: var(--gold-300);
+  background: rgba(201,162,39,0.08);
+  text-shadow: none;
+}
+
+.mobile-menu__amazon {
+  margin-top: var(--space-4);
+  width: 100%;
+  justify-content: center;
+  font-size: var(--text-base);
+}
+
+@media (min-width: 900px) {
+  .site-header__nav { display: flex; }
+  .site-header__amazon-btn { display: inline-flex; }
+  .site-header__mobile-toggle { display: none; }
+}
+</style>

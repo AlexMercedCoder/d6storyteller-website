@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FAQ from '../components/FAQ.astro';
+import AmazonCTA from '../components/AmazonCTA.astro';
+import StructuredData from '../components/StructuredData.astro';
+
+const faqItems = [
+  {
+    question: 'What is D6 Storyteller?',
+    answer: 'D6 Storyteller is a fiction-first tabletop roleplaying system created by Alex Merced. It resolves uncertain character actions using pools of standard six-sided dice, with narrative position and consequences driving play rather than complex modifiers or lookup tables.',
+  },
+  {
+    question: 'Which book should I start with?',
+    answer: 'Start with <strong>D6 Storyteller: The Core Rulebook</strong>. It contains the complete rules engine — character creation, dice mechanics, conflict resolution, harm, and the Storyteller guide — plus ten starter worlds covering multiple genres. Any companion can be added after your group is comfortable with the system.',
+  },
+  {
+    question: 'Do I need the Core Rulebook to use a companion?',
+    answer: 'Each companion contains a summary of the core mechanics sufficient to begin play, but the Core Rulebook provides the full rules reference and Storyteller guidance. Groups new to the D6 Storyteller system are strongly encouraged to begin with the Core Rulebook.',
+  },
+  {
+    question: 'What dice are required?',
+    answer: 'Only standard six-sided dice (d6) — the kind found in almost any board game. The D6 Storyteller system uses no proprietary or unusual dice.',
+  },
+  {
+    question: 'Is the game designed for players, Game Masters, or both?',
+    answer: 'Both. D6 Storyteller uses the term <em>Storyteller</em> for the facilitating player. The Core Rulebook includes a full Storyteller guide alongside the player-facing rules. Every companion includes Storyteller guidance specific to its genre and settings.',
+  },
+  {
+    question: 'Does each companion contain ten settings?',
+    answer: 'Yes. Every companion volume in the D6 Storyteller series contains ten complete, ready-to-play settings. Each setting includes world lore, a unique mechanic, three character archetypes, a condition palette, and a starter scenario.',
+  },
+  {
+    question: 'Are character sheets included?',
+    answer: 'Yes. Character sheets tailored to each setting are included in the companion volumes. Additional downloadable resources may be made available on the <a href="/resources/">Resources page</a>.',
+  },
+  {
+    question: 'Can mechanics and settings be mixed between books?',
+    answer: 'Yes. The D6 Storyteller engine is intentionally modular. Genre-specific mechanics from any companion can be imported into other settings or combined with lore from any other book in the series.',
+  },
+  {
+    question: 'Where can I buy the books?',
+    answer: 'The complete D6 Storyteller series is available on Amazon in paperback and Kindle formats. Visit the <a href="https://www.amazon.com/dp/B0HC4XMKW3?binding=paperback&ref_=saga_sdp_cft_dsk" target="_blank" rel="noopener noreferrer">Amazon series page</a> to browse all available titles.',
+  },
+  {
+    question: 'Is D6 Storyteller available in paperback and Kindle formats?',
+    answer: 'Yes. D6 Storyteller titles are available in both paperback and Kindle formats on Amazon. Availability of specific formats for each companion may vary.',
+  },
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "D6 Storyteller FAQ",
+  "mainEntity": faqItems.map(item => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.answer.replace(/<[^>]*>/g, '')
+    }
+  }))
+};
+---
+
+<BaseLayout
+  title="D6 Storyteller FAQ | Rules, Books, Dice, and Settings"
+  description="Common questions about D6 Storyteller — which book to start with, what dice are required, how settings and mechanics work, and where to buy the series."
+  canonicalUrl="https://d6storyteller.alexmerced.com/faq/"
+  jsonLd={jsonLd}
+>
+  <section class="section" aria-labelledby="faq-heading">
+    <div class="container container--narrow">
+      <nav aria-label="Breadcrumb" class="breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb__separator" aria-hidden="true">&rsaquo;</span>
+        <span aria-current="page">FAQ</span>
+      </nav>
+
+      <p class="section-label">Questions & Answers</p>
+      <h1 id="faq-heading">Frequently Asked Questions</h1>
+      <p style="color:rgba(232,224,208,0.75);margin-bottom:var(--space-8);max-width:64ch;">
+        Questions about the D6 Storyteller system, books, dice, and where to buy. If you have a question not answered here, visit the <a href="/about/">About page</a> for contact information.
+      </p>
+
+      <FAQ items={faqItems} />
+
+      <div style="margin-top:var(--space-10);">
+        <AmazonCTA placement="faq_bottom" variant="banner" />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

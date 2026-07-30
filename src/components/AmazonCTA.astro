@@ -1,0 +1,63 @@
+---
+export interface Props {
+  placement: string;
+  bookSlug?: string;
+  variant?: 'primary' | 'secondary' | 'banner';
+  label?: string;
+}
+const {
+  placement,
+  bookSlug = 'series',
+  variant = 'primary',
+  label = 'Explore the Complete Series on Amazon',
+} = Astro.props;
+const AMAZON_URL = 'https://www.amazon.com/dp/B0HC4XMKW3?binding=paperback&ref_=saga_sdp_cft_dsk';
+const eventData = JSON.stringify({ event: 'amazon_click', book_slug: bookSlug, placement, destination: bookSlug === 'series' ? 'series_page' : 'book_page' });
+---
+{variant === 'banner' ? (
+  <div class="amazon-banner">
+    <p class="amazon-banner__text">Ready to play? The complete D6 Storyteller series is available on Amazon.</p>
+    <a
+      href={AMAZON_URL}
+      class="btn btn--primary"
+      rel="noopener noreferrer"
+      target="_blank"
+      data-track={eventData}
+      onclick={`try{const d=${eventData};if(window.gtag)gtag('event',d.event,d);}catch(e){}`}
+    >
+      {label} →
+    </a>
+  </div>
+) : (
+  <a
+    href={AMAZON_URL}
+    class={`btn btn--${variant}`}
+    rel="noopener noreferrer"
+    target="_blank"
+    data-track={eventData}
+    onclick={`try{const d=${eventData};if(window.gtag)gtag('event',d.event,d);}catch(e){}`}
+  >
+    {label} →
+  </a>
+)}
+
+<style>
+.amazon-banner {
+  background: linear-gradient(135deg, var(--navy-800) 0%, var(--navy-700) 100%);
+  border: 1px solid rgba(201, 162, 39, 0.3);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+}
+.amazon-banner__text {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  color: var(--gold-300);
+  margin: 0;
+  max-width: 100%;
+}
+</style>

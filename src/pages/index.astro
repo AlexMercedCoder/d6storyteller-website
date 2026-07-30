@@ -1,0 +1,483 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AmazonCTA from '../components/AmazonCTA.astro';
+import BookCard from '../components/BookCard.astro';
+import FAQ from '../components/FAQ.astro';
+import { getCollection } from 'astro:content';
+
+const books = (await getCollection('books')).sort((a, b) => a.data.order - b.data.order);
+
+const AMAZON_URL = 'https://www.amazon.com/dp/B0HC4XMKW3?binding=paperback&ref_=saga_sdp_cft_dsk';
+
+const faqItems = [
+  {
+    question: 'What is D6 Storyteller?',
+    answer: 'D6 Storyteller is a fiction-first tabletop roleplaying system created by Alex Merced. It uses pools of standard six-sided dice to resolve uncertain actions, with narrative position and consequences driving play rather than complex numerical modifiers.',
+  },
+  {
+    question: 'Which book should I start with?',
+    answer: 'Start with <strong>D6 Storyteller: The Core Rulebook</strong>. It contains the complete rules engine plus ten starter worlds spanning multiple genres. Once your group is comfortable with the system, any companion volume can be added.',
+  },
+  {
+    question: 'Do I need the Core Rulebook to use a companion?',
+    answer: 'Each companion contains a summary of the core mechanics, but the Core Rulebook provides the full rules reference, character creation guidance, and the Storyteller\'s guide. Groups new to the system are encouraged to begin there.',
+  },
+  {
+    question: 'What dice does D6 Storyteller use?',
+    answer: 'Only standard six-sided dice (d6) — the kind found in almost any board game. No proprietary or unusual dice are required.',
+  },
+  {
+    question: 'Does each companion contain ten settings?',
+    answer: 'Yes. Every companion volume in the D6 Storyteller series contains ten complete, ready-to-play settings for that genre. Each setting includes unique mechanics, archetypes, a condition palette, and a starter scenario.',
+  },
+  {
+    question: 'Can I mix settings and mechanics from different books?',
+    answer: 'Absolutely. The D6 Storyteller engine is designed to be modular. Setting-specific mechanics from any companion can be combined with lore and worlds from any other book in the series.',
+  },
+];
+
+const genreTiles = [
+  { label: 'High Fantasy', href: '/books/high-mythic-fantasy-companion/', icon: '🏰', accent: 'var(--accent-fantasy)' },
+  { label: 'Sci-Fi & Cosmic', href: '/books/sci-fi-cosmic-frontiers-companion/', icon: '🚀', accent: 'var(--accent-scifi)' },
+  { label: 'Horror & Occult', href: '/books/horror-occult-supernatural-companion/', icon: '🕯️', accent: 'var(--accent-horror)' },
+  { label: 'Weird West', href: '/books/weird-west-piracy-swashbuckling-companion/', icon: '🤠', accent: 'var(--accent-weirdwest)' },
+  { label: 'Cybernetics', href: '/books/cybernetics-speculative-alternate-tech-companion/', icon: '🤖', accent: 'var(--accent-cyberpunk)' },
+  { label: 'Superheroes', href: '/books/superheroes-kaiju-anime-tropes-companion/', icon: '⚡', accent: 'var(--accent-superheroes)' },
+  { label: 'Historical', href: '/books/historical-alternate-history-companion/', icon: '⚔️', accent: 'var(--accent-historical)' },
+  { label: 'Experimental', href: '/books/quirky-experimental-micro-scale-companion/', icon: '🎲', accent: 'var(--accent-experimental)' },
+  { label: 'Post-Apocalyptic', href: '/books/post-apocalyptic-speculative-worlds-companion/', icon: '☢️', accent: 'var(--accent-postapoc)' },
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://d6storyteller.alexmerced.com/#website",
+      "url": "https://d6storyteller.alexmerced.com/",
+      "name": "D6 Storyteller",
+      "description": "A fiction-first tabletop roleplaying system and book series by Alex Merced.",
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://d6storyteller.alexmerced.com/#alex-merced",
+      "name": "Alex Merced",
+      "url": "https://d6storyteller.alexmerced.com/about/"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://d6storyteller.alexmerced.com/#webpage",
+      "url": "https://d6storyteller.alexmerced.com/",
+      "name": "D6 Storyteller | Fiction-First Tabletop RPG by Alex Merced",
+      "isPartOf": { "@id": "https://d6storyteller.alexmerced.com/#website" },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "CreativeWorkSeries",
+      "@id": "https://d6storyteller.alexmerced.com/#series",
+      "name": "D6 Storyteller",
+      "description": "A fiction-first tabletop roleplaying system and companion book series.",
+      "creator": { "@id": "https://d6storyteller.alexmerced.com/#alex-merced" },
+      "url": "https://d6storyteller.alexmerced.com/books/"
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="D6 Storyteller | Fiction-First Tabletop RPG by Alex Merced"
+  description="Explore D6 Storyteller, a fiction-first tabletop RPG engine by Alex Merced, plus genre companions featuring ten ready-to-play settings each. Start with six-sided dice. Tell infinite stories."
+  canonicalUrl="https://d6storyteller.alexmerced.com/"
+  jsonLd={jsonLd}
+>
+
+  <!-- ─────────────────────────────────────────────────────
+       HERO
+  ───────────────────────────────────────────────────── -->
+  <section class="section section--hero hero" aria-labelledby="hero-heading">
+    <div class="hero__bg-glow" aria-hidden="true"></div>
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <p class="section-label">A Fiction-First Tabletop RPG</p>
+        <h1 id="hero-heading" class="hero__title glow-text">D6 Storyteller</h1>
+        <p class="hero__subtitle">
+          The fiction-first tabletop roleplaying engine that uses pools of six-sided dice to help players create dramatic stories across many genres and worlds.
+        </p>
+        <p class="hero__description">
+          D6 Storyteller resolves uncertain actions through narrative position and consequences — not complex arithmetic. Start playing in minutes. Tell stories that matter.
+        </p>
+        <div class="hero__actions">
+          <a
+            href={AMAZON_URL}
+            class="btn btn--primary hero__cta-primary"
+            target="_blank"
+            rel="noopener noreferrer"
+            onclick="try{if(window.gtag)gtag('event','amazon_click',{book_slug:'series',placement:'homepage_hero',destination:'series_page'});}catch(e){}"
+          >
+            Explore the Complete Series on Amazon →
+          </a>
+          <a href="/books/" class="btn btn--secondary">Browse the Books</a>
+        </div>
+      </div>
+      <div class="hero__covers">
+        <img
+          src={books[0].data.coverImage}
+          alt={books[0].data.coverAlt}
+          width="280"
+          height="373"
+          loading="eager"
+          fetchpriority="high"
+          class="hero__cover-main"
+        />
+        <div class="hero__cover-fan" aria-hidden="true">
+          {books.slice(1, 4).map((book, i) => (
+            <img
+              src={book.data.coverImage}
+              alt=""
+              width="180"
+              height="240"
+              loading="eager"
+              class={`hero__cover-fan-item hero__cover-fan-item--${i}`}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────────────────
+       WHAT IS D6 STORYTELLER?
+  ───────────────────────────────────────────────────── -->
+  <section class="section what-is" aria-labelledby="what-is-heading">
+    <div class="container container--narrow">
+      <p class="section-label">The System</p>
+      <h2 id="what-is-heading">What is D6 Storyteller?</h2>
+      <div class="what-is__answer">
+        <p class="what-is__lead">
+          D6 Storyteller is a fiction-first tabletop roleplaying engine that resolves uncertain actions with pools of six-sided dice.
+        </p>
+        <p>
+          Before any dice are rolled, the table answers one guiding question: <em>what is happening in the fiction?</em> Your character's narrative position — whether you're cornered, holding the high ground, or working with incomplete information — determines how many dice you roll and how much effect your action can have.
+        </p>
+        <p>
+          The result never just says "you succeed" or "you fail." It generates narrative consequence: partial results, complications, opportunities, and costs. The story moves forward regardless of the outcome.
+        </p>
+        <p>
+          No proprietary dice. No lookup tables. No arithmetic heavier than counting dice. Just standard six-sided dice, descriptive characters, and the fiction your group creates together.
+        </p>
+      </div>
+      <a href="/system/" class="btn btn--secondary">Learn How the System Works →</a>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────────────────
+       THE COMPLETE SERIES
+  ───────────────────────────────────────────────────── -->
+  <section class="section series" aria-labelledby="series-heading">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">The Library</p>
+        <h2 id="series-heading">The Complete Series</h2>
+        <p class="section-desc">Ten volumes. One hundred worlds. Every genre, every tone.</p>
+      </div>
+      <div class="grid-books">
+        {books.map((book, i) => (
+          <BookCard
+            slug={book.slug}
+            title={book.data.title}
+            shortTitle={book.data.shortTitle}
+            subtitle={book.data.subtitle}
+            coverImage={book.data.coverImage}
+            coverAlt={book.data.coverAlt}
+            genres={book.data.genres}
+            amazonUrl={book.data.amazonUrl}
+            eager={i < 4}
+          />
+        ))}
+      </div>
+      <div class="series__cta">
+        <AmazonCTA placement="homepage_series" variant="banner" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────────────────
+       TEN WORLDS IN EVERY VOLUME
+  ───────────────────────────────────────────────────── -->
+  <section class="section ten-worlds" aria-labelledby="ten-worlds-heading">
+    <div class="container container--narrow">
+      <p class="section-label">The Format</p>
+      <h2 id="ten-worlds-heading">Ten Worlds in Every Volume</h2>
+      <p class="ten-worlds__lead">
+        Every companion book in the D6 Storyteller series follows the same proven structure — giving your group a complete, ready-to-play world the moment you open the cover.
+      </p>
+      <div class="ten-worlds__grid">
+        {[
+          { icon: '🌍', title: 'Ten Settings', desc: 'A complete playable world with lore, tone, and sensory detail for each of the ten settings in the volume.' },
+          { icon: '⚙️', title: 'Unique Mechanics', desc: 'Each setting has one genre-specific mechanic that captures the tension of its world and hooks into the D6 engine.' },
+          { icon: '🧙', title: 'Ready Archetypes', desc: 'Three ready-to-play character archetypes per setting with descriptors, drives, flaws, and approach distributions.' },
+          { icon: '💀', title: 'Condition Palettes', desc: 'Genre-tuned physical, social, and psychological conditions so Storytellers never improvise harm from scratch.' },
+          { icon: '🎭', title: 'Starter Scenarios', desc: 'A complete three-layer starter scenario seed with immediate threat, ticking danger clock, and hidden opportunity.' },
+          { icon: '📋', title: 'Character Sheets', desc: 'Custom character sheets designed for each setting\'s specific approaches, tracks, and genre mechanics.' },
+        ].map(feature => (
+          <div class="ten-worlds__feature">
+            <span class="ten-worlds__icon" aria-hidden="true">{feature.icon}</span>
+            <div>
+              <h3 class="ten-worlds__feature-title">{feature.title}</h3>
+              <p class="ten-worlds__feature-desc">{feature.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────────────────
+       CHOOSE YOUR WORLD
+  ───────────────────────────────────────────────────── -->
+  <section class="section genres" aria-labelledby="genres-heading">
+    <div class="container">
+      <p class="section-label">Explore by Genre</p>
+      <h2 id="genres-heading">Choose Your World</h2>
+      <p class="section-desc">Every companion covers a distinct genre. Find the one that fits your group's next campaign.</p>
+      <div class="genres__grid">
+        {genreTiles.map(tile => (
+          <a href={tile.href} class="genre-tile" style={`--tile-accent:${tile.accent}`}>
+            <span class="genre-tile__icon" aria-hidden="true">{tile.icon}</span>
+            <span class="genre-tile__label">{tile.label}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────────────────
+       ABOUT ALEX MERCED
+  ───────────────────────────────────────────────────── -->
+  <section class="section about-author" aria-labelledby="author-heading">
+    <div class="container container--narrow">
+      <p class="section-label">The Creator</p>
+      <h2 id="author-heading">About Alex Merced</h2>
+      <p>
+        D6 Storyteller is designed and written by <strong>Alex Merced</strong> — developer, author, and tabletop game designer. The system was built from a conviction that the best tabletop RPG experiences happen when the story drives the mechanics, not the other way around.
+      </p>
+      <p>
+        The D6 Storyteller series represents the full expression of that conviction: a core engine powerful enough to handle any genre, paired with companion volumes that give every genre its own voice, its own mechanical tension, and its own set of worlds ready to be inhabited.
+      </p>
+      <div class="about-author__links">
+        <a href="/about/" class="btn btn--secondary">Read More →</a>
+        <a href="https://WhoIsAlexMerced.com" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">WhoIsAlexMerced.com ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────────────────
+       FAQ PREVIEW
+  ───────────────────────────────────────────────────── -->
+  <section class="section faq-preview" aria-labelledby="faq-heading">
+    <div class="container container--narrow">
+      <p class="section-label">Common Questions</p>
+      <h2 id="faq-heading">Frequently Asked Questions</h2>
+      <FAQ items={faqItems} />
+      <div style="margin-top:var(--space-8);">
+        <a href="/faq/" class="btn btn--secondary">View All FAQ →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────────────────
+       FINAL CTA
+  ───────────────────────────────────────────────────── -->
+  <section class="section final-cta" aria-labelledby="final-cta-heading">
+    <div class="container">
+      <div class="final-cta__card glow-border">
+        <span class="final-cta__dice" aria-hidden="true">⚄</span>
+        <h2 id="final-cta-heading" class="glow-text">Ready to Roll?</h2>
+        <p>The complete D6 Storyteller series — the Core Rulebook plus nine genre companions — is available on Amazon in paperback and Kindle formats.</p>
+        <AmazonCTA placement="homepage_final" bookSlug="series" variant="primary" label="Explore the Complete Series on Amazon" />
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+/* Hero */
+.hero { overflow: hidden; }
+.hero__bg-glow {
+  position: absolute;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 600px;
+  background: radial-gradient(ellipse at center, rgba(201,162,39,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-12);
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .hero__inner { grid-template-columns: 1fr 1fr; }
+}
+.hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  line-height: 1;
+  margin-bottom: var(--space-4);
+  background: linear-gradient(135deg, var(--gold-300) 0%, var(--gold-400) 50%, var(--gold-300) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero__subtitle {
+  font-family: var(--font-heading);
+  font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl));
+  color: rgba(232,224,208,0.9);
+  margin-bottom: var(--space-4);
+  line-height: 1.4;
+  max-width: 52ch;
+}
+.hero__description { color: rgba(232,224,208,0.65); margin-bottom: var(--space-8); max-width: 52ch; }
+.hero__actions { display: flex; gap: var(--space-4); flex-wrap: wrap; }
+.hero__cta-primary { font-size: var(--text-base); padding: 1em 2em; }
+
+.hero__covers {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.hero__cover-main {
+  position: relative;
+  z-index: 3;
+  border-radius: var(--radius-md);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.8), 0 0 40px rgba(201,162,39,0.2);
+  max-width: 260px;
+  width: 100%;
+  height: auto;
+}
+.hero__cover-fan {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.hero__cover-fan-item {
+  position: absolute;
+  border-radius: var(--radius-sm);
+  opacity: 0.5;
+  width: 160px;
+  height: auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+.hero__cover-fan-item--0 { right: 0; top: 10%; transform: rotate(8deg); z-index: 1; }
+.hero__cover-fan-item--1 { left: -20px; top: 15%; transform: rotate(-10deg); z-index: 1; }
+.hero__cover-fan-item--2 { right: 10px; bottom: 0; transform: rotate(5deg); z-index: 1; }
+
+/* What is */
+.what-is__lead {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  color: var(--gold-300);
+  margin-bottom: var(--space-6);
+  line-height: 1.4;
+}
+.what-is__answer { margin-bottom: var(--space-8); }
+
+/* Section header */
+.section-header { text-align: center; margin-bottom: var(--space-10); }
+.section-header .section-label { display: block; }
+.section-desc { color: rgba(232,224,208,0.6); font-size: var(--text-lg); max-width: 52ch; margin-inline: auto; }
+
+/* Series */
+.series__cta { margin-top: var(--space-10); }
+
+/* Ten worlds */
+.ten-worlds__lead {
+  font-size: var(--text-lg);
+  color: rgba(232,224,208,0.8);
+  margin-bottom: var(--space-8);
+}
+.ten-worlds__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  margin-bottom: var(--space-8);
+}
+@media (min-width: 640px) { .ten-worlds__grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 960px) { .ten-worlds__grid { grid-template-columns: repeat(3, 1fr); } }
+
+.ten-worlds__feature {
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+}
+.ten-worlds__icon { font-size: 2rem; flex-shrink: 0; }
+.ten-worlds__feature-title { font-size: var(--text-base); color: var(--gold-300); margin-bottom: var(--space-1); }
+.ten-worlds__feature-desc { font-size: var(--text-sm); color: rgba(232,224,208,0.6); margin: 0; }
+
+/* Genre tiles */
+.genres__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+}
+.genre-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-6) var(--space-4);
+  background: var(--navy-900);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-card);
+}
+.genre-tile:hover {
+  border-color: var(--tile-accent, var(--gold-500));
+  box-shadow: 0 0 20px color-mix(in srgb, var(--tile-accent, var(--gold-400)) 20%, transparent), var(--shadow-hover);
+  transform: translateY(-4px);
+  text-shadow: none;
+}
+.genre-tile__icon { font-size: 2.5rem; }
+.genre-tile__label {
+  font-family: var(--font-heading);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(232,224,208,0.8);
+  text-align: center;
+}
+.genre-tile:hover .genre-tile__label { color: var(--gold-300); }
+
+/* About author */
+.about-author__links { display: flex; gap: var(--space-4); flex-wrap: wrap; margin-top: var(--space-6); }
+
+/* Final CTA */
+.final-cta__card {
+  background: linear-gradient(135deg, var(--navy-800) 0%, var(--navy-700) 100%);
+  border-radius: var(--radius-xl);
+  padding: var(--space-16);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+}
+.final-cta__dice {
+  font-size: 5rem;
+  filter: drop-shadow(0 0 20px rgba(201,162,39,0.5));
+}
+.final-cta__card h2 {
+  font-family: var(--font-display);
+  font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
+}
+.final-cta__card p { max-width: 50ch; color: rgba(232,224,208,0.75); margin: 0; }
+</style>

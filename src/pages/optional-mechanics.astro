@@ -1,0 +1,407 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AmazonCTA from '../components/AmazonCTA.astro';
+import FAQ from '../components/FAQ.astro';
+
+const mechanics = [
+  {
+    id: "momentum-bank",
+    name: "Momentum Bank",
+    tagline: "Build up. Cash in.",
+    summary: "A shared group resource that rewards consistent storytelling and creative action.",
+    description: "The group maintains a shared Momentum Bank — a pool of tokens or tallies. Whenever a player achieves a Full Success (a 6 on their highest die), they may bank one Momentum instead of spending it immediately. When any player faces a Desperate or Risky position roll, they may withdraw Momentum from the Bank to upgrade their position by one step before rolling. The Bank has a maximum capacity equal to the number of players. Momentum in the Bank resets to zero at the start of each new session, creating an incentive to spend it before the night is over.",
+    whenToUse: "Add this to any campaign where you want to encourage the players to think as a team rather than individually. Particularly effective in heist, ensemble, and war-band scenarios.",
+    example: "Three players are planning a break-in. Over the previous scene, two of them banked Momentum from successful scouting rolls. When the third player attempts the critical safe-cracking roll from a Risky position, they withdraw both Momentum to push it to Controlled — the team's preparation pays off.",
+    tags: ["Teamwork", "Resource Management", "Any Genre"],
+  },
+  {
+    id: "flashback-frame",
+    name: "Flashback Frame",
+    tagline: "You prepared for this. Show us when.",
+    summary: "Let players retroactively establish that their character prepared for a situation before it began.",
+    description: "Once per scene, a player may call a Flashback Frame before making a roll. They describe a brief scene from the past — anything from an hour ago to years before — in which their character made a preparation relevant to the current situation. The Storyteller assigns the flashback a difficulty (Simple, Risky, or Desperate) based on how plausible and specific the preparation is. The player rolls for the flashback result immediately, and the outcome of that past preparation modifies their position in the present scene. A Full Success in the flashback upgrades the current roll's position. A Partial Success means the preparation existed but with a complication. A Failure means the preparation went wrong — and that failure is about to become relevant.",
+    whenToUse: "Use this when your players are creative improvisers who feel constrained by 'I should have thought of that earlier.' It rewards players who are paying attention to the fiction and willing to establish their character's competence through story rather than just stats.",
+    example: "A spy is caught at the border without papers. Before rolling, she calls a Flashback Frame: 'Three weeks ago I bribed a contact here.' She rolls for the bribe — Partial Success. The contact took the money but only provided papers for one alias, not the one she's currently using.",
+    tags: ["Narrative", "Improvisation", "Any Genre"],
+  },
+  {
+    id: "escalating-stakes",
+    name: "Escalating Stakes",
+    tagline: "Every success raises the cost of the next failure.",
+    summary: "A mechanic that builds narrative tension by tracking how high the stakes have climbed in a conflict.",
+    description: "At the start of any extended conflict (a negotiation, a chase, a prolonged battle), the Storyteller places a Stakes Track on the table — a simple numbered line from 1 to 5. Every time a character achieves a Full Success, the Stakes Track advances by one. Every time a character suffers a Failure, the Stakes Track advances by one. The Stakes number represents how volatile the situation has become. Characters use the current Stakes number as a modifier to the severity of consequences: at Stakes 1, a failed roll creates a minor complication. At Stakes 5, a failed roll produces the worst reasonable outcome the Storyteller can imagine. Players can choose to de-escalate by taking a Controlled action specifically aimed at reducing tension rather than pressing the objective — reducing the track by one on a Full Success.",
+    whenToUse: "Excellent for political negotiations, heists in progress, and chases where early successes create overconfidence. Creates a satisfying mechanical arc where the players' own successes raise the cost of their mistakes.",
+    example: "A smuggler is arguing her case before a mercantile tribunal. Early wins in the debate push the Stakes Track to 3. When her partner then fails a bluff roll, the consequence is dramatic — the tribunal's patience has run out and they call for guards — consequences appropriate to how high the stakes have climbed.",
+    tags: ["Tension", "Conflict", "Dramatic Pacing"],
+  },
+  {
+    id: "wound-clock",
+    name: "Wound Clock",
+    tagline: "Harm compounds. The clock doesn't stop.",
+    summary: "Track cumulative physical harm with a four-segment clock that generates escalating narrative consequences.",
+    description: "Instead of tracking individual conditions, each character maintains a Wound Clock — a circle divided into four segments. Each time a character takes physical harm, advance the clock by one segment. The narrative description of harm scales with the clock: segment 1 is a graze or bruise (no mechanical effect), segment 2 is a real wound (lose 1 die on physical approach rolls), segment 3 is severe injury (position on physical rolls worsens one step), segment 4 is incapacitated (out of the scene, requires recovery). Between scenes, characters may attempt a recovery roll (using Mind for self-treatment, Presence for aided recovery) to reduce the clock by one segment on a Full Success. A Partial Success reduces it by one but introduces a complication (infection, scar tissue, lost equipment during treatment). Failure means the wound worsens — advance the clock by one.",
+    whenToUse: "Use when you want harm to feel consequential and cumulative without requiring a complex hit point system. Works especially well in survival, horror, and military settings where the physical cost of violence should build over a session.",
+    example: "A soldier takes two hits in a forest ambush (clock at 2 — she's losing dice on physical rolls). She tries to treat herself between scenes and rolls a Partial Success — her clock drops to 1, but she used her last bandages.",
+    tags: ["Survival", "Combat", "Harm Tracking"],
+  },
+  {
+    id: "reputation-web",
+    name: "Reputation Web",
+    tagline: "How you're known shapes what you can do.",
+    summary: "Track your character's standing with different factions using a simple three-tier web.",
+    description: "Each character maintains a Reputation Web — a list of three to five relevant factions, organizations, or social groups in the current setting. Each faction has a standing: Trusted (green), Neutral (blank), or Wanted (red). Standing is not a number — it's a narrative state. Trusted factions offer characters assistance, information, or shelter without a roll when narratively plausible. Neutral factions require a Presence roll for meaningful assistance. Wanted factions treat the character as an active threat — their presence escalates position to Desperate in any scene involving that faction. Standing shifts based on meaningful story actions: betrayal moves Trusted to Neutral (or Neutral to Wanted), demonstrated loyalty or aid moves Neutral toward Trusted. The Storyteller tracks faction knowledge — factions may not know about each other's standing changes. Characters can choose to spread their reputation deliberately or exploit the gaps.",
+    whenToUse: "Add this to any setting with meaningful political or social complexity — spy thrillers, political intrigue, merchant guild drama, post-apocalyptic faction wars. Replaces abstract social skill rolls with a persistent web of relationships that shapes every scene.",
+    example: "A fixer is Trusted by the street gangs and Wanted by the corporate police. Entering the corporate district worsens her position to Desperate, but when she needs to hide someone, she can use a gang safehouse without a roll.",
+    tags: ["Social", "Political Intrigue", "Factions"],
+  },
+  {
+    id: "ticking-clock",
+    name: "Ticking Clock",
+    tagline: "Every action burns time. Time runs out.",
+    summary: "A structured countdown that drives urgency and shapes decision-making across an entire session.",
+    description: "At the start of a session (or a critical sequence within a session), the Storyteller establishes a Ticking Clock — a simple countdown from a number between 3 and 8 depending on the severity and timeframe of the threat. Each time the characters: (1) fail a roll, (2) take a Desperate action with a Partial Success, or (3) skip an opportunity to intervene, advance the clock by one. When the clock reaches zero, the threatened consequence occurs — the ritual completes, the ship departs, the bomb detonates, the witness is silenced. Characters cannot stop the clock from ticking — they can only act faster. Multiple simultaneous clocks can represent competing objectives (the fire spreading in the warehouse vs. time to extract the prisoner), forcing players to triage their priorities. The Storyteller should make the clock and its advancement visible to the table.",
+    whenToUse: "Essential for any session with a time-sensitive objective. Makes the cost of every failed roll feel immediate and cumulative rather than abstract. Especially powerful when characters can see two clocks ticking simultaneously and must choose which threat to address first.",
+    example: "The ritual clock sits at 5. The players fail a roll trying to decipher the cultists' notes — clock advances to 4. They succeed getting past the guards — clock holds. They take a Desperate shot at the ritual leader and get a Partial Success — clock advances to 3. They have three chances left before the ritual completes.",
+    tags: ["Tension", "Time Pressure", "Any Genre"],
+  },
+  {
+    id: "emotional-burden",
+    name: "Emotional Burden",
+    tagline: "What you carry shapes how you act.",
+    summary: "Track the psychological weight of difficult decisions with a personal Burden track that has mechanical teeth.",
+    description: "Each character has a Burden Track — a simple line of five boxes. When a character: witnesses significant loss, makes a morally costly choice, betrays someone who trusted them, or fails to protect someone they cared for, the Storyteller may ask them to mark one box of Burden. The Burden Track has no mechanical effect until it fills. At 3 boxes, the character must choose between two approaches for the session — the weight of what they're carrying narrows their options (reduce one approach dice by 1). At 5 boxes, the character enters a Breaking Point. They either: act out dramatically in a way the player narrates (releasing the burden, often at narrative cost) and clear the track, or they continue carrying it and the Storyteller introduces a Complication tied to their unresolved grief or guilt. Between sessions, a meaningful in-world action — a genuine conversation, a ritual, a sacrifice — can clear one box without a roll.",
+    whenToUse: "Use in campaigns where moral complexity and emotional consequences matter — war stories, tragedy, post-apocalyptic survival, political drama. Not appropriate for every table or every genre. Discuss with your group before introducing.",
+    example: "A soldier has 4 Burden from a series of hard choices. She's narrowed to Force and Finesse only this session. After a quiet scene with a surviving villager she protected, she clears one box — a small human moment against the weight of everything else.",
+    tags: ["Drama", "Character Development", "Psychological"],
+  },
+  {
+    id: "cooperative-roll",
+    name: "Cooperative Roll",
+    tagline: "Together you roll more. Together you share the risk.",
+    summary: "A formalized structure for characters assisting each other — with a meaningful downside if the joint effort fails.",
+    description: "When one character attempts an action and another character has a credible way to assist, the assisting character contributes their relevant approach dice to the roll — but they also share the consequence if the roll fails or partially succeeds. The lead character rolls the combined pool. On a Full Success, both characters contributed meaningfully and both benefit from the outcome. On a Partial Success, both characters take the complication. On a Failure, both characters suffer the consequence. The key rule: the assisting character's approach must be plausible given the fiction. You cannot assist a Finesse lock-pick roll with Force unless you can narrate how brute strength meaningfully aids the delicate work. If the Storyteller accepts the assist, the combined pool is rolled. This makes assistance a genuine decision — more dice, but shared risk.",
+    whenToUse: "Works in any setting and replaces the common problem of 'I help' with no real stake. Makes group action feel collaborative rather than one-player-plus-spectators. Especially effective in tense, high-stakes scenes where players debate whether to combine their efforts.",
+    example: "A doctor is performing emergency surgery in a moving vehicle. A pilot attempts to assist by keeping the vehicle steady (Finesse). The Storyteller accepts — it's plausible. They combine the pool. A Partial Success means the surgery goes well but the vehicle hit a bump — both characters take a minor consequence.",
+    tags: ["Teamwork", "Collaborative", "Any Genre"],
+  },
+  {
+    id: "legacy-move",
+    name: "Legacy Move",
+    tagline: "One moment that echoes through everything that follows.",
+    summary: "Let a character make a single, permanently story-changing action at full cost — and gain a lasting benefit.",
+    description: "Once per campaign arc (a major story segment of at least three sessions), each character may declare a Legacy Move. A Legacy Move is a single action that: (1) is declared before the roll, (2) is described in terms of permanent, irreversible consequence — they are willing to pay whatever price the outcome demands, and (3) rolls with the full pool regardless of position (position cannot worsen a Legacy roll). The result is resolved normally (Full Success / Partial / Failure), but whatever happens, it becomes a permanent part of the character and the setting. On a Full Success, the character gains a new Descriptor reflecting the move — a reputation, a scar, a relationship, a title — that gives them +1d6 on future rolls where that legacy is relevant. On a Failure, the Descriptor is still gained, but it reflects what went wrong — and the Storyteller introduces a lasting consequence that shapes future sessions.",
+    whenToUse: "Use at climactic moments — the end of a story arc, a sacrifice, a defining confrontation. Gives players agency over what their character's defining moments are rather than leaving that entirely to fortune. Works best when the group has been playing the same characters for multiple sessions.",
+    example: "A revolutionary declares a Legacy Move before her public speech confronting the corrupt governor. She rolls her full Presence pool. Partial Success — her words inspire the crowd but the governor escapes. She gains the Descriptor 'The Voice of the Plaza.' The governor now has a reason to hunt her specifically.",
+    tags: ["Character Development", "Dramatic", "Campaign Play"],
+  },
+  {
+    id: "scene-pressure",
+    name: "Scene Pressure",
+    tagline: "The environment itself has an agenda.",
+    summary: "Give every scene an active environmental pressure that degrades independently of character action.",
+    description: "At the start of any scene in a dangerous or unstable environment, the Storyteller establishes a Scene Pressure — a named threat with a simple three-step track: Building → Critical → Erupted. At the end of every narrative beat (roughly every two or three player actions), the Storyteller advances the Scene Pressure by one step unless a player has taken a specific action to address it. At Building, the environment is uncomfortable but manageable — minor penalties or narrative disadvantage. At Critical, the Storyteller may introduce complications on any Partial Success roll. At Erupted, the environmental threat becomes the dominant scene element and the Storyteller takes control of the immediate situation. Scene Pressure is separate from character actions — even if everyone succeeds beautifully at their individual objectives, an unaddressed pressure will still erupt. This forces players to divide attention between their goals and the environment.",
+    whenToUse: "Add to any scene in an active, hostile environment — a burning building, a crumbling cliff face, a ship in a storm, a social gathering where a secret is about to come out. Makes environments feel alive and threatening without requiring complex environmental mechanics.",
+    example: "Scene Pressure: 'The warehouse fire.' Building — smoke is thick but visible. The players spend two beats interrogating a tied-up guard without addressing the fire. Critical — Storyteller adds a complication to the next Partial Success (the ceiling groans). One more unaddressed beat — Erupted. A section of roof falls, the scene completely changes.",
+    tags: ["Environment", "Tension", "Pacing"],
+  },
+];
+---
+
+<BaseLayout
+  title="D6 Storyteller Optional Mechanics | Plug-In Rules for Any Setting"
+  description="Ten optional plug-in mechanics for D6 Storyteller — Momentum Banks, Flashback Frames, Ticking Clocks, Wound Clocks, Reputation Webs, and more. Genre-agnostic rules you can drop into any campaign."
+  canonicalUrl="https://d6storyteller.alexmerced.com/optional-mechanics/"
+>
+  <section class="section" aria-labelledby="optional-mechanics-heading">
+    <div class="container">
+      <nav aria-label="Breadcrumb" class="breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb__separator" aria-hidden="true">&rsaquo;</span>
+        <span aria-current="page">Optional Mechanics</span>
+      </nav>
+
+      <p class="section-label">Expand Your Game</p>
+      <h1 id="optional-mechanics-heading">Optional Mechanics</h1>
+      <p class="om-intro">
+        D6 Storyteller is a fiction-first engine — meaning the core rules are intentionally light to keep the story moving. These optional mechanics are plug-in additions you can drop into any campaign, regardless of setting or genre. Each one addresses a specific kind of narrative tension or play experience. Use the ones that fit your table. Ignore the rest.
+      </p>
+      <p class="om-intro">
+        None of these mechanics require the others. Each is self-contained and designed to work alongside the core D6 dice pool without adding significant rules overhead.
+      </p>
+
+      <!-- Quick nav -->
+      <nav class="om-quicknav" aria-label="Jump to mechanic">
+        <p class="om-quicknav__label">Jump to:</p>
+        <div class="om-quicknav__links">
+          {mechanics.map(m => (
+            <a href={`#${m.id}`} class="om-quicknav__link">{m.name}</a>
+          ))}
+        </div>
+      </nav>
+
+      <!-- Mechanics list -->
+      <div class="om-list">
+        {mechanics.map((mechanic, i) => (
+          <article class="om-card card" id={mechanic.id}>
+            <header class="om-card__header">
+              <div class="om-card__number" aria-hidden="true">{String(i + 1).padStart(2, '0')}</div>
+              <div class="om-card__title-block">
+                <h2 class="om-card__name">{mechanic.name}</h2>
+                <p class="om-card__tagline">"{mechanic.tagline}"</p>
+              </div>
+              <div class="om-card__tags">
+                {mechanic.tags.map(tag => (
+                  <span class="tag tag--community" style="font-size:0.65rem;">{tag}</span>
+                ))}
+              </div>
+            </header>
+
+            <p class="om-card__summary">{mechanic.summary}</p>
+
+            <div class="om-card__body">
+              <div class="om-card__section">
+                <h3 class="om-card__section-label">How It Works</h3>
+                <p class="om-card__text">{mechanic.description}</p>
+              </div>
+
+              <div class="om-card__section">
+                <h3 class="om-card__section-label">When to Use It</h3>
+                <p class="om-card__text om-card__text--muted">{mechanic.whenToUse}</p>
+              </div>
+
+              <div class="om-card__example">
+                <h3 class="om-card__section-label">Example</h3>
+                <blockquote class="om-card__quote">{mechanic.example}</blockquote>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- CTA -->
+      <div class="om-footer">
+        <div class="om-footer__note">
+          <h2>Need the Core Rules?</h2>
+          <p>
+            These optional mechanics build on top of the D6 Storyteller core engine. If you're new to the system, start with the <a href="/system/">How It Works</a> page for an overview, or pick up the Core Rulebook to get the complete rules, ten starter worlds, and everything your group needs to play.
+          </p>
+          <div class="om-footer__links">
+            <a href="/system/" class="btn btn--secondary">How the System Works →</a>
+            <a href="/get-started/" class="btn btn--ghost">Get Started Guide →</a>
+          </div>
+        </div>
+        <AmazonCTA placement="optional_mechanics_bottom" variant="banner" label="Get the D6 Storyteller Core Rulebook on Amazon" />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+.om-intro {
+  max-width: 70ch;
+  color: rgba(232, 224, 208, 0.8);
+  margin-bottom: var(--space-4);
+}
+
+/* Quick nav */
+.om-quicknav {
+  background: var(--navy-900);
+  border: 1px solid rgba(201, 162, 39, 0.2);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4) var(--space-6);
+  margin: var(--space-8) 0;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.om-quicknav__label {
+  font-family: var(--font-heading);
+  font-size: var(--text-xs);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-400);
+  white-space: nowrap;
+  margin: 0;
+  padding-top: 2px;
+  flex-shrink: 0;
+}
+
+.om-quicknav__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.om-quicknav__link {
+  font-size: var(--text-xs);
+  font-family: var(--font-heading);
+  color: rgba(232, 224, 208, 0.6);
+  text-decoration: none;
+  padding: 0.2em 0.7em;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.om-quicknav__link:hover {
+  color: var(--gold-300);
+  border-color: var(--gold-500);
+  background: rgba(201, 162, 39, 0.08);
+  text-shadow: none;
+}
+
+/* Mechanics list */
+.om-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  margin-bottom: var(--space-12);
+}
+
+/* Mechanic card */
+.om-card {
+  padding: var(--space-8);
+  scroll-margin-top: 80px; /* account for sticky header */
+}
+
+.om-card__header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: var(--space-4);
+  align-items: start;
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid rgba(201, 162, 39, 0.15);
+}
+
+@media (max-width: 640px) {
+  .om-card__header {
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+  }
+  .om-card__tags { grid-column: 1 / -1; }
+}
+
+.om-card__number {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 900;
+  color: rgba(201, 162, 39, 0.2);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 3rem;
+  text-align: right;
+}
+
+.om-card__title-block { display: flex; flex-direction: column; gap: var(--space-1); }
+
+.om-card__name {
+  font-size: var(--text-2xl);
+  color: var(--gold-300);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.om-card__tagline {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-style: italic;
+  color: rgba(232, 224, 208, 0.5);
+  margin: 0;
+}
+
+.om-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  align-self: center;
+}
+
+/* Summary */
+.om-card__summary {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  color: rgba(232, 224, 208, 0.9);
+  margin-bottom: var(--space-6);
+  max-width: 70ch;
+}
+
+/* Body sections */
+.om-card__body {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 900px) {
+  .om-card__body {
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto auto;
+  }
+  .om-card__section:first-child { grid-row: 1 / 2; grid-column: 1; }
+  .om-card__section:nth-child(2) { grid-row: 2; grid-column: 1; }
+  .om-card__example { grid-row: 1 / 3; grid-column: 2; }
+}
+
+.om-card__section-label {
+  font-family: var(--font-heading);
+  font-size: var(--text-xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-400);
+  margin-bottom: var(--space-2);
+}
+
+.om-card__text {
+  font-size: var(--text-sm);
+  color: rgba(232, 224, 208, 0.8);
+  line-height: 1.75;
+  margin: 0;
+}
+
+.om-card__text--muted { color: rgba(232, 224, 208, 0.6); }
+
+/* Example blockquote */
+.om-card__example {
+  background: rgba(201, 162, 39, 0.05);
+  border: 1px solid rgba(201, 162, 39, 0.15);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+
+.om-card__quote {
+  font-size: var(--text-sm);
+  color: rgba(232, 224, 208, 0.75);
+  font-style: italic;
+  border: none;
+  padding: 0;
+  margin: 0;
+  line-height: 1.7;
+}
+
+/* Footer */
+.om-footer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.om-footer__note {
+  background: var(--navy-800);
+  border: 1px solid rgba(201, 162, 39, 0.2);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+}
+
+.om-footer__note h2 { font-size: var(--text-2xl); margin-bottom: var(--space-4); }
+.om-footer__note p { color: rgba(232, 224, 208, 0.75); margin-bottom: var(--space-6); max-width: 66ch; }
+
+.om-footer__links {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+</style>

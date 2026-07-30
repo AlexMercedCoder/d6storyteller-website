@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BookCard from '../../components/BookCard.astro';
+import GenreFilter from '../../components/GenreFilter.astro';
+import AmazonCTA from '../../components/AmazonCTA.astro';
+import StructuredData from '../../components/StructuredData.astro';
+import { getCollection } from 'astro:content';
+
+const books = (await getCollection('books')).sort((a, b) => a.data.order - b.data.order);
+
+const allGenres = [...new Set(books.flatMap(b => b.data.genres))].sort();
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "https://d6storyteller.alexmerced.com/books/#webpage",
+  "url": "https://d6storyteller.alexmerced.com/books/",
+  "name": "D6 Storyteller Books and Companion Settings",
+  "description": "Browse the complete D6 Storyteller book series — the Core Rulebook and nine genre companions, each containing ten ready-to-play settings.",
+  "isPartOf": { "@id": "https://d6storyteller.alexmerced.com/#website" },
+  "mainEntity": {
+    "@type": "ItemList",
+    "name": "D6 Storyteller Series",
+    "itemListElement": books.map((book, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "url": `https://d6storyteller.alexmerced.com/books/${book.slug}/`
+    }))
+  }
+};
+---
+
+<BaseLayout
+  title="D6 Storyteller Books and Companion Settings"
+  description="Browse the complete D6 Storyteller series — the Core Rulebook and nine genre companions, each containing ten ready-to-play settings. Fiction-first tabletop RPG by Alex Merced."
+  canonicalUrl="https://d6storyteller.alexmerced.com/books/"
+  jsonLd={jsonLd}
+>
+  <section class="section" aria-labelledby="books-heading">
+    <div class="container">
+      <nav aria-label="Breadcrumb" class="breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb__separator" aria-hidden="true">&rsaquo;</span>
+        <span aria-current="page">Books</span>
+      </nav>
+
+      <p class="section-label">The Complete Library</p>
+      <h1 id="books-heading">D6 Storyteller Books</h1>
+      <p style="max-width:64ch;color:rgba(232,224,208,0.75);margin-bottom:var(--space-8);">
+        The D6 Storyteller series includes the Core Rulebook — the complete fiction-first engine — plus nine genre companion volumes, each containing ten ready-to-play settings with unique mechanics, archetypes, and adventure seeds.
+      </p>
+
+      <AmazonCTA placement="books_catalog_top" variant="banner" />
+
+      <div style="margin-top:var(--space-10);">
+        <GenreFilter genres={allGenres} />
+        <div class="grid-books">
+          {books.map((book, i) => (
+            <BookCard
+              slug={book.slug}
+              title={book.data.title}
+              shortTitle={book.data.shortTitle}
+              subtitle={book.data.subtitle}
+              coverImage={book.data.coverImage}
+              coverAlt={book.data.coverAlt}
+              genres={book.data.genres}
+              amazonUrl={book.data.amazonUrl}
+              eager={i < 4}
+            />
+          ))}
+        </div>
+      </div>
+
+      <div style="margin-top:var(--space-10);">
+        <AmazonCTA placement="books_catalog_bottom" variant="banner" />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

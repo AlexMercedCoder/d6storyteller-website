@@ -1,0 +1,397 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AmazonCTA from '../../components/AmazonCTA.astro';
+import FAQ from '../../components/FAQ.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const books = await getCollection('books');
+  return books.map(book => ({
+    params: { slug: book.slug },
+    props: { book },
+  }));
+}
+
+type Props = { book: CollectionEntry<'books'> };
+
+const { book } = Astro.props;
+const { data } = book;
+const { Content } = await book.render();
+
+// Get prev/next books
+const allBooks = (await getCollection('books')).sort((a, b) => a.data.order - b.data.order);
+const currentIndex = allBooks.findIndex(b => b.slug === book.slug);
+const prevBook = currentIndex > 0 ? allBooks[currentIndex - 1] : null;
+const nextBook = currentIndex < allBooks.length - 1 ? allBooks[currentIndex + 1] : null;
+
+const SITE_URL = 'https://d6storyteller.alexmerced.com';
+const bookUrl = `${SITE_URL}/books/${book.slug}/`;
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Books', href: '/books/' },
+  { label: data.shortTitle, href: `/books/${book.slug}/` },
+];
+
+const genreTagClass = (g: string): string => {
+  const map: Record<string, string> = {
+    Fantasy: 'fantasy', 'High Fantasy': 'fantasy', Mythic: 'fantasy',
+    'Sci-Fi': 'scifi', 'Space Opera': 'scifi', Solarpunk: 'scifi',
+    Horror: 'horror', Gothic: 'horror', Supernatural: 'horror',
+    'Weird West': 'weirdwest', Piracy: 'weirdwest', Swashbuckling: 'weirdwest',
+    Cyberpunk: 'cyberpunk', Biopunk: 'cyberpunk', Dieselpunk: 'cyberpunk',
+    Superheroes: 'superheroes', Kaiju: 'superheroes', Anime: 'superheroes',
+    Historical: 'historical', 'Alternate History': 'historical',
+    Experimental: 'experimental', Cozy: 'experimental',
+    'Post-Apocalyptic': 'postapoc', Survival: 'postapoc',
+  };
+  return map[g] ?? 'historical';
+};
+
+const faqItems = [
+  {
+    question: `What is ${data.shortTitle}?`,
+    answer: `${data.title} is a ${data.genres[0].toLowerCase()} volume in the D6 Storyteller series by Alex Merced. It contains ten complete settings, each with a unique mechanic, character archetypes, a condition palette, and a starter scenario.`,
+  },
+  {
+    question: `Do I need the Core Rulebook to use ${data.shortTitle}?`,
+    answer: `Each companion contains a summary of the core mechanics sufficient to begin play, but the <a href="/books/core-rulebook/">D6 Storyteller Core Rulebook</a> provides the full rules reference and Storyteller guidance. New groups are encouraged to start with the Core Rulebook.`,
+  },
+  {
+    question: 'How many settings are in this book?',
+    answer: `${data.title} contains ten complete, ready-to-play settings, each with its own lore, unique mechanic, archetypes, condition palette, and starter scenario.`,
+  },
+  {
+    question: 'Can I mix these settings with other D6 Storyteller books?',
+    answer: 'Yes. The D6 Storyteller engine is modular. Any setting-specific mechanic can be imported into other worlds, and lore from multiple companions can be combined freely.',
+  },
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Book",
+      "@id": `${bookUrl}#book`,
+      "name": data.title,
+      "alternateName": data.subtitle,
+      "url": bookUrl,
+      "image": `${SITE_URL}${data.coverImage}`,
+      "inLanguage": "en-US",
+      "author": {
+        "@type": "Person",
+        "@id": `${SITE_URL}/#alex-merced`,
+        "name": "Alex Merced"
+      },
+      "isPartOf": {
+        "@type": "CreativeWorkSeries",
+        "@id": `${SITE_URL}/#series`,
+        "name": "D6 Storyteller"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${bookUrl}#webpage`,
+      "url": bookUrl,
+      "name": data.seoTitle,
+      "description": data.seoDescription,
+      "mainEntity": { "@id": `${bookUrl}#book` },
+      "breadcrumb": { "@id": `${bookUrl}#breadcrumb` },
+      "isPartOf": { "@id": `${SITE_URL}/#website` }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${bookUrl}#breadcrumb`,
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": `${SITE_URL}/` },
+        { "@type": "ListItem", "position": 2, "name": "Books", "item": `${SITE_URL}/books/` },
+        { "@type": "ListItem", "position": 3, "name": data.shortTitle, "item": bookUrl }
+      ]
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title={data.seoTitle}
+  description={data.seoDescription}
+  canonicalUrl={bookUrl}
+  ogImage={data.socialImage ?? data.coverImage}
+  ogType="book"
+  jsonLd={jsonLd}
+>
+  <!-- Breadcrumb -->
+  <div class="container" style="padding-top:var(--space-8);">
+    <Breadcrumbs items={breadcrumbs} />
+  </div>
+
+  <!-- Book Hero -->
+  <section class="section section--tight book-hero" aria-labelledby="book-title">
+    <div class="container book-hero__inner">
+      <!-- Cover -->
+      <div class="book-hero__cover-wrap">
+        <img
+          src={data.coverImage}
+          alt={data.coverAlt}
+          width="360"
+          height="480"
+          loading="eager"
+          fetchpriority="high"
+          class="book-hero__cover"
+        />
+      </div>
+
+      <!-- Info -->
+      <div class="book-hero__info">
+        <div class="book-hero__tags">
+          {data.genres.map(g => (
+            <span class={`tag tag--${genreTagClass(g)}`}>{g}</span>
+          ))}
+        </div>
+        <h1 id="book-title" class="book-hero__title">{data.title}</h1>
+        <p class="book-hero__subtitle">{data.subtitle}</p>
+        <p class="book-hero__author">By <strong>Alex Merced</strong></p>
+
+        <div class="book-hero__actions">
+          <AmazonCTA
+            placement={`book_page_hero_${book.slug}`}
+            bookSlug={book.slug}
+            variant="primary"
+            label="Buy on Amazon →"
+          />
+          <a href="/books/" class="btn btn--ghost">← All Books</a>
+        </div>
+
+        {data.formats && data.formats.length > 0 && (
+          <p class="book-hero__formats">
+            Available in: {data.formats.join(' · ')}
+          </p>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <!-- Overview -->
+  <section class="section section--tight book-overview" aria-labelledby="overview-heading">
+    <div class="container container--narrow">
+      <h2 id="overview-heading">About This Book</h2>
+      <div class="book-prose">
+        <Content />
+      </div>
+    </div>
+  </section>
+
+  <!-- Inside This Companion -->
+  <section class="section section--tight book-inside" aria-labelledby="inside-heading">
+    <div class="container container--narrow">
+      <h2 id="inside-heading">Inside This {data.order === 1 ? 'Rulebook' : 'Companion'}</h2>
+      <ul class="book-inside__list">
+        {data.order === 1 ? (
+          <>
+            <li>Complete fiction-first D6 engine — character creation, dice mechanics, conflict resolution</li>
+            <li>The Storyteller's guide — scene framing, pacing, position and effect</li>
+            <li>Ten complete starter worlds spanning multiple genres</li>
+            <li>Character archetypes, descriptors, drives, and flaws for each setting</li>
+            <li>Genre-specific condition palettes and starter scenario seeds</li>
+            <li>Custom character sheets</li>
+          </>
+        ) : (
+          <>
+            <li>Ten complete {data.genres[0].toLowerCase()} settings, each fully playable from the first session</li>
+            <li>One unique genre mechanic per setting, integrated with the D6 dice pool system</li>
+            <li>Three character archetypes per setting with descriptors, drives, flaws, and approach distributions</li>
+            <li>Genre-specific condition palettes covering physical, social, and psychological harm</li>
+            <li>Complete starter scenario seeds with three-layer scene design</li>
+            <li>Custom character sheets for each setting's specific mechanics</li>
+          </>
+        )}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Settings -->
+  <section class="section section--tight book-settings" aria-labelledby="settings-heading">
+    <div class="container">
+      <h2 id="settings-heading">The Ten {data.order === 1 ? 'Starter' : ''} Settings</h2>
+      <p style="color:rgba(232,224,208,0.7);max-width:64ch;margin-bottom:var(--space-8);">
+        Each setting is a complete playable world with its own tone, mechanic, archetypes, and starter scenario.
+      </p>
+      <div class="settings-grid">
+        {data.settings.map((setting, i) => (
+          <article class="setting-entry card">
+            <div class="setting-entry__number" aria-hidden="true">{String(i + 1).padStart(2, '0')}</div>
+            <div class="setting-entry__content">
+              <h3 class="setting-entry__name">{setting.name}</h3>
+              <p class="setting-entry__premise">{setting.premise}</p>
+              {setting.mechanic && (
+                <p class="setting-entry__mechanic">
+                  <strong>Mechanic:</strong> {setting.mechanic}
+                </p>
+              )}
+              <div class="setting-entry__tags">
+                {setting.tags.map(tag => (
+                  <span class="tag tag--historical" style="font-size:0.65rem;">{tag}</span>
+                ))}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section--tight book-faq" aria-labelledby="book-faq-heading">
+    <div class="container container--narrow">
+      <h2 id="book-faq-heading">Questions About This Book</h2>
+      <FAQ items={faqItems} />
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="section section--tight" aria-label="Purchase">
+    <div class="container container--narrow">
+      <AmazonCTA
+        placement={`book_page_bottom_${book.slug}`}
+        bookSlug={book.slug}
+        variant="banner"
+        label={`Get ${data.shortTitle} on Amazon`}
+      />
+    </div>
+  </section>
+
+  <!-- Prev / Next nav -->
+  <nav class="section section--tight book-nav" aria-label="Previous and next books">
+    <div class="container book-nav__inner">
+      {prevBook ? (
+        <a href={`/books/${prevBook.slug}/`} class="book-nav__link book-nav__link--prev">
+          <span class="book-nav__direction">← Previous</span>
+          <span class="book-nav__title">{prevBook.data.shortTitle}</span>
+        </a>
+      ) : <div />}
+      {nextBook ? (
+        <a href={`/books/${nextBook.slug}/`} class="book-nav__link book-nav__link--next">
+          <span class="book-nav__direction">Next →</span>
+          <span class="book-nav__title">{nextBook.data.shortTitle}</span>
+        </a>
+      ) : <div />}
+    </div>
+  </nav>
+</BaseLayout>
+
+<style>
+/* Book Hero */
+.book-hero__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-10);
+  align-items: start;
+}
+@media (min-width: 768px) {
+  .book-hero__inner { grid-template-columns: 300px 1fr; }
+}
+
+.book-hero__cover-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.book-hero__cover {
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.8), 0 0 40px rgba(201,162,39,0.15);
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+}
+
+.book-hero__tags { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-4); }
+.book-hero__title { font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl)); margin-bottom: var(--space-3); }
+.book-hero__subtitle {
+  font-family: var(--font-heading);
+  font-size: var(--text-base);
+  color: rgba(232,224,208,0.6);
+  margin-bottom: var(--space-4);
+  font-style: italic;
+}
+.book-hero__author { font-size: var(--text-sm); color: rgba(232,224,208,0.5); margin-bottom: var(--space-6); }
+.book-hero__actions { display: flex; gap: var(--space-3); flex-wrap: wrap; margin-bottom: var(--space-4); }
+.book-hero__formats { font-size: var(--text-xs); color: rgba(232,224,208,0.4); letter-spacing: 0.05em; }
+
+/* Overview prose */
+.book-prose { color: rgba(232,224,208,0.85); }
+.book-prose p { margin-bottom: var(--space-4); }
+.book-overview h2, .book-inside h2, .book-settings h2, .book-faq h2 {
+  margin-bottom: var(--space-6);
+  font-size: var(--text-2xl);
+}
+
+/* Inside list */
+.book-inside__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding-left: var(--space-6);
+}
+.book-inside__list li {
+  color: rgba(232,224,208,0.8);
+  font-size: var(--text-base);
+}
+.book-inside__list li::marker { color: var(--gold-400); }
+
+/* Settings grid */
+.settings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-4);
+}
+.setting-entry {
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+  padding: var(--space-5);
+}
+.setting-entry__number {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: rgba(201,162,39,0.2);
+  font-weight: 900;
+  line-height: 1;
+  flex-shrink: 0;
+  width: 2.5rem;
+}
+.setting-entry__content { display: flex; flex-direction: column; gap: var(--space-2); }
+.setting-entry__name { font-size: var(--text-lg); color: var(--gold-300); margin: 0; }
+.setting-entry__premise { font-size: var(--text-sm); color: rgba(232,224,208,0.75); margin: 0; }
+.setting-entry__mechanic { font-size: var(--text-xs); color: rgba(232,224,208,0.55); margin: 0; }
+.setting-entry__tags { display: flex; flex-wrap: wrap; gap: var(--space-1); }
+
+/* Prev/Next nav */
+.book-nav { padding-top: 0; }
+.book-nav__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  border-top: 1px solid rgba(201,162,39,0.15);
+  padding-top: var(--space-8);
+}
+.book-nav__link {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-4);
+  background: var(--navy-900);
+  border: 1px solid rgba(201,162,39,0.15);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: all var(--transition-base);
+}
+.book-nav__link:hover {
+  border-color: var(--gold-400);
+  background: rgba(201,162,39,0.05);
+  text-shadow: none;
+}
+.book-nav__link--next { text-align: right; }
+.book-nav__direction { font-size: var(--text-xs); color: var(--gold-400); letter-spacing: 0.1em; text-transform: uppercase; font-family: var(--font-heading); }
+.book-nav__title { font-family: var(--font-heading); font-size: var(--text-base); color: var(--gold-300); }
+</style>

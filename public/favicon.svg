@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="6" fill="#07111f"/>
+  <rect x="2" y="2" width="28" height="28" rx="4" fill="none" stroke="#c9a227" stroke-width="1.5"/>
+  <!-- Dice face 6 pips -->
+  <circle cx="10" cy="9" r="2.5" fill="#c9a227"/>
+  <circle cx="22" cy="9" r="2.5" fill="#c9a227"/>
+  <circle cx="10" cy="16" r="2.5" fill="#c9a227"/>
+  <circle cx="22" cy="16" r="2.5" fill="#c9a227"/>
+  <circle cx="10" cy="23" r="2.5" fill="#c9a227"/>
+  <circle cx="22" cy="23" r="2.5" fill="#c9a227"/>
+</svg>

@@ -1,0 +1,136 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AmazonCTA from '../../components/AmazonCTA.astro';
+import { getCollection } from 'astro:content';
+
+const settings = await getCollection('community-settings');
+---
+
+<BaseLayout
+  title="D6 Storyteller Community Settings | Fan & Official Worlds"
+  description="Community-created and official extra settings for D6 Storyteller — fully designed worlds using the fiction-first D6 engine, complete with mechanics, archetypes, and starter scenarios. Free to use at your table."
+  canonicalUrl="https://d6storyteller.alexmerced.com/community-settings/"
+>
+  <section class="section" aria-labelledby="community-heading">
+    <div class="container">
+      <nav aria-label="Breadcrumb" class="breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb__separator" aria-hidden="true">&rsaquo;</span>
+        <span aria-current="page">Community Settings</span>
+      </nav>
+
+      <p class="section-label">Expand the Worlds</p>
+      <h1 id="community-heading">Community Settings</h1>
+      <p class="community-intro">
+        The D6 Storyteller engine is designed to run any genre, any premise, any world. This section collects additional settings — official bonus content and community contributions — built using the same five-component design format as the published companions.
+      </p>
+      <p class="community-intro">
+        Every setting here is complete and ready to play: world overview, unique mechanic, character archetypes, condition palette, and a starter scenario seed.
+      </p>
+
+      <div class="community-grid">
+        {settings.map(setting => (
+          <a href={`/community-settings/${setting.slug}/`} class="community-card card">
+            <div class="community-card__tag-row">
+              <span class="tag tag--community">{setting.data.genre}</span>
+              {setting.data.tags.slice(0, 2).map(tag => (
+                <span class="tag tag--historical" style="font-size:0.65rem;">{tag}</span>
+              ))}
+            </div>
+            <h2 class="community-card__title">{setting.data.title}</h2>
+            <p class="community-card__subtitle">{setting.data.subtitle}</p>
+            <p class="community-card__premise">{setting.data.premise}</p>
+            <p class="community-card__mechanic"><strong>Mechanic:</strong> {setting.data.mechanic}</p>
+            <span class="community-card__cta">Read the Setting →</span>
+          </a>
+        ))}
+      </div>
+
+      <div class="community-submit">
+        <h2>Submit a Setting</h2>
+        <p>
+          If you've designed a setting using the D6 Storyteller engine following the <a href="/system/">setting design format</a>, you can submit it for consideration. Contact Alex Merced through <a href="https://WhoIsAlexMerced.com" target="_blank" rel="noopener noreferrer">WhoIsAlexMerced.com</a>.
+        </p>
+        <p class="community-submit__note">
+          Submitted settings should follow the five-component format: overview & tone, unique mechanic, three archetypes, condition palette, and starter scenario. Settings must be original work and must not reproduce copyrighted material.
+        </p>
+      </div>
+
+      <AmazonCTA placement="community_settings_bottom" variant="banner" />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+.community-intro {
+  max-width: 68ch;
+  color: rgba(232,224,208,0.8);
+  margin-bottom: var(--space-4);
+}
+
+.community-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-6);
+  margin: var(--space-10) 0;
+}
+
+.community-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  text-decoration: none;
+  padding: var(--space-6);
+}
+
+.community-card:hover { text-shadow: none; }
+
+.community-card__tag-row { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+
+.community-card__title {
+  font-size: var(--text-xl);
+  color: var(--gold-300);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.community-card__subtitle {
+  font-size: var(--text-sm);
+  color: rgba(232,224,208,0.55);
+  font-style: italic;
+  margin: 0;
+}
+
+.community-card__premise {
+  font-size: var(--text-sm);
+  color: rgba(232,224,208,0.8);
+  margin: 0;
+}
+
+.community-card__mechanic {
+  font-size: var(--text-xs);
+  color: rgba(232,224,208,0.55);
+  margin: 0;
+}
+.community-card__mechanic strong { color: var(--gold-400); }
+
+.community-card__cta {
+  margin-top: auto;
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  color: var(--gold-400);
+  letter-spacing: 0.05em;
+}
+
+.community-submit {
+  background: var(--navy-800);
+  border: 1px solid rgba(201,162,39,0.2);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  margin: var(--space-10) 0;
+}
+
+.community-submit h2 { font-size: var(--text-2xl); margin-bottom: var(--space-4); }
+.community-submit p { color: rgba(232,224,208,0.75); margin-bottom: var(--space-3); }
+.community-submit__note { font-size: var(--text-sm); color: rgba(232,224,208,0.5); }
+</style>

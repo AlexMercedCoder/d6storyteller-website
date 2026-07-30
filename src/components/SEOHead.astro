@@ -1,0 +1,55 @@
+---
+const SITE_URL = 'https://d6storyteller.alexmerced.com';
+const SITE_NAME = 'D6 Storyteller';
+
+export interface Props {
+  title: string;
+  description: string;
+  canonicalUrl: string;
+  ogImage?: string;
+  ogType?: string;
+  noIndex?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonicalUrl,
+  ogImage = '/images/social/d6-storyteller-home.jpg',
+  ogType = 'website',
+  noIndex = false,
+} = Astro.props;
+
+const absoluteOgImage = ogImage.startsWith('http') ? ogImage : `${SITE_URL}${ogImage}`;
+const absoluteCanonical = canonicalUrl.startsWith('http') ? canonicalUrl : `${SITE_URL}${canonicalUrl}`;
+const robotsContent = noIndex
+  ? 'noindex,follow'
+  : 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1';
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={absoluteCanonical} />
+<meta name="robots" content={robotsContent} />
+
+<!-- Open Graph -->
+<meta property="og:type" content={ogType} />
+<meta property="og:site_name" content={SITE_NAME} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={absoluteCanonical} />
+<meta property="og:image" content={absoluteOgImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={`${title} — D6 Storyteller tabletop RPG by Alex Merced`} />
+<meta property="og:locale" content="en_US" />
+
+<!-- X / Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={absoluteOgImage} />
+<meta name="twitter:image:alt" content={`${title} — D6 Storyteller`} />
+
+<!-- Author -->
+<meta name="author" content="Alex Merced" />

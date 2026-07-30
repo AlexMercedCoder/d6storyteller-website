@@ -1,0 +1,72 @@
+---
+export interface Props {
+  genres: string[];
+}
+const { genres } = Astro.props;
+---
+<div class="genre-filter" role="group" aria-label="Filter books by genre">
+  <span class="genre-filter__label">Filter by genre:</span>
+  <div class="genre-filter__buttons">
+    <button class="genre-filter__btn genre-filter__btn--active" data-genre="all" type="button">All Books</button>
+    {genres.map(genre => (
+      <button class="genre-filter__btn" data-genre={genre.toLowerCase()} type="button">{genre}</button>
+    ))}
+  </div>
+</div>
+
+<script>
+  const filterBtns = document.querySelectorAll<HTMLButtonElement>('.genre-filter__btn');
+  const cards = document.querySelectorAll<HTMLElement>('[data-genres]');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const genre = btn.dataset.genre ?? 'all';
+
+      filterBtns.forEach(b => b.classList.remove('genre-filter__btn--active'));
+      btn.classList.add('genre-filter__btn--active');
+
+      cards.forEach(card => {
+        const cardGenres = (card.dataset.genres ?? '').toLowerCase();
+        if (genre === 'all' || cardGenres.includes(genre)) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      try {
+        if (window.gtag) gtag('event', 'genre_filter', { genre });
+      } catch (e) {}
+    });
+  });
+</script>
+
+<style>
+.genre-filter { display: flex; align-items: center; gap: var(--space-4); flex-wrap: wrap; margin-bottom: var(--space-8); }
+.genre-filter__label { font-family: var(--font-heading); font-size: var(--text-sm); color: rgba(232,224,208,0.6); white-space: nowrap; }
+.genre-filter__buttons { display: flex; gap: var(--space-2); flex-wrap: wrap; }
+.genre-filter__btn {
+  padding: 0.4em 1em;
+  font-family: var(--font-heading);
+  font-size: var(--text-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: transparent;
+  color: rgba(232,224,208,0.6);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  min-height: 36px;
+}
+.genre-filter__btn:hover {
+  color: var(--gold-300);
+  border-color: var(--gold-500);
+}
+.genre-filter__btn--active {
+  background: rgba(201,162,39,0.15);
+  color: var(--gold-300);
+  border-color: var(--gold-400);
+}
+.genre-filter__btn:focus-visible { outline: 2px solid var(--gold-400); outline-offset: 3px; }
+</style>

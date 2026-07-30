@@ -1,0 +1,37 @@
+---
+export interface Props {
+  name: string;
+  bookSlug: string;
+  bookTitle: string;
+  premise: string;
+  mechanic?: string;
+  tags: string[];
+}
+const { name, bookSlug, bookTitle, premise, mechanic, tags } = Astro.props;
+---
+<article class="setting-card card">
+  <header class="setting-card__header">
+    <h3 class="setting-card__name">{name}</h3>
+    <a href={`/books/${bookSlug}/`} class="setting-card__book-link">From: {bookTitle}</a>
+  </header>
+  <p class="setting-card__premise">{premise}</p>
+  {mechanic && (
+    <p class="setting-card__mechanic">
+      <strong>Mechanic:</strong> {mechanic}
+    </p>
+  )}
+  <div class="setting-card__tags">
+    {tags.map(tag => <span class="tag tag--historical" style="font-size:0.65rem;">{tag}</span>)}
+  </div>
+</article>
+
+<style>
+.setting-card { display: flex; flex-direction: column; gap: var(--space-3); }
+.setting-card__header { display: flex; flex-direction: column; gap: var(--space-1); }
+.setting-card__name { font-size: var(--text-lg); color: var(--gold-300); margin: 0; }
+.setting-card__book-link { font-size: var(--text-xs); color: rgba(201,162,39,0.6); text-decoration: none; text-transform: uppercase; letter-spacing: 0.08em; font-family: var(--font-heading); }
+.setting-card__book-link:hover { color: var(--gold-400); text-shadow: none; }
+.setting-card__premise { font-size: var(--text-sm); color: rgba(232,224,208,0.8); margin: 0; }
+.setting-card__mechanic { font-size: var(--text-xs); color: rgba(232,224,208,0.6); margin: 0; }
+.setting-card__tags { display: flex; flex-wrap: wrap; gap: var(--space-1); margin-top: auto; }
+</style>

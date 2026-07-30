@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Page Not Found | D6 Storyteller"
+  description="The page you're looking for doesn't exist. Explore the D6 Storyteller series, browse books, or visit the homepage."
+  canonicalUrl="https://d6storyteller.alexmerced.com/404/"
+  noIndex={true}
+>
+  <section class="section" style="text-align:center;" aria-labelledby="not-found-heading">
+    <div class="container container--narrow">
+      <span style="font-size:6rem;display:block;margin-bottom:var(--space-6);filter:drop-shadow(0 0 20px rgba(201,162,39,0.4));">⚄</span>
+      <h1 id="not-found-heading" class="glow-text" style="font-family:var(--font-display);margin-bottom:var(--space-4);">404</h1>
+      <h2 style="font-size:var(--text-2xl);margin-bottom:var(--space-4);">Page Not Found</h2>
+      <p style="color:rgba(232,224,208,0.7);max-width:48ch;margin-inline:auto;margin-bottom:var(--space-8);">The page you're looking for has rolled a critical failure and can't be found. Let's get you back to the story.</p>
+      <div style="display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap;">
+        <a href="/" class="btn btn--primary">Back to Homepage</a>
+        <a href="/books/" class="btn btn--secondary">Browse the Books</a>
+        <a href="/faq/" class="btn btn--ghost">Read the FAQ</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

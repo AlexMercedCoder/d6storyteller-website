@@ -1,0 +1,13 @@
+{
+  "name": "D6 Storyteller",
+  "short_name": "D6 Storyteller",
+  "description": "A fiction-first tabletop roleplaying system by Alex Merced. Six-sided dice. Infinite stories.",
+  "icons": [
+    { "src": "/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#07111f",
+  "theme_color": "#07111f"
+}

@@ -1,0 +1,674 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AmazonCTA from '../components/AmazonCTA.astro';
+import { getCollection } from 'astro:content';
+
+const books = (await getCollection('books')).sort((a, b) => a.data.order - b.data.order);
+
+const AMAZON_URL = 'https://www.amazon.com/dp/B0HC4XMKW3?binding=paperback&ref_=saga_sdp_cft_dsk';
+
+const steps = [
+  {
+    number: '01',
+    title: 'Describe the Scene',
+    body: 'Before any dice touch the table, the group establishes what is happening in the fiction. Where is your character? What are they attempting? What could go wrong — and what does success look like? This narrative context is what makes the roll meaningful.',
+  },
+  {
+    number: '02',
+    title: 'Determine Position',
+    body: 'Position describes how dangerous or vulnerable the situation is: Controlled (your character has the upper hand), Risky (the usual state — meaningful stakes in both directions), or Desperate (your character is in real trouble). Position sets how bad consequences get if things go wrong. It is established through the fiction, not a stat check.',
+  },
+  {
+    number: '03',
+    title: 'Choose Your Approach',
+    body: 'Your character has four core approaches: Force (direct physical action), Finesse (precise, quick, or subtle action), Mind (analysis, knowledge, planning), and Presence (social influence, leadership, inspiration). Each approach is rated 1d6 to 4d6. Choose the one most relevant to what you\'re doing.',
+  },
+  {
+    number: '04',
+    title: 'Assemble Your Dice Pool',
+    body: 'Start with your approach\'s dice. Position can reduce your pool (Desperate may cut you down to 1d6 regardless of approach). Assistance from other characters can add their dice to your pool. Special circumstances — tools, advantage, preparation — may adjust the pool further at the Storyteller\'s call.',
+  },
+  {
+    number: '05',
+    title: 'Roll and Read the Highest Die',
+    body: '6 = Full Success. You achieve exactly what you intended. Multiple 6s can elevate your success to Great Effect — more, faster, or with lasting impact. 4–5 = Partial Success. You succeed, but with a cost, complication, or partial outcome. The story moves forward but something goes sideways. 1–3 = Failure. You don\'t get what you wanted — and something worse happens. Failure is never the end of the story; it\'s a complication.',
+  },
+  {
+    number: '06',
+    title: 'Narrate the Outcome',
+    body: 'The roll tells you the shape of the outcome. The table fills in the fiction. On a Full Success, describe how you pulled it off. On a Partial, the Storyteller introduces the complication and you respond. On a Failure, the Storyteller describes what went wrong — and the scene continues. The story never stops.',
+  },
+];
+
+const whyD6 = [
+  {
+    icon: '🎲',
+    title: 'Any Six-Sided Dice',
+    body: 'No proprietary or unusual dice required. Just standard d6s — the kind found in almost every board game ever made.',
+  },
+  {
+    icon: '📖',
+    title: 'Fiction First',
+    body: 'Narrative position drives every roll. Your character\'s story situation — not a list of modifiers — determines the stakes.',
+  },
+  {
+    icon: '⚡',
+    title: 'Ready in Minutes',
+    body: 'Character creation takes under 15 minutes. Every companion book includes three ready-to-play archetypes. Start playing immediately.',
+  },
+  {
+    icon: '🌍',
+    title: 'One Hundred Worlds',
+    body: 'Ten books. Ten settings each. Fantasy, sci-fi, horror, historical, superheroes, post-apocalyptic, and more — all using the same engine.',
+  },
+  {
+    icon: '⚙️',
+    title: 'Modular by Design',
+    body: 'Every setting mechanic is optional. Mix and match lore and rules across companion books. The engine adapts to any premise.',
+  },
+  {
+    icon: '🔓',
+    title: 'Genuinely Accessible',
+    body: 'D6 Storyteller was designed for people who love stories and may not love complicated rule systems. Low barriers to the table.',
+  },
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://d6storyteller.alexmerced.com/get-started/#webpage",
+  "url": "https://d6storyteller.alexmerced.com/get-started/",
+  "name": "Get Started with D6 Storyteller | Beginner's Guide",
+  "description": "New to D6 Storyteller? Learn the six-step core loop, why the system works, and how to start your first game in under 15 minutes — then grab the Core Rulebook on Amazon.",
+  "isPartOf": { "@id": "https://d6storyteller.alexmerced.com/#website" }
+};
+---
+
+<BaseLayout
+  title="Get Started with D6 Storyteller | Beginner's Guide"
+  description="New to D6 Storyteller? Learn the six-step core loop, how D6 dice pools work, what fiction-first means, and how to begin your first game in under 15 minutes. Then grab the Core Rulebook on Amazon."
+  canonicalUrl="https://d6storyteller.alexmerced.com/get-started/"
+  jsonLd={jsonLd}
+>
+
+  <!-- Hero -->
+  <section class="section gs-hero" aria-labelledby="get-started-heading">
+    <div class="container container--narrow">
+      <nav aria-label="Breadcrumb" class="breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb__separator" aria-hidden="true">&rsaquo;</span>
+        <span aria-current="page">Get Started</span>
+      </nav>
+
+      <p class="section-label">New to D6 Storyteller?</p>
+      <h1 id="get-started-heading" class="gs-hero__title">Get Started in 15 Minutes</h1>
+      <p class="gs-hero__lead">
+        D6 Storyteller is a fiction-first tabletop roleplaying system. It uses pools of standard six-sided dice, resolves every uncertain action through narrative context, and can put any group at the table in under fifteen minutes. Here's everything you need to understand it — and everything you need to begin.
+      </p>
+    </div>
+  </section>
+
+  <!-- What you need -->
+  <section class="section section--tight gs-needs" aria-labelledby="needs-heading">
+    <div class="container container--narrow">
+      <h2 id="needs-heading">What You Need to Start</h2>
+      <div class="gs-needs__grid">
+        <div class="gs-needs__item">
+          <span class="gs-needs__icon" aria-hidden="true">📗</span>
+          <div>
+            <strong>The Core Rulebook</strong>
+            <p>Contains the complete rules engine plus ten starter worlds. Everything a group needs in one book.</p>
+          </div>
+        </div>
+        <div class="gs-needs__item">
+          <span class="gs-needs__icon" aria-hidden="true">🎲</span>
+          <div>
+            <strong>Standard Six-Sided Dice</strong>
+            <p>Four to six d6 per player is ideal. You probably already have some — check the board game shelf.</p>
+          </div>
+        </div>
+        <div class="gs-needs__item">
+          <span class="gs-needs__icon" aria-hidden="true">📄</span>
+          <div>
+            <strong>Paper and a Pencil</strong>
+            <p>For character notes. Index cards work great. No proprietary character sheet required to begin.</p>
+          </div>
+        </div>
+        <div class="gs-needs__item">
+          <span class="gs-needs__icon" aria-hidden="true">🪑</span>
+          <div>
+            <strong>A Group and 15 Minutes</strong>
+            <p>Character creation is fast. Pick a setting from the Core Rulebook, build your characters, play your first scene.</p>
+          </div>
+        </div>
+      </div>
+      <div class="gs-needs__cta">
+        <a href={AMAZON_URL} class="btn btn--primary" target="_blank" rel="noopener noreferrer" onclick="try{if(window.gtag)gtag('event','amazon_click',{book_slug:'core-rulebook',placement:'get_started_needs',destination:'book_page'});}catch(e){}">
+          Get the Core Rulebook on Amazon →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- The 6-step core loop -->
+  <section class="section gs-loop" aria-labelledby="loop-heading">
+    <div class="container container--narrow">
+      <p class="section-label">The Core Loop</p>
+      <h2 id="loop-heading">Six Steps. Every Roll.</h2>
+      <p class="gs-loop__intro">
+        Every action in D6 Storyteller — from picking a lock to commanding a battle to giving a speech to a hostile crowd — follows the same six steps. Once your group knows these, you can play any setting in the series without additional training.
+      </p>
+
+      <ol class="gs-steps" aria-label="Six-step core loop">
+        {steps.map((step) => (
+          <li class="gs-step">
+            <div class="gs-step__number" aria-hidden="true">{step.number}</div>
+            <div class="gs-step__content">
+              <h3 class="gs-step__title">{step.title}</h3>
+              <p class="gs-step__body">{step.body}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- Dice result reference -->
+  <section class="section section--tight gs-dice" aria-labelledby="dice-heading">
+    <div class="container container--narrow">
+      <h2 id="dice-heading">Quick Dice Reference</h2>
+      <p style="color:rgba(232,224,208,0.7);margin-bottom:var(--space-6);">Roll your pool. Read the highest single die. That's it.</p>
+      <div class="gs-dice__grid">
+        <div class="gs-dice__result gs-dice__result--success">
+          <div class="gs-dice__face" aria-hidden="true">⚅</div>
+          <div class="gs-dice__info">
+            <strong class="gs-dice__value">6 — Full Success</strong>
+            <p>You achieve what you set out to do. Multiple 6s = Great Effect.</p>
+          </div>
+        </div>
+        <div class="gs-dice__result gs-dice__result--partial">
+          <div class="gs-dice__face" aria-hidden="true">⚄</div>
+          <div class="gs-dice__info">
+            <strong class="gs-dice__value">4–5 — Partial Success</strong>
+            <p>Success with a cost. A complication, partial outcome, or new problem.</p>
+          </div>
+        </div>
+        <div class="gs-dice__result gs-dice__result--fail">
+          <div class="gs-dice__face" aria-hidden="true">⚀</div>
+          <div class="gs-dice__info">
+            <strong class="gs-dice__value">1–3 — Failure</strong>
+            <p>You don't get what you wanted — and something worse follows. The story continues.</p>
+          </div>
+        </div>
+      </div>
+      <p class="gs-dice__note">
+        <strong>Position affects consequences, not the roll itself.</strong> A Controlled failure is an inconvenience. A Desperate failure is a disaster. Risky sits in between. Position is established by the fiction before the dice hit the table.
+      </p>
+    </div>
+  </section>
+
+  <!-- Characters -->
+  <section class="section section--tight gs-characters" aria-labelledby="characters-heading">
+    <div class="container container--narrow">
+      <h2 id="characters-heading">Characters at a Glance</h2>
+      <p style="color:rgba(232,224,208,0.75);margin-bottom:var(--space-6);">Every D6 Storyteller character is built from three elements:</p>
+
+      <div class="gs-char-elements">
+        <div class="gs-char-element card">
+          <h3 class="gs-char-element__title">Descriptors</h3>
+          <p class="gs-char-element__body">
+            Three to five vivid phrases that say who your character is and what they're good at. Descriptors don't have numeric values — they establish the fiction. <em>"Former gladiator with a debt to every major guild"</em> tells the Storyteller exactly when your character has standing to act.
+          </p>
+        </div>
+        <div class="gs-char-element card">
+          <h3 class="gs-char-element__title">Approaches</h3>
+          <p class="gs-char-element__body">
+            Eight dice distributed across four approaches: <strong>Force</strong>, <strong>Finesse</strong>, <strong>Mind</strong>, and <strong>Presence</strong>. A minimum of 1d6 in each. Distribute the remaining 4d6 based on who your character is. A brawler might put 3d6 in Force and 1d6 in everything else. A spy might split evenly across Finesse and Presence.
+          </p>
+        </div>
+        <div class="gs-char-element card">
+          <h3 class="gs-char-element__title">Drive & Flaw</h3>
+          <p class="gs-char-element__body">
+            One sentence that describes what your character fundamentally wants (<em>"Protect my younger brother at any cost"</em>) and one that describes where they reliably go wrong (<em>"I trust no one who hasn't earned it in blood"</em>). Drive and Flaw create the emotional engine of your character's story.
+          </p>
+        </div>
+      </div>
+
+      <p class="gs-characters__note">
+        Every setting in the D6 Storyteller series includes three <strong>ready-to-play archetypes</strong> — pre-built characters with descriptors, approaches, drives, and flaws already filled in. New players can pick one up and play immediately without building from scratch.
+      </p>
+    </div>
+  </section>
+
+  <!-- Why D6 Storyteller -->
+  <section class="section gs-why" aria-labelledby="why-heading">
+    <div class="container container--narrow">
+      <p class="section-label">Why This System</p>
+      <h2 id="why-heading">Why D6 Storyteller?</h2>
+      <div class="gs-why__grid">
+        {whyD6.map(item => (
+          <div class="gs-why__item">
+            <span class="gs-why__icon" aria-hidden="true">{item.icon}</span>
+            <div>
+              <strong class="gs-why__title">{item.title}</strong>
+              <p class="gs-why__body">{item.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- The Books -->
+  <section class="section gs-books" aria-labelledby="books-heading">
+    <div class="container container--narrow">
+      <p class="section-label">The Library</p>
+      <h2 id="books-heading">Start Here — Then Expand</h2>
+      <p class="gs-books__intro">
+        Begin with the Core Rulebook. It contains the complete engine and ten starter worlds across multiple genres. Once your group is comfortable with the system, add a companion for your preferred genre — each one delivers ten fully realized settings with unique mechanics.
+      </p>
+
+      <div class="gs-books__grid">
+        {books.map(book => (
+          <a href={`/books/${book.slug}/`} class="gs-book-tile card">
+            <img
+              src={book.data.coverImage}
+              alt={book.data.coverAlt}
+              width="120"
+              height="160"
+              loading="lazy"
+              class="gs-book-tile__cover"
+            />
+            <div class="gs-book-tile__info">
+              <p class="gs-book-tile__label">
+                {book.data.order === 1 ? '📗 Start Here' : `Companion ${book.data.order - 1}`}
+              </p>
+              <h3 class="gs-book-tile__title">{book.data.shortTitle}</h3>
+              <p class="gs-book-tile__genres">{book.data.genres.slice(0, 2).join(' · ')}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="gs-books__actions">
+        <a href="/books/" class="btn btn--secondary">Browse All Books →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section section--tight gs-final" aria-labelledby="gs-final-heading">
+    <div class="container container--narrow">
+      <div class="gs-final__card glow-border">
+        <span class="gs-final__dice" aria-hidden="true">⚄</span>
+        <h2 id="gs-final-heading" class="glow-text">Ready to Roll?</h2>
+        <p>
+          The D6 Storyteller Core Rulebook has everything you need to start your first session — complete rules, character creation, Storyteller guidance, and ten ready-to-play worlds. Available on Amazon in paperback and Kindle.
+        </p>
+        <div class="gs-final__actions">
+          <a
+            href={AMAZON_URL}
+            class="btn btn--primary gs-final__btn"
+            target="_blank"
+            rel="noopener noreferrer"
+            onclick="try{if(window.gtag)gtag('event','amazon_click',{book_slug:'core-rulebook',placement:'get_started_final',destination:'book_page'});}catch(e){}"
+          >
+            Get the Core Rulebook on Amazon →
+          </a>
+          <a href="/books/" class="btn btn--secondary">Browse the Full Series →</a>
+        </div>
+        <p class="gs-final__series-note">
+          Also available: 9 genre companions, each with ten settings. <a href="/books/">View all books →</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Explore further -->
+  <section class="section section--tight gs-explore" aria-labelledby="explore-heading">
+    <div class="container container--narrow">
+      <h2 id="explore-heading">Explore Further</h2>
+      <div class="gs-explore__grid">
+        <a href="/system/" class="gs-explore__card card">
+          <span class="gs-explore__icon" aria-hidden="true">⚙️</span>
+          <h3>How It Works</h3>
+          <p>Deeper dive into position, effect, dice pools, and the full system design.</p>
+        </a>
+        <a href="/settings/" class="gs-explore__card card">
+          <span class="gs-explore__icon" aria-hidden="true">🌍</span>
+          <h3>All 100 Settings</h3>
+          <p>Browse every world across the entire D6 Storyteller series.</p>
+        </a>
+        <a href="/optional-mechanics/" class="gs-explore__card card">
+          <span class="gs-explore__icon" aria-hidden="true">🔧</span>
+          <h3>Optional Mechanics</h3>
+          <p>Ten plug-in rules you can add to any campaign — ticking clocks, momentum banks, flashback frames, and more.</p>
+        </a>
+        <a href="/community-settings/" class="gs-explore__card card">
+          <span class="gs-explore__icon" aria-hidden="true">✍️</span>
+          <h3>Community Settings</h3>
+          <p>Additional worlds designed for D6 Storyteller — including historical fiction, alternate history, and more.</p>
+        </a>
+        <a href="/faq/" class="gs-explore__card card">
+          <span class="gs-explore__icon" aria-hidden="true">❓</span>
+          <h3>FAQ</h3>
+          <p>Common questions about which book to start with, what dice you need, and how the system scales.</p>
+        </a>
+        <a href="/resources/" class="gs-explore__card card">
+          <span class="gs-explore__icon" aria-hidden="true">📥</span>
+          <h3>Resources</h3>
+          <p>Character sheets, quick reference cards, and external links for players and Storytellers.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+/* Hero */
+.gs-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
+  margin-bottom: var(--space-6);
+  background: linear-gradient(135deg, var(--gold-300) 0%, var(--gold-400) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gs-hero__lead {
+  font-size: var(--text-xl);
+  color: rgba(232, 224, 208, 0.85);
+  line-height: 1.6;
+  max-width: 68ch;
+}
+
+/* What you need */
+.gs-needs__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+@media (min-width: 640px) { .gs-needs__grid { grid-template-columns: 1fr 1fr; } }
+
+.gs-needs__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  background: var(--navy-900);
+  border: 1px solid rgba(201, 162, 39, 0.15);
+  border-radius: var(--radius-md);
+  padding: var(--space-4) var(--space-5);
+}
+
+.gs-needs__icon { font-size: 1.75rem; flex-shrink: 0; }
+.gs-needs__item strong { display: block; color: var(--gold-300); font-family: var(--font-heading); margin-bottom: var(--space-1); }
+.gs-needs__item p { font-size: var(--text-sm); color: rgba(232, 224, 208, 0.65); margin: 0; }
+
+.gs-needs__cta { margin-top: var(--space-6); }
+
+/* 6-step loop */
+.gs-loop__intro {
+  font-size: var(--text-lg);
+  color: rgba(232, 224, 208, 0.8);
+  max-width: 68ch;
+  margin-bottom: var(--space-8);
+}
+
+.gs-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  counter-reset: none;
+}
+
+.gs-step {
+  display: flex;
+  gap: var(--space-6);
+  align-items: flex-start;
+  padding: var(--space-6);
+  background: var(--navy-900);
+  border: 1px solid rgba(201, 162, 39, 0.12);
+  border-radius: var(--radius-md);
+  position: relative;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.gs-step:hover {
+  border-color: rgba(201, 162, 39, 0.35);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Connecting line between steps */
+.gs-step + .gs-step::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 3.25rem;
+  width: 2px;
+  height: 1px;
+  background: rgba(201, 162, 39, 0.15);
+}
+
+.gs-step__number {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 900;
+  color: rgba(201, 162, 39, 0.25);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 2.5rem;
+  text-align: right;
+}
+
+.gs-step__title {
+  font-size: var(--text-xl);
+  color: var(--gold-300);
+  margin: 0 0 var(--space-2);
+}
+
+.gs-step__body {
+  font-size: var(--text-base);
+  color: rgba(232, 224, 208, 0.8);
+  margin: 0;
+  max-width: 64ch;
+  line-height: 1.7;
+}
+
+/* Dice reference */
+.gs-dice__grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.gs-dice__result {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-md);
+  border: 1px solid;
+}
+
+.gs-dice__result--success { background: rgba(39,174,96,0.07); border-color: rgba(39,174,96,0.25); }
+.gs-dice__result--partial  { background: rgba(230,126,34,0.07); border-color: rgba(230,126,34,0.25); }
+.gs-dice__result--fail     { background: rgba(192,57,43,0.07);  border-color: rgba(192,57,43,0.25);  }
+
+.gs-dice__face { font-size: 2.5rem; flex-shrink: 0; }
+
+.gs-dice__value {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-1);
+}
+
+.gs-dice__result--success .gs-dice__value { color: #27ae60; }
+.gs-dice__result--partial  .gs-dice__value { color: #e67e22; }
+.gs-dice__result--fail     .gs-dice__value { color: #c0392b; }
+
+.gs-dice__info p { font-size: var(--text-sm); color: rgba(232,224,208,0.65); margin: 0; }
+
+.gs-dice__note {
+  background: var(--navy-800);
+  border-left: 3px solid var(--gold-400);
+  padding: var(--space-4) var(--space-6);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-size: var(--text-sm);
+  color: rgba(232,224,208,0.7);
+  margin: 0;
+}
+.gs-dice__note strong { color: var(--gold-300); }
+
+/* Characters */
+.gs-char-elements {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+@media (min-width: 768px) { .gs-char-elements { grid-template-columns: repeat(3, 1fr); } }
+
+.gs-char-element__title { font-size: var(--text-lg); color: var(--gold-300); margin-bottom: var(--space-3); }
+.gs-char-element__body { font-size: var(--text-sm); color: rgba(232,224,208,0.75); margin: 0; line-height: 1.7; }
+
+.gs-characters__note {
+  background: rgba(201,162,39,0.06);
+  border: 1px solid rgba(201,162,39,0.2);
+  border-radius: var(--radius-md);
+  padding: var(--space-4) var(--space-6);
+  font-size: var(--text-sm);
+  color: rgba(232,224,208,0.75);
+}
+.gs-characters__note strong { color: var(--gold-300); }
+
+/* Why D6 */
+.gs-why__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+@media (min-width: 640px) { .gs-why__grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 960px) { .gs-why__grid { grid-template-columns: repeat(3, 1fr); } }
+
+.gs-why__item {
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+}
+
+.gs-why__icon { font-size: 1.75rem; flex-shrink: 0; }
+.gs-why__title { display: block; font-family: var(--font-heading); color: var(--gold-300); margin-bottom: var(--space-1); font-size: var(--text-base); }
+.gs-why__body { font-size: var(--text-sm); color: rgba(232,224,208,0.65); margin: 0; }
+
+/* Books grid */
+.gs-books__intro {
+  color: rgba(232,224,208,0.8);
+  max-width: 68ch;
+  margin-bottom: var(--space-8);
+}
+
+.gs-books__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--space-3);
+  margin-bottom: var(--space-8);
+}
+
+.gs-book-tile {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+  text-decoration: none;
+  padding: var(--space-3);
+}
+.gs-book-tile:hover { text-shadow: none; }
+
+.gs-book-tile__cover {
+  width: 56px;
+  height: auto;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.gs-book-tile__label {
+  font-size: 0.65rem;
+  font-family: var(--font-heading);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-400);
+  margin: 0 0 var(--space-1);
+}
+
+.gs-book-tile__title {
+  font-size: var(--text-sm);
+  color: var(--gold-300);
+  margin: 0 0 var(--space-1);
+  line-height: 1.3;
+}
+
+.gs-book-tile__genres {
+  font-size: 0.65rem;
+  color: rgba(232,224,208,0.45);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.gs-books__actions { display: flex; }
+
+/* Final CTA */
+.gs-final__card {
+  background: linear-gradient(135deg, var(--navy-800) 0%, var(--navy-700) 100%);
+  border-radius: var(--radius-xl);
+  padding: var(--space-12) var(--space-10);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.gs-final__dice { font-size: 4rem; filter: drop-shadow(0 0 16px rgba(201,162,39,0.5)); }
+.gs-final__card h2 { font-family: var(--font-display); font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl)); }
+.gs-final__card > p { color: rgba(232,224,208,0.75); max-width: 52ch; margin: 0; }
+
+.gs-final__actions {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gs-final__btn { font-size: var(--text-base); padding: 0.85em 2em; }
+
+.gs-final__series-note { font-size: var(--text-sm); color: rgba(232,224,208,0.45); margin: 0; }
+
+/* Explore */
+.gs-explore__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--space-4);
+}
+
+.gs-explore__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  text-decoration: none;
+  padding: var(--space-5);
+}
+.gs-explore__card:hover { text-shadow: none; }
+
+.gs-explore__icon { font-size: 1.75rem; }
+.gs-explore__card h3 { font-size: var(--text-base); color: var(--gold-300); margin: 0; }
+.gs-explore__card p { font-size: var(--text-sm); color: rgba(232,224,208,0.6); margin: 0; }
+</style>

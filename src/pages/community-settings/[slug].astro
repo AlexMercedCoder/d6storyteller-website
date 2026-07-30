@@ -1,0 +1,223 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AmazonCTA from '../../components/AmazonCTA.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const settings = await getCollection('community-settings');
+  return settings.map(setting => ({
+    params: { slug: setting.slug },
+    props: { setting },
+  }));
+}
+
+type Props = { setting: CollectionEntry<'community-settings'> };
+const { setting } = Astro.props;
+const { data } = setting;
+const { Content } = await setting.render();
+
+const SITE_URL = 'https://d6storyteller.alexmerced.com';
+const settingUrl = `${SITE_URL}/community-settings/${setting.slug}/`;
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Community Settings', href: '/community-settings/' },
+  { label: data.title, href: `/community-settings/${setting.slug}/` },
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": `${settingUrl}#article`,
+  "headline": data.title,
+  "description": data.seoDescription,
+  "url": settingUrl,
+  "author": {
+    "@type": "Person",
+    "name": data.author,
+    "@id": `${SITE_URL}/#alex-merced`
+  },
+  "isPartOf": { "@id": `${SITE_URL}/#website` },
+  "about": {
+    "@type": "Game",
+    "name": "D6 Storyteller",
+    "url": SITE_URL
+  }
+};
+---
+
+<BaseLayout
+  title={data.seoTitle}
+  description={data.seoDescription}
+  canonicalUrl={settingUrl}
+  jsonLd={jsonLd}
+>
+  <div class="container" style="padding-top:var(--space-8);">
+    <Breadcrumbs items={breadcrumbs} />
+  </div>
+
+  <article class="section" aria-labelledby="setting-title">
+    <div class="container container--narrow">
+      <header class="setting-header">
+        <div class="setting-header__tags">
+          <span class="tag tag--community">{data.genre}</span>
+          {data.tags.map(tag => (
+            <span class="tag tag--historical" style="font-size:0.65rem;">{tag}</span>
+          ))}
+        </div>
+        <h1 id="setting-title">{data.title}</h1>
+        <p class="setting-header__subtitle">{data.subtitle}</p>
+        <div class="setting-header__meta">
+          <span>By <strong>{data.author}</strong></span>
+          {data.publishedDate && <span>· Published {data.publishedDate}</span>}
+          <span>· <a href="/community-settings/">Community Settings</a></span>
+        </div>
+        <p class="setting-header__premise">{data.premise}</p>
+        <div class="setting-header__mechanic-preview">
+          <strong>Core Mechanic:</strong> {data.mechanic}
+        </div>
+      </header>
+
+      <div class="setting-prose">
+        <Content />
+      </div>
+
+      <div class="setting-footer">
+        <div class="setting-footer__play-note">
+          <h2>Ready to Play This Setting?</h2>
+          <p>
+            This setting uses the D6 Storyteller engine. To run it, you'll need the <a href="/books/core-rulebook/">D6 Storyteller Core Rulebook</a> for the full rules, or refer to the <a href="/system/">system overview</a> for a primer on fiction-first D6 play.
+          </p>
+        </div>
+        <AmazonCTA placement={`community_setting_${setting.slug}`} variant="banner" label="Get the D6 Storyteller Core Rulebook on Amazon" />
+        <div class="setting-footer__nav">
+          <a href="/community-settings/" class="btn btn--secondary">← All Community Settings</a>
+          <a href="/settings/" class="btn btn--ghost">Browse All 100 Settings →</a>
+        </div>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+.setting-header {
+  margin-bottom: var(--space-10);
+  padding-bottom: var(--space-8);
+  border-bottom: 1px solid rgba(201,162,39,0.2);
+}
+
+.setting-header__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.setting-header h1 {
+  font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));
+  margin-bottom: var(--space-3);
+}
+
+.setting-header__subtitle {
+  font-family: var(--font-heading);
+  font-style: italic;
+  color: rgba(232,224,208,0.6);
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-4);
+}
+
+.setting-header__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: rgba(232,224,208,0.45);
+  margin-bottom: var(--space-6);
+}
+.setting-header__meta strong { color: rgba(232,224,208,0.7); }
+
+.setting-header__premise {
+  font-size: var(--text-lg);
+  color: rgba(232,224,208,0.85);
+  margin-bottom: var(--space-4);
+}
+
+.setting-header__mechanic-preview {
+  background: var(--navy-800);
+  border-left: 3px solid var(--accent-community);
+  padding: var(--space-4) var(--space-6);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-size: var(--text-sm);
+  color: rgba(232,224,208,0.75);
+}
+.setting-header__mechanic-preview strong { color: var(--accent-community); }
+
+/* Prose rendering */
+.setting-prose { color: rgba(232,224,208,0.85); }
+.setting-prose :global(h2) {
+  font-size: var(--text-2xl);
+  margin-top: var(--space-10);
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid rgba(201,162,39,0.15);
+}
+.setting-prose :global(h3) {
+  font-size: var(--text-xl);
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-3);
+  color: var(--gold-300);
+}
+.setting-prose :global(h4) {
+  font-size: var(--text-lg);
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-2);
+  color: var(--gold-400);
+}
+.setting-prose :global(p) { margin-bottom: var(--space-4); }
+.setting-prose :global(ul), .setting-prose :global(ol) {
+  margin-bottom: var(--space-4);
+  padding-left: var(--space-6);
+}
+.setting-prose :global(li) { margin-bottom: var(--space-2); }
+.setting-prose :global(li::marker) { color: var(--gold-400); }
+.setting-prose :global(blockquote) {
+  border-left: 3px solid var(--gold-400);
+  padding-left: var(--space-6);
+  margin: var(--space-6) 0;
+  color: var(--gold-300);
+  font-style: italic;
+}
+.setting-prose :global(strong) { color: var(--gold-300); }
+.setting-prose :global(hr) {
+  border: none;
+  border-top: 1px solid rgba(201,162,39,0.2);
+  margin: var(--space-10) 0;
+}
+.setting-prose :global(code) {
+  font-family: monospace;
+  background: rgba(201,162,39,0.1);
+  padding: 0.1em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+/* Footer */
+.setting-footer { margin-top: var(--space-12); }
+.setting-footer__play-note {
+  background: var(--navy-800);
+  border: 1px solid rgba(201,162,39,0.2);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+.setting-footer__play-note h2 { font-size: var(--text-xl); margin-bottom: var(--space-3); }
+.setting-footer__play-note p { color: rgba(232,224,208,0.75); margin: 0; }
+
+.setting-footer__nav {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  margin-top: var(--space-6);
+}
+</style>

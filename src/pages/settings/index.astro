@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SettingCard from '../../components/SettingCard.astro';
+import { getCollection } from 'astro:content';
+
+const books = (await getCollection('books')).sort((a, b) => a.data.order - b.data.order);
+
+// Flatten all settings with book reference
+const allSettings = books.flatMap(book =>
+  book.data.settings.map(setting => ({
+    ...setting,
+    bookSlug: book.slug,
+    bookTitle: book.data.shortTitle,
+  }))
+);
+
+const allTags = [...new Set(allSettings.flatMap(s => s.tags))].sort();
+---
+
+<BaseLayout
+  title="D6 Storyteller Settings | Browse Every World"
+  description="Browse all 100 settings across the D6 Storyteller series — from cosmic megastructures and samurai feudal wars to liminal backrooms and suburban borrowers. Filter by genre and theme."
+  canonicalUrl="https://d6storyteller.alexmerced.com/settings/"
+>
+  <section class="section" aria-labelledby="settings-heading">
+    <div class="container">
+      <nav aria-label="Breadcrumb" class="breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb__separator" aria-hidden="true">&rsaquo;</span>
+        <span aria-current="page">Settings</span>
+      </nav>
+
+      <p class="section-label">The Worlds</p>
+      <h1 id="settings-heading">D6 Storyteller Settings Directory</h1>
+      <p style="max-width:64ch;color:rgba(232,224,208,0.75);margin-bottom:var(--space-8);">
+        Every setting across all ten D6 Storyteller books — one hundred worlds spanning high fantasy, science fiction, horror, historical fiction, and beyond. Each entry links to its parent book.
+      </p>
+
+      <div class="settings-grid">
+        {allSettings.map(setting => (
+          <SettingCard
+            name={setting.name}
+            bookSlug={setting.bookSlug}
+            bookTitle={setting.bookTitle}
+            premise={setting.premise}
+            mechanic={setting.mechanic}
+            tags={setting.tags}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+.settings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-4);
+}
+</style>

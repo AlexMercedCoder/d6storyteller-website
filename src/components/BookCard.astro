@@ -1,0 +1,84 @@
+---
+export interface Props {
+  slug: string;
+  title: string;
+  shortTitle: string;
+  subtitle: string;
+  coverImage: string;
+  coverAlt: string;
+  genres: string[];
+  amazonUrl: string;
+  eager?: boolean;
+}
+const { slug, title, shortTitle, subtitle, coverImage, coverAlt, genres, amazonUrl, eager = false } = Astro.props;
+const AMAZON_URL = 'https://www.amazon.com/dp/B0HC4XMKW3?binding=paperback&ref_=saga_sdp_cft_dsk';
+const genreClass = (g: string) => {
+  const map: Record<string, string> = {
+    Fantasy: 'fantasy', 'High Fantasy': 'fantasy', 'Mythic': 'fantasy',
+    'Sci-Fi': 'scifi', 'Space Opera': 'scifi', 'Solarpunk': 'scifi',
+    Horror: 'horror', Gothic: 'horror', Supernatural: 'horror',
+    'Weird West': 'weirdwest', Piracy: 'weirdwest', Swashbuckling: 'weirdwest',
+    Cyberpunk: 'cyberpunk', Biopunk: 'cyberpunk', Dieselpunk: 'cyberpunk',
+    Superheroes: 'superheroes', Kaiju: 'superheroes', Anime: 'superheroes',
+    Historical: 'historical', 'Alternate History': 'historical',
+    Experimental: 'experimental', Cozy: 'experimental',
+    'Post-Apocalyptic': 'postapoc', Survival: 'postapoc',
+  };
+  return map[g] ?? 'historical';
+};
+const eventData = JSON.stringify({ event: 'book_card_click', book_slug: slug });
+---
+<article class="book-card card" data-genres={genres.join(',').toLowerCase()}>
+  <a
+    href={`/books/${slug}/`}
+    class="book-card__image-link"
+    onclick={`try{const d=${eventData};if(window.gtag)gtag('event',d.event,d);}catch(e){}`}
+    aria-label={`View details for ${title}`}
+  >
+    <img
+      src={coverImage}
+      alt={coverAlt}
+      width="300"
+      height="400"
+      loading={eager ? 'eager' : 'lazy'}
+      decoding="async"
+      class="book-card__cover"
+    />
+  </a>
+  <div class="book-card__body">
+    <div class="book-card__tags">
+      {genres.slice(0, 2).map(g => (
+        <span class={`tag tag--${genreClass(g)}`}>{g}</span>
+      ))}
+    </div>
+    <h3 class="book-card__title">
+      <a href={`/books/${slug}/`}>{shortTitle}</a>
+    </h3>
+    <p class="book-card__subtitle">{subtitle.replace('A Fiction-First Tabletop Roleplaying Expansion & ', '').replace('A Fiction-First Tabletop Roleplaying Engine & ', '')}</p>
+    <div class="book-card__actions">
+      <a href={`/books/${slug}/`} class="btn btn--secondary" style="font-size:0.75rem;padding:0.5em 1em;">View Details</a>
+      <a href={AMAZON_URL} class="btn btn--primary" style="font-size:0.75rem;padding:0.5em 1em;" target="_blank" rel="noopener noreferrer">Buy →</a>
+    </div>
+  </div>
+</article>
+
+<style>
+.book-card { padding: 0; overflow: hidden; }
+.book-card__image-link { display: block; overflow: hidden; }
+.book-card__cover {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  transition: transform var(--transition-slow);
+}
+.book-card:hover .book-card__cover { transform: scale(1.04); }
+.book-card__body { padding: var(--space-4); display: flex; flex-direction: column; gap: var(--space-3); }
+.book-card__tags { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.book-card__title { font-size: var(--text-base); margin: 0; }
+.book-card__title a { color: var(--gold-300); text-decoration: none; }
+.book-card__title a:hover { color: var(--gold-300); text-shadow: var(--shadow-gold); }
+.book-card__subtitle { font-size: var(--text-xs); color: rgba(232,224,208,0.6); margin: 0; line-height: 1.5; }
+.book-card__actions { display: flex; gap: var(--space-2); flex-wrap: wrap; margin-top: var(--space-2); }
+</style>
