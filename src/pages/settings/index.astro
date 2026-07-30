@@ -19,7 +19,7 @@ const allTags = [...new Set(allSettings.flatMap(s => s.tags))].sort();
 
 <BaseLayout
   title="All 100 Settings | D6 Storyteller World Index"
-  description="Browse all 100 settings across the D6 Storyteller series: from cosmic megastructures and samurai feudal wars to liminal backrooms and suburban borrowers. Filter by genre and theme."
+  description="Browse all 100 settings across the D6 Storyteller series: from cosmic megastructures and samurai feudal wars to liminal backrooms and suburban borrowers. Search by name, theme, and tag."
   canonicalUrl="https://d6storyteller.alexmerced.com/settings/"
 >
   <section class="section" aria-labelledby="settings-heading">
@@ -32,11 +32,56 @@ const allTags = [...new Set(allSettings.flatMap(s => s.tags))].sort();
 
       <p class="section-label">One Hundred Worlds</p>
       <h1 id="settings-heading">All 100 Settings</h1>
-      <p style="max-width:68ch;color:rgba(232,224,208,0.75);margin-bottom:var(--space-8);">
-        Every setting across all ten D6 Storyteller books: one hundred worlds spanning high fantasy, science fiction, horror, historical fiction, and beyond. Each entry links to its parent book.
+      <p class="settings-intro">
+        Every setting across all ten D6 Storyteller books: one hundred worlds spanning high fantasy, science fiction, horror, historical fiction, and beyond. Use the search bar or tag filters below to find settings by name, keyword, or theme.
       </p>
 
-      <div class="settings-grid">
+      <!-- Filter Controls -->
+      <div class="filter-controls card">
+        <div class="filter-controls__inputs">
+          <div class="filter-controls__field filter-controls__field--search">
+            <label for="setting-search" class="filter-label">Search Settings</label>
+            <div class="search-input-wrap">
+              <span class="search-icon" aria-hidden="true">🔍</span>
+              <input
+                type="text"
+                id="setting-search"
+                class="filter-input"
+                placeholder="Search by name, premise, or mechanic..."
+                aria-label="Search settings by name, premise, or mechanic"
+              />
+              <button type="button" id="clear-search" class="clear-btn hidden" aria-label="Clear search">✕</button>
+            </div>
+          </div>
+
+          <div class="filter-controls__field filter-controls__field--select">
+            <label for="tag-select" class="filter-label">Filter by Tag</label>
+            <select id="tag-select" class="filter-select" aria-label="Filter by tag">
+              <option value="">All Tags ({allTags.length})</option>
+              {allTags.map(tag => (
+                <option value={tag.toLowerCase()}>{tag}</option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        <!-- Tag Quick Pills -->
+        <div class="tag-pills" id="tag-pills">
+          <span class="tag-pills__label">Popular Tags:</span>
+          <button type="button" class="tag-pill tag-pill--active" data-tag="">All</button>
+          {allTags.slice(0, 15).map(tag => (
+            <button type="button" class="tag-pill" data-tag={tag.toLowerCase()}>{tag}</button>
+          ))}
+        </div>
+
+        <div class="filter-summary">
+          <span id="results-count" class="results-count">Showing {allSettings.length} of {allSettings.length} settings</span>
+          <button type="button" id="reset-filters" class="btn btn--secondary btn--sm reset-btn hidden">Reset Filters</button>
+        </div>
+      </div>
+
+      <!-- Settings Grid -->
+      <div class="settings-grid" id="settings-grid">
         {allSettings.map(setting => (
           <SettingCard
             name={setting.name}
@@ -48,14 +93,384 @@ const allTags = [...new Set(allSettings.flatMap(s => s.tags))].sort();
           />
         ))}
       </div>
+
+      <!-- Empty State -->
+      <div id="no-results" class="no-results card hidden">
+        <div class="no-results__icon" aria-hidden="true">📜</div>
+        <h3>No Settings Found</h3>
+        <p>No settings matched your search term or tag filter. Try adjusting your search keywords or resetting your filters.</p>
+        <button type="button" id="no-results-reset" class="btn btn--primary">Show All 100 Settings</button>
+      </div>
     </div>
   </section>
 </BaseLayout>
 
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('setting-search') as HTMLInputElement | null;
+    const tagSelect = document.getElementById('tag-select') as HTMLSelectElement | null;
+    const clearSearchBtn = document.getElementById('clear-search') as HTMLButtonElement | null;
+    const resetFiltersBtn = document.getElementById('reset-filters') as HTMLButtonElement | null;
+    const noResultsResetBtn = document.getElementById('no-results-reset') as HTMLButtonElement | null;
+    const resultsCount = document.getElementById('results-count');
+    const noResults = document.getElementById('no-results');
+    const settingsGrid = document.getElementById('settings-grid');
+    const tagPillsContainer = document.getElementById('tag-pills');
+    
+    if (!settingsGrid) return;
+
+    const cards = Array.from(settingsGrid.querySelectorAll('.setting-card')) as HTMLElement[];
+    const totalCount = cards.length;
+
+    let currentQuery = '';
+    let currentTag = '';
+
+    function filterSettings() {
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const searchText = card.getAttribute('data-search-text') || '';
+        const cardTags = (card.getAttribute('data-tags') || '').split(',');
+
+        const matchesQuery = !currentQuery || searchText.includes(currentQuery.toLowerCase().trim());
+        const matchesTag = !currentTag || cardTags.includes(currentTag.toLowerCase());
+
+        if (matchesQuery && matchesTag) {
+          card.style.display = '';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      // Update count display
+      if (resultsCount) {
+        resultsCount.textContent = `Showing ${visibleCount} of ${totalCount} settings`;
+      }
+
+      // Toggle no-results display
+      if (noResults) {
+        if (visibleCount === 0) {
+          noResults.classList.remove('hidden');
+          settingsGrid.style.display = 'none';
+        } else {
+          noResults.classList.add('hidden');
+          settingsGrid.style.display = 'grid';
+        }
+      }
+
+      // Show/hide clear search button
+      if (clearSearchBtn) {
+        if (currentQuery) {
+          clearSearchBtn.classList.remove('hidden');
+        } else {
+          clearSearchBtn.classList.add('hidden');
+        }
+      }
+
+      // Show/hide reset filters button
+      if (resetFiltersBtn) {
+        if (currentQuery || currentTag) {
+          resetFiltersBtn.classList.remove('hidden');
+        } else {
+          resetFiltersBtn.classList.add('hidden');
+        }
+      }
+
+      // Sync tag pills active state
+      if (tagPillsContainer) {
+        const pills = tagPillsContainer.querySelectorAll('.tag-pill');
+        pills.forEach(pill => {
+          const pillTag = pill.getAttribute('data-tag') || '';
+          if (pillTag === currentTag) {
+            pill.classList.add('tag-pill--active');
+          } else {
+            pill.classList.remove('tag-pill--active');
+          }
+        });
+      }
+
+      // Sync select dropdown
+      if (tagSelect && tagSelect.value !== currentTag) {
+        tagSelect.value = currentTag;
+      }
+    }
+
+    // Input listener
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        currentQuery = (e.target as HTMLInputElement).value;
+        filterSettings();
+      });
+    }
+
+    // Select listener
+    if (tagSelect) {
+      tagSelect.addEventListener('change', (e) => {
+        currentTag = (e.target as HTMLSelectElement).value;
+        filterSettings();
+      });
+    }
+
+    // Tag pills click listener
+    if (tagPillsContainer) {
+      tagPillsContainer.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement;
+        if (target.classList.contains('tag-pill')) {
+          currentTag = target.getAttribute('data-tag') || '';
+          filterSettings();
+        }
+      });
+    }
+
+    // Click on individual tag badges inside setting cards to filter
+    settingsGrid.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      if (target.hasAttribute('data-tag')) {
+        const tag = target.getAttribute('data-tag') || '';
+        currentTag = tag;
+        filterSettings();
+        window.scrollTo({ top: (document.querySelector('.filter-controls') as HTMLElement)?.offsetTop - 100 || 0, behavior: 'smooth' });
+      }
+    });
+
+    // Clear search
+    if (clearSearchBtn) {
+      clearSearchBtn.addEventListener('click', () => {
+        if (searchInput) searchInput.value = '';
+        currentQuery = '';
+        filterSettings();
+        if (searchInput) searchInput.focus();
+      });
+    }
+
+    // Reset filters
+    function resetAll() {
+      if (searchInput) searchInput.value = '';
+      currentQuery = '';
+      currentTag = '';
+      if (tagSelect) tagSelect.value = '';
+      filterSettings();
+    }
+
+    if (resetFiltersBtn) resetFiltersBtn.addEventListener('click', resetAll);
+    if (noResultsResetBtn) noResultsResetBtn.addEventListener('click', resetAll);
+  });
+</script>
+
 <style>
+.settings-intro {
+  max-width: 68ch;
+  color: rgba(232, 224, 208, 0.75);
+  margin-bottom: var(--space-6);
+  line-height: 1.6;
+}
+
+/* Filter Controls Box */
+.filter-controls {
+  background: var(--navy-900);
+  border: 1px solid rgba(201, 162, 39, 0.25);
+  padding: var(--space-6);
+  margin-bottom: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.filter-controls__inputs {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--space-4);
+}
+
+@media (max-width: 768px) {
+  .filter-controls__inputs {
+    grid-template-columns: 1fr;
+  }
+}
+
+.filter-controls__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.filter-label {
+  font-family: var(--font-heading);
+  font-size: var(--text-xs);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-300);
+  font-weight: 600;
+}
+
+.search-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: var(--space-3);
+  font-size: var(--text-sm);
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.filter-input {
+  width: 100%;
+  padding: var(--space-3) var(--space-8) var(--space-3) var(--space-10);
+  background: var(--navy-950);
+  border: 1px solid rgba(201, 162, 39, 0.3);
+  border-radius: var(--radius-md);
+  color: var(--text-body);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  transition: all var(--transition-fast);
+}
+
+.filter-input:focus {
+  outline: none;
+  border-color: var(--gold-400);
+  box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.15);
+}
+
+.clear-btn {
+  position: absolute;
+  right: var(--space-3);
+  background: none;
+  border: none;
+  color: rgba(232, 224, 208, 0.5);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  padding: var(--space-1);
+  border-radius: 50%;
+  line-height: 1;
+}
+
+.clear-btn:hover {
+  color: var(--gold-300);
+}
+
+.filter-select {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  background: var(--navy-950);
+  border: 1px solid rgba(201, 162, 39, 0.3);
+  border-radius: var(--radius-md);
+  color: var(--text-body);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: var(--gold-400);
+  box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.15);
+}
+
+/* Tag Pills */
+.tag-pills {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  padding-top: var(--space-2);
+  border-top: 1px solid rgba(201, 162, 39, 0.15);
+}
+
+.tag-pills__label {
+  font-family: var(--font-heading);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(232, 224, 208, 0.5);
+  margin-right: var(--space-1);
+}
+
+.tag-pill {
+  font-family: var(--font-heading);
+  font-size: var(--text-xs);
+  color: rgba(232, 224, 208, 0.7);
+  background: var(--navy-950);
+  border: 1px solid rgba(201, 162, 39, 0.2);
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.tag-pill:hover {
+  color: var(--gold-300);
+  border-color: var(--gold-400);
+  background: rgba(201, 162, 39, 0.1);
+}
+
+.tag-pill--active {
+  color: var(--navy-950);
+  background: var(--gold-400);
+  border-color: var(--gold-300);
+  font-weight: 600;
+}
+
+/* Summary Bar */
+.filter-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--space-2);
+}
+
+.results-count {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  color: rgba(201, 162, 39, 0.85);
+  font-weight: 500;
+}
+
+.reset-btn {
+  font-size: var(--text-xs);
+  padding: var(--space-1) var(--space-3);
+}
+
+/* Grid & Cards */
 .settings-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: var(--space-4);
+}
+
+/* No Results State */
+.no-results {
+  text-align: center;
+  padding: var(--space-12) var(--space-6);
+  background: var(--navy-900);
+  border: 1px dashed rgba(201, 162, 39, 0.3);
+}
+
+.no-results__icon {
+  font-size: var(--text-4xl);
+  margin-bottom: var(--space-3);
+}
+
+.no-results h3 {
+  color: var(--gold-300);
+  margin-bottom: var(--space-2);
+}
+
+.no-results p {
+  color: rgba(232, 224, 208, 0.7);
+  max-width: 50ch;
+  margin: 0 auto var(--space-6) auto;
+  font-size: var(--text-sm);
+}
+
+.hidden {
+  display: none !important;
 }
 </style>

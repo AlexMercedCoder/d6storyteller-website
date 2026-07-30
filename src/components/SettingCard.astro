@@ -9,7 +9,12 @@ export interface Props {
 }
 const { name, bookSlug, bookTitle, premise, mechanic, tags } = Astro.props;
 ---
-<article class="setting-card card">
+<article
+  class="setting-card card"
+  data-name={name.toLowerCase()}
+  data-tags={tags.map(t => t.toLowerCase()).join(',')}
+  data-search-text={`${name} ${premise} ${mechanic || ''} ${tags.join(' ')}`.toLowerCase()}
+>
   <header class="setting-card__header">
     <h3 class="setting-card__name">{name}</h3>
     <a href={`/books/${bookSlug}/`} class="setting-card__book-link">From: {bookTitle}</a>
@@ -21,7 +26,7 @@ const { name, bookSlug, bookTitle, premise, mechanic, tags } = Astro.props;
     </p>
   )}
   <div class="setting-card__tags">
-    {tags.map(tag => <span class="tag tag--historical" style="font-size:0.65rem;">{tag}</span>)}
+    {tags.map(tag => <span class="tag tag--historical" style="font-size:0.65rem;" data-tag={tag.toLowerCase()}>{tag}</span>)}
   </div>
 </article>
 

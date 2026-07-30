@@ -143,13 +143,62 @@ const mechanics = [
         <div class="supp-section__header">
           <h2 id="add-settings-heading">Additional Settings</h2>
           <p>
-            Complete, ready-to-play worlds designed for the D6 Storyteller system. Each entry includes lore overview, unique genre mechanic, character archetypes, condition palette, and a starter scenario.
+            Complete, ready-to-play worlds designed for the D6 Storyteller system. Each entry includes lore overview, unique genre mechanic, character archetypes, condition palette, and a starter scenario. Use the search bar or tag filters below to search by setting name or theme.
           </p>
         </div>
 
-        <div class="supp-grid">
+        <!-- Filter Controls Bar -->
+        <div class="filter-controls card">
+          <div class="filter-controls__inputs">
+            <div class="filter-controls__field filter-controls__field--search">
+              <label for="supp-search" class="filter-label">Search Settings</label>
+              <div class="search-input-wrap">
+                <span class="search-icon" aria-hidden="true">🔍</span>
+                <input
+                  type="text"
+                  id="supp-search"
+                  class="filter-input"
+                  placeholder="Search by name, country, or folklore tag..."
+                  aria-label="Search settings by name, country, or tag"
+                />
+                <button type="button" id="clear-supp-search" class="clear-btn hidden" aria-label="Clear search">✕</button>
+              </div>
+            </div>
+
+            <div class="filter-controls__field filter-controls__field--select">
+              <label for="supp-tag-select" class="filter-label">Filter by Tag</label>
+              <select id="supp-tag-select" class="filter-select" aria-label="Filter by tag">
+                <option value="">All Tags ({[...new Set(settings.flatMap(s => [s.data.genre, ...s.data.tags]))].length})</option>
+                {[...new Set(settings.flatMap(s => [s.data.genre, ...s.data.tags]))].sort().map(tag => (
+                  <option value={tag.toLowerCase()}>{tag}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          <!-- Tag Pills -->
+          <div class="tag-pills" id="supp-tag-pills">
+            <span class="tag-pills__label">Quick Tags:</span>
+            <button type="button" class="tag-pill tag-pill--active" data-tag="">All</button>
+            {[...new Set(settings.flatMap(s => [s.data.genre, ...s.data.tags]))].sort().slice(0, 16).map(tag => (
+              <button type="button" class="tag-pill" data-tag={tag.toLowerCase()}>{tag}</button>
+            ))}
+          </div>
+
+          <div class="filter-summary">
+            <span id="supp-results-count" class="results-count">Showing {settings.length} of {settings.length} settings</span>
+            <button type="button" id="reset-supp-filters" class="btn btn--secondary btn--sm reset-btn hidden">Reset Filters</button>
+          </div>
+        </div>
+
+        <div class="supp-grid" id="supp-grid">
           {settings.map(setting => (
-            <article class="supp-card card">
+            <article
+              class="supp-card card"
+              data-title={setting.data.title.toLowerCase()}
+              data-tags={[setting.data.genre, ...setting.data.tags].map(t => t.toLowerCase()).join(',')}
+              data-search-text={`${setting.data.title} ${setting.data.subtitle} ${setting.data.premise} ${setting.data.genre} ${setting.data.tags.join(' ')}`.toLowerCase()}
+            >
               {setting.data.coverImage && (
                 <div class="supp-card__image-wrap">
                   <img
@@ -164,9 +213,9 @@ const mechanics = [
               )}
               <div class="supp-card__content">
                 <div class="supp-card__tags">
-                  <span class="tag tag--community">{setting.data.genre}</span>
+                  <span class="tag tag--community" data-tag={setting.data.genre.toLowerCase()}>{setting.data.genre}</span>
                   {setting.data.tags.slice(0, 3).map(tag => (
-                    <span class="tag tag--historical" style="font-size:0.65rem;">{tag}</span>
+                    <span class="tag tag--historical" style="font-size:0.65rem;" data-tag={tag.toLowerCase()}>{tag}</span>
                   ))}
                 </div>
                 <h3 class="supp-card__title">
@@ -183,6 +232,14 @@ const mechanics = [
               </div>
             </article>
           ))}
+        </div>
+
+        <!-- No Results State -->
+        <div id="supp-no-results" class="no-results card hidden">
+          <div class="no-results__icon" aria-hidden="true">🗺️</div>
+          <h3>No Settings Found</h3>
+          <p>No setting matches your search term or tag filter. Try adjusting your search query or clear the filter.</p>
+          <button type="button" id="supp-no-results-reset" class="btn btn--primary">Show All {settings.length} Settings</button>
         </div>
 
         <div class="supp-submit card">
