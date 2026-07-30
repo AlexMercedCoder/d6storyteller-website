@@ -1,0 +1,512 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AmazonCTA from '../../components/AmazonCTA.astro';
+import { getCollection } from 'astro:content';
+
+const settings = await getCollection('community-settings');
+
+const mechanics = [
+  {
+    id: "momentum-bank",
+    name: "Momentum Bank",
+    tagline: "Build up. Cash in.",
+    summary: "A shared group resource that rewards consistent storytelling and creative action.",
+    description: "The group maintains a shared Momentum Bank: a pool of tokens or tallies. Whenever a player achieves a Full Success (a 6 on their highest die), they may bank one Momentum instead of spending it immediately. When any player faces a Desperate or Risky position roll, they may withdraw Momentum from the Bank to upgrade their position by one step before rolling. The Bank has a maximum capacity equal to the number of players. Momentum in the Bank resets to zero at the start of each new session.",
+    whenToUse: "Add this to any campaign where you want to encourage the players to think as a team rather than individually. Particularly effective in heist, ensemble, and war-band scenarios.",
+    example: "Three players are planning a break-in. Over the previous scene, two of them banked Momentum from successful scouting rolls. When the third player attempts the critical safe-cracking roll from a Risky position, they withdraw both Momentum to push it to Controlled.",
+    tags: ["Teamwork", "Resource Management", "Any Genre"],
+  },
+  {
+    id: "flashback-frame",
+    name: "Flashback Frame",
+    tagline: "You prepared for this. Show us when.",
+    summary: "Let players retroactively establish that their character prepared for a situation before it began.",
+    description: "Once per scene, a player may call a Flashback Frame before making a roll. They describe a brief scene from the past in which their character made a preparation relevant to the current situation. The Storyteller assigns the flashback a difficulty (Simple, Risky, or Desperate). The player rolls for the flashback result immediately, modifying their position in the present scene.",
+    whenToUse: "Use this when your players are creative improvisers who feel constrained by 'I should have thought of that earlier.' It rewards players who are paying attention to the fiction.",
+    example: "A spy is caught at the border without papers. Before rolling, she calls a Flashback Frame: 'Three weeks ago I bribed a contact here.' She rolls for the bribe: Partial Success.",
+    tags: ["Narrative", "Improvisation", "Any Genre"],
+  },
+  {
+    id: "escalating-stakes",
+    name: "Escalating Stakes",
+    tagline: "Every success raises the cost of the next failure.",
+    summary: "A mechanic that builds narrative tension by tracking how high the stakes have climbed in a conflict.",
+    description: "At the start of any extended conflict, the Storyteller places a Stakes Track on the table (1 to 5). Every time a character achieves a Full Success or suffers a Failure, the track advances. Characters use the current Stakes number as a modifier to the severity of consequences.",
+    whenToUse: "Excellent for political negotiations, heists in progress, and chases where early successes create overconfidence.",
+    example: "A smuggler is arguing her case before a tribunal. Early wins push the Stakes Track to 3. When her partner then fails a bluff roll, the consequence is dramatic.",
+    tags: ["Tension", "Conflict", "Dramatic Pacing"],
+  },
+  {
+    id: "wound-clock",
+    name: "Wound Clock",
+    tagline: "Harm compounds. The clock doesn't stop.",
+    summary: "Track cumulative physical harm with a four-segment clock that generates escalating narrative consequences.",
+    description: "Each character maintains a Wound Clock divided into four segments. Each time a character takes physical harm, advance the clock by one segment. Segment 1 = graze; segment 2 = real wound (-1 die on physical rolls); segment 3 = severe injury (worse position); segment 4 = incapacitated.",
+    whenToUse: "Use when you want harm to feel consequential and cumulative without requiring a complex hit point system.",
+    example: "A soldier takes two hits in a forest ambush (clock at 2). She tries to treat herself between scenes and rolls a Partial Success.",
+    tags: ["Survival", "Combat", "Harm Tracking"],
+  },
+  {
+    id: "reputation-web",
+    name: "Reputation Web",
+    tagline: "How you're known shapes what you can do.",
+    summary: "Track your character's standing with different factions using a simple three-tier web.",
+    description: "Each character maintains a Reputation Web of relevant factions rated Trusted (green), Neutral (blank), or Wanted (red). Trusted factions offer help without a roll; Wanted factions escalate position to Desperate.",
+    whenToUse: "Add this to any setting with meaningful political or social complexity: spy thrillers, political intrigue, faction wars.",
+    example: "A fixer is Trusted by street gangs and Wanted by corporate police. Entering the corporate district worsens her position to Desperate.",
+    tags: ["Social", "Political Intrigue", "Factions"],
+  },
+  {
+    id: "ticking-clock",
+    name: "Ticking Clock",
+    tagline: "Every action burns time. Time runs out.",
+    summary: "A structured countdown that drives urgency and shapes decision-making across an entire session.",
+    description: "The Storyteller establishes a countdown from 3 to 8. Failed rolls or Desperate partial successes advance the clock. When it reaches zero, the threatened disaster strikes.",
+    whenToUse: "Essential for any session with a time-sensitive objective.",
+    example: "The ritual clock sits at 5. The players fail a roll deciphering cult notes: clock advances to 4.",
+    tags: ["Tension", "Time Pressure", "Any Genre"],
+  },
+  {
+    id: "emotional-burden",
+    name: "Emotional Burden",
+    tagline: "What you carry shapes how you act.",
+    summary: "Track the psychological weight of difficult decisions with a personal Burden track.",
+    description: "Witnessing loss or making morally costly choices marks boxes on a 5-box Burden track. High burden narrows approach choices; filling the track triggers a Breaking Point.",
+    whenToUse: "Use in campaigns where moral complexity and emotional consequences matter.",
+    example: "A soldier has 4 Burden from hard choices. After a quiet moment with a villager she protected, she clears one box.",
+    tags: ["Drama", "Character Development", "Psychological"],
+  },
+  {
+    id: "cooperative-roll",
+    name: "Cooperative Roll",
+    tagline: "Together you roll more. Together you share the risk.",
+    summary: "A formalized structure for characters assisting each other with shared risk.",
+    description: "An assisting character contributes their approach dice to the lead character's pool, but both characters share the consequence if the roll fails or partially succeeds.",
+    whenToUse: "Works in any setting and replaces 'I help' with genuine stakes.",
+    example: "A doctor performs emergency surgery in a moving vehicle while a pilot holds it steady. A Partial Success means surgery succeeds but both take a bump.",
+    tags: ["Teamwork", "Collaborative", "Any Genre"],
+  },
+  {
+    id: "legacy-move",
+    name: "Legacy Move",
+    tagline: "One moment that echoes through everything that follows.",
+    summary: "Declare a single, permanently story-changing action at full cost to gain a lasting benefit.",
+    description: "Once per campaign arc, a character may declare a Legacy Move: an action with permanent consequence rolled with full pool regardless of position.",
+    whenToUse: "Use at climactic moments: the end of a story arc or defining confrontation.",
+    example: "A revolutionary speaks against a tyrant. Partial Success: inspires the crowd but draws targeted pursuit. Gains Descriptor 'Voice of the Plaza'.",
+    tags: ["Character Development", "Dramatic", "Campaign Play"],
+  },
+  {
+    id: "scene-pressure",
+    name: "Scene Pressure",
+    tagline: "The environment itself has an agenda.",
+    summary: "Give every scene an active environmental pressure that degrades independently of player action.",
+    description: "An environmental threat advances across three steps (Building → Critical → Erupted) unless players spend actions addressing it directly.",
+    whenToUse: "Add to any scene in an active, hostile environment: burning buildings, storm-tossed ships, collapsing mines.",
+    example: "Scene Pressure: 'The warehouse fire'. Two beats pass without addressing the flame: roof groans, escalating the danger.",
+    tags: ["Environment", "Tension", "Pacing"],
+  },
+];
+---
+
+<BaseLayout
+  title="Online Supplements | D6 Storyteller Additional Settings & Optional Mechanics"
+  description="Explore official D6 Storyteller online supplements: additional fully designed settings with custom artwork, plus ten modular optional plug-in mechanics for any table."
+  canonicalUrl="https://d6storyteller.alexmerced.com/supplements/"
+>
+  <section class="section" aria-labelledby="supplements-heading">
+    <div class="container">
+      <nav aria-label="Breadcrumb" class="breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb__separator" aria-hidden="true">&rsaquo;</span>
+        <span aria-current="page">Online Supplements</span>
+      </nav>
+
+      <p class="section-label">Expanded Universe & Rules</p>
+      <h1 id="supplements-heading">Online Supplements</h1>
+      <p class="supp-intro">
+        Welcome to the official D6 Storyteller online supplements repository. Here you'll find <strong>Additional Settings</strong> (complete playable worlds featuring original artwork and mechanics) alongside <strong>Optional Plug-In Mechanics</strong> to customize your table.
+      </p>
+
+      <!-- Section Navigation Tabs -->
+      <nav class="supp-tabs" aria-label="Supplements Section Navigation">
+        <a href="#additional-settings" class="supp-tab supp-tab--active">
+          <span aria-hidden="true">🌍</span> Additional Settings
+        </a>
+        <a href="#optional-mechanics" class="supp-tab">
+          <span aria-hidden="true">⚙️</span> Optional Mechanics
+        </a>
+      </nav>
+
+      <!-- SECTION 1: ADDITIONAL SETTINGS -->
+      <section id="additional-settings" class="supp-section" aria-labelledby="add-settings-heading">
+        <div class="supp-section__header">
+          <h2 id="add-settings-heading">Additional Settings</h2>
+          <p>
+            Complete, ready-to-play worlds designed for the D6 Storyteller system. Each entry includes lore overview, unique genre mechanic, character archetypes, condition palette, and a starter scenario.
+          </p>
+        </div>
+
+        <div class="supp-grid">
+          {settings.map(setting => (
+            <article class="supp-card card">
+              {setting.data.coverImage && (
+                <div class="supp-card__image-wrap">
+                  <img
+                    src={setting.data.coverImage}
+                    alt={setting.data.coverAlt || setting.data.title}
+                    width="400"
+                    height="400"
+                    loading="lazy"
+                    class="supp-card__cover"
+                  />
+                </div>
+              )}
+              <div class="supp-card__content">
+                <div class="supp-card__tags">
+                  <span class="tag tag--community">{setting.data.genre}</span>
+                  {setting.data.tags.slice(0, 3).map(tag => (
+                    <span class="tag tag--historical" style="font-size:0.65rem;">{tag}</span>
+                  ))}
+                </div>
+                <h3 class="supp-card__title">
+                  <a href={`/community-settings/${setting.slug}/`}>{setting.data.title}</a>
+                </h3>
+                <p class="supp-card__subtitle">{setting.data.subtitle}</p>
+                <p class="supp-card__premise">{setting.data.premise}</p>
+                <p class="supp-card__mechanic">
+                  <strong>Mechanic:</strong> {setting.data.mechanic}
+                </p>
+                <a href={`/community-settings/${setting.slug}/`} class="btn btn--primary supp-card__btn">
+                  Read Full Setting →
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div class="supp-submit card">
+          <h3>Submit a Supplemental Setting</h3>
+          <p>
+            Have you designed an original setting using the D6 Storyteller engine? Submit your setting for inclusion in the official online supplements. Contact Alex Merced at <a href="https://WhoIsAlexMerced.com" target="_blank" rel="noopener noreferrer">WhoIsAlexMerced.com</a>.
+          </p>
+        </div>
+      </section>
+
+      <!-- SECTION 2: OPTIONAL MECHANICS -->
+      <section id="optional-mechanics" class="supp-section" aria-labelledby="opt-mechanics-heading">
+        <div class="supp-section__header">
+          <h2 id="opt-mechanics-heading">Optional Plug-In Mechanics</h2>
+          <p>
+            Ten modular rules additions you can drop into any campaign, regardless of setting or genre. Use the ones that fit your table; ignore the rest.
+          </p>
+        </div>
+
+        <!-- Quick Jump Links -->
+        <div class="om-quicknav">
+          <span class="om-quicknav__label">Jump to Mechanic:</span>
+          <div class="om-quicknav__links">
+            {mechanics.map(m => (
+              <a href={`#${m.id}`} class="om-quicknav__link">{m.name}</a>
+            ))}
+          </div>
+        </div>
+
+        <div class="om-list">
+          {mechanics.map((mechanic, i) => (
+            <article class="om-card card" id={mechanic.id}>
+              <header class="om-card__header">
+                <div class="om-card__number" aria-hidden="true">{String(i + 1).padStart(2, '0')}</div>
+                <div class="om-card__title-block">
+                  <h3 class="om-card__name">{mechanic.name}</h3>
+                  <p class="om-card__tagline">"{mechanic.tagline}"</p>
+                </div>
+                <div class="om-card__tags">
+                  {mechanic.tags.map(tag => (
+                    <span class="tag tag--community" style="font-size:0.65rem;">{tag}</span>
+                  ))}
+                </div>
+              </header>
+
+              <p class="om-card__summary">{mechanic.summary}</p>
+
+              <div class="om-card__body">
+                <div class="om-card__section">
+                  <h4 class="om-card__section-label">How It Works</h4>
+                  <p class="om-card__text">{mechanic.description}</p>
+                </div>
+
+                <div class="om-card__section">
+                  <h4 class="om-card__section-label">When to Use It</h4>
+                  <p class="om-card__text om-card__text--muted">{mechanic.whenToUse}</p>
+                </div>
+
+                <div class="om-card__example">
+                  <h4 class="om-card__section-label">Example</h4>
+                  <blockquote class="om-card__quote">{mechanic.example}</blockquote>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <div style="margin-top:var(--space-10);">
+        <AmazonCTA placement="supplements_bottom" variant="banner" label="Get the D6 Storyteller Core Rulebook on Amazon" />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+.supp-intro {
+  max-width: 70ch;
+  font-size: var(--text-lg);
+  color: rgba(232, 224, 208, 0.85);
+  margin-bottom: var(--space-8);
+  line-height: 1.6;
+}
+
+/* Tabs */
+.supp-tabs {
+  display: flex;
+  gap: var(--space-3);
+  margin-bottom: var(--space-10);
+  border-bottom: 1px solid rgba(201, 162, 39, 0.2);
+  padding-bottom: var(--space-4);
+}
+
+.supp-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-heading);
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: rgba(232, 224, 208, 0.7);
+  text-decoration: none;
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-md);
+  background: var(--navy-900);
+  border: 1px solid rgba(201, 162, 39, 0.15);
+  transition: all var(--transition-fast);
+}
+
+.supp-tab:hover,
+.supp-tab--active {
+  color: var(--gold-300);
+  background: rgba(201, 162, 39, 0.1);
+  border-color: var(--gold-400);
+  text-shadow: none;
+}
+
+/* Section styling */
+.supp-section {
+  margin-bottom: var(--space-16);
+  scroll-margin-top: 80px;
+}
+
+.supp-section__header {
+  margin-bottom: var(--space-8);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid rgba(201, 162, 39, 0.2);
+}
+
+.supp-section__header h2 {
+  font-size: var(--text-3xl);
+  color: var(--gold-300);
+  margin-bottom: var(--space-2);
+}
+
+.supp-section__header p {
+  color: rgba(232, 224, 208, 0.75);
+  max-width: 68ch;
+  margin: 0;
+}
+
+/* Settings Grid */
+.supp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: var(--space-8);
+  margin-bottom: var(--space-8);
+}
+
+.supp-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0;
+}
+
+.supp-card__image-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--navy-950);
+}
+
+.supp-card__cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-base);
+}
+
+.supp-card:hover .supp-card__cover {
+  transform: scale(1.03);
+}
+
+.supp-card__content {
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  flex-grow: 1;
+}
+
+.supp-card__tags { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+
+.supp-card__title {
+  font-size: var(--text-2xl);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.supp-card__title a {
+  color: var(--gold-300);
+  text-decoration: none;
+}
+
+.supp-card__subtitle {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-style: italic;
+  color: rgba(232, 224, 208, 0.55);
+  margin: 0;
+}
+
+.supp-card__premise {
+  font-size: var(--text-sm);
+  color: rgba(232, 224, 208, 0.8);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.supp-card__mechanic {
+  font-size: var(--text-xs);
+  color: rgba(232, 224, 208, 0.6);
+  margin: 0;
+}
+.supp-card__mechanic strong { color: var(--gold-400); }
+
+.supp-card__btn {
+  margin-top: auto;
+  align-self: flex-start;
+  font-size: var(--text-sm);
+}
+
+.supp-submit {
+  padding: var(--space-6) var(--space-8);
+  background: var(--navy-900);
+  border: 1px solid rgba(201,162,39,0.2);
+}
+.supp-submit h3 { color: var(--gold-300); margin-bottom: var(--space-2); }
+.supp-submit p { color: rgba(232,224,208,0.75); margin: 0; font-size: var(--text-sm); }
+
+/* Quick nav for mechanics */
+.om-quicknav {
+  background: var(--navy-900);
+  border: 1px solid rgba(201, 162, 39, 0.2);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4) var(--space-6);
+  margin-bottom: var(--space-8);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.om-quicknav__label {
+  font-family: var(--font-heading);
+  font-size: var(--text-xs);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-400);
+  white-space: nowrap;
+  margin: 0;
+  padding-top: 2px;
+}
+
+.om-quicknav__links { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.om-quicknav__link {
+  font-size: var(--text-xs);
+  font-family: var(--font-heading);
+  color: rgba(232, 224, 208, 0.6);
+  text-decoration: none;
+  padding: 0.2em 0.7em;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  transition: all var(--transition-fast);
+}
+.om-quicknav__link:hover {
+  color: var(--gold-300);
+  border-color: var(--gold-500);
+  background: rgba(201, 162, 39, 0.08);
+  text-shadow: none;
+}
+
+/* Mechanics List */
+.om-list { display: flex; flex-direction: column; gap: var(--space-6); }
+.om-card { padding: var(--space-8); scroll-margin-top: 80px; }
+
+.om-card__header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: var(--space-4);
+  align-items: start;
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid rgba(201, 162, 39, 0.15);
+}
+
+@media (max-width: 640px) {
+  .om-card__header { grid-template-columns: auto 1fr; }
+  .om-card__tags { grid-column: 1 / -1; }
+}
+
+.om-card__number {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 900;
+  color: rgba(201, 162, 39, 0.2);
+  line-height: 1;
+  width: 3rem;
+  text-align: right;
+}
+
+.om-card__title-block { display: flex; flex-direction: column; gap: var(--space-1); }
+.om-card__name { font-size: var(--text-2xl); color: var(--gold-300); margin: 0; line-height: 1.2; }
+.om-card__tagline { font-family: var(--font-heading); font-size: var(--text-sm); font-style: italic; color: rgba(232, 224, 208, 0.5); margin: 0; }
+.om-card__tags { display: flex; flex-wrap: wrap; gap: var(--space-1); align-self: center; }
+
+.om-card__summary { font-family: var(--font-heading); font-size: var(--text-lg); color: rgba(232, 224, 208, 0.9); margin-bottom: var(--space-6); max-width: 70ch; }
+
+.om-card__body { display: grid; grid-template-columns: 1fr; gap: var(--space-6); }
+@media (min-width: 900px) {
+  .om-card__body { grid-template-columns: 2fr 1fr; }
+  .om-card__example { grid-column: 2; grid-row: 1 / 3; }
+}
+
+.om-card__section-label { font-family: var(--font-heading); font-size: var(--text-xs); letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-400); margin-bottom: var(--space-2); }
+.om-card__text { font-size: var(--text-sm); color: rgba(232, 224, 208, 0.8); line-height: 1.75; margin: 0; }
+.om-card__text--muted { color: rgba(232, 224, 208, 0.6); }
+
+.om-card__example {
+  background: rgba(201, 162, 39, 0.05);
+  border: 1px solid rgba(201, 162, 39, 0.15);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+.om-card__quote { font-size: var(--text-sm); color: rgba(232, 224, 208, 0.75); font-style: italic; border: none; padding: 0; margin: 0; line-height: 1.7; }
+</style>

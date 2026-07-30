@@ -22,7 +22,7 @@ const settingUrl = `${SITE_URL}/community-settings/${setting.slug}/`;
 
 const breadcrumbs = [
   { label: 'Home', href: '/' },
-  { label: 'Community Settings', href: '/community-settings/' },
+  { label: 'Online Supplements', href: '/supplements/' },
   { label: data.title, href: `/community-settings/${setting.slug}/` },
 ];
 
@@ -71,7 +71,7 @@ const jsonLd = {
         <div class="setting-header__meta">
           <span>By <strong>{data.author}</strong></span>
           {data.publishedDate && <span>· Published {data.publishedDate}</span>}
-          <span>· <a href="/community-settings/">Community Settings</a></span>
+          <span>· <a href="/supplements/">Online Supplements</a></span>
         </div>
         <p class="setting-header__premise">{data.premise}</p>
         <div class="setting-header__mechanic-preview">
@@ -87,12 +87,12 @@ const jsonLd = {
         <div class="setting-footer__play-note">
           <h2>Ready to Play This Setting?</h2>
           <p>
-            This setting uses the D6 Storyteller engine. To run it, you'll need the <a href="/books/core-rulebook/">D6 Storyteller Core Rulebook</a> for the full rules, or refer to the <a href="/system/">system overview</a> for a primer on fiction-first D6 play.
+            This setting uses the D6 Storyteller engine. To run it, you'll need the <a href="/books/core-rulebook/">D6 Storyteller Core Rulebook</a> for the full rules, or refer to the <a href="/get-started/">Get Started & How It Works</a> guide for a primer on fiction-first D6 play.
           </p>
         </div>
         <AmazonCTA placement={`community_setting_${setting.slug}`} variant="banner" label="Get the D6 Storyteller Core Rulebook on Amazon" />
         <div class="setting-footer__nav">
-          <a href="/community-settings/" class="btn btn--secondary">← All Community Settings</a>
+          <a href="/supplements/" class="btn btn--secondary">← All Online Supplements</a>
           <a href="/settings/" class="btn btn--ghost">Browse All 100 Settings →</a>
         </div>
       </div>

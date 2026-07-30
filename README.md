@@ -7,9 +7,9 @@ Marketing and discovery website for the D6 Storyteller tabletop RPG series by Al
 
 ## Tech Stack
 
-- [Astro](https://astro.build) — static site generator
+- [Astro](https://astro.build): static site generator
 - Vanilla CSS with custom design tokens
-- @astrojs/sitemap — automatic sitemap generation
+- @astrojs/sitemap: automatic sitemap generation
 
 ## Development
 
@@ -29,15 +29,15 @@ npm run preview
 
 ```
 src/
-  content/books/     — Book content (Markdown + frontmatter)
-  content/settings/  — Setting entries
-  components/        — Reusable Astro components
-  layouts/           — Page layouts
-  pages/             — All routes
-  styles/            — Global CSS
+  content/books/     : Book content (Markdown + frontmatter)
+  content/settings/  : Setting entries
+  components/        : Reusable Astro components
+  layouts/           : Page layouts
+  pages/             : All routes
+  styles/            : Global CSS
 public/
-  images/covers/     — Book cover images (WebP)
-  images/social/     — OG social images
+  images/covers/     : Book cover images (WebP)
+  images/social/     : OG social images
   robots.txt
   llms.txt
   site.webmanifest

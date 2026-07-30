@@ -35,7 +35,7 @@ const { genres } = Astro.props;
       });
 
       try {
-        if (window.gtag) gtag('event', 'genre_filter', { genre });
+        if ((window as any).gtag) (window as any).gtag('event', 'genre_filter', { genre });
       } catch (e) {}
     });
   });

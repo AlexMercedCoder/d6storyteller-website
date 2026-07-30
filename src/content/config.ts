@@ -40,6 +40,8 @@ const communitySettingsCollection = defineCollection({
     premise: z.string(),
     mechanic: z.string(),
     accentColor: z.string().optional(),
+    coverImage: z.string().optional(),
+    coverAlt: z.string().optional(),
     seoTitle: z.string(),
     seoDescription: z.string(),
     author: z.string().default('Alex Merced'),

@@ -1,5 +1,5 @@
 /* ============================================================
-   D6 Storyteller — Global Design System
+   D6 Storyteller : Global Design System
    Dark navy foundation · Gold typography · Pixel-art aesthetic
    ============================================================ */
 
@@ -27,16 +27,16 @@
   --gold-glow: rgba(201, 162, 39, 0.35);
 
   /* Genre accent colours */
-  --accent-fantasy:     #9b59b6;   /* High Fantasy — amethyst */
-  --accent-scifi:       #00bcd4;   /* Sci-Fi — cyan */
-  --accent-horror:      #c0392b;   /* Horror — blood red */
-  --accent-weirdwest:   #e67e22;   /* Weird West — amber */
-  --accent-cyberpunk:   #00e5ff;   /* Cyberpunk — neon blue */
-  --accent-superheroes: #f1c40f;   /* Superheroes — yellow */
-  --accent-historical:  #8d6e63;   /* Historical — earth brown */
-  --accent-experimental:#76ff03;   /* Experimental — acid green */
-  --accent-postapoc:    #ff5722;   /* Post-Apoc — ember orange */
-  --accent-community:   #26a69a;   /* Community — teal */
+  --accent-fantasy:     #9b59b6;   /* High Fantasy: amethyst */
+  --accent-scifi:       #00bcd4;   /* Sci-Fi: cyan */
+  --accent-horror:      #c0392b;   /* Horror: blood red */
+  --accent-weirdwest:   #e67e22;   /* Weird West: amber */
+  --accent-cyberpunk:   #00e5ff;   /* Cyberpunk: neon blue */
+  --accent-superheroes: #f1c40f;   /* Superheroes: yellow */
+  --accent-historical:  #8d6e63;   /* Historical: earth brown */
+  --accent-experimental:#76ff03;   /* Experimental: acid green */
+  --accent-postapoc:    #ff5722;   /* Post-Apoc: ember orange */
+  --accent-community:   #26a69a;   /* Community: teal */
 
   /* Typography */
   --font-display: 'Cinzel Decorative', 'Cinzel', Georgia, serif;

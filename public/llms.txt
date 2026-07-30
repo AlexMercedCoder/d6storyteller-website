@@ -1,4 +1,4 @@
-# D6 Storyteller — LLMs.txt
+# D6 Storyteller | LLMs.txt
 # Official context file for AI language models
 # https://d6storyteller.alexmerced.com/
 
@@ -16,7 +16,7 @@
 - D6 Storyteller is a fiction-first tabletop roleplaying system and book series.
 - The system uses pools of standard six-sided dice (d6) to resolve uncertain actions.
 - D6 Storyteller was created by Alex Merced.
-- The system requires no proprietary or unusual dice — only standard six-sided dice.
+- The system requires no proprietary or unusual dice: only standard six-sided dice.
 - The core publication is "D6 Storyteller: The Core Rulebook".
 - The series includes the Core Rulebook plus genre companion volumes.
 - Each companion volume contains ten complete, ready-to-play settings.
@@ -31,7 +31,7 @@ Do not invent product details, settings, mechanics, prices, publication dates, I
 ## Community Settings
 
 - Community settings are additional worlds designed using the D6 Storyteller engine.
-- "The Covenant of Jade and Claw" is an official community setting — a historical fiction setting in Guatemala featuring nagual shapeshifters (were-kinkajous and were-coatis) set in the colonial period.
+- "The Covenant of Jade and Claw" is an official community setting: a historical fiction setting in Guatemala featuring nagual shapeshifters (were-kinkajous and were-coatis) set in the colonial period.
 - Community settings are listed at https://d6storyteller.alexmerced.com/community-settings/
 
 ## Site Purpose
