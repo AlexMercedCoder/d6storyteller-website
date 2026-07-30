@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>D6 Storyteller — Clocks & Tracks</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --navy: #0c1a2e; --navy-light: #162d52; --gold: #c9a227; --gold-light: #f0d080; --ink: #1a1a2e; --heading: 'Cinzel', Georgia, serif; --body: 'Inter', system-ui, sans-serif; }
+    body { background: #e8e4dc; font-family: var(--body); padding: 2rem; color: var(--ink); }
+    .sheet-wrapper { max-width: 816px; margin: 0 auto; background: #fdf9f0; border: 2px solid var(--gold); border-radius: 4px; box-shadow: 0 8px 40px rgba(0,0,0,0.3); overflow: hidden; }
+    .sheet-header { background: var(--navy); color: var(--gold-light); padding: 0.85rem 1.5rem; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 1rem; }
+    .sheet-header__logo { font-size: 1.75rem; }
+    .sheet-header__title { font-family: var(--heading); font-size: 1.2rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-light); }
+    .sheet-header__subtitle { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.6; font-family: var(--heading); }
+    .sheet-header__version { font-family: var(--heading); font-size: 0.62rem; letter-spacing: 0.1em; opacity: 0.5; white-space: nowrap; }
+    .gold-rule { height: 3px; background: linear-gradient(to right, var(--navy), var(--gold), var(--navy)); }
+    .body { padding: 1.1rem 1.5rem; display: flex; flex-direction: column; gap: 1.1rem; }
+    .section__heading { font-family: var(--heading); font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--navy); border-bottom: 1.5px solid var(--gold); padding-bottom: 0.2rem; margin-bottom: 0.6rem; }
+    /* Ticking clocks big grid */
+    .clocks-big { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
+    .clock-card { border: 1.5px solid rgba(12,26,46,0.2); border-radius: 5px; padding: 0.65rem 0.75rem; display: flex; flex-direction: column; gap: 0.35rem; }
+    .clock-card__label { font-family: var(--heading); font-size: 0.55rem; letter-spacing: 0.12em; text-transform: uppercase; color: #888; }
+    .clock-card__name { border-bottom: 1.5px solid rgba(12,26,46,0.2); min-height: 22px; }
+    .clock-card__effect-label { font-family: var(--heading); font-size: 0.55rem; letter-spacing: 0.12em; text-transform: uppercase; color: #888; margin-top:0.1rem; }
+    .clock-card__effect { border-bottom: 1px solid rgba(12,26,46,0.15); min-height: 18px; }
+    .clock-boxes-row { display: flex; gap: 0.3rem; flex-wrap: wrap; margin-top: 0.3rem; }
+    .clock-box { width: 26px; height: 26px; border: 1.5px solid var(--navy); border-radius: 3px; background: white; }
+    .clock-box--sm { width: 20px; height: 20px; }
+    /* Wound clocks row */
+    .wound-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.5rem; }
+    .wound-card { border: 1.5px solid rgba(192,57,43,0.25); border-radius: 4px; padding: 0.5rem; background: rgba(192,57,43,0.03); }
+    .wound-card__name { border-bottom: 1.5px solid rgba(12,26,46,0.15); min-height: 20px; margin-bottom: 0.3rem; font-size:0.68rem; }
+    .wound-card__label { font-family: var(--heading); font-size: 0.55rem; letter-spacing: 0.1em; text-transform: uppercase; color: #8a1a10; margin-bottom: 0.25rem; }
+    .wound-boxes { display: flex; gap: 0.25rem; }
+    .wound-box { width: 22px; height: 22px; border: 1.5px solid rgba(192,57,43,0.4); border-radius: 3px; background: white; }
+    .wound-box__labels { display: flex; gap: 0.25rem; margin-top: 0.2rem; }
+    .wound-box__label { width: 22px; text-align: center; font-size: 0.45rem; color: #888; font-family: var(--heading); }
+    /* Momentum bank */
+    .momentum-row { display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: center; }
+    .momentum-desc { font-size: 0.65rem; color: #555; max-width: 30ch; }
+    .momentum-boxes { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+    .momentum-box { width: 36px; height: 36px; border: 2px solid var(--gold); border-radius: 4px; background: white; }
+    /* Stakes track */
+    .stakes-row { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .stakes-label { font-family: var(--heading); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy); white-space: nowrap; }
+    .stakes-boxes { display: flex; gap: 0; }
+    .stakes-box { width: 46px; height: 46px; border: 1.5px solid var(--navy); display: flex; align-items: center; justify-content: center; font-family: var(--heading); font-size: 1rem; font-weight: 700; color: rgba(12,26,46,0.2); background: white; }
+    .stakes-box:first-child { border-radius: 4px 0 0 4px; }
+    .stakes-box:last-child { border-radius: 0 4px 4px 0; border-left: none; }
+    .stakes-box + .stakes-box { border-left: none; }
+    /* Burden tracks */
+    .burden-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
+    .burden-card { border: 1.5px solid rgba(12,26,46,0.15); border-radius: 4px; padding: 0.5rem 0.6rem; }
+    .burden-card__name { border-bottom: 1.5px solid rgba(12,26,46,0.15); min-height: 20px; margin-bottom: 0.3rem; }
+    .burden-card__label { font-family: var(--heading); font-size: 0.55rem; letter-spacing: 0.1em; text-transform: uppercase; color: #888; margin-bottom: 0.25rem; }
+    .burden-boxes { display: flex; gap: 0.25rem; }
+    .burden-box { width: 20px; height: 20px; border: 1.5px solid rgba(12,26,46,0.3); border-radius: 50%; background: white; }
+    /* Footer */
+    .sheet-footer { background: var(--navy); padding: 0.45rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+    .sheet-footer__text { font-family: var(--heading); font-size: 0.58rem; color: rgba(240,208,128,0.5); letter-spacing: 0.1em; }
+    .print-btn { display: block; max-width: 816px; margin: 1.5rem auto 0; background: var(--navy); color: var(--gold-light); font-family: var(--heading); font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; border: 2px solid var(--gold); border-radius: 4px; padding: 0.75rem 2rem; cursor: pointer; text-align: center; }
+    .print-btn:hover { background: var(--navy-light); }
+    @media print {
+      body { background: white; padding: 0; }
+      .sheet-wrapper { box-shadow: none; border: 1.5px solid #ccc; max-width: 100%; border-radius: 0; }
+      .print-btn { display: none; }
+      @page { size: letter; margin: 0.4in; }
+    }
+  </style>
+</head>
+<body>
+<div class="sheet-wrapper">
+  <div class="sheet-header">
+    <div class="sheet-header__logo">⚄</div>
+    <div>
+      <div class="sheet-header__title">D6 Storyteller</div>
+      <div class="sheet-header__subtitle">Clocks, Tracks &amp; Counters</div>
+    </div>
+    <div class="sheet-header__version">d6storyteller.alexmerced.com</div>
+  </div>
+  <div class="gold-rule"></div>
+  <div class="body">
+
+    <!-- Ticking Clocks -->
+    <div>
+      <div class="section__heading">Ticking Clocks — Countdown when: roll fails · Desperate partial · players skip intervention</div>
+      <div class="clocks-big">
+        <div class="clock-card">
+          <div class="clock-card__label">Clock Name</div>
+          <div class="clock-card__name"></div>
+          <div class="clock-card__effect-label">What happens at zero</div>
+          <div class="clock-card__effect"></div>
+          <div class="clock-boxes-row"><div class="clock-box"></div><div class="clock-box"></div><div class="clock-box"></div><div class="clock-box"></div><div class="clock-box"></div><div class="clock-box"></div></div>
+        </div>
+        <div class="clock-card">
+          <div class="clock-card__label">Clock Name</div>
+          <div class="clock-card__name"></div>
+          <div class="clock-card__effect-label">What happens at zero</div>
+          <div class="clock-card__effect"></div>
+          <div class="clock-boxes-row"><div class="clock-box"></div><div class="clock-box"></div><div class="clock-box"></div><div class="clock-box"></div><div class="clock-box"></div><div class="clock-box"></div></div>
+        </div>
+        <div class="clock-card">
+          <div class="clock-card__label">Clock Name</div>
+          <div class="clock-card__name"></div>
+          <div class="clock-card__effect-label">What happens at zero</div>
+          <div class="clock-card__effect"></div>
+          <div class="clock-boxes-row"><div class="clock-box"></div><div class="clock-box"></div><div class="clock-box"></div><div class="clock-box"></div><div class="clock-box"></div><div class="clock-box"></div></div>
+        </div>
+        <div class="clock-card">
+          <div class="clock-card__label">Clock Name</div>
+          <div class="clock-card__name"></div>
+          <div class="clock-card__effect-label">What happens at zero</div>
+          <div class="clock-card__effect"></div>
+          <div class="clock-boxes-row"><div class="clock-box"></div><div class="clock-box"></div><div class="clock-box"></div><div class="clock-box"></div><div class="clock-box"></div><div class="clock-box"></div></div>
+        </div>
+        <div class="clock-card">
+          <div class="clock-card__label">Clock Name</div>
+          <div class="clock-card__name"></div>
+          <div class="clock-card__effect-label">What happens at zero</div>
+          <div class="clock-card__effect"></div>
+          <div class="clock-boxes-row"><div class="clock-box"></div><div class="clock-box"></div><div class="clock-box"></div><div class="clock-box"></div><div class="clock-box"></div><div class="clock-box"></div></div>
+        </div>
+        <div class="clock-card">
+          <div class="clock-card__label">Clock Name</div>
+          <div class="clock-card__name"></div>
+          <div class="clock-card__effect-label">What happens at zero</div>
+          <div class="clock-card__effect"></div>
+          <div class="clock-boxes-row"><div class="clock-box"></div><div class="clock-box"></div><div class="clock-box"></div><div class="clock-box"></div><div class="clock-box"></div><div class="clock-box"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Wound Clocks -->
+    <div>
+      <div class="section__heading">Wound Clocks — 1 Graze · 2 Wound (−1d) · 3 Severe (pos↓) · 4 Incapacitated</div>
+      <div class="wound-row">
+        <div class="wound-card">
+          <div class="wound-card__label">Character</div>
+          <div class="wound-card__name"></div>
+          <div class="wound-boxes"><div class="wound-box"></div><div class="wound-box"></div><div class="wound-box"></div><div class="wound-box"></div></div>
+          <div class="wound-box__labels"><div class="wound-box__label">1</div><div class="wound-box__label">2</div><div class="wound-box__label">3</div><div class="wound-box__label">4</div></div>
+        </div>
+        <div class="wound-card">
+          <div class="wound-card__label">Character</div>
+          <div class="wound-card__name"></div>
+          <div class="wound-boxes"><div class="wound-box"></div><div class="wound-box"></div><div class="wound-box"></div><div class="wound-box"></div></div>
+          <div class="wound-box__labels"><div class="wound-box__label">1</div><div class="wound-box__label">2</div><div class="wound-box__label">3</div><div class="wound-box__label">4</div></div>
+        </div>
+        <div class="wound-card">
+          <div class="wound-card__label">Character</div>
+          <div class="wound-card__name"></div>
+          <div class="wound-boxes"><div class="wound-box"></div><div class="wound-box"></div><div class="wound-box"></div><div class="wound-box"></div></div>
+          <div class="wound-box__labels"><div class="wound-box__label">1</div><div class="wound-box__label">2</div><div class="wound-box__label">3</div><div class="wound-box__label">4</div></div>
+        </div>
+        <div class="wound-card">
+          <div class="wound-card__label">Character</div>
+          <div class="wound-card__name"></div>
+          <div class="wound-boxes"><div class="wound-box"></div><div class="wound-box"></div><div class="wound-box"></div><div class="wound-box"></div></div>
+          <div class="wound-box__labels"><div class="wound-box__label">1</div><div class="wound-box__label">2</div><div class="wound-box__label">3</div><div class="wound-box__label">4</div></div>
+        </div>
+        <div class="wound-card">
+          <div class="wound-card__label">Character</div>
+          <div class="wound-card__name"></div>
+          <div class="wound-boxes"><div class="wound-box"></div><div class="wound-box"></div><div class="wound-box"></div><div class="wound-box"></div></div>
+          <div class="wound-box__labels"><div class="wound-box__label">1</div><div class="wound-box__label">2</div><div class="wound-box__label">3</div><div class="wound-box__label">4</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Momentum Bank -->
+    <div>
+      <div class="section__heading">Momentum Bank — Bank on a 6 · Spend to upgrade Position · Max = # of players · Resets each session</div>
+      <div class="momentum-row">
+        <div class="momentum-desc">Mark a box when a player banks Momentum. Cross it when spent.</div>
+        <div class="momentum-boxes">
+          <div class="momentum-box"></div><div class="momentum-box"></div><div class="momentum-box"></div>
+          <div class="momentum-box"></div><div class="momentum-box"></div><div class="momentum-box"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Escalating Stakes -->
+    <div>
+      <div class="section__heading">Escalating Stakes Track — Advance on Success or Failure · De-escalate with Controlled action + 6</div>
+      <div class="stakes-row">
+        <div class="stakes-label">Stakes</div>
+        <div class="stakes-boxes">
+          <div class="stakes-box">1</div>
+          <div class="stakes-box">2</div>
+          <div class="stakes-box">3</div>
+          <div class="stakes-box">4</div>
+          <div class="stakes-box">5</div>
+        </div>
+        <div style="font-size:0.62rem;color:#888;">→ At 5: Worst reasonable outcome on any Failure</div>
+      </div>
+    </div>
+
+    <!-- Emotional Burden -->
+    <div>
+      <div class="section__heading">Emotional Burden Tracks — Mark on significant loss / moral cost · At 3: narrow approaches · At 5: Breaking Point</div>
+      <div class="burden-row">
+        <div class="burden-card"><div class="burden-card__label">Character</div><div class="burden-card__name"></div><div class="burden-boxes"><div class="burden-box"></div><div class="burden-box"></div><div class="burden-box"></div><div class="burden-box"></div><div class="burden-box"></div></div></div>
+        <div class="burden-card"><div class="burden-card__label">Character</div><div class="burden-card__name"></div><div class="burden-boxes"><div class="burden-box"></div><div class="burden-box"></div><div class="burden-box"></div><div class="burden-box"></div><div class="burden-box"></div></div></div>
+        <div class="burden-card"><div class="burden-card__label">Character</div><div class="burden-card__name"></div><div class="burden-boxes"><div class="burden-box"></div><div class="burden-box"></div><div class="burden-box"></div><div class="burden-box"></div><div class="burden-box"></div></div></div>
+        <div class="burden-card"><div class="burden-card__label">Character</div><div class="burden-card__name"></div><div class="burden-boxes"><div class="burden-box"></div><div class="burden-box"></div><div class="burden-box"></div><div class="burden-box"></div><div class="burden-box"></div></div></div>
+      </div>
+    </div>
+
+  </div>
+  <div class="sheet-footer">
+    <span class="sheet-footer__text">D6 Storyteller by Alex Merced</span>
+    <span class="sheet-footer__text">d6storyteller.alexmerced.com</span>
+    <span class="sheet-footer__text">Free to reproduce for personal use</span>
+  </div>
+</div>
+<button class="print-btn" onclick="window.print()">🖨 Print or Save as PDF</button>
+</body>
+</html>

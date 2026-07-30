@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>D6 Storyteller — Session Planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0c1a2e;
+      --navy-light: #162d52;
+      --gold: #c9a227;
+      --gold-light: #f0d080;
+      --ink: #1a1a2e;
+      --line: rgba(12,26,46,0.2);
+      --heading: 'Cinzel', Georgia, serif;
+      --body: 'Inter', system-ui, sans-serif;
+    }
+    body { background: #e8e4dc; font-family: var(--body); padding: 2rem; color: var(--ink); }
+    .sheet-wrapper { max-width: 816px; margin: 0 auto; background: #fdf9f0; border: 2px solid var(--gold); border-radius: 4px; box-shadow: 0 8px 40px rgba(0,0,0,0.3); overflow: hidden; }
+    .sheet-header { background: var(--navy); color: var(--gold-light); padding: 0.85rem 1.5rem; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 1rem; }
+    .sheet-header__logo { font-size: 1.75rem; }
+    .sheet-header__title { font-family: var(--heading); font-size: 1.2rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-light); }
+    .sheet-header__subtitle { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.6; font-family: var(--heading); }
+    .sheet-header__version { font-family: var(--heading); font-size: 0.62rem; letter-spacing: 0.1em; opacity: 0.5; white-space: nowrap; }
+    .gold-rule { height: 3px; background: linear-gradient(to right, var(--navy), var(--gold), var(--navy)); }
+    .body { padding: 1.1rem 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1.5rem; }
+    .section { display: flex; flex-direction: column; gap: 0.4rem; }
+    .section--full { grid-column: 1 / -1; }
+    .section__heading { font-family: var(--heading); font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--navy); border-bottom: 1.5px solid var(--gold); padding-bottom: 0.2rem; margin-bottom: 0.2rem; }
+    .field { display: flex; align-items: flex-end; gap: 0.4rem; margin-bottom: 0.25rem; }
+    .field__label { font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; color: #777; white-space: nowrap; flex-shrink: 0; padding-bottom: 2px; }
+    .field__line { flex: 1; border-bottom: 1.5px solid var(--line); min-height: 20px; }
+    .lines { display: flex; flex-direction: column; gap: 0.28rem; }
+    .line { border-bottom: 1px solid var(--line); min-height: 20px; }
+    .scene-box { border: 1.5px solid rgba(201,162,39,0.4); border-radius: 4px; padding: 0.5rem 0.6rem; background: rgba(201,162,39,0.03); }
+    .scene-box__title { font-family: var(--heading); font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.3rem; }
+    .npc-row { display: grid; grid-template-columns: 1.5fr 1fr 1.5fr; gap: 0.4rem; align-items: flex-end; margin-bottom: 0.25rem; }
+    .npc-header { display: grid; grid-template-columns: 1.5fr 1fr 1.5fr; gap: 0.4rem; margin-bottom: 0.2rem; }
+    .npc-header span { font-size: 0.55rem; font-family: var(--heading); letter-spacing: 0.12em; text-transform: uppercase; color: #888; }
+    .npc-line { border-bottom: 1.5px solid var(--line); min-height: 20px; }
+    .clock-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+    .clock-item { border: 1.5px solid rgba(12,26,46,0.2); border-radius: 4px; padding: 0.4rem 0.5rem; }
+    .clock-item__label { font-size: 0.58rem; font-family: var(--heading); letter-spacing: 0.1em; text-transform: uppercase; color: #777; margin-bottom: 0.25rem; }
+    .clock-item__name { border-bottom: 1.5px solid var(--line); min-height: 20px; margin-bottom: 0.3rem; }
+    .clock-boxes { display: flex; gap: 0.25rem; }
+    .clock-box { width: 20px; height: 20px; border: 1.5px solid var(--navy); border-radius: 2px; }
+    .sheet-footer { background: var(--navy); padding: 0.45rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+    .sheet-footer__text { font-family: var(--heading); font-size: 0.58rem; color: rgba(240,208,128,0.5); letter-spacing: 0.1em; }
+    .print-btn { display: block; max-width: 816px; margin: 1.5rem auto 0; background: var(--navy); color: var(--gold-light); font-family: var(--heading); font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; border: 2px solid var(--gold); border-radius: 4px; padding: 0.75rem 2rem; cursor: pointer; text-align: center; }
+    .print-btn:hover { background: var(--navy-light); }
+    @media print {
+      body { background: white; padding: 0; }
+      .sheet-wrapper { box-shadow: none; border: 1.5px solid #ccc; max-width: 100%; border-radius: 0; }
+      .print-btn { display: none; }
+      @page { size: letter; margin: 0.4in; }
+    }
+  </style>
+</head>
+<body>
+<div class="sheet-wrapper">
+  <div class="sheet-header">
+    <div class="sheet-header__logo">⚄</div>
+    <div>
+      <div class="sheet-header__title">D6 Storyteller</div>
+      <div class="sheet-header__subtitle">Session Planner — Storyteller's Sheet</div>
+    </div>
+    <div class="sheet-header__version">d6storyteller.alexmerced.com</div>
+  </div>
+  <div class="gold-rule"></div>
+  <div class="body">
+
+    <!-- Session meta -->
+    <div class="section section--full">
+      <div class="section__heading">Session</div>
+      <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:0.6rem;">
+        <div class="field"><span class="field__label">Setting / Campaign</span><span class="field__line"></span></div>
+        <div class="field"><span class="field__label">Session #</span><span class="field__line"></span></div>
+        <div class="field"><span class="field__label">Date</span><span class="field__line"></span></div>
+      </div>
+      <div class="field"><span class="field__label">The Big Question This Session</span><span class="field__line"></span></div>
+    </div>
+
+    <!-- Opening scene -->
+    <div class="section section--full">
+      <div class="section__heading">Opening Scene</div>
+      <div class="scene-box">
+        <div class="scene-box__title">Where do we open? What is immediately happening?</div>
+        <div class="lines">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;margin-top:0.4rem;">
+          <div>
+            <div class="scene-box__title">What does the Storyteller know that the players don't?</div>
+            <div class="lines"><div class="line"></div><div class="line"></div></div>
+          </div>
+          <div>
+            <div class="scene-box__title">What is the immediate threat or complication?</div>
+            <div class="lines"><div class="line"></div><div class="line"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scenes -->
+    <div class="section">
+      <div class="section__heading">Possible Scenes (not required — improvise freely)</div>
+      <div class="scene-box" style="margin-bottom:0.4rem;">
+        <div class="scene-box__title">Scene A — Trigger / Setup</div>
+        <div class="lines"><div class="line"></div><div class="line"></div></div>
+      </div>
+      <div class="scene-box" style="margin-bottom:0.4rem;">
+        <div class="scene-box__title">Scene B — Escalation / Reveal</div>
+        <div class="lines"><div class="line"></div><div class="line"></div></div>
+      </div>
+      <div class="scene-box">
+        <div class="scene-box__title">Scene C — Confrontation / Payoff</div>
+        <div class="lines"><div class="line"></div><div class="line"></div></div>
+      </div>
+    </div>
+
+    <!-- NPCs -->
+    <div class="section">
+      <div class="section__heading">Key NPCs This Session</div>
+      <div class="npc-header">
+        <span>Name</span><span>Want</span><span>Method / Approach</span>
+      </div>
+      <div class="npc-row"><div class="npc-line"></div><div class="npc-line"></div><div class="npc-line"></div></div>
+      <div class="npc-row"><div class="npc-line"></div><div class="npc-line"></div><div class="npc-line"></div></div>
+      <div class="npc-row"><div class="npc-line"></div><div class="npc-line"></div><div class="npc-line"></div></div>
+      <div class="npc-row"><div class="npc-line"></div><div class="npc-line"></div><div class="npc-line"></div></div>
+      <div class="npc-row"><div class="npc-line"></div><div class="npc-line"></div><div class="npc-line"></div></div>
+    </div>
+
+    <!-- Clocks -->
+    <div class="section section--full">
+      <div class="section__heading">Ticking Clocks</div>
+      <div class="clock-grid">
+        <div class="clock-item">
+          <div class="clock-item__label">Clock Name</div>
+          <div class="clock-item__name"></div>
+          <div style="font-size:0.58rem;color:#888;margin:0.2rem 0;font-family:'Cinzel',serif;">Countdown:</div>
+          <div class="clock-boxes"><div class="clock-box"></div><div class="clock-box"></div><div class="clock-box"></div><div class="clock-box"></div><div class="clock-box"></div><div class="clock-box"></div></div>
+        </div>
+        <div class="clock-item">
+          <div class="clock-item__label">Clock Name</div>
+          <div class="clock-item__name"></div>
+          <div style="font-size:0.58rem;color:#888;margin:0.2rem 0;font-family:'Cinzel',serif;">Countdown:</div>
+          <div class="clock-boxes"><div class="clock-box"></div><div class="clock-box"></div><div class="clock-box"></div><div class="clock-box"></div><div class="clock-box"></div><div class="clock-box"></div></div>
+        </div>
+        <div class="clock-item">
+          <div class="clock-item__label">Clock Name</div>
+          <div class="clock-item__name"></div>
+          <div style="font-size:0.58rem;color:#888;margin:0.2rem 0;font-family:'Cinzel',serif;">Countdown:</div>
+          <div class="clock-boxes"><div class="clock-box"></div><div class="clock-box"></div><div class="clock-box"></div><div class="clock-box"></div><div class="clock-box"></div><div class="clock-box"></div></div>
+        </div>
+        <div class="clock-item">
+          <div class="clock-item__label">Clock Name</div>
+          <div class="clock-item__name"></div>
+          <div style="font-size:0.58rem;color:#888;margin:0.2rem 0;font-family:'Cinzel',serif;">Countdown:</div>
+          <div class="clock-boxes"><div class="clock-box"></div><div class="clock-box"></div><div class="clock-box"></div><div class="clock-box"></div><div class="clock-box"></div><div class="clock-box"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Session notes + thread tracking -->
+    <div class="section">
+      <div class="section__heading">Loose Threads &amp; Open Questions</div>
+      <div class="lines">
+        <div class="line"></div><div class="line"></div><div class="line"></div>
+        <div class="line"></div><div class="line"></div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section__heading">Session Notes &amp; Outcomes</div>
+      <div class="lines">
+        <div class="line"></div><div class="line"></div><div class="line"></div>
+        <div class="line"></div><div class="line"></div>
+      </div>
+    </div>
+
+  </div>
+  <div class="sheet-footer">
+    <span class="sheet-footer__text">D6 Storyteller by Alex Merced</span>
+    <span class="sheet-footer__text">d6storyteller.alexmerced.com</span>
+    <span class="sheet-footer__text">Free to reproduce for personal use</span>
+  </div>
+</div>
+<button class="print-btn" onclick="window.print()">🖨 Print or Save as PDF</button>
+</body>
+</html>

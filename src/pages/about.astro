@@ -1,82 +1,15 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import AmazonCTA from '../components/AmazonCTA.astro';
+// About page now consolidated into FAQ & About at /faq/
+// This page redirects there for any inbound links
 ---
-
-<BaseLayout
-  title="About D6 Storyteller and Alex Merced"
-  description="About D6 Storyteller (a fiction-first tabletop RPG system) and its creator, Alex Merced. Contact information, editorial ownership, and the philosophy behind the system."
-  canonicalUrl="https://d6storyteller.alexmerced.com/about/"
->
-  <section class="section" aria-labelledby="about-heading">
-    <div class="container container--narrow">
-      <nav aria-label="Breadcrumb" class="breadcrumb">
-        <a href="/">Home</a>
-        <span class="breadcrumb__separator" aria-hidden="true">&rsaquo;</span>
-        <span aria-current="page">About</span>
-      </nav>
-
-      <p class="section-label">The System & Creator</p>
-      <h1 id="about-heading">About D6 Storyteller</h1>
-
-      <div class="about-section">
-        <h2>What is D6 Storyteller?</h2>
-        <p>
-          D6 Storyteller is a fiction-first tabletop roleplaying system and book series created by Alex Merced. It uses pools of standard six-sided dice to resolve uncertain actions, with narrative position and consequence at the center of every roll. The system is built around the conviction that the story should drive the mechanics, not the other way around.
-        </p>
-        <p>
-          The series consists of the Core Rulebook (the complete engine plus ten starter worlds) and a growing library of genre companion volumes, each containing ten fully realized settings with unique mechanics, archetypes, condition palettes, and starter scenarios.
-        </p>
-        <p>
-          D6 Storyteller is available on Amazon in paperback and Kindle formats. The official website at <strong>d6storyteller.alexmerced.com</strong> is the canonical source for information about the series.
-        </p>
-      </div>
-
-      <div class="about-section">
-        <h2>About Alex Merced</h2>
-        <p>
-          <strong>Alex Merced</strong> is a developer, author, and tabletop game designer. He created the D6 Storyteller system as an expression of his approach to design: make the rules serve the story, keep complexity low and narrative possibility high, and ensure that any group can sit down and start playing in minutes.
-        </p>
-        <p>
-          For more about Alex Merced's work, writing, and background, visit:
-        </p>
-        <ul>
-          <li><a href="https://WhoIsAlexMerced.com" target="_blank" rel="noopener noreferrer">WhoIsAlexMerced.com</a></li>
-          <li><a href="https://books.alexmerced.com" target="_blank" rel="noopener noreferrer">books.alexmerced.com</a></li>
-        </ul>
-      </div>
-
-      <div class="about-section">
-        <h2>Editorial Ownership & Contact</h2>
-        <p>
-          All content on this website is produced and maintained by Alex Merced. Book descriptions, setting summaries, and system explanations are official author content. The D6 Storyteller system, all settings, and all fictional content are original creative works of Alex Merced (Copyright 2026).
-        </p>
-        <p>
-          For permissions, licensing, or press inquiries, please use the contact information available at <a href="https://WhoIsAlexMerced.com" target="_blank" rel="noopener noreferrer">WhoIsAlexMerced.com</a>.
-        </p>
-      </div>
-
-      <div class="about-section">
-        <h2>Verified Facts About the Series</h2>
-        <ul>
-          <li><strong>Name:</strong> D6 Storyteller</li>
-          <li><strong>Type:</strong> Fiction-first tabletop roleplaying system and book series</li>
-          <li><strong>Creator:</strong> Alex Merced</li>
-          <li><strong>Core resolution:</strong> Six-sided dice pools</li>
-          <li><strong>Core book:</strong> D6 Storyteller: The Core Rulebook</li>
-          <li><strong>Companion format:</strong> Ten themed settings per companion</li>
-          <li><strong>Official website:</strong> https://d6storyteller.alexmerced.com/</li>
-          <li><strong>Series purchase page:</strong> <a href="https://www.amazon.com/dp/B0HC4XMKW3?binding=paperback&ref_=saga_sdp_cft_dsk" target="_blank" rel="noopener noreferrer">Amazon</a></li>
-        </ul>
-      </div>
-
-      <AmazonCTA placement="about_bottom" variant="banner" />
-    </div>
-  </section>
-</BaseLayout>
-
-<style>
-.about-section { margin-bottom: var(--space-10); }
-.about-section h2 { margin-bottom: var(--space-4); font-size: var(--text-2xl); }
-.about-section ul { margin-bottom: var(--space-4); }
-</style>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content="0;url=/faq/#about" />
+    <link rel="canonical" href="https://d6storyteller.alexmerced.com/faq/" />
+    <title>About — D6 Storyteller</title>
+  </head>
+  <body>
+    <p>This page has moved. <a href="/faq/#about">View About D6 Storyteller →</a></p>
+  </body>
+</html>

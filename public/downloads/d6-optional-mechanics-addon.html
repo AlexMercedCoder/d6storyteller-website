@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>D6 Storyteller — Optional Mechanics Character Add-On</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0c1a2e;
+      --navy-light: #162d52;
+      --gold: #c9a227;
+      --gold-light: #f0d080;
+      --ink: #1a1a2e;
+      --line: rgba(12,26,46,0.18);
+      --heading: 'Cinzel', Georgia, serif;
+      --body: 'Inter', system-ui, sans-serif;
+    }
+    body { background: #e8e4dc; font-family: var(--body); padding: 2rem; color: var(--ink); }
+
+    .sheet-wrapper {
+      max-width: 816px;
+      margin: 0 auto;
+      background: #fdf9f0;
+      border: 2px solid var(--gold);
+      border-radius: 4px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+      overflow: hidden;
+    }
+
+    /* Header */
+    .sheet-header {
+      background: var(--navy);
+      padding: 0.9rem 1.5rem;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 1rem;
+    }
+    .sheet-header__logo { font-size: 2rem; }
+    .sheet-header__title {
+      font-family: var(--heading);
+      font-size: 1.2rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+    .sheet-header__subtitle {
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.55;
+      font-family: var(--heading);
+      color: var(--gold-light);
+    }
+    .sheet-header__badge {
+      font-family: var(--heading);
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: rgba(201,162,39,0.2);
+      color: var(--gold-light);
+      border: 1px solid rgba(201,162,39,0.5);
+      border-radius: 2px;
+      padding: 2px 8px;
+      white-space: nowrap;
+    }
+    .gold-rule { height: 3px; background: linear-gradient(to right, var(--navy), var(--gold), var(--navy)); }
+
+    /* Optional notice */
+    .opt-notice {
+      background: rgba(201,162,39,0.08);
+      border-bottom: 1px solid rgba(201,162,39,0.25);
+      padding: 0.45rem 1.5rem;
+      font-size: 0.63rem;
+      color: #665500;
+      font-family: var(--heading);
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .opt-notice a { color: #8a6800; font-weight: 700; text-underline-offset: 2px; }
+
+    /* Sheet body */
+    .sheet-body { padding: 1.2rem 1.5rem; display: flex; flex-direction: column; gap: 1rem; }
+
+    /* Character slug */
+    .char-meta {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 0.65rem;
+    }
+    .field { display: flex; align-items: flex-end; gap: 0.4rem; }
+    .field__label {
+      font-size: 0.58rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #888;
+      white-space: nowrap;
+      flex-shrink: 0;
+      padding-bottom: 2px;
+      font-family: var(--heading);
+    }
+    .field__line { flex: 1; border-bottom: 1.5px solid var(--line); min-height: 21px; }
+
+    /* Section heading */
+    .section { }
+    .section__heading {
+      font-family: var(--heading);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--navy);
+      border-bottom: 1.5px solid var(--gold);
+      padding-bottom: 0.2rem;
+      margin-bottom: 0.55rem;
+    }
+    .section__rule {
+      font-size: 0.6rem;
+      color: #666;
+      font-family: var(--heading);
+      letter-spacing: 0.04em;
+      background: rgba(12,26,46,0.04);
+      border: 1px solid rgba(12,26,46,0.1);
+      border-radius: 3px;
+      padding: 0.3rem 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .section__rule strong { color: var(--navy); }
+    .section__mechanic-link {
+      font-size: 0.58rem;
+      font-family: var(--heading);
+      letter-spacing: 0.04em;
+      color: #8a6800;
+      font-style: italic;
+      margin-bottom: 0.5rem;
+    }
+    .section__mechanic-link a { color: #8a6800; }
+
+    /* ── Wound Clock ── */
+    .wound-section { display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: start; }
+    .wound-clock-visual {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .wound-clock-label { font-family: var(--heading); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: #8a1a10; }
+    .wound-segments {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.35rem;
+    }
+    .wound-seg {
+      width: 44px;
+      height: 44px;
+      border-radius: 4px;
+      border: 2px solid;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 1px;
+    }
+    .wound-seg--1 { border-color: rgba(39,174,96,0.5); background: rgba(39,174,96,0.05); }
+    .wound-seg--2 { border-color: rgba(230,126,34,0.5); background: rgba(230,126,34,0.05); }
+    .wound-seg--3 { border-color: rgba(192,57,43,0.5); background: rgba(192,57,43,0.05); }
+    .wound-seg--4 { border-color: rgba(100,0,0,0.6); background: rgba(100,0,0,0.05); }
+    .wound-seg__num {
+      font-family: var(--heading);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+    .wound-seg--1 .wound-seg__num { color: rgba(39,174,96,0.6); }
+    .wound-seg--2 .wound-seg__num { color: rgba(230,126,34,0.6); }
+    .wound-seg--3 .wound-seg__num { color: rgba(192,57,43,0.6); }
+    .wound-seg--4 .wound-seg__num { color: rgba(100,0,0,0.5); }
+    .wound-seg__name { font-size: 0.42rem; font-family: var(--heading); letter-spacing: 0.04em; text-transform: uppercase; text-align: center; color: #888; }
+
+    .wound-table { width: 100%; border-collapse: collapse; font-size: 0.65rem; }
+    .wound-table th {
+      font-family: var(--heading); font-size: 0.52rem; letter-spacing: 0.1em; text-transform: uppercase;
+      background: var(--navy); color: var(--gold-light); padding: 0.2rem 0.4rem; text-align: left;
+    }
+    .wound-table td { padding: 0.2rem 0.4rem; border-bottom: 1px solid rgba(0,0,0,0.07); vertical-align: top; color: #333; }
+    .wound-table tr:nth-child(even) td { background: rgba(0,0,0,0.02); }
+
+    /* ── Momentum ── */
+    .momentum-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.5rem;
+    }
+    .momentum-label { font-family: var(--heading); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy); white-space: nowrap; }
+    .momentum-boxes { display: flex; gap: 0.35rem; }
+    .momentum-box {
+      width: 34px;
+      height: 34px;
+      border: 2px solid var(--gold);
+      border-radius: 4px;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--heading);
+      font-size: 0.55rem;
+      color: rgba(201,162,39,0.3);
+    }
+    .momentum-note { font-size: 0.6rem; color: #777; font-family: var(--heading); letter-spacing: 0.04em; }
+
+    /* ── Emotional Burden ── */
+    .burden-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.4rem;
+    }
+    .burden-label { font-family: var(--heading); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy); white-space: nowrap; }
+    .burden-circles { display: flex; gap: 0.4rem; }
+    .burden-circle {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 2px solid rgba(12,26,46,0.3);
+      background: white;
+    }
+    .burden-milestone {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .burden-milestone-item {
+      font-size: 0.6rem;
+      font-family: var(--heading);
+      letter-spacing: 0.04em;
+      color: #555;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .burden-milestone-num {
+      font-weight: 700;
+      color: var(--navy);
+      font-size: 0.75rem;
+    }
+    .burden-notes { display: flex; flex-direction: column; gap: 0.25rem; }
+    .burden-notes-line { border-bottom: 1px solid var(--line); min-height: 20px; }
+
+    /* ── Reputation Web ── */
+    .rep-web {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .rep-header {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1.5fr;
+      gap: 0.4rem;
+      margin-bottom: 0.1rem;
+    }
+    .rep-header span {
+      font-family: var(--heading);
+      font-size: 0.52rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+    }
+    .rep-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1.5fr;
+      gap: 0.4rem;
+      align-items: center;
+    }
+    .rep-row__name { border-bottom: 1.5px solid var(--line); min-height: 21px; }
+    .rep-stance {
+      display: flex;
+      gap: 0.2rem;
+      align-items: center;
+    }
+    .rep-badge {
+      font-size: 0.52rem;
+      font-family: var(--heading);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 1px 5px;
+      border-radius: 2px;
+      font-weight: 700;
+      cursor: default;
+      border: 1.5px solid transparent;
+    }
+    .rep-badge--trusted  { background: rgba(39,174,96,0.12);  color: #1a7a40;  border-color: rgba(39,174,96,0.3); }
+    .rep-badge--neutral  { background: rgba(201,162,39,0.12); color: #806000;  border-color: rgba(201,162,39,0.3); }
+    .rep-badge--wanted   { background: rgba(192,57,43,0.12);  color: #8a1a10;  border-color: rgba(192,57,43,0.3); }
+    .rep-notes { border-bottom: 1.5px solid var(--line); min-height: 21px; }
+
+    /* ── Legacy Move ── */
+    .legacy-section { display: grid; grid-template-columns: auto 1fr; gap: 0.75rem; align-items: start; }
+    .legacy-pip {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      background: white;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+    .legacy-content { display: flex; flex-direction: column; gap: 0.3rem; }
+    .legacy-line { border-bottom: 1.5px solid var(--line); min-height: 21px; }
+    .legacy-desc-label {
+      font-family: var(--heading);
+      font-size: 0.55rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 0.3rem;
+    }
+
+    /* ── Two-column layout for middle sections ── */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1.5rem; }
+    .two-col .section { }
+
+    /* ── Footer ── */
+    .sheet-footer {
+      background: var(--navy);
+      padding: 0.5rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .sheet-footer__text {
+      font-family: var(--heading);
+      font-size: 0.58rem;
+      color: rgba(240,208,128,0.5);
+      letter-spacing: 0.1em;
+    }
+
+    .print-btn {
+      display: block;
+      max-width: 816px;
+      margin: 1.5rem auto 0.5rem;
+      background: var(--navy);
+      color: var(--gold-light);
+      font-family: var(--heading);
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 2px solid var(--gold);
+      border-radius: 4px;
+      padding: 0.75rem 2rem;
+      cursor: pointer;
+      text-align: center;
+      width: 100%;
+    }
+    .print-btn:hover { background: var(--navy-light); }
+    .companion-link {
+      display: block;
+      max-width: 816px;
+      margin: 0.5rem auto 0;
+      text-align: center;
+      font-family: var(--heading);
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+      color: #665500;
+    }
+    .companion-link a { color: #8a6500; }
+
+    @media print {
+      body { background: white; padding: 0; }
+      .sheet-wrapper { box-shadow: none; border: 1.5px solid #ccc; max-width: 100%; border-radius: 0; }
+      .print-btn, .companion-link { display: none; }
+      @page { size: letter; margin: 0.4in; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="sheet-wrapper">
+
+  <!-- Header -->
+  <div class="sheet-header">
+    <div class="sheet-header__logo">⚙️</div>
+    <div>
+      <div class="sheet-header__title">D6 Storyteller</div>
+      <div class="sheet-header__subtitle">Optional Mechanics — Character Add-On Sheet</div>
+    </div>
+    <div class="sheet-header__badge">Optional Rules</div>
+  </div>
+  <div class="gold-rule"></div>
+
+  <!-- Optional notice -->
+  <div class="opt-notice">
+    ⚙ Use this sheet alongside the Core Character Sheet. Only include the mechanics your group has agreed to use.
+    Each mechanic links to its full rules at
+    <a href="https://d6storyteller.alexmerced.com/optional-mechanics/">d6storyteller.alexmerced.com/optional-mechanics/</a>
+  </div>
+
+  <div class="sheet-body">
+
+    <!-- Character slug -->
+    <div class="char-meta">
+      <div class="field"><span class="field__label">Character Name</span><span class="field__line"></span></div>
+      <div class="field"><span class="field__label">Player</span><span class="field__line"></span></div>
+      <div class="field"><span class="field__label">Campaign</span><span class="field__line"></span></div>
+    </div>
+
+    <!-- ── WOUND CLOCK ── -->
+    <div class="section">
+      <div class="section__heading">Wound Clock (Optional Mechanic #4)</div>
+      <div class="section__mechanic-link">Full rules: <a href="https://d6storyteller.alexmerced.com/optional-mechanics/#wound-clock">d6storyteller.alexmerced.com/optional-mechanics/#wound-clock</a></div>
+      <div class="section__rule">
+        <strong>Advance clock when:</strong> character takes physical harm.
+        <strong>Recovery (between scenes):</strong> roll Mind (self) or Presence (aided) —
+        6 = reduce by 1 · 4–5 = reduce by 1 + complication · 1–3 = advance by 1.
+      </div>
+      <div class="wound-section">
+        <div class="wound-clock-visual">
+          <div class="wound-clock-label">Wound Clock</div>
+          <div class="wound-segments">
+            <div class="wound-seg wound-seg--1"><div class="wound-seg__num">1</div><div class="wound-seg__name">Graze</div></div>
+            <div class="wound-seg wound-seg--2"><div class="wound-seg__num">2</div><div class="wound-seg__name">Wound</div></div>
+            <div class="wound-seg wound-seg--3"><div class="wound-seg__num">3</div><div class="wound-seg__name">Severe</div></div>
+            <div class="wound-seg wound-seg--4"><div class="wound-seg__num">4</div><div class="wound-seg__name">Out</div></div>
+          </div>
+          <div style="font-size:0.52rem;color:#888;font-family:'Cinzel',serif;text-align:center;margin-top:0.15rem;">
+            Cross the segment when reached
+          </div>
+        </div>
+        <table class="wound-table">
+          <thead>
+            <tr><th>Segment</th><th>Label</th><th>Mechanical Effect</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="color:rgba(39,174,96,0.8);font-weight:700;">1</td>
+              <td>Graze</td>
+              <td>Narrative description only. No mechanical penalty.</td>
+            </tr>
+            <tr>
+              <td style="color:rgba(230,126,34,0.8);font-weight:700;">2</td>
+              <td>Wound</td>
+              <td>Lose 1 die from the most relevant physical approach roll.</td>
+            </tr>
+            <tr>
+              <td style="color:rgba(192,57,43,0.8);font-weight:700;">3</td>
+              <td>Severe</td>
+              <td>Position on physical rolls worsens one step.</td>
+            </tr>
+            <tr>
+              <td style="color:rgba(100,0,0,0.7);font-weight:700;">4</td>
+              <td>Incapacitated</td>
+              <td>Cannot act until treated. Out of the scene.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="field" style="margin-top:0.5rem;">
+        <span class="field__label">Wound Description</span>
+        <span class="field__line"></span>
+      </div>
+    </div>
+
+    <!-- ── TWO COLUMN: Momentum + Emotional Burden ── -->
+    <div class="two-col">
+
+      <!-- Momentum Bank -->
+      <div class="section">
+        <div class="section__heading">Momentum Bank (Optional Mechanic #1)</div>
+        <div class="section__mechanic-link"><a href="https://d6storyteller.alexmerced.com/optional-mechanics/#momentum-bank">View full rules ↗</a></div>
+        <div class="section__rule">
+          <strong>Bank Momentum:</strong> On a 6, spend it OR bank 1 token.
+          <strong>Spend:</strong> Upgrade position by 1 step before rolling.
+          Max = # of players. Resets each session.
+        </div>
+        <div class="momentum-row">
+          <span class="momentum-label">Tokens</span>
+          <div class="momentum-boxes">
+            <div class="momentum-box">✕</div>
+            <div class="momentum-box">✕</div>
+            <div class="momentum-box">✕</div>
+            <div class="momentum-box">✕</div>
+            <div class="momentum-box">✕</div>
+            <div class="momentum-box">✕</div>
+          </div>
+        </div>
+        <div class="momentum-note">Mark box when banked · Cross when spent · Clear at session end</div>
+      </div>
+
+      <!-- Emotional Burden -->
+      <div class="section">
+        <div class="section__heading">Emotional Burden (Optional Mechanic #7)</div>
+        <div class="section__mechanic-link"><a href="https://d6storyteller.alexmerced.com/optional-mechanics/#emotional-burden">View full rules ↗</a></div>
+        <div class="section__rule">
+          Mark on: significant loss · moral cost · betrayal · failure to protect.
+          At 3: narrow approaches. At 5: Breaking Point (narrate release or Storyteller introduces complication).
+        </div>
+        <div class="burden-row">
+          <span class="burden-label">Burden</span>
+          <div class="burden-circles">
+            <div class="burden-circle"></div>
+            <div class="burden-circle"></div>
+            <div class="burden-circle"></div>
+            <div class="burden-circle"></div>
+            <div class="burden-circle"></div>
+          </div>
+        </div>
+        <div class="burden-milestone">
+          <div class="burden-milestone-item"><span class="burden-milestone-num">3</span> → narrow approaches</div>
+          <div class="burden-milestone-item"><span class="burden-milestone-num">5</span> → Breaking Point</div>
+        </div>
+        <div style="margin-top:0.4rem;">
+          <div style="font-family:'Cinzel',serif;font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:#888;margin-bottom:0.25rem;">Approaches available at Burden 3</div>
+          <div class="burden-notes">
+            <div class="burden-notes-line"></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /two-col -->
+
+    <!-- ── Reputation Web ── -->
+    <div class="section">
+      <div class="section__heading">Reputation Web (Optional Mechanic #5)</div>
+      <div class="section__mechanic-link"><a href="https://d6storyteller.alexmerced.com/optional-mechanics/#reputation-web">View full rules ↗</a></div>
+      <div class="section__rule">
+        <strong>Trusted:</strong> meaningful assistance without a roll (when plausible) ·
+        <strong>Neutral:</strong> Presence roll required ·
+        <strong>Wanted:</strong> position is Desperate in any scene involving this faction.
+        Standing shifts through story action.
+      </div>
+      <div class="rep-web">
+        <div class="rep-header">
+          <span>Faction / Organization / Group</span>
+          <span>Standing</span>
+          <span>Notes / How Standing Changed</span>
+        </div>
+        <div class="rep-row">
+          <div class="rep-row__name"></div>
+          <div class="rep-stance">
+            <span class="rep-badge rep-badge--trusted">Trusted</span>
+            <span class="rep-badge rep-badge--neutral">Neutral</span>
+            <span class="rep-badge rep-badge--wanted">Wanted</span>
+          </div>
+          <div class="rep-notes"></div>
+        </div>
+        <div class="rep-row">
+          <div class="rep-row__name"></div>
+          <div class="rep-stance">
+            <span class="rep-badge rep-badge--trusted">Trusted</span>
+            <span class="rep-badge rep-badge--neutral">Neutral</span>
+            <span class="rep-badge rep-badge--wanted">Wanted</span>
+          </div>
+          <div class="rep-notes"></div>
+        </div>
+        <div class="rep-row">
+          <div class="rep-row__name"></div>
+          <div class="rep-stance">
+            <span class="rep-badge rep-badge--trusted">Trusted</span>
+            <span class="rep-badge rep-badge--neutral">Neutral</span>
+            <span class="rep-badge rep-badge--wanted">Wanted</span>
+          </div>
+          <div class="rep-notes"></div>
+        </div>
+        <div class="rep-row">
+          <div class="rep-row__name"></div>
+          <div class="rep-stance">
+            <span class="rep-badge rep-badge--trusted">Trusted</span>
+            <span class="rep-badge rep-badge--neutral">Neutral</span>
+            <span class="rep-badge rep-badge--wanted">Wanted</span>
+          </div>
+          <div class="rep-notes"></div>
+        </div>
+        <div class="rep-row">
+          <div class="rep-row__name"></div>
+          <div class="rep-stance">
+            <span class="rep-badge rep-badge--trusted">Trusted</span>
+            <span class="rep-badge rep-badge--neutral">Neutral</span>
+            <span class="rep-badge rep-badge--wanted">Wanted</span>
+          </div>
+          <div class="rep-notes"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Legacy Move ── -->
+    <div class="section">
+      <div class="section__heading">Legacy Move (Optional Mechanic #9) — Once Per Campaign Arc</div>
+      <div class="section__mechanic-link"><a href="https://d6storyteller.alexmerced.com/optional-mechanics/#legacy-move">View full rules ↗</a></div>
+      <div class="section__rule">
+        Declare before roll · Describe irreversible consequence you accept · Roll full pool regardless of position ·
+        6 = Descriptor gained (positive) · 4–5 = Descriptor gained (costly) · 1–3 = Descriptor gained (reflects what went wrong) + lasting Storyteller complication.
+        Tick the circle when the Legacy Move has been used this arc.
+      </div>
+      <div class="legacy-section">
+        <div class="legacy-pip"></div>
+        <div class="legacy-content">
+          <div class="field"><span class="field__label">The Moment Declared</span><span class="field__line"></span></div>
+          <div class="field"><span class="field__label">What I Was Willing to Lose</span><span class="field__line"></span></div>
+          <div class="legacy-desc-label">Legacy Descriptor Gained</div>
+          <div class="legacy-line"></div>
+          <div class="legacy-desc-label">Lasting Consequence (if any)</div>
+          <div class="legacy-line"></div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /sheet-body -->
+
+  <div class="sheet-footer">
+    <span class="sheet-footer__text">D6 Storyteller by Alex Merced — Optional Mechanics Add-On</span>
+    <span class="sheet-footer__text">d6storyteller.alexmerced.com/optional-mechanics/</span>
+    <span class="sheet-footer__text">Free to reproduce for personal use</span>
+  </div>
+
+</div><!-- /sheet-wrapper -->
+
+<button class="print-btn" onclick="window.print()">🖨 Print or Save as PDF</button>
+<span class="companion-link">
+  Use with the Core Character Sheet →
+  <a href="https://d6storyteller.alexmerced.com/downloads/">d6storyteller.alexmerced.com/downloads/</a>
+</span>
+
+</body>
+</html>

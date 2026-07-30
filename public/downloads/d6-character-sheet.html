@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>D6 Storyteller — Core Character Sheet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0c1a2e;
+      --navy-light: #162d52;
+      --gold: #c9a227;
+      --gold-light: #f0d080;
+      --ink: #1a1a2e;
+      --line: rgba(12,26,46,0.2);
+      --heading: 'Cinzel', Georgia, serif;
+      --body: 'Inter', system-ui, sans-serif;
+    }
+
+    body {
+      background: #e8e4dc;
+      font-family: var(--body);
+      padding: 2rem;
+      color: var(--ink);
+    }
+
+    .sheet-wrapper {
+      max-width: 816px;
+      margin: 0 auto;
+      background: #fdf9f0;
+      border: 2px solid var(--gold);
+      border-radius: 4px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+      overflow: hidden;
+    }
+
+    /* Header */
+    .sheet-header {
+      background: var(--navy);
+      color: var(--gold-light);
+      padding: 0.9rem 1.5rem;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 1rem;
+    }
+    .sheet-header__logo { font-size: 2rem; }
+    .sheet-header__title {
+      font-family: var(--heading);
+      font-size: 1.25rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+    .sheet-header__subtitle {
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.55;
+      font-family: var(--heading);
+    }
+    .sheet-header__badge {
+      font-family: var(--heading);
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: rgba(201,162,39,0.15);
+      color: var(--gold-light);
+      border: 1px solid rgba(201,162,39,0.4);
+      border-radius: 2px;
+      padding: 2px 8px;
+      white-space: nowrap;
+    }
+
+    /* Gold rule */
+    .gold-rule { height: 3px; background: linear-gradient(to right, var(--navy), var(--gold), var(--navy)); }
+
+    /* Core-only notice banner */
+    .core-notice {
+      background: rgba(39,174,96,0.07);
+      border-bottom: 1px solid rgba(39,174,96,0.2);
+      padding: 0.45rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.65rem;
+      color: #2a6040;
+      font-family: var(--heading);
+      letter-spacing: 0.06em;
+    }
+    .core-notice a {
+      color: #1a7a40;
+      font-weight: 700;
+      text-underline-offset: 2px;
+    }
+
+    /* Body grid */
+    .sheet-body {
+      padding: 1.2rem 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem 1.5rem;
+    }
+
+    /* Sections */
+    .section { display: flex; flex-direction: column; gap: 0.45rem; }
+    .section--full { grid-column: 1 / -1; }
+
+    .section__heading {
+      font-family: var(--heading);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--navy);
+      border-bottom: 1.5px solid var(--gold);
+      padding-bottom: 0.2rem;
+      margin-bottom: 0.15rem;
+    }
+    .section__note {
+      font-size: 0.58rem;
+      color: #888;
+      font-style: italic;
+      margin-top: -0.2rem;
+    }
+
+    /* Input lines */
+    .field {
+      display: flex;
+      align-items: flex-end;
+      gap: 0.4rem;
+      margin-bottom: 0.25rem;
+    }
+    .field__label {
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #777;
+      white-space: nowrap;
+      flex-shrink: 0;
+      padding-bottom: 2px;
+      font-family: var(--heading);
+    }
+    .field__line {
+      flex: 1;
+      border-bottom: 1.5px solid var(--line);
+      min-height: 22px;
+    }
+
+    /* Approach boxes */
+    .approaches {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.6rem;
+    }
+    .approach {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .approach__name {
+      font-family: var(--heading);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--navy);
+      text-align: center;
+    }
+    .approach__box {
+      width: 64px;
+      height: 64px;
+      border: 2px solid var(--navy);
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      position: relative;
+    }
+    .approach__pips {
+      display: grid;
+      grid-template-columns: repeat(2, 10px);
+      gap: 4px;
+    }
+    .pip {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 1.5px solid #ccc;
+      background: white;
+    }
+    .approach__dice-label {
+      font-size: 0.5rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #bbb;
+      position: absolute;
+      bottom: 4px;
+      font-family: var(--heading);
+    }
+    .approach__hint {
+      font-size: 0.52rem;
+      color: #bbb;
+      text-align: center;
+      font-style: italic;
+    }
+
+    /* Approach distribution note */
+    .approaches-rule {
+      background: rgba(12,26,46,0.04);
+      border: 1px solid rgba(12,26,46,0.1);
+      border-radius: 3px;
+      padding: 0.35rem 0.5rem;
+      font-size: 0.62rem;
+      color: #555;
+      font-family: var(--heading);
+      letter-spacing: 0.04em;
+    }
+    .approaches-rule strong { color: var(--navy); }
+
+    /* Descriptor lines */
+    .descriptor-lines { display: flex; flex-direction: column; gap: 0.35rem; }
+    .descriptor-line {
+      border-bottom: 1.5px solid var(--line);
+      min-height: 24px;
+    }
+
+    /* Drive & Flaw */
+    .drive-flaw { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+    .drive-flaw__block { display: flex; flex-direction: column; gap: 0.25rem; }
+    .drive-flaw__label {
+      font-family: var(--heading);
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--navy);
+    }
+    .drive-flaw__line {
+      border-bottom: 1.5px solid var(--line);
+      min-height: 22px;
+    }
+
+    /* Conditions — core */
+    .conditions { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.5rem; }
+    .condition-col { display: flex; flex-direction: column; gap: 0.25rem; }
+    .condition-col__label {
+      font-size: 0.58rem;
+      font-family: var(--heading);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 2px 4px;
+      border-radius: 2px;
+    }
+    .condition-col--minor   .condition-col__label { background: rgba(39,174,96,0.12);  color: #1a7a40; }
+    .condition-col--moderate .condition-col__label { background: rgba(230,126,34,0.12); color: #a05010; }
+    .condition-col--severe  .condition-col__label { background: rgba(192,57,43,0.12);  color: #8a1a10; }
+    .condition-col--minor   .condition-col__effect { color: #1a7a40; }
+    .condition-col--moderate .condition-col__effect { color: #a05010; }
+    .condition-col--severe  .condition-col__effect { color: #8a1a10; }
+
+    .condition-col__effect {
+      font-size: 0.5rem;
+      font-family: var(--heading);
+      letter-spacing: 0.06em;
+      text-align: center;
+      font-style: italic;
+      opacity: 0.8;
+    }
+    .condition-slot {
+      border: 1.5px solid #ccc;
+      border-radius: 3px;
+      min-height: 22px;
+      background: white;
+      display: flex;
+      align-items: center;
+      padding: 0 0.3rem;
+      font-size: 0.6rem;
+      color: #bbb;
+      font-style: italic;
+    }
+
+    /* Recovery rule inline */
+    .recovery-rule {
+      grid-column: 1 / -1;
+      background: rgba(12,26,46,0.04);
+      border: 1px solid rgba(12,26,46,0.1);
+      border-radius: 3px;
+      padding: 0.35rem 0.5rem;
+      font-size: 0.6rem;
+      color: #555;
+      font-family: var(--heading);
+      letter-spacing: 0.03em;
+    }
+    .recovery-rule strong { color: var(--navy); }
+
+    /* Setting-specific mechanic */
+    .mechanic-box {
+      border: 1.5px solid var(--gold);
+      border-radius: 4px;
+      padding: 0.5rem 0.75rem;
+      background: rgba(201,162,39,0.04);
+    }
+    .mechanic-box__label {
+      font-family: var(--heading);
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.25rem;
+    }
+    .mechanic-box__line {
+      border-bottom: 1px solid rgba(201,162,39,0.3);
+      min-height: 20px;
+    }
+
+    /* Notes */
+    .notes-area { display: flex; flex-direction: column; gap: 0.28rem; }
+    .notes-line { border-bottom: 1px solid rgba(0,0,0,0.12); min-height: 21px; }
+
+    /* Optional mechanics callout */
+    .optional-callout {
+      grid-column: 1 / -1;
+      background: rgba(201,162,39,0.05);
+      border: 1.5px dashed rgba(201,162,39,0.35);
+      border-radius: 4px;
+      padding: 0.6rem 0.85rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    .optional-callout__icon {
+      font-size: 0.9rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .optional-callout__text {
+      font-size: 0.62rem;
+      color: #665500;
+      font-family: var(--heading);
+      letter-spacing: 0.04em;
+      line-height: 1.5;
+    }
+    .optional-callout__text a {
+      color: #8a7200;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .optional-callout__text strong { color: #554400; }
+
+    /* Dice reference */
+    .dice-ref {
+      grid-column: 1 / -1;
+      border-top: 1px solid rgba(201,162,39,0.25);
+      padding-top: 0.75rem;
+      margin-top: 0.25rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+    }
+    .dice-result {
+      text-align: center;
+      border: 1px solid;
+      border-radius: 3px;
+      padding: 0.35rem 0.4rem;
+    }
+    .dice-result--success { background: rgba(39,174,96,0.07); border-color: rgba(39,174,96,0.3); }
+    .dice-result--partial  { background: rgba(230,126,34,0.07); border-color: rgba(230,126,34,0.3); }
+    .dice-result--fail     { background: rgba(192,57,43,0.07);  border-color: rgba(192,57,43,0.3);  }
+    .dice-result__value {
+      font-family: var(--heading);
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 2px;
+    }
+    .dice-result--success .dice-result__value { color: #1a7a40; }
+    .dice-result--partial  .dice-result__value { color: #a05010; }
+    .dice-result--fail     .dice-result__value { color: #8a1a10; }
+    .dice-result__desc { font-size: 0.58rem; color: #555; }
+
+    /* Footer */
+    .sheet-footer {
+      background: var(--navy);
+      padding: 0.5rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .sheet-footer__text {
+      font-family: var(--heading);
+      font-size: 0.58rem;
+      color: rgba(240,208,128,0.5);
+      letter-spacing: 0.1em;
+    }
+
+    /* Print button */
+    .print-btn {
+      display: block;
+      max-width: 816px;
+      margin: 1.5rem auto 0.5rem;
+      background: var(--navy);
+      color: var(--gold-light);
+      font-family: var(--heading);
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 2px solid var(--gold);
+      border-radius: 4px;
+      padding: 0.75rem 2rem;
+      cursor: pointer;
+      text-align: center;
+      transition: background 150ms;
+      width: 100%;
+    }
+    .print-btn:hover { background: var(--navy-light); }
+    .companion-link {
+      display: block;
+      max-width: 816px;
+      margin: 0.5rem auto 0;
+      text-align: center;
+      font-family: var(--heading);
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+      color: #665500;
+    }
+    .companion-link a { color: #8a6500; }
+
+    /* ── Print styles ── */
+    @media print {
+      body { background: white; padding: 0; }
+      .sheet-wrapper { box-shadow: none; border: 1.5px solid #ccc; max-width: 100%; border-radius: 0; }
+      .print-btn, .companion-link { display: none; }
+      /* Keep the core-notice but lighter */
+      .core-notice { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      @page { size: letter; margin: 0.45in; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="sheet-wrapper">
+
+  <!-- Header -->
+  <div class="sheet-header">
+    <div class="sheet-header__logo">⚄</div>
+    <div>
+      <div class="sheet-header__title">D6 Storyteller</div>
+      <div class="sheet-header__subtitle">Character Sheet — Core Rules Only</div>
+    </div>
+    <div class="sheet-header__badge">Core Rules</div>
+  </div>
+  <div class="gold-rule"></div>
+
+  <!-- Core-only notice -->
+  <div class="core-notice">
+    ✓ This sheet covers the core D6 Storyteller rules only.
+    For optional mechanics (Wound Clock, Momentum Bank, Emotional Burden, etc.) use the
+    <a href="https://d6storyteller.alexmerced.com/downloads/">Optional Mechanics add-on sheets</a>
+    available at d6storyteller.alexmerced.com/downloads/
+  </div>
+
+  <!-- Body -->
+  <div class="sheet-body">
+
+    <!-- Identity -->
+    <div class="section section--full">
+      <div class="section__heading">Identity</div>
+      <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:0.65rem;">
+        <div class="field">
+          <span class="field__label">Character Name</span>
+          <span class="field__line"></span>
+        </div>
+        <div class="field">
+          <span class="field__label">Setting</span>
+          <span class="field__line"></span>
+        </div>
+        <div class="field">
+          <span class="field__label">Archetype</span>
+          <span class="field__line"></span>
+        </div>
+        <div class="field">
+          <span class="field__label">Player Name</span>
+          <span class="field__line"></span>
+        </div>
+        <div class="field" style="grid-column:span 2;">
+          <span class="field__label">Book / Companion</span>
+          <span class="field__line"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Approaches -->
+    <div class="section">
+      <div class="section__heading">Approaches</div>
+      <div class="approaches">
+        <div class="approach">
+          <div class="approach__name">Force</div>
+          <div class="approach__box">
+            <div class="approach__pips">
+              <div class="pip"></div><div class="pip"></div>
+              <div class="pip"></div><div class="pip"></div>
+            </div>
+            <div class="approach__dice-label">d6</div>
+          </div>
+          <div class="approach__hint">Direct · Physical</div>
+        </div>
+        <div class="approach">
+          <div class="approach__name">Finesse</div>
+          <div class="approach__box">
+            <div class="approach__pips">
+              <div class="pip"></div><div class="pip"></div>
+              <div class="pip"></div><div class="pip"></div>
+            </div>
+            <div class="approach__dice-label">d6</div>
+          </div>
+          <div class="approach__hint">Precise · Subtle</div>
+        </div>
+        <div class="approach">
+          <div class="approach__name">Mind</div>
+          <div class="approach__box">
+            <div class="approach__pips">
+              <div class="pip"></div><div class="pip"></div>
+              <div class="pip"></div><div class="pip"></div>
+            </div>
+            <div class="approach__dice-label">d6</div>
+          </div>
+          <div class="approach__hint">Analysis · Knowledge</div>
+        </div>
+        <div class="approach">
+          <div class="approach__name">Presence</div>
+          <div class="approach__box">
+            <div class="approach__pips">
+              <div class="pip"></div><div class="pip"></div>
+              <div class="pip"></div><div class="pip"></div>
+            </div>
+            <div class="approach__dice-label">d6</div>
+          </div>
+          <div class="approach__hint">Social · Leadership</div>
+        </div>
+      </div>
+      <div class="approaches-rule">
+        <strong>8 total dice.</strong> Min 1d6 each. Fill dots: ●●●○ = 3d6. Remaining 4d6 distributed freely.
+      </div>
+    </div>
+
+    <!-- Descriptors -->
+    <div class="section">
+      <div class="section__heading">Descriptors</div>
+      <div class="section__note">3–5 vivid phrases that define who your character is</div>
+      <div class="descriptor-lines">
+        <div class="descriptor-line"></div>
+        <div class="descriptor-line"></div>
+        <div class="descriptor-line"></div>
+        <div class="descriptor-line"></div>
+        <div class="descriptor-line"></div>
+      </div>
+    </div>
+
+    <!-- Drive & Flaw -->
+    <div class="section section--full">
+      <div class="section__heading">Drive & Flaw</div>
+      <div class="drive-flaw">
+        <div class="drive-flaw__block">
+          <div class="drive-flaw__label">Drive — What I fundamentally want</div>
+          <div class="drive-flaw__line"></div>
+          <div class="drive-flaw__line"></div>
+        </div>
+        <div class="drive-flaw__block">
+          <div class="drive-flaw__label">Flaw — Where I reliably go wrong</div>
+          <div class="drive-flaw__line"></div>
+          <div class="drive-flaw__line"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Conditions -->
+    <div class="section section--full">
+      <div class="section__heading">Conditions</div>
+      <div class="conditions">
+        <div class="condition-col condition-col--minor">
+          <div class="condition-col__label">Minor</div>
+          <div class="condition-col__effect">No mechanical effect</div>
+          <div class="condition-slot">write name of condition</div>
+          <div class="condition-slot"></div>
+          <div class="condition-slot"></div>
+        </div>
+        <div class="condition-col condition-col--moderate">
+          <div class="condition-col__label">Moderate</div>
+          <div class="condition-col__effect">−1 die on relevant approach</div>
+          <div class="condition-slot">write name of condition</div>
+          <div class="condition-slot"></div>
+          <div class="condition-slot"></div>
+        </div>
+        <div class="condition-col condition-col--severe">
+          <div class="condition-col__label">Severe</div>
+          <div class="condition-col__effect">Position worsens one step</div>
+          <div class="condition-slot">write name of condition</div>
+          <div class="condition-slot"></div>
+        </div>
+        <div class="recovery-rule">
+          <strong>Recovery (between scenes):</strong>
+          Roll Mind (self) or Presence (aided) ·
+          <span style="color:#1a7a40;">6 = clear one condition</span> ·
+          <span style="color:#a05010;">4–5 = clear one + complication</span> ·
+          <span style="color:#8a1a10;">1–3 = worsen one level</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Setting-specific mechanic -->
+    <div class="section">
+      <div class="section__heading">Setting-Specific Mechanic</div>
+      <div class="section__note">Fill in from your companion book</div>
+      <div class="mechanic-box">
+        <div class="mechanic-box__label">Mechanic Name</div>
+        <div class="mechanic-box__line"></div>
+        <div style="margin-top:0.45rem;">
+          <div class="mechanic-box__label">How It Works</div>
+        </div>
+        <div class="mechanic-box__line"></div>
+        <div class="mechanic-box__line" style="margin-top:0.3rem;"></div>
+        <div style="margin-top:0.45rem;">
+          <div class="mechanic-box__label">Current Value / Status</div>
+        </div>
+        <div class="mechanic-box__line"></div>
+      </div>
+    </div>
+
+    <!-- Bonds & Contacts -->
+    <div class="section">
+      <div class="section__heading">Bonds, Contacts & Debts</div>
+      <div class="notes-area">
+        <div class="notes-line"></div>
+        <div class="notes-line"></div>
+        <div class="notes-line"></div>
+        <div class="notes-line"></div>
+        <div class="notes-line"></div>
+        <div class="notes-line"></div>
+      </div>
+    </div>
+
+    <!-- Notes -->
+    <div class="section section--full">
+      <div class="section__heading">Notes & Session Highlights</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 1.5rem;">
+        <div class="notes-line"></div>
+        <div class="notes-line"></div>
+        <div class="notes-line"></div>
+        <div class="notes-line"></div>
+        <div class="notes-line"></div>
+        <div class="notes-line"></div>
+        <div class="notes-line"></div>
+        <div class="notes-line"></div>
+      </div>
+    </div>
+
+    <!-- Optional mechanics callout -->
+    <div class="optional-callout">
+      <span class="optional-callout__icon">⚙️</span>
+      <div class="optional-callout__text">
+        <strong>Using optional mechanics?</strong>
+        The D6 Storyteller <a href="https://d6storyteller.alexmerced.com/optional-mechanics/">Optional Mechanics</a>
+        (Wound Clock, Momentum Bank, Emotional Burden, Reputation Web, etc.) are tracked on separate add-on sheets
+        — keeping this core sheet clean and focused.
+        Download the <strong>Optional Mechanics Character Add-On</strong> and <strong>Clocks &amp; Tracks</strong>
+        sheets at <a href="https://d6storyteller.alexmerced.com/downloads/">d6storyteller.alexmerced.com/downloads/</a>
+      </div>
+    </div>
+
+    <!-- Dice reference -->
+    <div class="dice-ref">
+      <div class="dice-result dice-result--success">
+        <span class="dice-result__value">6 — Full Success</span>
+        <span class="dice-result__desc">Goal achieved. Multiple 6s = Great Effect.</span>
+      </div>
+      <div class="dice-result dice-result--partial">
+        <span class="dice-result__value">4–5 — Partial</span>
+        <span class="dice-result__desc">Success with a cost or complication.</span>
+      </div>
+      <div class="dice-result dice-result--fail">
+        <span class="dice-result__value">1–3 — Failure</span>
+        <span class="dice-result__desc">Goal fails + something worse follows.</span>
+      </div>
+    </div>
+
+  </div><!-- /sheet-body -->
+
+  <!-- Footer -->
+  <div class="sheet-footer">
+    <span class="sheet-footer__text">D6 Storyteller by Alex Merced — Core Rules Sheet</span>
+    <span class="sheet-footer__text">d6storyteller.alexmerced.com</span>
+    <span class="sheet-footer__text">Free to reproduce for personal use</span>
+  </div>
+
+</div><!-- /sheet-wrapper -->
+
+<button class="print-btn" onclick="window.print()">🖨 Print or Save as PDF</button>
+<span class="companion-link">
+  Using optional mechanics? Get the add-on sheet →
+  <a href="https://d6storyteller.alexmerced.com/downloads/">d6storyteller.alexmerced.com/downloads/</a>
+</span>
+
+</body>
+</html>

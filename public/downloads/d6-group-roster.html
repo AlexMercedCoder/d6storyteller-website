@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>D6 Storyteller — Group Roster</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --navy: #0c1a2e; --navy-light: #162d52; --gold: #c9a227; --gold-light: #f0d080; --ink: #1a1a2e; --heading: 'Cinzel', Georgia, serif; --body: 'Inter', system-ui, sans-serif; }
+    body { background: #e8e4dc; font-family: var(--body); padding: 2rem; color: var(--ink); }
+    .sheet-wrapper { max-width: 816px; margin: 0 auto; background: #fdf9f0; border: 2px solid var(--gold); border-radius: 4px; box-shadow: 0 8px 40px rgba(0,0,0,0.3); overflow: hidden; }
+    .sheet-header { background: var(--navy); color: var(--gold-light); padding: 0.85rem 1.5rem; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 1rem; }
+    .sheet-header__logo { font-size: 1.75rem; }
+    .sheet-header__title { font-family: var(--heading); font-size: 1.2rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-light); }
+    .sheet-header__subtitle { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.6; font-family: var(--heading); }
+    .sheet-header__version { font-family: var(--heading); font-size: 0.62rem; letter-spacing: 0.1em; opacity: 0.5; white-space: nowrap; }
+    .gold-rule { height: 3px; background: linear-gradient(to right, var(--navy), var(--gold), var(--navy)); }
+    .body { padding: 1rem 1.5rem; }
+    .meta-row { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 0.6rem; margin-bottom: 0.9rem; }
+    .field { display: flex; align-items: flex-end; gap: 0.4rem; }
+    .field__label { font-size: 0.58rem; letter-spacing: 0.08em; text-transform: uppercase; color: #777; white-space: nowrap; flex-shrink: 0; padding-bottom: 2px; font-family: var(--heading); }
+    .field__line { flex: 1; border-bottom: 1.5px solid rgba(12,26,46,0.2); min-height: 20px; }
+    /* Player cards */
+    .players { display: flex; flex-direction: column; gap: 0.5rem; }
+    .player-card { border: 1.5px solid rgba(201,162,39,0.3); border-radius: 5px; overflow: hidden; }
+    .player-card__header { background: rgba(12,26,46,0.06); padding: 0.35rem 0.6rem; display: grid; grid-template-columns: 2fr 1.5fr 1fr 1fr; gap: 0.5rem; align-items: center; border-bottom: 1px solid rgba(201,162,39,0.2); }
+    .player-card__header-label { font-family: var(--heading); font-size: 0.52rem; letter-spacing: 0.12em; text-transform: uppercase; color: #888; }
+    .player-card__header-line { border-bottom: 1px solid rgba(12,26,46,0.2); min-height: 18px; }
+    .player-card__body { padding: 0.4rem 0.6rem; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 0.5rem; align-items: start; }
+    .player-card__section { }
+    .player-card__section-label { font-family: var(--heading); font-size: 0.5rem; letter-spacing: 0.1em; text-transform: uppercase; color: #999; margin-bottom: 0.2rem; }
+    .player-card__approaches { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.25rem; }
+    .approach-mini { text-align: center; }
+    .approach-mini__name { font-family: var(--heading); font-size: 0.45rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--navy); }
+    .approach-mini__box { border: 1.5px solid var(--navy); border-radius: 3px; height: 26px; background: white; margin-top: 0.1rem; display: flex; align-items: center; justify-content: center; font-family: var(--heading); font-size: 0.6rem; color: rgba(12,26,46,0.2); }
+    .condition-mini { display: flex; flex-direction: column; gap: 0.2rem; }
+    .condition-mini__slot { border: 1px solid #ddd; border-radius: 2px; min-height: 16px; background: white; }
+    .wound-mini { display: flex; gap: 0.2rem; align-items: center; flex-wrap: wrap; }
+    .wound-mini__box { width: 18px; height: 18px; border: 1.5px solid rgba(192,57,43,0.4); border-radius: 2px; background: white; }
+    .burden-mini { display: flex; gap: 0.2rem; align-items: center; flex-wrap: wrap; }
+    .burden-mini__box { width: 16px; height: 16px; border: 1.5px solid rgba(12,26,46,0.3); border-radius: 50%; background: white; }
+    .player-card__notes { border-bottom: 1px solid rgba(12,26,46,0.1); min-height: 16px; }
+    /* NPC table */
+    .section__heading { font-family: var(--heading); font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--navy); border-bottom: 1.5px solid var(--gold); padding-bottom: 0.2rem; margin-bottom: 0.5rem; margin-top: 0.8rem; }
+    .npc-table { width: 100%; border-collapse: collapse; font-size: 0.66rem; }
+    .npc-table th { font-family: var(--heading); font-size: 0.52rem; letter-spacing: 0.1em; text-transform: uppercase; background: var(--navy); color: var(--gold-light); padding: 0.25rem 0.5rem; text-align: left; }
+    .npc-table td { border-bottom: 1px solid rgba(0,0,0,0.08); padding: 0.2rem 0.5rem; min-height: 20px; }
+    .npc-table tr:nth-child(even) td { background: rgba(0,0,0,0.02); }
+    .stance-badge { display: inline-block; padding: 1px 6px; border-radius: 2px; font-family: var(--heading); font-size: 0.5rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; }
+    .stance-badge--ally { background: rgba(39,174,96,0.15); color: #1a7a40; }
+    .stance-badge--neutral { background: rgba(201,162,39,0.15); color: #7a5000; }
+    .stance-badge--hostile { background: rgba(192,57,43,0.15); color: #8a1a10; }
+    .sheet-footer { background: var(--navy); padding: 0.45rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+    .sheet-footer__text { font-family: var(--heading); font-size: 0.58rem; color: rgba(240,208,128,0.5); letter-spacing: 0.1em; }
+    .print-btn { display: block; max-width: 816px; margin: 1.5rem auto 0; background: var(--navy); color: var(--gold-light); font-family: var(--heading); font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; border: 2px solid var(--gold); border-radius: 4px; padding: 0.75rem 2rem; cursor: pointer; text-align: center; }
+    .print-btn:hover { background: var(--navy-light); }
+    @media print {
+      body { background: white; padding: 0; }
+      .sheet-wrapper { box-shadow: none; border: 1.5px solid #ccc; max-width: 100%; border-radius: 0; }
+      .print-btn { display: none; }
+      @page { size: letter; margin: 0.35in; }
+    }
+  </style>
+</head>
+<body>
+<div class="sheet-wrapper">
+  <div class="sheet-header">
+    <div class="sheet-header__logo">⚄</div>
+    <div>
+      <div class="sheet-header__title">D6 Storyteller</div>
+      <div class="sheet-header__subtitle">Group Roster — Storyteller's View</div>
+    </div>
+    <div class="sheet-header__version">d6storyteller.alexmerced.com</div>
+  </div>
+  <div class="gold-rule"></div>
+  <div class="body">
+    <div class="meta-row">
+      <div class="field"><span class="field__label">Campaign / Setting</span><span class="field__line"></span></div>
+      <div class="field"><span class="field__label">Session #</span><span class="field__line"></span></div>
+      <div class="field"><span class="field__label">Date</span><span class="field__line"></span></div>
+    </div>
+
+    <div class="players">
+
+      <!-- Player 1 -->
+      <div class="player-card">
+        <div class="player-card__header">
+          <div><div class="player-card__header-label">Character Name</div><div class="player-card__header-line"></div></div>
+          <div><div class="player-card__header-label">Player</div><div class="player-card__header-line"></div></div>
+          <div><div class="player-card__header-label">Setting</div><div class="player-card__header-line"></div></div>
+          <div><div class="player-card__header-label">Archetype</div><div class="player-card__header-line"></div></div>
+        </div>
+        <div class="player-card__body">
+          <div class="player-card__section">
+            <div class="player-card__section-label">Key Descriptor</div>
+            <div class="player-card__notes"></div>
+            <div class="player-card__section-label" style="margin-top:0.25rem;">Drive / Flaw</div>
+            <div class="player-card__notes"></div>
+          </div>
+          <div class="player-card__section">
+            <div class="player-card__section-label">Approaches</div>
+            <div class="player-card__approaches">
+              <div class="approach-mini"><div class="approach-mini__name">Fo</div><div class="approach-mini__box"></div></div>
+              <div class="approach-mini"><div class="approach-mini__name">Fi</div><div class="approach-mini__box"></div></div>
+              <div class="approach-mini"><div class="approach-mini__name">Mi</div><div class="approach-mini__box"></div></div>
+              <div class="approach-mini"><div class="approach-mini__name">Pr</div><div class="approach-mini__box"></div></div>
+            </div>
+          </div>
+          <div class="player-card__section">
+            <div class="player-card__section-label">Conditions</div>
+            <div class="condition-mini">
+              <div class="condition-mini__slot"></div>
+              <div class="condition-mini__slot"></div>
+              <div class="condition-mini__slot"></div>
+            </div>
+          </div>
+          <div class="player-card__section">
+            <div class="player-card__section-label">Wound ⬜⬜⬜⬜</div>
+            <div class="wound-mini"><div class="wound-mini__box"></div><div class="wound-mini__box"></div><div class="wound-mini__box"></div><div class="wound-mini__box"></div></div>
+            <div class="player-card__section-label" style="margin-top:0.35rem;">Burden ○○○○○</div>
+            <div class="burden-mini"><div class="burden-mini__box"></div><div class="burden-mini__box"></div><div class="burden-mini__box"></div><div class="burden-mini__box"></div><div class="burden-mini__box"></div></div>
+          </div>
+          <div class="player-card__section">
+            <div class="player-card__section-label">Notes</div>
+            <div class="player-card__notes"></div>
+            <div class="player-card__notes" style="margin-top:0.25rem;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Player 2 -->
+      <div class="player-card">
+        <div class="player-card__header">
+          <div><div class="player-card__header-label">Character Name</div><div class="player-card__header-line"></div></div>
+          <div><div class="player-card__header-label">Player</div><div class="player-card__header-line"></div></div>
+          <div><div class="player-card__header-label">Setting</div><div class="player-card__header-line"></div></div>
+          <div><div class="player-card__header-label">Archetype</div><div class="player-card__header-line"></div></div>
+        </div>
+        <div class="player-card__body">
+          <div class="player-card__section"><div class="player-card__section-label">Key Descriptor</div><div class="player-card__notes"></div><div class="player-card__section-label" style="margin-top:0.25rem;">Drive / Flaw</div><div class="player-card__notes"></div></div>
+          <div class="player-card__section"><div class="player-card__section-label">Approaches</div><div class="player-card__approaches"><div class="approach-mini"><div class="approach-mini__name">Fo</div><div class="approach-mini__box"></div></div><div class="approach-mini"><div class="approach-mini__name">Fi</div><div class="approach-mini__box"></div></div><div class="approach-mini"><div class="approach-mini__name">Mi</div><div class="approach-mini__box"></div></div><div class="approach-mini"><div class="approach-mini__name">Pr</div><div class="approach-mini__box"></div></div></div></div>
+          <div class="player-card__section"><div class="player-card__section-label">Conditions</div><div class="condition-mini"><div class="condition-mini__slot"></div><div class="condition-mini__slot"></div><div class="condition-mini__slot"></div></div></div>
+          <div class="player-card__section"><div class="player-card__section-label">Wound ⬜⬜⬜⬜</div><div class="wound-mini"><div class="wound-mini__box"></div><div class="wound-mini__box"></div><div class="wound-mini__box"></div><div class="wound-mini__box"></div></div><div class="player-card__section-label" style="margin-top:0.35rem;">Burden ○○○○○</div><div class="burden-mini"><div class="burden-mini__box"></div><div class="burden-mini__box"></div><div class="burden-mini__box"></div><div class="burden-mini__box"></div><div class="burden-mini__box"></div></div></div>
+          <div class="player-card__section"><div class="player-card__section-label">Notes</div><div class="player-card__notes"></div><div class="player-card__notes" style="margin-top:0.25rem;"></div></div>
+        </div>
+      </div>
+
+      <!-- Player 3 -->
+      <div class="player-card">
+        <div class="player-card__header">
+          <div><div class="player-card__header-label">Character Name</div><div class="player-card__header-line"></div></div>
+          <div><div class="player-card__header-label">Player</div><div class="player-card__header-line"></div></div>
+          <div><div class="player-card__header-label">Setting</div><div class="player-card__header-line"></div></div>
+          <div><div class="player-card__header-label">Archetype</div><div class="player-card__header-line"></div></div>
+        </div>
+        <div class="player-card__body">
+          <div class="player-card__section"><div class="player-card__section-label">Key Descriptor</div><div class="player-card__notes"></div><div class="player-card__section-label" style="margin-top:0.25rem;">Drive / Flaw</div><div class="player-card__notes"></div></div>
+          <div class="player-card__section"><div class="player-card__section-label">Approaches</div><div class="player-card__approaches"><div class="approach-mini"><div class="approach-mini__name">Fo</div><div class="approach-mini__box"></div></div><div class="approach-mini"><div class="approach-mini__name">Fi</div><div class="approach-mini__box"></div></div><div class="approach-mini"><div class="approach-mini__name">Mi</div><div class="approach-mini__box"></div></div><div class="approach-mini"><div class="approach-mini__name">Pr</div><div class="approach-mini__box"></div></div></div></div>
+          <div class="player-card__section"><div class="player-card__section-label">Conditions</div><div class="condition-mini"><div class="condition-mini__slot"></div><div class="condition-mini__slot"></div><div class="condition-mini__slot"></div></div></div>
+          <div class="player-card__section"><div class="player-card__section-label">Wound ⬜⬜⬜⬜</div><div class="wound-mini"><div class="wound-mini__box"></div><div class="wound-mini__box"></div><div class="wound-mini__box"></div><div class="wound-mini__box"></div></div><div class="player-card__section-label" style="margin-top:0.35rem;">Burden ○○○○○</div><div class="burden-mini"><div class="burden-mini__box"></div><div class="burden-mini__box"></div><div class="burden-mini__box"></div><div class="burden-mini__box"></div><div class="burden-mini__box"></div></div></div>
+          <div class="player-card__section"><div class="player-card__section-label">Notes</div><div class="player-card__notes"></div><div class="player-card__notes" style="margin-top:0.25rem;"></div></div>
+        </div>
+      </div>
+
+      <!-- Player 4 -->
+      <div class="player-card">
+        <div class="player-card__header">
+          <div><div class="player-card__header-label">Character Name</div><div class="player-card__header-line"></div></div>
+          <div><div class="player-card__header-label">Player</div><div class="player-card__header-line"></div></div>
+          <div><div class="player-card__header-label">Setting</div><div class="player-card__header-line"></div></div>
+          <div><div class="player-card__header-label">Archetype</div><div class="player-card__header-line"></div></div>
+        </div>
+        <div class="player-card__body">
+          <div class="player-card__section"><div class="player-card__section-label">Key Descriptor</div><div class="player-card__notes"></div><div class="player-card__section-label" style="margin-top:0.25rem;">Drive / Flaw</div><div class="player-card__notes"></div></div>
+          <div class="player-card__section"><div class="player-card__section-label">Approaches</div><div class="player-card__approaches"><div class="approach-mini"><div class="approach-mini__name">Fo</div><div class="approach-mini__box"></div></div><div class="approach-mini"><div class="approach-mini__name">Fi</div><div class="approach-mini__box"></div></div><div class="approach-mini"><div class="approach-mini__name">Mi</div><div class="approach-mini__box"></div></div><div class="approach-mini"><div class="approach-mini__name">Pr</div><div class="approach-mini__box"></div></div></div></div>
+          <div class="player-card__section"><div class="player-card__section-label">Conditions</div><div class="condition-mini"><div class="condition-mini__slot"></div><div class="condition-mini__slot"></div><div class="condition-mini__slot"></div></div></div>
+          <div class="player-card__section"><div class="player-card__section-label">Wound ⬜⬜⬜⬜</div><div class="wound-mini"><div class="wound-mini__box"></div><div class="wound-mini__box"></div><div class="wound-mini__box"></div><div class="wound-mini__box"></div></div><div class="player-card__section-label" style="margin-top:0.35rem;">Burden ○○○○○</div><div class="burden-mini"><div class="burden-mini__box"></div><div class="burden-mini__box"></div><div class="burden-mini__box"></div><div class="burden-mini__box"></div><div class="burden-mini__box"></div></div></div>
+          <div class="player-card__section"><div class="player-card__section-label">Notes</div><div class="player-card__notes"></div><div class="player-card__notes" style="margin-top:0.25rem;"></div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- NPC table -->
+    <div class="section__heading">NPCs &amp; Contacts</div>
+    <table class="npc-table">
+      <thead><tr><th>Name</th><th>Faction / Role</th><th>Stance</th><th>Want</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>&nbsp;</td><td></td><td><span class="stance-badge stance-badge--ally">Ally</span></td><td></td><td></td></tr>
+        <tr><td>&nbsp;</td><td></td><td><span class="stance-badge stance-badge--neutral">Neutral</span></td><td></td><td></td></tr>
+        <tr><td>&nbsp;</td><td></td><td><span class="stance-badge stance-badge--hostile">Hostile</span></td><td></td><td></td></tr>
+        <tr><td>&nbsp;</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>&nbsp;</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>&nbsp;</td><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="sheet-footer">
+    <span class="sheet-footer__text">D6 Storyteller by Alex Merced</span>
+    <span class="sheet-footer__text">d6storyteller.alexmerced.com</span>
+    <span class="sheet-footer__text">Free to reproduce for personal use</span>
+  </div>
+</div>
+<button class="print-btn" onclick="window.print()">🖨 Print or Save as PDF</button>
+</body>
+</html>
