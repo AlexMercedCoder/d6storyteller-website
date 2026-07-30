@@ -21,7 +21,7 @@ publishedDate: "2026-07-30"
 
 ## 1. Setting Overview & Tone
 
-**High-Concept Pitch:** Spanning the high-altitude cloud forests of the Central American Volcanic Arc (from southern Mexico through Guatemala, El Salvador, Honduras, Nicaragua, to Costa Rica), *The Serpent of the Cloud Forests* brings players into a high-fantasy, ecologically rich mythic setting. An ancient order of guardians—the **Keepers of the Feathered Serpent**—embody the grace and fury of the sacred Resplendent Quetzal and *K'uk'ulkan* (the Feathered Serpent). They protect high-altitude mist-springs, ancient moss sanctuaries, and sacred bird nesting sites from silver miners and deforestation.
+**High-Concept Pitch:** Spanning the high-altitude cloud forests of the Central American Volcanic Arc (from southern Mexico through Guatemala, El Salvador, Honduras, Nicaragua, to Costa Rica), *The Serpent of the Cloud Forests* brings players into a high-fantasy, ecologically rich mythic setting. An ancient order of guardians - the **Keepers of the Feathered Serpent** - embody the grace and fury of the sacred Resplendent Quetzal and *K'uk'ulkan* (the Feathered Serpent). They protect high-altitude mist-springs, ancient moss sanctuaries, and sacred bird nesting sites from silver miners and deforestation.
 
 **Sensory Pillars:**
 1. **Sight:** Iridescent emerald and crimson quetzal plumage flashing through ethereal white cloud mist; ancient tree ferns three stories tall covered in glowing violet orchids; active volcanic craters venting turquoise steam in the distance.

@@ -21,7 +21,7 @@ publishedDate: "2026-07-30"
 
 ## 1. Setting Overview & Tone
 
-**High-Concept Pitch:** In the lush cloud forests and coastal deltas of Costa Rica, the **Boruca (Brunka)** nation maintains the sacred secret of the **Stone Spheres of Diquís**—perfectly spherical megaliths carved from granodiorite under the divine inspiration of the creator god *Sibö*. During the historic *Baile de los Diablitos* (Dance of the Little Devils), Boruca warriors wear fierce carved wooden balsa masks representing forest spirits to repel Spanish conquistadors (represented as the Bull).
+**High-Concept Pitch:** In the lush cloud forests and coastal deltas of Costa Rica, the **Boruca (Brunka)** nation maintains the sacred secret of the **Stone Spheres of Diquís** - perfectly spherical megaliths carved from granodiorite under the divine inspiration of the creator god *Sibö*. During the historic *Baile de los Diablitos* (Dance of the Little Devils), Boruca warriors wear fierce carved wooden balsa masks representing forest spirits to repel Spanish conquistadors (represented as the Bull).
 
 **Sensory Pillars:**
 1. **Sight:** Perfectly smooth stone spheres ranging from tennis-ball size to two meters across, half-covered in rainforest orchids; vibrant hand-carved balsa masks with jaguar fangs and devil horns; the iridescent emerald tail feathers of quetzals gliding through canopy fog.

@@ -1,0 +1,386 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AmazonCTA from '../../components/AmazonCTA.astro';
+import { optionalMechanics } from '../../data/optional-mechanics';
+
+const allMechanicTags = [...new Set(optionalMechanics.flatMap(m => m.tags))].sort();
+---
+
+<BaseLayout
+  title="50 Optional Plug-In Mechanics | D6 Storyteller Rules Library"
+  description="Browse 50 modular optional plug-in mechanics for the D6 Storyteller system: Wound Clocks, Momentum Banks, Sanity Thresholds, Flashback Frames, Supply Dice, and more. Filter by tag or keyword."
+  canonicalUrl="https://d6storyteller.alexmerced.com/optional-mechanics/"
+>
+  <section class="section" aria-labelledby="om-page-heading">
+    <div class="container">
+      <nav aria-label="Breadcrumb" class="breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb__separator" aria-hidden="true">&rsaquo;</span>
+        <span aria-current="page">Optional Mechanics</span>
+      </nav>
+
+      <p class="section-label">Modular Campaign Rules</p>
+      <h1 id="om-page-heading">50 Optional Plug-In Mechanics</h1>
+      <p class="om-intro">
+        Welcome to the official D6 Storyteller <strong>Optional Mechanics Library</strong>. Here you'll find fifty modular, opt-in rules additions that you can drop into any campaign, regardless of setting or genre. Use the search bar or tag filters below to find the perfect mechanics for your table.
+      </p>
+
+      <!-- Filter Controls Bar -->
+      <div class="filter-controls card">
+        <div class="filter-controls__inputs">
+          <div class="filter-controls__field filter-controls__field--search">
+            <label for="om-search" class="filter-label">Search Mechanics</label>
+            <div class="search-input-wrap">
+              <span class="search-icon" aria-hidden="true">🔍</span>
+              <input
+                type="text"
+                id="om-search"
+                class="filter-input"
+                placeholder="Search by mechanic name, effect, or keyword (e.g. Sanity, Clock, Heist)..."
+                aria-label="Search optional mechanics by name or keyword"
+              />
+              <button type="button" id="clear-om-search" class="clear-btn hidden" aria-label="Clear search">✕</button>
+            </div>
+          </div>
+
+          <div class="filter-controls__field filter-controls__field--select">
+            <label for="om-tag-select" class="filter-label">Filter by Tag</label>
+            <select id="om-tag-select" class="filter-select" aria-label="Filter mechanics by tag">
+              <option value="">All Tags ({allMechanicTags.length})</option>
+              {allMechanicTags.map(tag => (
+                <option value={tag.toLowerCase()}>{tag}</option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        <!-- Tag Quick Pills -->
+        <div class="tag-pills" id="om-tag-pills">
+          <span class="tag-pills__label">Quick Tags:</span>
+          <button type="button" class="tag-pill tag-pill--active" data-om-tag="">All</button>
+          {allMechanicTags.slice(0, 18).map(tag => (
+            <button type="button" class="tag-pill" data-om-tag={tag.toLowerCase()}>{tag}</button>
+          ))}
+        </div>
+
+        <div class="filter-summary">
+          <span id="om-results-count" class="results-count">Showing {optionalMechanics.length} of {optionalMechanics.length} mechanics</span>
+          <button type="button" id="reset-om-filters" class="btn btn--secondary btn--sm reset-btn hidden">Reset Filters</button>
+        </div>
+      </div>
+
+      <!-- Quick Jump Links -->
+      <div class="om-quicknav">
+        <span class="om-quicknav__label">Jump to Mechanic:</span>
+        <div class="om-quicknav__links">
+          {optionalMechanics.map(m => (
+            <a href={`#${m.id}`} class="om-quicknav__link">{m.name}</a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Mechanics List -->
+      <div class="om-list" id="om-list">
+        {optionalMechanics.map((mechanic, i) => (
+          <article
+            class="om-card card"
+            id={mechanic.id}
+            data-name={mechanic.name.toLowerCase()}
+            data-tags={mechanic.tags.map(t => t.toLowerCase()).join(',')}
+            data-search-text={`${mechanic.name} ${mechanic.tagline} ${mechanic.summary} ${mechanic.description} ${mechanic.whenToUse} ${mechanic.example} ${mechanic.tags.join(' ')}`.toLowerCase()}
+          >
+            <header class="om-card__header">
+              <div class="om-card__number" aria-hidden="true">{String(i + 1).padStart(2, '0')}</div>
+              <div class="om-card__title-block">
+                <h2 class="om-card__name">{mechanic.name}</h2>
+                <p class="om-card__tagline">"{mechanic.tagline}"</p>
+              </div>
+              <div class="om-card__tags">
+                {mechanic.tags.map(tag => (
+                  <button type="button" class="tag tag--community" style="font-size:0.65rem; border:none; cursor:pointer;" data-om-tag={tag.toLowerCase()}>{tag}</button>
+                ))}
+              </div>
+            </header>
+
+            <p class="om-card__summary">{mechanic.summary}</p>
+
+            <div class="om-card__body">
+              <div class="om-card__section">
+                <h3 class="om-card__section-label">How It Works</h3>
+                <p class="om-card__text">{mechanic.description}</p>
+              </div>
+
+              <div class="om-card__section">
+                <h3 class="om-card__section-label">When to Use It</h3>
+                <p class="om-card__text om-card__text--muted">{mechanic.whenToUse}</p>
+              </div>
+
+              <div class="om-card__example">
+                <h3 class="om-card__section-label">Example</h3>
+                <blockquote class="om-card__quote">{mechanic.example}</blockquote>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- No Results State -->
+      <div id="om-no-results" class="no-results card hidden">
+        <div class="no-results__icon" aria-hidden="true">⚙️</div>
+        <h3>No Mechanics Found</h3>
+        <p>No mechanic matches your search keyword or tag filter. Try adjusting your search query or reset the filter.</p>
+        <button type="button" id="om-no-results-reset" class="btn btn--primary">Show All {optionalMechanics.length} Mechanics</button>
+      </div>
+
+      <div style="margin-top:var(--space-12);">
+        <AmazonCTA placement="supplements_bottom" variant="banner" label="Get the D6 Storyteller Core Rulebook on Amazon" />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const omSearchInput = document.getElementById('om-search') as HTMLInputElement | null;
+    const omTagSelect = document.getElementById('om-tag-select') as HTMLSelectElement | null;
+    const omClearSearchBtn = document.getElementById('clear-om-search') as HTMLButtonElement | null;
+    const omResetFiltersBtn = document.getElementById('reset-om-filters') as HTMLButtonElement | null;
+    const omNoResultsResetBtn = document.getElementById('om-no-results-reset') as HTMLButtonElement | null;
+    const omResultsCount = document.getElementById('om-results-count');
+    const omNoResults = document.getElementById('om-no-results');
+    const omList = document.getElementById('om-list');
+    const omTagPillsContainer = document.getElementById('om-tag-pills');
+
+    if (!omList) return;
+
+    const omCards = Array.from(omList.querySelectorAll('.om-card')) as HTMLElement[];
+    const omTotalCount = omCards.length;
+
+    let omQuery = '';
+    let omTag = '';
+
+    function filterMechanics() {
+      let visibleCount = 0;
+
+      omCards.forEach(card => {
+        const searchText = card.getAttribute('data-search-text') || '';
+        const cardTags = (card.getAttribute('data-tags') || '').split(',');
+
+        const matchesQuery = !omQuery || searchText.includes(omQuery.toLowerCase().trim());
+        const matchesTag = !omTag || cardTags.includes(omTag.toLowerCase());
+
+        if (matchesQuery && matchesTag) {
+          card.style.display = '';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      if (omResultsCount) {
+        omResultsCount.textContent = `Showing ${visibleCount} of ${omTotalCount} mechanics`;
+      }
+
+      if (omNoResults) {
+        if (visibleCount === 0) {
+          omNoResults.classList.remove('hidden');
+          omList.style.display = 'none';
+        } else {
+          omNoResults.classList.add('hidden');
+          omList.style.display = 'flex';
+        }
+      }
+
+      if (omClearSearchBtn) {
+        if (omQuery) {
+          omClearSearchBtn.classList.remove('hidden');
+        } else {
+          omClearSearchBtn.classList.add('hidden');
+        }
+      }
+
+      if (omResetFiltersBtn) {
+        if (omQuery || omTag) {
+          omResetFiltersBtn.classList.remove('hidden');
+        } else {
+          omResetFiltersBtn.classList.add('hidden');
+        }
+      }
+
+      if (omTagPillsContainer) {
+        const pills = omTagPillsContainer.querySelectorAll('.tag-pill');
+        pills.forEach(pill => {
+          const pillTag = pill.getAttribute('data-om-tag') || '';
+          if (pillTag === omTag) {
+            pill.classList.add('tag-pill--active');
+          } else {
+            pill.classList.remove('tag-pill--active');
+          }
+        });
+      }
+
+      if (omTagSelect && omTagSelect.value !== omTag) {
+        omTagSelect.value = omTag;
+      }
+    }
+
+    if (omSearchInput) {
+      omSearchInput.addEventListener('input', (e) => {
+        omQuery = (e.target as HTMLInputElement).value;
+        filterMechanics();
+      });
+    }
+
+    if (omTagSelect) {
+      omTagSelect.addEventListener('change', (e) => {
+        omTag = (e.target as HTMLSelectElement).value;
+        filterMechanics();
+      });
+    }
+
+    if (omTagPillsContainer) {
+      omTagPillsContainer.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement;
+        if (target.classList.contains('tag-pill')) {
+          omTag = target.getAttribute('data-om-tag') || '';
+          filterMechanics();
+        }
+      });
+    }
+
+    omList.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      if (target.hasAttribute('data-om-tag')) {
+        const tag = target.getAttribute('data-om-tag') || '';
+        omTag = tag;
+        filterMechanics();
+      }
+    });
+
+    if (omClearSearchBtn) {
+      omClearSearchBtn.addEventListener('click', () => {
+        if (omSearchInput) omSearchInput.value = '';
+        omQuery = '';
+        filterMechanics();
+        if (omSearchInput) omSearchInput.focus();
+      });
+    }
+
+    function resetAllMechanics() {
+      if (omSearchInput) omSearchInput.value = '';
+      omQuery = '';
+      omTag = '';
+      if (omTagSelect) omTagSelect.value = '';
+      filterMechanics();
+    }
+
+    if (omResetFiltersBtn) omResetFiltersBtn.addEventListener('click', resetAllMechanics);
+    if (omNoResultsResetBtn) omNoResultsResetBtn.addEventListener('click', resetAllMechanics);
+  });
+</script>
+
+<style>
+.om-intro {
+  max-width: 70ch;
+  font-size: var(--text-lg);
+  color: rgba(232, 224, 208, 0.85);
+  margin-bottom: var(--space-8);
+  line-height: 1.6;
+}
+
+/* Quick nav for mechanics */
+.om-quicknav {
+  background: var(--navy-900);
+  border: 1px solid rgba(201, 162, 39, 0.2);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4) var(--space-6);
+  margin-bottom: var(--space-8);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.om-quicknav__label {
+  font-family: var(--font-heading);
+  font-size: var(--text-xs);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-400);
+  white-space: nowrap;
+  margin: 0;
+  padding-top: 2px;
+}
+
+.om-quicknav__links { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.om-quicknav__link {
+  font-size: var(--text-xs);
+  font-family: var(--font-heading);
+  color: rgba(232, 224, 208, 0.6);
+  text-decoration: none;
+  padding: 0.2em 0.7em;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  transition: all var(--transition-fast);
+}
+.om-quicknav__link:hover {
+  color: var(--gold-300);
+  border-color: var(--gold-500);
+  background: rgba(201, 162, 39, 0.08);
+  text-shadow: none;
+}
+
+/* Mechanics List */
+.om-list { display: flex; flex-direction: column; gap: var(--space-6); }
+.om-card { padding: var(--space-8); scroll-margin-top: 80px; }
+
+.om-card__header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: var(--space-4);
+  align-items: start;
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid rgba(201, 162, 39, 0.15);
+}
+
+@media (max-width: 640px) {
+  .om-card__header { grid-template-columns: auto 1fr; }
+  .om-card__tags { grid-column: 1 / -1; }
+}
+
+.om-card__number {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 900;
+  color: rgba(201, 162, 39, 0.2);
+  line-height: 1;
+  width: 3rem;
+  text-align: right;
+}
+
+.om-card__title-block { display: flex; flex-direction: column; gap: var(--space-1); }
+.om-card__name { font-size: var(--text-2xl); color: var(--gold-300); margin: 0; line-height: 1.2; }
+.om-card__tagline { font-family: var(--font-heading); font-size: var(--text-sm); font-style: italic; color: rgba(232, 224, 208, 0.5); margin: 0; }
+.om-card__tags { display: flex; flex-wrap: wrap; gap: var(--space-1); align-self: center; }
+
+.om-card__summary { font-family: var(--font-heading); font-size: var(--text-lg); color: rgba(232, 224, 208, 0.9); margin-bottom: var(--space-6); max-width: 70ch; }
+
+.om-card__body { display: grid; grid-template-columns: 1fr; gap: var(--space-6); }
+@media (min-width: 900px) {
+  .om-card__body { grid-template-columns: 2fr 1fr; }
+  .om-card__example { grid-column: 2; grid-row: 1 / 3; }
+}
+
+.om-card__section-label { font-family: var(--font-heading); font-size: var(--text-xs); letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-400); margin-bottom: var(--space-2); }
+.om-card__text { font-size: var(--text-sm); color: rgba(232, 224, 208, 0.8); line-height: 1.75; margin: 0; }
+.om-card__text--muted { color: rgba(232, 224, 208, 0.6); }
+
+.om-card__example {
+  background: rgba(201, 162, 39, 0.05);
+  border: 1px solid rgba(201, 162, 39, 0.15);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+.om-card__quote { font-size: var(--text-sm); color: rgba(232, 224, 208, 0.75); font-style: italic; border: none; padding: 0; margin: 0; line-height: 1.7; }
+</style>

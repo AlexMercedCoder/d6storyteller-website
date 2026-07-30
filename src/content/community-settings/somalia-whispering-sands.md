@@ -23,7 +23,7 @@ publishedDate: "2026-07-30"
 
 **High-Concept Pitch:** Somalia has historically been known as the "Nation of Poets." In traditional Somali society, oral poetry (*gabay*) served as news, philosophy, legal precedent, and warfare. Beneath this vibrant nomadic culture lies a rich tapestry of Horn of Africa mythology: ancient **Jinn** bound to subterranean water tables, **Qori-is-maris** (were-hyenas who rub themselves with magical sticks to transform), and the feared figure of **Dhegdheer**, a terrifying long-eared creature of folklore who preys on those who break tribal hospitality.
 
-In this setting, water is more than survival—it is sacred covenant. The ancient stone wells (*ceel*) scattered across the Ogaden plateau were dug by pre-Islamic giants (the *Yibir* and *Harla* civilizations). Now, these deep wells are crying out with smoky flames instead of cool water, signaling that ancient Jinn bound beneath the earth are breaking their chains.
+In this setting, water is more than survival - it is sacred covenant. The ancient stone wells (*ceel*) scattered across the Ogaden plateau were dug by pre-Islamic giants (the *Yibir* and *Harla* civilizations). Now, these deep wells are crying out with smoky flames instead of cool water, signaling that ancient Jinn bound beneath the earth are breaking their chains.
 
 **Sensory Pillars:**
 1. **Sight:** Endless acacia-dotted savannah and red dune fields meeting the turquoise waters of the Indian Ocean; night skies unmarred by city light, blazing with billions of stars; the spectral figure of a Jinni rising as a pillar of smokeless fire from an ancient stone well.

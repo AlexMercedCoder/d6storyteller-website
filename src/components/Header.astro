@@ -15,9 +15,9 @@ const navItems: NavItem[] = [
     label: 'Resources',
     id: 'resources-dropdown',
     children: [
-      { href: '/settings/',           label: 'Settings Directory',  desc: 'All 100 worlds across the book series'  },
-      { href: '/community-settings/', label: 'Additional Settings', desc: 'Free additional settings beyond the books' },
-      { href: '/optional-mechanics/', label: 'Optional Mechanics',  desc: '10 plug-in rules for any campaign' },
+      { href: '/settings/',           label: 'Settings Directory',  desc: 'All 137 worlds across books & supplements' },
+      { href: '/optional-mechanics/', label: 'Optional Mechanics',  desc: '50 plug-in rules for any campaign' },
+      { href: '/prompts/',            label: 'Prompts',             desc: '30 creative prompts for Storytellers & players' },
       { href: '/downloads/',          label: 'Downloads',           desc: 'Character sheets & printable aids' },
     ],
   },
@@ -29,7 +29,7 @@ const isActive = (href?: string) =>
     ? currentPath === href || (href !== '/' && currentPath.startsWith(href))
     : false;
 
-const resourcePaths = ['/settings/', '/community-settings/', '/optional-mechanics/', '/downloads/'];
+const resourcePaths = ['/settings/', '/community-settings/', '/optional-mechanics/', '/prompts/', '/downloads/'];
 const resourcesActive = resourcePaths.some(p => currentPath.startsWith(p));
 ---
 
@@ -37,7 +37,7 @@ const resourcesActive = resourcePaths.some(p => currentPath.startsWith(p));
   <div class="container site-header__inner">
 
     <!-- Logo -->
-    <a href="/" class="site-header__logo" aria-label="D6 Storyteller — Home">
+    <a href="/" class="site-header__logo" aria-label="D6 Storyteller: Home">
       <span class="site-header__logo-icon" aria-hidden="true">⚄</span>
       <span class="site-header__logo-text">D6 Storyteller</span>
     </a>
@@ -149,6 +149,7 @@ const resourcesActive = resourcePaths.some(p => currentPath.startsWith(p));
           <li><a href="/settings/" class={`mobile-menu__sub-link${isActive('/settings/') ? ' mobile-menu__sub-link--active' : ''}`}>Settings Directory <span>All 100 worlds</span></a></li>
           <li><a href="/community-settings/" class={`mobile-menu__sub-link${isActive('/community-settings/') ? ' mobile-menu__sub-link--active' : ''}`}>Additional Settings <span>Free extra worlds</span></a></li>
           <li><a href="/optional-mechanics/" class={`mobile-menu__sub-link${isActive('/optional-mechanics/') ? ' mobile-menu__sub-link--active' : ''}`}>Optional Mechanics <span>10 plug-in rules</span></a></li>
+          <li><a href="/prompts/" class={`mobile-menu__sub-link${isActive('/prompts/') ? ' mobile-menu__sub-link--active' : ''}`}>Prompts <span>30 creative starters</span></a></li>
           <li><a href="/downloads/" class={`mobile-menu__sub-link${isActive('/downloads/') ? ' mobile-menu__sub-link--active' : ''}`}>Downloads <span>Sheets & printables</span></a></li>
         </ul>
       </li>

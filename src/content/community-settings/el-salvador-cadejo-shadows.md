@@ -21,7 +21,7 @@ publishedDate: "2026-07-30"
 
 ## 1. Setting Overview & Tone
 
-**High-Concept Pitch:** In 17th-century El Salvador (the historic realm of Cuscatlán), the eruption of the Izalco volcano awakens the legendary **Cadejo**—twin phantom hounds woven into Pipil and Salvadoran mythology. As Spanish landlords expand indigo plantations and force Indigenous villagers into hardship, the White Cadejo appears to guard night travelers, while the monstrous Black Cadejo hunts oppressors and drunks. Players embody a secret brotherhood of Pipil spirit-keepers who channel these dual entities to defend their communities.
+**High-Concept Pitch:** In 17th-century El Salvador (the historic realm of Cuscatlán), the eruption of the Izalco volcano awakens the legendary **Cadejo** - twin phantom hounds woven into Pipil and Salvadoran mythology. As Spanish landlords expand indigo plantations and force Indigenous villagers into hardship, the White Cadejo appears to guard night travelers, while the monstrous Black Cadejo hunts oppressors and drunks. Players embody a secret brotherhood of Pipil spirit-keepers who channel these dual entities to defend their communities.
 
 **Sensory Pillars:**
 1. **Sight:** The ominous red glow of Izalco's lava rivers against a pitch-black midnight sky; brilliant indigo dye vats glowing deep violet in village courtyards; the spectral white luminescence of the guardian Cadejo's eyes.

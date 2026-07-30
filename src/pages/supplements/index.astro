@@ -2,111 +2,10 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import AmazonCTA from '../../components/AmazonCTA.astro';
 import { getCollection } from 'astro:content';
+import { optionalMechanics } from '../../data/optional-mechanics';
 
 const settings = await getCollection('community-settings');
-
-const mechanics = [
-  {
-    id: "momentum-bank",
-    name: "Momentum Bank",
-    tagline: "Build up. Cash in.",
-    summary: "A shared group resource that rewards consistent storytelling and creative action.",
-    description: "The group maintains a shared Momentum Bank: a pool of tokens or tallies. Whenever a player achieves a Full Success (a 6 on their highest die), they may bank one Momentum instead of spending it immediately. When any player faces a Desperate or Risky position roll, they may withdraw Momentum from the Bank to upgrade their position by one step before rolling. The Bank has a maximum capacity equal to the number of players. Momentum in the Bank resets to zero at the start of each new session.",
-    whenToUse: "Add this to any campaign where you want to encourage the players to think as a team rather than individually. Particularly effective in heist, ensemble, and war-band scenarios.",
-    example: "Three players are planning a break-in. Over the previous scene, two of them banked Momentum from successful scouting rolls. When the third player attempts the critical safe-cracking roll from a Risky position, they withdraw both Momentum to push it to Controlled.",
-    tags: ["Teamwork", "Resource Management", "Any Genre"],
-  },
-  {
-    id: "flashback-frame",
-    name: "Flashback Frame",
-    tagline: "You prepared for this. Show us when.",
-    summary: "Let players retroactively establish that their character prepared for a situation before it began.",
-    description: "Once per scene, a player may call a Flashback Frame before making a roll. They describe a brief scene from the past in which their character made a preparation relevant to the current situation. The Storyteller assigns the flashback a difficulty (Simple, Risky, or Desperate). The player rolls for the flashback result immediately, modifying their position in the present scene.",
-    whenToUse: "Use this when your players are creative improvisers who feel constrained by 'I should have thought of that earlier.' It rewards players who are paying attention to the fiction.",
-    example: "A spy is caught at the border without papers. Before rolling, she calls a Flashback Frame: 'Three weeks ago I bribed a contact here.' She rolls for the bribe: Partial Success.",
-    tags: ["Narrative", "Improvisation", "Any Genre"],
-  },
-  {
-    id: "escalating-stakes",
-    name: "Escalating Stakes",
-    tagline: "Every success raises the cost of the next failure.",
-    summary: "A mechanic that builds narrative tension by tracking how high the stakes have climbed in a conflict.",
-    description: "At the start of any extended conflict, the Storyteller places a Stakes Track on the table (1 to 5). Every time a character achieves a Full Success or suffers a Failure, the track advances. Characters use the current Stakes number as a modifier to the severity of consequences.",
-    whenToUse: "Excellent for political negotiations, heists in progress, and chases where early successes create overconfidence.",
-    example: "A smuggler is arguing her case before a tribunal. Early wins push the Stakes Track to 3. When her partner then fails a bluff roll, the consequence is dramatic.",
-    tags: ["Tension", "Conflict", "Dramatic Pacing"],
-  },
-  {
-    id: "wound-clock",
-    name: "Wound Clock",
-    tagline: "Harm compounds. The clock doesn't stop.",
-    summary: "Track cumulative physical harm with a four-segment clock that generates escalating narrative consequences.",
-    description: "Each character maintains a Wound Clock divided into four segments. Each time a character takes physical harm, advance the clock by one segment. Segment 1 = graze; segment 2 = real wound (-1 die on physical rolls); segment 3 = severe injury (worse position); segment 4 = incapacitated.",
-    whenToUse: "Use when you want harm to feel consequential and cumulative without requiring a complex hit point system.",
-    example: "A soldier takes two hits in a forest ambush (clock at 2). She tries to treat herself between scenes and rolls a Partial Success.",
-    tags: ["Survival", "Combat", "Harm Tracking"],
-  },
-  {
-    id: "reputation-web",
-    name: "Reputation Web",
-    tagline: "How you're known shapes what you can do.",
-    summary: "Track your character's standing with different factions using a simple three-tier web.",
-    description: "Each character maintains a Reputation Web of relevant factions rated Trusted (green), Neutral (blank), or Wanted (red). Trusted factions offer help without a roll; Wanted factions escalate position to Desperate.",
-    whenToUse: "Add this to any setting with meaningful political or social complexity: spy thrillers, political intrigue, faction wars.",
-    example: "A fixer is Trusted by street gangs and Wanted by corporate police. Entering the corporate district worsens her position to Desperate.",
-    tags: ["Social", "Political Intrigue", "Factions"],
-  },
-  {
-    id: "ticking-clock",
-    name: "Ticking Clock",
-    tagline: "Every action burns time. Time runs out.",
-    summary: "A structured countdown that drives urgency and shapes decision-making across an entire session.",
-    description: "The Storyteller establishes a countdown from 3 to 8. Failed rolls or Desperate partial successes advance the clock. When it reaches zero, the threatened disaster strikes.",
-    whenToUse: "Essential for any session with a time-sensitive objective.",
-    example: "The ritual clock sits at 5. The players fail a roll deciphering cult notes: clock advances to 4.",
-    tags: ["Tension", "Time Pressure", "Any Genre"],
-  },
-  {
-    id: "emotional-burden",
-    name: "Emotional Burden",
-    tagline: "What you carry shapes how you act.",
-    summary: "Track the psychological weight of difficult decisions with a personal Burden track.",
-    description: "Witnessing loss or making morally costly choices marks boxes on a 5-box Burden track. High burden narrows approach choices; filling the track triggers a Breaking Point.",
-    whenToUse: "Use in campaigns where moral complexity and emotional consequences matter.",
-    example: "A soldier has 4 Burden from hard choices. After a quiet moment with a villager she protected, she clears one box.",
-    tags: ["Drama", "Character Development", "Psychological"],
-  },
-  {
-    id: "cooperative-roll",
-    name: "Cooperative Roll",
-    tagline: "Together you roll more. Together you share the risk.",
-    summary: "A formalized structure for characters assisting each other with shared risk.",
-    description: "An assisting character contributes their approach dice to the lead character's pool, but both characters share the consequence if the roll fails or partially succeeds.",
-    whenToUse: "Works in any setting and replaces 'I help' with genuine stakes.",
-    example: "A doctor performs emergency surgery in a moving vehicle while a pilot holds it steady. A Partial Success means surgery succeeds but both take a bump.",
-    tags: ["Teamwork", "Collaborative", "Any Genre"],
-  },
-  {
-    id: "legacy-move",
-    name: "Legacy Move",
-    tagline: "One moment that echoes through everything that follows.",
-    summary: "Declare a single, permanently story-changing action at full cost to gain a lasting benefit.",
-    description: "Once per campaign arc, a character may declare a Legacy Move: an action with permanent consequence rolled with full pool regardless of position.",
-    whenToUse: "Use at climactic moments: the end of a story arc or defining confrontation.",
-    example: "A revolutionary speaks against a tyrant. Partial Success: inspires the crowd but draws targeted pursuit. Gains Descriptor 'Voice of the Plaza'.",
-    tags: ["Character Development", "Dramatic", "Campaign Play"],
-  },
-  {
-    id: "scene-pressure",
-    name: "Scene Pressure",
-    tagline: "The environment itself has an agenda.",
-    summary: "Give every scene an active environmental pressure that degrades independently of player action.",
-    description: "An environmental threat advances across three steps (Building → Critical → Erupted) unless players spend actions addressing it directly.",
-    whenToUse: "Add to any scene in an active, hostile environment: burning buildings, storm-tossed ships, collapsing mines.",
-    example: "Scene Pressure: 'The warehouse fire'. Two beats pass without addressing the flame: roof groans, escalating the danger.",
-    tags: ["Environment", "Tension", "Pacing"],
-  },
-];
+const allMechanicTags = [...new Set(optionalMechanics.flatMap(m => m.tags))].sort();
 ---
 
 <BaseLayout
@@ -253,25 +152,75 @@ const mechanics = [
       <!-- SECTION 2: OPTIONAL MECHANICS -->
       <section id="optional-mechanics" class="supp-section" aria-labelledby="opt-mechanics-heading">
         <div class="supp-section__header">
-          <h2 id="opt-mechanics-heading">Optional Plug-In Mechanics</h2>
+          <h2 id="opt-mechanics-heading">Optional Plug-In Mechanics ({optionalMechanics.length})</h2>
           <p>
-            Ten modular rules additions you can drop into any campaign, regardless of setting or genre. Use the ones that fit your table; ignore the rest.
+            Fifty modular rules additions you can drop into any campaign, regardless of setting or genre. Use the ones that fit your table; ignore the rest. Search by name, keyword, or tag below.
           </p>
+        </div>
+
+        <!-- Filter Controls Bar for Mechanics -->
+        <div class="filter-controls card">
+          <div class="filter-controls__inputs">
+            <div class="filter-controls__field filter-controls__field--search">
+              <label for="om-search" class="filter-label">Search Mechanics</label>
+              <div class="search-input-wrap">
+                <span class="search-icon" aria-hidden="true">🔍</span>
+                <input
+                  type="text"
+                  id="om-search"
+                  class="filter-input"
+                  placeholder="Search by mechanic name, effect, or keyword..."
+                  aria-label="Search optional mechanics by name or keyword"
+                />
+                <button type="button" id="clear-om-search" class="clear-btn hidden" aria-label="Clear search">✕</button>
+              </div>
+            </div>
+
+            <div class="filter-controls__field filter-controls__field--select">
+              <label for="om-tag-select" class="filter-label">Filter by Tag</label>
+              <select id="om-tag-select" class="filter-select" aria-label="Filter mechanics by tag">
+                <option value="">All Tags ({allMechanicTags.length})</option>
+                {allMechanicTags.map(tag => (
+                  <option value={tag.toLowerCase()}>{tag}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          <!-- Tag Pills for Mechanics -->
+          <div class="tag-pills" id="om-tag-pills">
+            <span class="tag-pills__label">Quick Tags:</span>
+            <button type="button" class="tag-pill tag-pill--active" data-om-tag="">All</button>
+            {allMechanicTags.slice(0, 18).map(tag => (
+              <button type="button" class="tag-pill" data-om-tag={tag.toLowerCase()}>{tag}</button>
+            ))}
+          </div>
+
+          <div class="filter-summary">
+            <span id="om-results-count" class="results-count">Showing {optionalMechanics.length} of {optionalMechanics.length} mechanics</span>
+            <button type="button" id="reset-om-filters" class="btn btn--secondary btn--sm reset-btn hidden">Reset Filters</button>
+          </div>
         </div>
 
         <!-- Quick Jump Links -->
         <div class="om-quicknav">
           <span class="om-quicknav__label">Jump to Mechanic:</span>
           <div class="om-quicknav__links">
-            {mechanics.map(m => (
+            {optionalMechanics.map(m => (
               <a href={`#${m.id}`} class="om-quicknav__link">{m.name}</a>
             ))}
           </div>
         </div>
 
-        <div class="om-list">
-          {mechanics.map((mechanic, i) => (
-            <article class="om-card card" id={mechanic.id}>
+        <div class="om-list" id="om-list">
+          {optionalMechanics.map((mechanic, i) => (
+            <article
+              class="om-card card"
+              id={mechanic.id}
+              data-name={mechanic.name.toLowerCase()}
+              data-tags={mechanic.tags.map(t => t.toLowerCase()).join(',')}
+              data-search-text={`${mechanic.name} ${mechanic.tagline} ${mechanic.summary} ${mechanic.description} ${mechanic.whenToUse} ${mechanic.example} ${mechanic.tags.join(' ')}`.toLowerCase()}
+            >
               <header class="om-card__header">
                 <div class="om-card__number" aria-hidden="true">{String(i + 1).padStart(2, '0')}</div>
                 <div class="om-card__title-block">
@@ -280,7 +229,7 @@ const mechanics = [
                 </div>
                 <div class="om-card__tags">
                   {mechanic.tags.map(tag => (
-                    <span class="tag tag--community" style="font-size:0.65rem;">{tag}</span>
+                    <span class="tag tag--community" style="font-size:0.65rem;" data-om-tag={tag.toLowerCase()}>{tag}</span>
                   ))}
                 </div>
               </header>
@@ -306,6 +255,14 @@ const mechanics = [
             </article>
           ))}
         </div>
+
+        <!-- No Results State for Mechanics -->
+        <div id="om-no-results" class="no-results card hidden">
+          <div class="no-results__icon" aria-hidden="true">⚙️</div>
+          <h3>No Mechanics Found</h3>
+          <p>No mechanic matches your search term or tag filter. Try adjusting your search query or reset the filter.</p>
+          <button type="button" id="om-no-results-reset" class="btn btn--primary">Show All {optionalMechanics.length} Mechanics</button>
+        </div>
       </section>
 
       <div style="margin-top:var(--space-10);">
@@ -314,6 +271,288 @@ const mechanics = [
     </div>
   </section>
 </BaseLayout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // -------------------------------------------------------------
+    // 1. ADDITIONAL SETTINGS SEARCH & FILTER
+    // -------------------------------------------------------------
+    const searchInput = document.getElementById('supp-search') as HTMLInputElement | null;
+    const tagSelect = document.getElementById('supp-tag-select') as HTMLSelectElement | null;
+    const clearSearchBtn = document.getElementById('clear-supp-search') as HTMLButtonElement | null;
+    const resetFiltersBtn = document.getElementById('reset-supp-filters') as HTMLButtonElement | null;
+    const noResultsResetBtn = document.getElementById('supp-no-results-reset') as HTMLButtonElement | null;
+    const resultsCount = document.getElementById('supp-results-count');
+    const noResults = document.getElementById('supp-no-results');
+    const suppGrid = document.getElementById('supp-grid');
+    const tagPillsContainer = document.getElementById('supp-tag-pills');
+
+    if (suppGrid) {
+      const cards = Array.from(suppGrid.querySelectorAll('.supp-card')) as HTMLElement[];
+      const totalCount = cards.length;
+
+      let currentQuery = '';
+      let currentTag = '';
+
+      function filterSupplements() {
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+          const searchText = card.getAttribute('data-search-text') || '';
+          const cardTags = (card.getAttribute('data-tags') || '').split(',');
+
+          const matchesQuery = !currentQuery || searchText.includes(currentQuery.toLowerCase().trim());
+          const matchesTag = !currentTag || cardTags.includes(currentTag.toLowerCase());
+
+          if (matchesQuery && matchesTag) {
+            card.style.display = '';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        if (resultsCount) {
+          resultsCount.textContent = `Showing ${visibleCount} of ${totalCount} settings`;
+        }
+
+        if (noResults) {
+          if (visibleCount === 0) {
+            noResults.classList.remove('hidden');
+            suppGrid.style.display = 'none';
+          } else {
+            noResults.classList.add('hidden');
+            suppGrid.style.display = 'grid';
+          }
+        }
+
+        if (clearSearchBtn) {
+          if (currentQuery) {
+            clearSearchBtn.classList.remove('hidden');
+          } else {
+            clearSearchBtn.classList.add('hidden');
+          }
+        }
+
+        if (resetFiltersBtn) {
+          if (currentQuery || currentTag) {
+            resetFiltersBtn.classList.remove('hidden');
+          } else {
+            resetFiltersBtn.classList.add('hidden');
+          }
+        }
+
+        if (tagPillsContainer) {
+          const pills = tagPillsContainer.querySelectorAll('.tag-pill');
+          pills.forEach(pill => {
+            const pillTag = pill.getAttribute('data-tag') || '';
+            if (pillTag === currentTag) {
+              pill.classList.add('tag-pill--active');
+            } else {
+              pill.classList.remove('tag-pill--active');
+            }
+          });
+        }
+
+        if (tagSelect && tagSelect.value !== currentTag) {
+          tagSelect.value = currentTag;
+        }
+      }
+
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          currentQuery = (e.target as HTMLInputElement).value;
+          filterSupplements();
+        });
+      }
+
+      if (tagSelect) {
+        tagSelect.addEventListener('change', (e) => {
+          currentTag = (e.target as HTMLSelectElement).value;
+          filterSupplements();
+        });
+      }
+
+      if (tagPillsContainer) {
+        tagPillsContainer.addEventListener('click', (e) => {
+          const target = e.target as HTMLElement;
+          if (target.classList.contains('tag-pill')) {
+            currentTag = target.getAttribute('data-tag') || '';
+            filterSupplements();
+          }
+        });
+      }
+
+      suppGrid.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement;
+        if (target.hasAttribute('data-tag')) {
+          const tag = target.getAttribute('data-tag') || '';
+          currentTag = tag;
+          filterSupplements();
+        }
+      });
+
+      if (clearSearchBtn) {
+        clearSearchBtn.addEventListener('click', () => {
+          if (searchInput) searchInput.value = '';
+          currentQuery = '';
+          filterSupplements();
+          if (searchInput) searchInput.focus();
+        });
+      }
+
+      function resetAllSupplements() {
+        if (searchInput) searchInput.value = '';
+        currentQuery = '';
+        currentTag = '';
+        if (tagSelect) tagSelect.value = '';
+        filterSupplements();
+      }
+
+      if (resetFiltersBtn) resetFiltersBtn.addEventListener('click', resetAllSupplements);
+      if (noResultsResetBtn) noResultsResetBtn.addEventListener('click', resetAllSupplements);
+    }
+
+    // -------------------------------------------------------------
+    // 2. OPTIONAL MECHANICS SEARCH & FILTER
+    // -------------------------------------------------------------
+    const omSearchInput = document.getElementById('om-search') as HTMLInputElement | null;
+    const omTagSelect = document.getElementById('om-tag-select') as HTMLSelectElement | null;
+    const omClearSearchBtn = document.getElementById('clear-om-search') as HTMLButtonElement | null;
+    const omResetFiltersBtn = document.getElementById('reset-om-filters') as HTMLButtonElement | null;
+    const omNoResultsResetBtn = document.getElementById('om-no-results-reset') as HTMLButtonElement | null;
+    const omResultsCount = document.getElementById('om-results-count');
+    const omNoResults = document.getElementById('om-no-results');
+    const omList = document.getElementById('om-list');
+    const omTagPillsContainer = document.getElementById('om-tag-pills');
+
+    if (omList) {
+      const omCards = Array.from(omList.querySelectorAll('.om-card')) as HTMLElement[];
+      const omTotalCount = omCards.length;
+
+      let omQuery = '';
+      let omTag = '';
+
+      function filterMechanics() {
+        let visibleCount = 0;
+
+        omCards.forEach(card => {
+          const searchText = card.getAttribute('data-search-text') || '';
+          const cardTags = (card.getAttribute('data-tags') || '').split(',');
+
+          const matchesQuery = !omQuery || searchText.includes(omQuery.toLowerCase().trim());
+          const matchesTag = !omTag || cardTags.includes(omTag.toLowerCase());
+
+          if (matchesQuery && matchesTag) {
+            card.style.display = '';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        if (omResultsCount) {
+          omResultsCount.textContent = `Showing ${visibleCount} of ${omTotalCount} mechanics`;
+        }
+
+        if (omNoResults) {
+          if (visibleCount === 0) {
+            omNoResults.classList.remove('hidden');
+            omList.style.display = 'none';
+          } else {
+            omNoResults.classList.add('hidden');
+            omList.style.display = 'flex';
+          }
+        }
+
+        if (omClearSearchBtn) {
+          if (omQuery) {
+            omClearSearchBtn.classList.remove('hidden');
+          } else {
+            omClearSearchBtn.classList.add('hidden');
+          }
+        }
+
+        if (omResetFiltersBtn) {
+          if (omQuery || omTag) {
+            omResetFiltersBtn.classList.remove('hidden');
+          } else {
+            omResetFiltersBtn.classList.add('hidden');
+          }
+        }
+
+        if (omTagPillsContainer) {
+          const pills = omTagPillsContainer.querySelectorAll('.tag-pill');
+          pills.forEach(pill => {
+            const pillTag = pill.getAttribute('data-om-tag') || '';
+            if (pillTag === omTag) {
+              pill.classList.add('tag-pill--active');
+            } else {
+              pill.classList.remove('tag-pill--active');
+            }
+          });
+        }
+
+        if (omTagSelect && omTagSelect.value !== omTag) {
+          omTagSelect.value = omTag;
+        }
+      }
+
+      if (omSearchInput) {
+        omSearchInput.addEventListener('input', (e) => {
+          omQuery = (e.target as HTMLInputElement).value;
+          filterMechanics();
+        });
+      }
+
+      if (omTagSelect) {
+        omTagSelect.addEventListener('change', (e) => {
+          omTag = (e.target as HTMLSelectElement).value;
+          filterMechanics();
+        });
+      }
+
+      if (omTagPillsContainer) {
+        omTagPillsContainer.addEventListener('click', (e) => {
+          const target = e.target as HTMLElement;
+          if (target.classList.contains('tag-pill')) {
+            omTag = target.getAttribute('data-om-tag') || '';
+            filterMechanics();
+          }
+        });
+      }
+
+      omList.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement;
+        if (target.hasAttribute('data-om-tag')) {
+          const tag = target.getAttribute('data-om-tag') || '';
+          omTag = tag;
+          filterMechanics();
+        }
+      });
+
+      if (omClearSearchBtn) {
+        omClearSearchBtn.addEventListener('click', () => {
+          if (omSearchInput) omSearchInput.value = '';
+          omQuery = '';
+          filterMechanics();
+          if (omSearchInput) omSearchInput.focus();
+        });
+      }
+
+      function resetAllMechanics() {
+        if (omSearchInput) omSearchInput.value = '';
+        omQuery = '';
+        omTag = '';
+        if (omTagSelect) omTagSelect.value = '';
+        filterMechanics();
+      }
+
+      if (omResetFiltersBtn) omResetFiltersBtn.addEventListener('click', resetAllMechanics);
+      if (omNoResultsResetBtn) omNoResultsResetBtn.addEventListener('click', resetAllMechanics);
+    }
+  });
+</script>
 
 <style>
 .supp-intro {

@@ -3,7 +3,7 @@ title: "The Lavender Witches of Montmartre"
 subtitle: "Sapphic Sorcery & Bohemian Alchemy in 1890s Paris: Absinthe Astral Walks, Trans Poetics, and the Secret Coven of the Moulin Rouge"
 genre: "Historical Queer Urban Fantasy"
 tags: ["LGBTQ+", "Queer", "Witches", "Paris", "Sapphic", "Belle Époque", "Bohemian", "Alchemy"]
-premise: "In the artistic explosion of 1890s Belle Époque Paris, the hilltop district of Montmartre is home to more than painters, poets, and cabaret dancers. A secret coven of sapphic witches, trans male poets, and non-binary illusionists known as the Lavender Coven meets in hidden absinthe parlors beneath the shadow of the Sacré-Cœur. Using art, poetry, and herbal alchemy as spellcraft, they protect Paris's growing queer underground from shadow parasites called Shadow-Shames—monstrous entities that feed on societal bigotry, shame, and forced conformity."
+premise: "In the artistic explosion of 1890s Belle Époque Paris, the hilltop district of Montmartre is home to more than painters, poets, and cabaret dancers. A secret coven of sapphic witches, trans male poets, and non-binary illusionists known as the Lavender Coven meets in hidden absinthe parlors beneath the shadow of the Sacré-Cœur. Using art, poetry, and herbal alchemy as spellcraft, they protect Paris's growing queer underground from shadow parasites called Shadow-Shames - monstrous entities that feed on societal bigotry, shame, and forced conformity."
 mechanic: "Glamour (Euphoria & Self-Creation): Characters track a Glamour meter (1-6). In this setting, magic is fueled by self-definition and gender-affirming euphoria. High Glamour allows characters to bend reality, project illusions, heal spiritual wounds, and perform astral walks through absinthe smoke. Low Glamour occurs when overwhelmed by societal judgment, causing spells to fizzle and vulnerability to Shadow-Shames."
 accentColor: "#9333ea"
 coverImage: "/images/supplements/lgbt-lavender-witches-montmartre.png"
@@ -21,9 +21,9 @@ publishedDate: "2026-07-30"
 
 ## 1. Setting Overview & Tone
 
-**High-Concept Pitch:** 1890s Paris was a city of radical artistic revolution, decadent nightlife, and secret liberation. Montmartre—with its cabarets, windmills, and winding cobblestone alleys—served as the heart of bohemian culture. *The Lavender Witches of Montmartre* weaves historical queer history with vibrant urban fantasy.
+**High-Concept Pitch:** 1890s Paris was a city of radical artistic revolution, decadent nightlife, and secret liberation. Montmartre - with its cabarets, windmills, and winding cobblestone alleys - served as the heart of bohemian culture. *The Lavender Witches of Montmartre* weaves historical queer history with vibrant urban fantasy.
 
-The **Lavender Coven** is an underground circle of queer women, trans men, and non-binary creators. They realize that art, fashion, and poetry are not just forms of expression—they are magical conduits. By embracing their authentic desires and identities, they channel **Glamour**, a luminous magic that can dispel **Shadow-Shames** (demonic manifestations of societal repression and homophobia).
+The **Lavender Coven** is an underground circle of queer women, trans men, and non-binary creators. They realize that art, fashion, and poetry are not just forms of expression - they are magical conduits. By embracing their authentic desires and identities, they channel **Glamour**, a luminous magic that can dispel **Shadow-Shames** (demonic manifestations of societal repression and homophobia).
 
 **Sensory Pillars:**
 1. **Sight:** The glittering lights of Paris seen from the height of Montmartre; glowing green absinthe poured over sugar cubes on silver spoons; vibrant lavender dresses, tailored waistcoats, and peacock-feather hats.

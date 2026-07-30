@@ -14,7 +14,7 @@ author: "Alex Merced"
 publishedDate: "2026-07-30"
 ---
 
-> *"They call our sanctuary a den of sin because they cannot comprehend a place where love is not a cage. In the Velvet Veil, we do not hide what we are—we celebrate it, tooth, claw, and song."*
+> *"They call our sanctuary a den of sin because they cannot comprehend a place where love is not a cage. In the Velvet Veil, we do not hide what we are - we celebrate it, tooth, claw, and song."*
 > - Camille LeBeau, House of the Crimson Violet
 
 ---
@@ -23,7 +23,7 @@ publishedDate: "2026-07-30"
 
 **High-Concept Pitch:** Set in the glittering, decadent, and dangerous world of **1920s Jazz Age New Orleans**, *The Velvet Veil* is a supernatural gothic romance setting centered on queer joy, sanctuary, and resistance. In an era when mortal laws outlawed same-sex love, gender variance, and inter-racial relationships, the Crescent City's nocturnal underbelly became a haven for queer supernatural beings.
 
-The **Velvet Veil** is both a physical sanctuary—a sprawling network of hidden courtyards, underground speakeasies, and enchanted parlors in the French Quarter—and a pact of mutual protection. Here, non-binary vampires, sapphic sirens, trans alchemists, and gay shapeshifters live openly, creating art, romance, and chosen family.
+The **Velvet Veil** is both a physical sanctuary - a sprawling network of hidden courtyards, underground speakeasies, and enchanted parlors in the French Quarter - and a pact of mutual protection. Here, non-binary vampires, sapphic sirens, trans alchemists, and gay shapeshifters live openly, creating art, romance, and chosen family.
 
 **Sensory Pillars:**
 1. **Sight:** Midnight in the French Quarter; wrought-iron balconies draped in flowering night-blooming jasmine and Spanish moss; gas lamps casting warm violet shadows; elegant suits, glittering flapper dresses, and bold gender-affirming regalia.

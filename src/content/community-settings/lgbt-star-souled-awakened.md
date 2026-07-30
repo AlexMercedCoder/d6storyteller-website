@@ -3,7 +3,7 @@ title: "The Star-Souled Awakened"
 subtitle: "Celestial Power & Trans Joy in a World of Shadow: Bound Angelic Souls, Demonic Puppet Masters, and the Radiant Magic of Self-Discovery"
 genre: "Celestial Hope Fantasy"
 tags: ["LGBTQ+", "Transgender", "Celestial", "Demons", "Hope Fantasy", "Empowerment", "Unity"]
-premise: "Behind the conflicts of the mortal world lies a cosmic secret: demonic entities operating in secret survive by feeding on human division, prejudice, and war. To safeguard humanity, high-ranking celestial beings bound fragments of their luminous divine essence directly to human souls. On Earth, this celestial soul-spark manifests as an inner truth—an innate knowing of one's authentic gender that transcends physical assignment at birth. When transgender individuals step into their true identity through transition, they do not merely find profound personal joy; they shatter their mortal bindings and unlock celestial powers of light, empathy, and cosmic harmony. As the Star-Souled Awakened, they are the world's primary line of defense against the demon lords who sow hatred."
+premise: "Behind the conflicts of the mortal world lies a cosmic secret: demonic entities operating in secret survive by feeding on human division, prejudice, and war. To safeguard humanity, high-ranking celestial beings bound fragments of their luminous divine essence directly to human souls. On Earth, this celestial soul-spark manifests as an inner truth - an innate knowing of one's authentic gender that transcends physical assignment at birth. When transgender individuals step into their true identity through transition, they do not merely find profound personal joy; they shatter their mortal bindings and unlock celestial powers of light, empathy, and cosmic harmony. As the Star-Souled Awakened, they are the world's primary line of defense against the demon lords who sow hatred."
 mechanic: "Euphoria (Celestial Radiance): Characters track a Euphoria meter (1-6). Embracing authentic selfhood, expressing gender joy, and creating community connections charges the Euphoria pool. High Euphoria grants celestial wings of pure starlight, aura-healing, truth-sight that exposes lurking demons, and devastating light-bursts against malevolent entities. Low Euphoria occurs when isolated or forced into hiding, but mutual support and self-affirmation immediately restore it."
 accentColor: "#ec4899"
 coverImage: "/images/supplements/lgbt-star-souled-awakened.png"
@@ -14,14 +14,14 @@ author: "Alex Merced"
 publishedDate: "2026-07-30"
 ---
 
-> *"They thought they could force me into a mold that was never mine. But when I claimed my true name and embraced my authentic self, the sky opened. The starlight wasn't something outside of me—it was what I had been carrying inside all along."*
+> *"They thought they could force me into a mold that was never mine. But when I claimed my true name and embraced my authentic self, the sky opened. The starlight wasn't something outside of me - it was what I had been carrying inside all along."*
 > - Seraphina Morningstar, Champion of the Dawn Court
 
 ---
 
 ## 1. Setting Overview & Tone
 
-**High-Concept Pitch:** In a world beset by rising prejudice, social polarization, and warfare, humanity believes these conflicts are natural human flaws. In truth, **Archon Demons**—malevolent entities existing in the shadows—manipulate societal fear and feed on human division. The demons' greatest threat is cosmic harmony, unity, and genuine love.
+**High-Concept Pitch:** In a world beset by rising prejudice, social polarization, and warfare, humanity believes these conflicts are natural human flaws. In truth, **Archon Demons** - malevolent entities existing in the shadows - manipulate societal fear and feed on human division. The demons' greatest threat is cosmic harmony, unity, and genuine love.
 
 Eons ago, anticipating this demonic corruption, high-ranking celestial beings volunteered to weave sparks of their luminous divine souls into the human reincarnation cycle. These **Star-Souled** individuals are born into the mortal world carrying a celestial spark. This divine alignment manifests in mortality as a profound inner divergence between assigned birth expectations and true gender identity.
 
@@ -90,7 +90,7 @@ Characters track a **Euphoria Meter** (1-6):
 - **Approach Distribution:** Force 1 | Finesse 2 | Mind 3 | Presence 4
 
 ### Archetype 3: The Void-Walker of Truth (Non-Binary Sage)
-- **Concept:** A non-binary individual whose celestial soul embodies the space between stars—the cosmic void of pure possibility. They can step between shadows, see every demon's secret name, and unravel illusions with a single word.
+- **Concept:** A non-binary individual whose celestial soul embodies the space between stars - the cosmic void of pure possibility. They can step between shadows, see every demon's secret name, and unravel illusions with a single word.
 - **Quote:** *"I do not fit into your binary boxes because the universe itself isn't a box. I am the sky above both."*
 - **Approach Distribution:** Force 1 | Finesse 4 | Mind 3 | Presence 1
 

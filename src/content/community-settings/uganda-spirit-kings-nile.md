@@ -23,7 +23,7 @@ publishedDate: "2026-07-30"
 
 **High-Concept Pitch:** The Great Lakes region of East Africa is home to one of Africa's most fascinating historical legends: the **Bachwezi Empire**. According to oral history in Uganda, Rwanda, and Tanzania, the Bachwezi were a mythical race of demi-god rulers who possessed supernatural knowledge, introduced cattle, ironworking, and crater-lake engineering, and then vanished suddenly into the deep crater lakes when their empire collapsed.
 
-In this setting, the Bachwezi did not die; they stepped sideways into the spirit realm, leaving behind their **Embandwa** mediums and their **Engoma** (royal drums). Drums in Ugandan culture are not musical instruments—they are spiritual legal entities with titles, property, and living souls. The power of the Nile itself flows from the harmony between the living kings and the hidden Bachwezi realm.
+In this setting, the Bachwezi did not die; they stepped sideways into the spirit realm, leaving behind their **Embandwa** mediums and their **Engoma** (royal drums). Drums in Ugandan culture are not musical instruments - they are spiritual legal entities with titles, property, and living souls. The power of the Nile itself flows from the harmony between the living kings and the hidden Bachwezi realm.
 
 **Sensory Pillars:**
 1. **Sight:** The emerald green hills of Uganda cascading down to crater lakes of impossible depth; mist rising from Murchison Falls on the Victoria Nile; a golden Bachwezi spirit manifesting during a drum ceremony, translucent and glowing with celestial light.

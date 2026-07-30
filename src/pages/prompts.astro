@@ -1,0 +1,616 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AmazonCTA from '../components/AmazonCTA.astro';
+
+interface Prompt {
+  id: number;
+  prompt: string;
+  purpose: string;
+  tags: string[];
+}
+
+const storytellerPrompts: Prompt[] = [
+  {
+    id: 1,
+    prompt: "What is the one thing everyone in this setting believes that isn't true - and who benefits from that belief?",
+    purpose: "Plants a central dramatic irony. The players will discover the truth in play; the Storyteller knows it from the start. Anchors theme and gives NPCs hidden motives.",
+    tags: ["World-Building", "Theme", "Mystery"],
+  },
+  {
+    id: 2,
+    prompt: "What happened here one hundred years ago that people have almost forgotten - and what did it leave behind?",
+    purpose: "Seeds historical backstory without requiring exhaustive prep. Gives you ruins, cursed objects, family grudges, and NPC motivations that feel earned rather than invented.",
+    tags: ["History", "World-Building", "Secrets"],
+  },
+  {
+    id: 3,
+    prompt: "What does power look like in this setting, and who is currently losing it?",
+    purpose: "Defines the political and social engine of your world. A faction losing power will do desperate things - making them your most useful source of conflict and NPC drama.",
+    tags: ["Factions", "Politics", "Conflict"],
+  },
+  {
+    id: 4,
+    prompt: "What is the one rule everyone in this world follows, and what is the real cost of breaking it?",
+    purpose: "Establishes a social or physical taboo for dramatic weight. When players eventually break the rule - and they will - the consequence you've seeded here makes it feel real.",
+    tags: ["Taboo", "Stakes", "Society"],
+  },
+  {
+    id: 5,
+    prompt: "What do the powerful fear that the powerless already know?",
+    purpose: "Creates class tension and hidden-knowledge dynamics. Great for settings where the players start at the margins and gradually discover truths the elites have suppressed.",
+    tags: ["Power", "Theme", "Secrets"],
+  },
+  {
+    id: 6,
+    prompt: "What is the one thing everyone in this world wants and only a few can have - and how does that scarcity shape daily life?",
+    purpose: "Scarcity drives faction conflict, moral compromise, and player decisions. Whether it's land, clean water, magic, or safety - naming the scarce thing names the campaign's engine.",
+    tags: ["Economy", "Factions", "Stakes"],
+  },
+  {
+    id: 7,
+    prompt: "Describe your opening scene: where are the characters standing, what is the first thing they hear, and what do they not yet know?",
+    purpose: "Practical session-zero prep. Forces the Storyteller to commit to a starting image before theory, ensuring session one begins in the fiction rather than in rules explanation.",
+    tags: ["Session Zero", "Prep", "Practical"],
+  },
+  {
+    id: 8,
+    prompt: "What does failure look like at the end of this campaign - in concrete terms, not abstract ones?",
+    purpose: "Clarifying the failure state makes the stakes feel real and gives the Storyteller a countdown to work toward. 'The city falls' is vague. 'The children are sent to the work camps' is not.",
+    tags: ["Stakes", "Campaign Arc", "Prep"],
+  },
+  {
+    id: 9,
+    prompt: "Which NPC will betray the players - and what single act of theirs could prevent it?",
+    purpose: "Designing betrayal with a prevention condition creates a morally complex antagonist rather than a trap. The players may never find the lever, but knowing it exists makes you run the NPC honestly.",
+    tags: ["NPCs", "Betrayal", "Morality"],
+  },
+  {
+    id: 10,
+    prompt: "What is the ticking clock that nobody in the world knows about yet - and when does it run out?",
+    purpose: "A hidden clock creates urgency that the players will feel as pressure before they can name it. Set a real session count or in-world date, then build toward it whether or not the players investigate.",
+    tags: ["Ticking Clock", "Urgency", "Prep"],
+  },
+  {
+    id: 11,
+    prompt: "What is this setting's wound - the injustice, disaster, or loss it has never fully recovered from?",
+    purpose: "Every compelling setting has a wound at its center. Naming it gives you theme, gives NPCs grief to carry, and gives players something to heal - or deepen - through their choices.",
+    tags: ["Theme", "World-Building", "Tone"],
+  },
+  {
+    id: 12,
+    prompt: "Describe your primary antagonist as if they were the hero of their own story. What do they want, what have they sacrificed, and what would a reasonable person agree with?",
+    purpose: "Humanizing antagonists is the single fastest upgrade to campaign quality. If you can't make their case sympathetically, they'll play as cardboard. This prompt forces you to find the grain of truth in their position.",
+    tags: ["Antagonist", "NPCs", "Morality"],
+  },
+  {
+    id: 13,
+    prompt: "Which legend in this world is almost certainly true, and which legend is almost certainly false - and how would a player who investigates find out?",
+    purpose: "Managing player misinformation is a narrative craft skill. Decide in advance what the investigation path looks like so you reward curiosity consistently rather than improvising contradictions.",
+    tags: ["Lore", "Mystery", "Investigation"],
+  },
+  {
+    id: 14,
+    prompt: "What does an ordinary day look like for someone in this world who is not an adventurer - and what disrupts it?",
+    purpose: "World texture comes from the mundane. Knowing what normal looks like tells you how to make NPCs feel like people rather than quest dispensers, and makes the players' disruption of that normal feel significant.",
+    tags: ["World-Building", "NPCs", "Tone"],
+  },
+  {
+    id: 15,
+    prompt: "What is the one thing you will never take from the players no matter what happens - and why?",
+    purpose: "Every Storyteller has implicit limits. Making them explicit prevents the unconscious punishments that erode trust: stripping a character's defining trait, invalidating a previous player choice, or making failure feel personal rather than narrative.",
+    tags: ["Safety", "Prep", "Trust"],
+  },
+];
+
+const playerPrompts: Prompt[] = [
+  {
+    id: 16,
+    prompt: "What is the one thing your character swore they would never do - and describe the moment they came closest to doing it anyway?",
+    purpose: "Directly maps to the Flaw field on the character sheet. A vivid near-miss is more useful than an abstract moral rule - it tells you how your character behaves under pressure before the session even starts.",
+    tags: ["Flaw", "Character Sheet", "Backstory"],
+  },
+  {
+    id: 17,
+    prompt: "Who taught your character the most important thing they know - and where is that person now?",
+    purpose: "Creates a mentor figure who can be a bond, a ghost, a source of unresolved conflict, or a betrayer. The 'where are they now' half of the question is where the campaign hook usually lives.",
+    tags: ["Bonds", "Backstory", "Drive"],
+  },
+  {
+    id: 18,
+    prompt: "What does your character want other people to believe about them that isn't entirely true?",
+    purpose: "Reveals the gap between persona and self. That gap is where your character's most interesting moments will come from - when the mask slips, when someone sees through it, when maintaining it costs more than it's worth.",
+    tags: ["Identity", "Flaw", "Roleplaying"],
+  },
+  {
+    id: 19,
+    prompt: "Describe the worst day of your character's life in exactly three sentences.",
+    purpose: "The constraint forces precision. Three sentences makes the backstory specific enough to act on and short enough to share at the table without killing momentum.",
+    tags: ["Backstory", "Trauma", "Practical"],
+  },
+  {
+    id: 20,
+    prompt: "What is the one door your character wishes they could close - something from the past that keeps finding them?",
+    purpose: "Identifies the theme of your character arc before the campaign names it. The Storyteller can use this as a thread that surfaces through NPCs, locations, or consequences without requiring constant player permission.",
+    tags: ["Drive", "Arc", "Flaw"],
+  },
+  {
+    id: 21,
+    prompt: "Who does your character call when everything goes completely wrong - and who would they never call, no matter how bad it gets?",
+    purpose: "Two answers, two characters. The person they'd call is a bond with warmth behind it. The person they'd never call is a relationship with heat behind it - the useful kind for the Storyteller.",
+    tags: ["Bonds", "Relationships", "Antagonist"],
+  },
+  {
+    id: 22,
+    prompt: "What does your character do when no one is watching and nothing is at stake?",
+    purpose: "Reveals the person beneath the archetype. Quiet habits, small pleasures, and private rituals make a character feel inhabited rather than performed - and give the Storyteller texture for downtime scenes.",
+    tags: ["Character Voice", "Roleplaying", "Downtime"],
+  },
+  {
+    id: 23,
+    prompt: "What would make your character walk away from the group - and what would bring them back?",
+    purpose: "Defining the exit condition for group loyalty creates honest dramatic tension. The 'what would bring them back' half is even more important: it reveals the Drive underneath the Flaw.",
+    tags: ["Drive", "Flaw", "Group Dynamics"],
+  },
+  {
+    id: 24,
+    prompt: "Describe your character's hands. What do they look like, and what does that tell you about who this person has been?",
+    purpose: "Hands are a compressed life history. Calluses, scars, missing fingers, ink stains, burns - each one is a backstory beat in a single image. This prompt bypasses the temptation to write paragraphs.",
+    tags: ["Backstory", "Character Voice", "Description"],
+  },
+  {
+    id: 25,
+    prompt: "What does your character believe about luck, fate, or whether the universe is paying attention?",
+    purpose: "Grounds the character philosophically before the campaign asks hard questions. A character who believes the universe is just will respond differently to random suffering than one who believes it's indifferent - and that difference is where roleplay lives.",
+    tags: ["Philosophy", "Drive", "Worldview"],
+  },
+  {
+    id: 26,
+    prompt: "What did your character do before all of this - and what made them leave it behind?",
+    purpose: "The 'leave it behind' half generates the campaign hook the player actually cares about. A former soldier, a disgraced healer, an exiled noble - the 'why they left' is almost always more interesting than the life itself.",
+    tags: ["Backstory", "Hook", "Drive"],
+  },
+  {
+    id: 27,
+    prompt: "Name three things your character would sacrifice for their Drive - and one thing they absolutely would not.",
+    purpose: "Clarifies the shape of the Drive by finding its edges. Characters who would sacrifice anything for their goal are terrifying; characters who have one limit are human. That limit is where the campaign's most important scene will happen.",
+    tags: ["Drive", "Flaw", "Morality"],
+  },
+  {
+    id: 28,
+    prompt: "If your character had to teach their most important skill to a complete stranger, what would they say on day one?",
+    purpose: "Reveals how your character thinks, what they prioritize, and how they relate to people who know less than they do - all without requiring a backstory essay. Also generates great NPC-teaching moments at the table.",
+    tags: ["Character Voice", "Skills", "Roleplaying"],
+  },
+  {
+    id: 29,
+    prompt: "What is your character's honest first impression of each other player character - and which one are they most wrong about?",
+    purpose: "Starts relationship dynamics in play rather than in theory. The 'most wrong about' answer seeds a future moment of connection or conflict without the Storyteller having to engineer it.",
+    tags: ["Group Dynamics", "Session Zero", "Relationships"],
+  },
+  {
+    id: 30,
+    prompt: "What does winning look like for your character at the end of this story - and are they willing to say it out loud?",
+    purpose: "Aligns the character's Drive with the campaign arc before the story begins. 'Are they willing to say it out loud' distinguishes characters who know what they want from those who are running from what they fear - both are valid, and the Storyteller needs to know which.",
+    tags: ["Drive", "Campaign Arc", "Session Zero"],
+  },
+];
+
+const allTags = [...new Set([
+  ...storytellerPrompts.flatMap(p => p.tags),
+  ...playerPrompts.flatMap(p => p.tags),
+])].sort();
+
+const tagColors: Record<string, string> = {
+  "World-Building":  "rgba(120,80,200,0.15)",
+  "Theme":           "rgba(120,80,200,0.15)",
+  "Mystery":         "rgba(39,130,200,0.15)",
+  "Investigation":   "rgba(39,130,200,0.15)",
+  "History":         "rgba(180,140,50,0.15)",
+  "Secrets":         "rgba(192,57,43,0.1)",
+  "Factions":        "rgba(230,126,34,0.12)",
+  "Politics":        "rgba(230,126,34,0.12)",
+  "Conflict":        "rgba(192,57,43,0.1)",
+  "Taboo":           "rgba(192,57,43,0.1)",
+  "Stakes":          "rgba(192,57,43,0.1)",
+  "Society":         "rgba(39,174,96,0.1)",
+  "Power":           "rgba(120,80,200,0.15)",
+  "Economy":         "rgba(39,174,96,0.1)",
+  "Session Zero":    "rgba(39,174,96,0.1)",
+  "Prep":            "rgba(39,174,96,0.1)",
+  "Practical":       "rgba(39,174,96,0.1)",
+  "Campaign Arc":    "rgba(201,162,39,0.12)",
+  "NPCs":            "rgba(39,130,200,0.15)",
+  "Betrayal":        "rgba(192,57,43,0.1)",
+  "Morality":        "rgba(120,80,200,0.15)",
+  "Ticking Clock":   "rgba(192,57,43,0.1)",
+  "Urgency":         "rgba(192,57,43,0.1)",
+  "Antagonist":      "rgba(192,57,43,0.1)",
+  "Tone":            "rgba(120,80,200,0.15)",
+  "Lore":            "rgba(180,140,50,0.15)",
+  "Trust":           "rgba(39,174,96,0.1)",
+  "Safety":          "rgba(39,174,96,0.1)",
+  "Flaw":            "rgba(192,57,43,0.1)",
+  "Character Sheet": "rgba(201,162,39,0.12)",
+  "Backstory":       "rgba(180,140,50,0.15)",
+  "Drive":           "rgba(201,162,39,0.12)",
+  "Bonds":           "rgba(39,174,96,0.1)",
+  "Identity":        "rgba(120,80,200,0.15)",
+  "Roleplaying":     "rgba(39,130,200,0.15)",
+  "Trauma":          "rgba(192,57,43,0.1)",
+  "Arc":             "rgba(201,162,39,0.12)",
+  "Relationships":   "rgba(39,174,96,0.1)",
+  "Character Voice": "rgba(39,130,200,0.15)",
+  "Downtime":        "rgba(39,174,96,0.1)",
+  "Group Dynamics":  "rgba(180,140,50,0.15)",
+  "Description":     "rgba(39,130,200,0.15)",
+  "Philosophy":      "rgba(120,80,200,0.15)",
+  "Worldview":       "rgba(120,80,200,0.15)",
+  "Hook":            "rgba(201,162,39,0.12)",
+  "Skills":          "rgba(39,174,96,0.1)",
+};
+
+const tagTextColors: Record<string, string> = {
+  "World-Building":  "#7040c0",
+  "Theme":           "#7040c0",
+  "Mystery":         "#2060a0",
+  "Investigation":   "#2060a0",
+  "History":         "#806020",
+  "Secrets":         "#8a1a10",
+  "Factions":        "#a05010",
+  "Politics":        "#a05010",
+  "Conflict":        "#8a1a10",
+  "Taboo":           "#8a1a10",
+  "Stakes":          "#8a1a10",
+  "Society":         "#1a6a30",
+  "Power":           "#7040c0",
+  "Economy":         "#1a6a30",
+  "Session Zero":    "#1a6a30",
+  "Prep":            "#1a6a30",
+  "Practical":       "#1a6a30",
+  "Campaign Arc":    "#806000",
+  "NPCs":            "#2060a0",
+  "Betrayal":        "#8a1a10",
+  "Morality":        "#7040c0",
+  "Ticking Clock":   "#8a1a10",
+  "Urgency":         "#8a1a10",
+  "Antagonist":      "#8a1a10",
+  "Tone":            "#7040c0",
+  "Lore":            "#806020",
+  "Trust":           "#1a6a30",
+  "Safety":          "#1a6a30",
+  "Flaw":            "#8a1a10",
+  "Character Sheet": "#806000",
+  "Backstory":       "#806020",
+  "Drive":           "#806000",
+  "Bonds":           "#1a6a30",
+  "Identity":        "#7040c0",
+  "Roleplaying":     "#2060a0",
+  "Trauma":          "#8a1a10",
+  "Arc":             "#806000",
+  "Relationships":   "#1a6a30",
+  "Character Voice": "#2060a0",
+  "Downtime":        "#1a6a30",
+  "Group Dynamics":  "#806020",
+  "Description":     "#2060a0",
+  "Philosophy":      "#7040c0",
+  "Worldview":       "#7040c0",
+  "Hook":            "#806000",
+  "Skills":          "#1a6a30",
+};
+---
+
+<BaseLayout
+  title="D6 Storyteller Prompts | Storyteller & Player Idea Starters"
+  description="30 prompts for D6 Storyteller Storytellers and players - turn a raw campaign idea into a fully fleshed world, or take a character concept to the next level with targeted creative questions."
+  canonicalUrl="https://d6storyteller.alexmerced.com/prompts/"
+>
+  <section class="section" aria-labelledby="prompts-heading">
+    <div class="container">
+
+      <nav aria-label="Breadcrumb" class="breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb__separator" aria-hidden="true">&rsaquo;</span>
+        <span aria-current="page">Prompts</span>
+      </nav>
+
+      <p class="section-label">Creative Starters</p>
+      <h1 id="prompts-heading">Storyteller & Player Prompts</h1>
+      <p class="prompts-intro">
+        Prompts are questions designed to turn a raw idea into something you can actually play. Each one has a purpose - a specific thing it surfaces about your world or your character that casual brainstorming tends to skip. Use them in session zero, when you're stuck mid-campaign, or any time you want to go deeper.
+      </p>
+
+      <!-- Jump nav -->
+      <div class="prompts-jump" role="navigation" aria-label="Jump to section">
+        <a href="#storyteller" class="prompts-jump__link">
+          <span class="prompts-jump__icon" aria-hidden="true">🗺</span>
+          Storyteller Prompts
+          <span class="prompts-jump__count">15</span>
+        </a>
+        <a href="#player" class="prompts-jump__link">
+          <span class="prompts-jump__icon" aria-hidden="true">🎭</span>
+          Player Prompts
+          <span class="prompts-jump__count">15</span>
+        </a>
+      </div>
+
+      <!-- ── STORYTELLER PROMPTS ── -->
+      <div class="prompts-section" id="storyteller">
+        <div class="prompts-section__header">
+          <span class="prompts-section__icon" aria-hidden="true">🗺</span>
+          <div>
+            <p class="section-label" style="margin-bottom:0;">For the Storyteller</p>
+            <h2 class="prompts-section__heading">Campaign & World Prompts</h2>
+            <p class="prompts-section__lead">
+              Use these before session zero to build your world's bones - the wound at its center, the factions fighting over it, the clocks ticking underneath it. Run one or two per prep session rather than all at once.
+            </p>
+          </div>
+        </div>
+
+        <div class="prompts-grid">
+          {storytellerPrompts.map(p => (
+            <article class="prompt-card card" id={`prompt-${p.id}`}>
+              <div class="prompt-card__num">#{p.id}</div>
+              <blockquote class="prompt-card__prompt">"{p.prompt}"</blockquote>
+              <div class="prompt-card__divider" aria-hidden="true"></div>
+              <div class="prompt-card__purpose-label">Why this prompt works</div>
+              <p class="prompt-card__purpose">{p.purpose}</p>
+              <div class="prompt-card__tags">
+                {p.tags.map(tag => (
+                  <span
+                    class="prompt-tag"
+                    style={`background:${tagColors[tag] ?? 'rgba(201,162,39,0.1)'};color:${tagTextColors[tag] ?? '#806000'};`}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+
+      <!-- ── PLAYER PROMPTS ── -->
+      <div class="prompts-section" id="player">
+        <div class="prompts-section__header">
+          <span class="prompts-section__icon" aria-hidden="true">🎭</span>
+          <div>
+            <p class="section-label" style="margin-bottom:0;">For Players</p>
+            <h2 class="prompts-section__heading">Character Prompts</h2>
+            <p class="prompts-section__lead">
+              Use these to fill in what the character sheet can't ask: who your character really is underneath the archetype, what they carry, what they want, and what they're afraid to say out loud. Share your answers with the Storyteller - they'll build the campaign better for having them.
+            </p>
+          </div>
+        </div>
+
+        <div class="prompts-grid">
+          {playerPrompts.map(p => (
+            <article class="prompt-card card" id={`prompt-${p.id}`}>
+              <div class="prompt-card__num">#{p.id}</div>
+              <blockquote class="prompt-card__prompt">"{p.prompt}"</blockquote>
+              <div class="prompt-card__divider" aria-hidden="true"></div>
+              <div class="prompt-card__purpose-label">Why this prompt works</div>
+              <p class="prompt-card__purpose">{p.purpose}</p>
+              <div class="prompt-card__tags">
+                {p.tags.map(tag => (
+                  <span
+                    class="prompt-tag"
+                    style={`background:${tagColors[tag] ?? 'rgba(201,162,39,0.1)'};color:${tagTextColors[tag] ?? '#806000'};`}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+
+      <!-- Closing CTA -->
+      <div class="prompts-closing">
+        <p>
+          These prompts work best alongside the core rules and the character sheet.
+          Get the Core Rulebook for the full system, or grab the free
+          <a href="/downloads/">character sheets</a> to record your answers.
+        </p>
+        <AmazonCTA placement="prompts_bottom" variant="banner" label="Get the D6 Storyteller Series on Amazon" />
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+.prompts-intro {
+  max-width: 72ch;
+  color: rgba(232, 224, 208, 0.78);
+  margin-bottom: var(--space-8);
+  line-height: 1.7;
+}
+
+/* Jump nav */
+.prompts-jump {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-12);
+}
+.prompts-jump__link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: rgba(232,224,208,0.65);
+  text-decoration: none;
+  padding: var(--space-3) var(--space-5);
+  border: 1px solid rgba(201,162,39,0.2);
+  border-radius: var(--radius-lg);
+  background: rgba(201,162,39,0.04);
+  transition: all var(--transition-fast);
+}
+.prompts-jump__link:hover {
+  color: var(--gold-300);
+  border-color: var(--gold-400);
+  background: rgba(201,162,39,0.08);
+  text-shadow: none;
+}
+.prompts-jump__icon { font-size: 1.1rem; }
+.prompts-jump__count {
+  margin-left: var(--space-1);
+  font-size: 0.65rem;
+  background: rgba(201,162,39,0.15);
+  color: var(--gold-400);
+  border-radius: 999px;
+  padding: 1px 7px;
+  font-weight: 700;
+}
+
+/* Section */
+.prompts-section {
+  margin-bottom: var(--space-16);
+  scroll-margin-top: 80px;
+}
+
+.prompts-section__header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-5);
+  margin-bottom: var(--space-8);
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid rgba(201,162,39,0.2);
+}
+.prompts-section__icon {
+  font-size: 3rem;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 10px rgba(0,0,0,0.4));
+  margin-top: var(--space-2);
+}
+.prompts-section__heading {
+  font-size: clamp(var(--text-2xl), 3vw, var(--text-4xl));
+  color: var(--gold-300);
+  margin-bottom: var(--space-3);
+  margin-top: var(--space-1);
+}
+.prompts-section__lead {
+  color: rgba(232,224,208,0.68);
+  max-width: 72ch;
+  line-height: 1.65;
+}
+
+/* Grid */
+.prompts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: var(--space-5);
+}
+
+/* Card */
+.prompt-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle number watermark */
+.prompt-card::before {
+  content: attr(id);
+  position: absolute;
+  bottom: -0.5rem;
+  right: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 5rem;
+  color: rgba(201,162,39,0.04);
+  pointer-events: none;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.prompt-card__num {
+  font-family: var(--font-heading);
+  font-size: var(--text-xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-500);
+  opacity: 0.7;
+}
+
+.prompt-card__prompt {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  line-height: 1.45;
+  color: var(--gold-200, #f5e4a0);
+  font-style: normal;
+  margin: 0;
+  quotes: none;
+  border: none;
+  padding: 0;
+  letter-spacing: 0.01em;
+}
+
+.prompt-card__divider {
+  height: 1px;
+  background: linear-gradient(to right, rgba(201,162,39,0.3), transparent);
+  margin: var(--space-1) 0;
+}
+
+.prompt-card__purpose-label {
+  font-family: var(--font-heading);
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-500);
+  opacity: 0.65;
+}
+
+.prompt-card__purpose {
+  font-size: var(--text-sm);
+  color: rgba(232,224,208,0.68);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.prompt-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin-top: auto;
+  padding-top: var(--space-2);
+}
+
+.prompt-tag {
+  font-family: var(--font-heading);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+/* Closing block */
+.prompts-closing {
+  border-top: 1px solid rgba(201,162,39,0.15);
+  padding-top: var(--space-10);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+.prompts-closing > p {
+  color: rgba(232,224,208,0.65);
+  max-width: 60ch;
+}
+.prompts-closing a { color: var(--gold-400); }
+
+/* Responsive */
+@media (max-width: 640px) {
+  .prompts-grid { grid-template-columns: 1fr; }
+  .prompts-section__header { flex-direction: column; gap: var(--space-3); }
+  .prompts-section__icon { font-size: 2rem; }
+}
+</style>

@@ -81,7 +81,7 @@ Renegade sorcerers who make bargains with the Lightning Bird for wealth and elec
 - **Approach Distribution:** Force 2 | Finesse 3 | Mind 2 | Presence 1
 
 ### Archetype 3: The Highveld Electrical Engineer
-- **Quote:** *"Eskom says it's a transformer failure. I looked at the scorched metal—those were talon marks."*
+- **Quote:** *"Eskom says it's a transformer failure. I looked at the scorched metal - those were talon marks."*
 - **Approach Distribution:** Force 3 | Finesse 2 | Mind 2 | Presence 1
 
 ---

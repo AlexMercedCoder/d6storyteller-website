@@ -21,7 +21,7 @@ publishedDate: "2026-07-30"
 
 ## 1. Setting Overview & Tone
 
-**High-Concept Pitch:** In 16th-century Nicaragua, the volcanic island of **Ometepe** (rising dramatically from Lake Nicaragua) is the sacred center of the Nicarao and Chorotega nations. As Spanish forces attempt to conquer the lake trade routes, local leaders deploy a unique combination of spiritual power and theatrical satire—embodying the spirit of *El Güegüense*, the brilliant trickster figure of Nicaraguan heritage.
+**High-Concept Pitch:** In 16th-century Nicaragua, the volcanic island of **Ometepe** (rising dramatically from Lake Nicaragua) is the sacred center of the Nicarao and Chorotega nations. As Spanish forces attempt to conquer the lake trade routes, local leaders deploy a unique combination of spiritual power and theatrical satire - embodying the spirit of *El Güegüense*, the brilliant trickster figure of Nicaraguan heritage.
 
 **Sensory Pillars:**
 1. **Sight:** The majestic twin cones of Concepción (fire) and Maderas (mist) towering over Lake Nicaragua; golden petroglyphs carved into basalt boulders along the shoreline; the fins of freshwater bull sharks carving through lake waves.

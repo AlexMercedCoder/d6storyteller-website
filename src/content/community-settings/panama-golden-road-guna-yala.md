@@ -21,7 +21,7 @@ publishedDate: "2026-07-30"
 
 ## 1. Setting Overview & Tone
 
-**High-Concept Pitch:** Set in 17th-century Panama—the narrow crossroads of the world—*The Golden Road of Guna Yala* weaves pirate history, Cimarrón escapee alliances, and Guna Yala indigenous marine mastery into a swashbuckling setting. As Spanish treasure fleets collect Peruvian silver and gold in Panama City to transport across the *Camino Real* to Portobelo, Guna canoe navigators and Cimarrón freedom fighters control the jungle shortcuts and hidden river passages of the Chagres River.
+**High-Concept Pitch:** Set in 17th-century Panama - the narrow crossroads of the world - *The Golden Road of Guna Yala* weaves pirate history, Cimarrón escapee alliances, and Guna Yala indigenous marine mastery into a swashbuckling setting. As Spanish treasure fleets collect Peruvian silver and gold in Panama City to transport across the *Camino Real* to Portobelo, Guna canoe navigators and Cimarrón freedom fighters control the jungle shortcuts and hidden river passages of the Chagres River.
 
 **Sensory Pillars:**
 1. **Sight:** Heavy wooden chests brimming with Peruvian silver bars piled on pack mules; the pristine turquoise waters and coconut palms of the 365 islands of Guna Yala; the colorful hand-stitched *mola* textile patterns worn by Guna defenders.

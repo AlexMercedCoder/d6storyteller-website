@@ -21,7 +21,7 @@ publishedDate: "2026-07-30"
 
 ## 1. Setting Overview & Tone
 
-**High-Concept Pitch:** Set in 1930s Honduras, *The Lost Citadel of the Monkey God* blends 1930s pulp adventure with rich Lenca and Maya archaeology. Deep within the unexplored Mosquitia rainforest lies *La Ciudad Blanca*—a mythic city of carved white stone, guarded by ancient monkey-god guardians (*Olocsing*) and Lenca protectors. As international fortune hunters and corporate mercenaries enter the jungle with dynamite and airplanes, local guardians must protect the sacred ruins from plunder.
+**High-Concept Pitch:** Set in 1930s Honduras, *The Lost Citadel of the Monkey God* blends 1930s pulp adventure with rich Lenca and Maya archaeology. Deep within the unexplored Mosquitia rainforest lies *La Ciudad Blanca* - a mythic city of carved white stone, guarded by ancient monkey-god guardians (*Olocsing*) and Lenca protectors. As international fortune hunters and corporate mercenaries enter the jungle with dynamite and airplanes, local guardians must protect the sacred ruins from plunder.
 
 **Sensory Pillars:**
 1. **Sight:** Giant stone monkey monoliths covered in glowing green moss; blinding white limestone ruins emerging from triple-canopy jungle; the flash of scarlet macaws over the Patuca River.
