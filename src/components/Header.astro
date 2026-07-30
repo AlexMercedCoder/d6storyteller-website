@@ -144,14 +144,12 @@ const resourcesActive = resourcePaths.some(p => currentPath.startsWith(p));
         <button class="mobile-menu__group-toggle" aria-expanded={resourcesActive ? 'true' : 'false'} type="button">
           Resources
           <span class="mobile-menu__chevron" aria-hidden="true">▾</span>
-        </button>
-        <ul class={`mobile-menu__sub${resourcesActive ? ' mobile-menu__sub--open' : ''}`} role="list">
-          <li><a href="/settings/" class={`mobile-menu__sub-link${isActive('/settings/') ? ' mobile-menu__sub-link--active' : ''}`}>Settings Directory <span>All 100 worlds</span></a></li>
-          <li><a href="/community-settings/" class={`mobile-menu__sub-link${isActive('/community-settings/') ? ' mobile-menu__sub-link--active' : ''}`}>Additional Settings <span>Free extra worlds</span></a></li>
-          <li><a href="/optional-mechanics/" class={`mobile-menu__sub-link${isActive('/optional-mechanics/') ? ' mobile-menu__sub-link--active' : ''}`}>Optional Mechanics <span>10 plug-in rules</span></a></li>
+                <ul class={`mobile-menu__sub${resourcesActive ? ' mobile-menu__sub--open' : ''}`} role="list">
+          <li><a href="/settings/" class={`mobile-menu__sub-link${isActive('/settings/') ? ' mobile-menu__sub-link--active' : ''}`}>Settings Directory <span>All 137 worlds</span></a></li>
+          <li><a href="/optional-mechanics/" class={`mobile-menu__sub-link${isActive('/optional-mechanics/') ? ' mobile-menu__sub-link--active' : ''}`}>Optional Mechanics <span>50 plug-in rules</span></a></li>
           <li><a href="/prompts/" class={`mobile-menu__sub-link${isActive('/prompts/') ? ' mobile-menu__sub-link--active' : ''}`}>Prompts <span>30 creative starters</span></a></li>
           <li><a href="/downloads/" class={`mobile-menu__sub-link${isActive('/downloads/') ? ' mobile-menu__sub-link--active' : ''}`}>Downloads <span>Sheets & printables</span></a></li>
-        </ul>
+        </ul>     </ul>
       </li>
 
       <li>
