@@ -16,7 +16,7 @@ const navItems: NavItem[] = [
     id: 'resources-dropdown',
     children: [
       { href: '/settings/',           label: 'Settings Directory',  desc: 'All 100 worlds across the book series'  },
-      { href: '/community-settings/', label: 'Community Settings',  desc: 'Free additional worlds from the community' },
+      { href: '/community-settings/', label: 'Additional Settings', desc: 'Free additional settings beyond the books' },
       { href: '/optional-mechanics/', label: 'Optional Mechanics',  desc: '10 plug-in rules for any campaign' },
       { href: '/downloads/',          label: 'Downloads',           desc: 'Character sheets & printable aids' },
     ],
@@ -147,7 +147,7 @@ const resourcesActive = resourcePaths.some(p => currentPath.startsWith(p));
         </button>
         <ul class={`mobile-menu__sub${resourcesActive ? ' mobile-menu__sub--open' : ''}`} role="list">
           <li><a href="/settings/" class={`mobile-menu__sub-link${isActive('/settings/') ? ' mobile-menu__sub-link--active' : ''}`}>Settings Directory <span>All 100 worlds</span></a></li>
-          <li><a href="/community-settings/" class={`mobile-menu__sub-link${isActive('/community-settings/') ? ' mobile-menu__sub-link--active' : ''}`}>Community Settings <span>Free extra worlds</span></a></li>
+          <li><a href="/community-settings/" class={`mobile-menu__sub-link${isActive('/community-settings/') ? ' mobile-menu__sub-link--active' : ''}`}>Additional Settings <span>Free extra worlds</span></a></li>
           <li><a href="/optional-mechanics/" class={`mobile-menu__sub-link${isActive('/optional-mechanics/') ? ' mobile-menu__sub-link--active' : ''}`}>Optional Mechanics <span>10 plug-in rules</span></a></li>
           <li><a href="/downloads/" class={`mobile-menu__sub-link${isActive('/downloads/') ? ' mobile-menu__sub-link--active' : ''}`}>Downloads <span>Sheets & printables</span></a></li>
         </ul>
