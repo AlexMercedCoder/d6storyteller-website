@@ -17,11 +17,11 @@ publishedDate: "2026-07-30"
 > *"The desert does not keep secrets; it merely buries them in sand until the wind blows them back into your face. Measure your words, traveler, for here a verse can slay a man faster than a spear."*
 > - Sheikh Farah of Zeila
 
----
+--
 
 ## 1. Setting Overview & Tone
 
-**High-Concept Pitch:** Somalia has historically been known as the "Nation of Poets." In traditional Somali society, oral poetry (*gabay*) served as news, philosophy, legal precedent, and warfare. Beneath this vibrant nomadic culture lies a rich tapestry of Horn of Africa mythology: ancient **Jinn** bound to subterranean water tables, **Qori-is-maris** (were-hyenas who rub themselves with magical sticks to transform), and the feared figure of **Dhegdheer**, a terrifying long-eared creature of folklore who preys on those who break tribal hospitality.
+**High-Concept Pitch:** Somalia has historically been known as the "Nation of Poets." In traditional Somali society, oral poetry (*gabay*) served as news, philosophy, legal precedent, and warfare. Beneath this vibrant nomadic culture runs a deep current of Horn of Africa mythology: ancient **Jinn** bound to subterranean water tables, **Qori-is-maris** (were-hyenas who rub themselves with magical sticks to transform), and the feared figure of **Dhegdheer**, a terrifying long-eared creature of folklore who preys on those who break tribal hospitality.
 
 In this setting, water is more than survival - it is sacred covenant. The ancient stone wells (*ceel*) scattered across the Ogaden plateau were dug by pre-Islamic giants (the *Yibir* and *Harla* civilizations). Now, these deep wells are crying out with smoky flames instead of cool water, signaling that ancient Jinn bound beneath the earth are breaking their chains.
 
@@ -30,7 +30,7 @@ In this setting, water is more than survival - it is sacred covenant. The ancien
 2. **Sound:** The rhythmic chant of a *gabay* poem improvised around a night campfire; the eerie, laughing howl of hyenas echoing across the scrubland; the rustle of wind through dry acacia thorns carrying whispered warnings.
 3. **Touch & Smell:** The scorching heat of the midday sun baking red clay; the sweet, resinous scent of burning frankincense and myrrh; the cool, refreshing wetness of deep well-water drawn up in leather buckets.
 
----
+--
 
 ## 2. Historical & Mythological Context
 
@@ -38,7 +38,7 @@ Somalia's position on the Horn of Africa made it a major maritime trading hub co
 
 Key figures include **Dhegdheer** (an ogre/witch figure associated with environmental neglect and bad hospitality), **Qori-is-maris** (shapeshifters), and the mysterious **Harla/Yibir** ancient builders.
 
----
+--
 
 ## 3. Core Factions & Traditions
 
@@ -60,7 +60,7 @@ An ancient order dedicated to maintaining the sacred stone wells and the seals b
   - *"I carry the brass keys to the deep subterranean cisterns of the Harla"*
   - *"I know the exact sacrifices needed to keep the well water sweet and free of Jinn corruption"*
 
----
+--
 
 ## 4. Unique Mechanic: Omen of the Wind (Dheg)
 
@@ -68,7 +68,7 @@ An ancient order dedicated to maintaining the sacred stone wells and the seals b
 - **3-4 (Wind-Tuned):** Can hear distant whispers on the breeze, detect hidden water sources, and sense Jinn presence. +1d6 to Mind. Costs 1 Momentum.
 - **5-6 (Desert-Possessed):** +1d6 to all rolls involving perception and navigation. Can speak directly to Jinn through wind-currents. **Risk:** The character experiences auditory hallucinations and must pass a Mind roll or follow a phantom voice into dangerous territory.
 
----
+--
 
 ## 5. Character Archetypes
 
@@ -84,7 +84,7 @@ An ancient order dedicated to maintaining the sacred stone wells and the seals b
 - **Quote:** *"Not every hyena in the dark has four legs. Some carry daggers."*
 - **Approach Distribution:** Force 3 | Finesse 3 | Mind 1 | Presence 1
 
----
+--
 
 ## 6-7. Conditions & Starter Scenario
 
@@ -92,7 +92,7 @@ An ancient order dedicated to maintaining the sacred stone wells and the seals b
 
 **Starter Scenario: The Burning Well of Burao.** The primary well sustaining three major nomad clans has begun spewing red smoke and heat. A clan war is brewing as each accuses the other of polluting the well. The Gabayaa must negotiate peace while the Ceel-Guardian descends into the subterranean stone vault to re-seal the fire Jinni before the entire oasis turns to glass.
 
----
+--
 
 ## 8. Why This Setting Matters
 

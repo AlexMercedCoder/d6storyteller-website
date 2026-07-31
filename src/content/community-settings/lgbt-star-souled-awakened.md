@@ -17,7 +17,7 @@ publishedDate: "2026-07-30"
 > *"They thought they could force me into a mold that was never mine. But when I claimed my true name and embraced my authentic self, the sky opened. The starlight wasn't something outside of me - it was what I had been carrying inside all along."*
 > - Seraphina Morningstar, Champion of the Dawn Court
 
----
+--
 
 ## 1. Setting Overview & Tone
 
@@ -32,7 +32,7 @@ Transitioning is not merely a personal journey; it is a sacred **Awakening**. Th
 2. **Sound:** Choral harmonies vibrating at a stellar frequency when an Awakened uses their power; the horrific screech of a demon being burned by pure celestial euphoria; soft, comforting whispers of encouragement carried on cosmic winds.
 3. **Touch & Smell:** The soothing warmth of starlight against skin; the clean, crisp scent of ozone and blooming lotus flowers; the physical sensation of lightness as dysphoric weights evaporate into divine energy.
 
----
+--
 
 ## 2. Historical & Mythological Context
 
@@ -40,7 +40,7 @@ In the age before recorded history, the **First Dawn Covenant** was struck betwe
 
 Demons operate through secret networks, funding hate campaigns, corrupting leaders, and spreading fear of difference. The Star-Souled do not fight humans who have been misled by demonic influence; they use their celestial radiance to burn away the demon parasites controlling them, freeing mortal minds from prejudiced manipulation.
 
----
+--
 
 ## 3. Core Factions & Traditions
 
@@ -63,7 +63,7 @@ Subterranean demon lords who masquerade as moral guardians while covertly stokin
   - *"Spreads fear of difference to feed their master's appetite for suffering"*
   - *"Manipulates mortal media to turn neighbors against each other"*
 
----
+--
 
 ## 4. Unique Mechanic: Euphoria (Celestial Radiance)
 
@@ -75,7 +75,7 @@ Characters track a **Euphoria Meter** (1-6):
 
 **Charging Euphoria:** Euphoria is gained by taking steps in one's transition, expressing authentic selfhood, receiving affirming support, protecting vulnerable people, and fostering love and unity in the community.
 
----
+--
 
 ## 5. Character Archetypes
 
@@ -94,7 +94,7 @@ Characters track a **Euphoria Meter** (1-6):
 - **Quote:** *"I do not fit into your binary boxes because the universe itself isn't a box. I am the sky above both."*
 - **Approach Distribution:** Force 1 | Finesse 4 | Mind 3 | Presence 1
 
----
+--
 
 ## 6. Condition Palette
 
@@ -102,13 +102,13 @@ Characters track a **Euphoria Meter** (1-6):
 **Social:** *Demonic Smear Campaign* (demons manipulating public perception against you), *Sanctuary Breach*, *Affirmation Support* (positive condition: bonus to Euphoria).
 **Psychological:** *Shadow-Shame Parasite* (a demon is attempting to infect your thoughts with self-doubt), *Radiant Joy* (positive condition: immune to fear), *Truth Clarity*.
 
----
+--
 
 ## 7. Starter Scenario: The Festival of Shattered Mirrors
 
 **Framing:** In the city of Oakhaven, a new community sanctuary for trans youth is opening. However, an Archon demon named Malakor has possessed the city council president and is inciting a mob to burn the sanctuary down. Malakor feeds on the fear and division. The Star-Souled Awakened must defend the sanctuary, expose Malakor's true demonic form in front of the citizens, and use their combined Euphoria to transform the mob's fear into understanding.
 
----
+--
 
 ## 8. Why This Setting Matters
 

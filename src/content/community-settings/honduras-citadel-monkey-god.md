@@ -17,7 +17,7 @@ publishedDate: "2026-07-30"
 > *"The maps of Tegucigalpa show blank green space where Mosquitia lies. But the Lenca elders know: the city of stone monkeys is not lost. It is hiding."*
 > - Journal of Dr. Evelyn Vance, 1934 Expedition
 
----
+--
 
 ## 1. Setting Overview & Tone
 
@@ -30,7 +30,7 @@ publishedDate: "2026-07-30"
 
 **The Core Tension:** Discovery vs. Desecration. Unlocking ancient secrets could save local communities, but exposing the city risks destroying it.
 
----
+--
 
 ## 2. Historical & Mythological Context
 
@@ -38,7 +38,7 @@ Honduras is rich with archaeological history, from the great Maya city of Copán
 
 > **Note on Respectful Portrayal:** While incorporating 1930s pulp aesthetics, this setting elevates Lenca indigenous sovereignty and archaeological stewardship over colonial grave-robbing.
 
----
+--
 
 ## 3. Core Factions & Traditions
 
@@ -56,7 +56,7 @@ Honduran scholars and archaeologists dedicated to preserving their nation's heri
   - *"Read Maya glyphs as easily as newsprint"*
   - *"Carries a tailored machete and a waterproof notebook"*
 
----
+--
 
 ## 4. Unique Mechanic: Jungle Strain
 
@@ -65,7 +65,7 @@ Characters track a **Jungle Strain Meter** (1–6):
 - **3–4 (Weary):** +1d6 to Finesse in jungle terrain. Costs 1 Momentum to maintain equipment.
 - **5–6 (Delirious):** +1d6 to Force, but Mind rolls suffer penalties. Hallucinations of monkey-spirits manifest.
 
----
+--
 
 ## 5. Character Archetypes
 
@@ -90,7 +90,7 @@ Characters track a **Jungle Strain Meter** (1–6):
 - **Flaw:** *"Gambles away paychecks in port taverns."*
 - **Approach Distribution:** Force 2 | Finesse 3 | Mind 1 | Presence 2
 
----
+--
 
 ## 6. Condition Palette
 
@@ -98,7 +98,7 @@ Characters track a **Jungle Strain Meter** (1–6):
 - **Social:** *Outpaced by Rivals* (Minor), *Expelled by the Chief* (Moderate), *Wanted for Antiquities Smuggling* (Severe).
 - **Psychological:** *Jungle Madness* (Minor), *Monkey-God Curse* (Moderate), *Delirious Fever* (Severe).
 
----
+--
 
 ## 7. Starter Scenario: The Gates of White Stone
 
@@ -111,7 +111,7 @@ Characters track a **Jungle Strain Meter** (1–6):
   - *Traits:* Armed with submachine guns, ruthless.
   - *Condition Track:* ☐ Arrogant / ☐ Mercenaries Scattered / ☐ Trapped in Ruins.
 
----
+--
 
 ## 8. Why This Setting Matters
 

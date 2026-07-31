@@ -17,7 +17,7 @@ publishedDate: "2026-07-30"
 > *"When the volcanic moon rises over Izalco, listen for the clicking of claws on cobblestone. If the fur is white, step in its shadow. If the fur is dark, do not look back."*
 > - Pipil village elder proverb, Cuscatlán Valley
 
----
+--
 
 ## 1. Setting Overview & Tone
 
@@ -30,7 +30,7 @@ publishedDate: "2026-07-30"
 
 **The Core Tension:** Justice vs. Vengeance. Protecting your people with the White Cadejo requires mercy and restraint, but unleashing the Black Cadejo delivers devastating revenge at the cost of your own humanity.
 
----
+--
 
 ## 2. Historical & Mythological Context
 
@@ -38,7 +38,7 @@ El Salvador's cultural identity is deeply rooted in Pipil (Nahuatl-speaking) her
 
 > **Note on Respectful Portrayal:** The Cadejo and Siguanaba legends are living folklore in El Salvador. This setting treats these traditional tales as expressions of community resilience and moral storytelling against colonial exploitation.
 
----
+--
 
 ## 3. Core Factions & Traditions
 
@@ -56,7 +56,7 @@ Rebels who invoke the Black Cadejo's wrath against abusive plantation masters.
   - *"The smell of sulfur follows my footsteps when justice is denied"*
   - *"I have faced Spanish steel without flinching because my shadow carries teeth"*
 
----
+--
 
 ## 4. Unique Mechanic: Cadejo Alignment
 
@@ -65,7 +65,7 @@ Characters track a **Dual Spirit Meter** (-3 White / +3 Black):
 - **Balanced (0):** Normal rules. Access to both minor spirit abilities at the cost of 1 Momentum.
 - **Black Alignment (+1 to +3):** +1d6 to Force and Finesse. Terrifying presence, but failure summons the Black Cadejo to attack friend and foe alike.
 
----
+--
 
 ## 5. Character Archetypes
 
@@ -90,7 +90,7 @@ Characters track a **Dual Spirit Meter** (-3 White / +3 Black):
 - **Flaw:** *"Detached from immediate human troubles."*
 - **Approach Distribution:** Force 1 | Finesse 1 | Mind 4 | Presence 2
 
----
+--
 
 ## 6. Condition Palette
 
@@ -98,7 +98,7 @@ Characters track a **Dual Spirit Meter** (-3 White / +3 Black):
 - **Social:** *Targeted by the Encomendero* (Minor), *Branded an Outlaw* (Moderate), *Hunted by the Inquisition* (Severe).
 - **Psychological:** *Cadejo-Stalked* (Minor), *Terrified by the Siguanaba* (Moderate), *Consumed by Vengeance* (Severe).
 
----
+--
 
 ## 7. Starter Scenario: The Burning of Izalco
 
@@ -111,8 +111,8 @@ Characters track a **Dual Spirit Meter** (-3 White / +3 Black):
   - *Traits:* Well-armed guards, ruthless greed.
   - *Condition Track:* ☐ Overconfident / ☐ Guard Force Broken / ☐ Driven Away.
 
----
+--
 
 ## 8. Why This Setting Matters
 
-El Salvador's rich tapestry of volcanic geography and indigenous folklore reflects a history of fierce independence and spiritual resilience. This setting honors the enduring power of Salvadoran storytelling.
+El Salvador's volcanic geography and indigenous folklore grew from a history of fierce independence and spiritual resilience. This setting honors what Salvadoran storytelling has always known: the land has a will, and the spirits pay attention.

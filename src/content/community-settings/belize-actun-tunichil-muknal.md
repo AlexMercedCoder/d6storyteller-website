@@ -17,7 +17,7 @@ publishedDate: "2026-07-30"
 > *"The limestone does not forget the water that carved it, nor the blood that sealed it. Step softly into the stream: Xibalba listens to every splash."*
 > - Inscription carved outside the portal of the Crystal Sepulchre
 
----
+--
 
 ## 1. Setting Overview & Tone
 
@@ -30,7 +30,7 @@ publishedDate: "2026-07-30"
 
 **The Core Tension:** Devotion vs. Survival. As royal dynasties collapse and city-states fragment, the characters must decide whether to perform increasingly costly sacrifices to satisfy the underworld or find new ways for their communities to adapt above ground.
 
----
+--
 
 ## 2. Historical & Mythological Context
 
@@ -38,7 +38,7 @@ Belize was a vital center of the Classic Maya world, home to major urban centers
 
 > **Note on Respectful Portrayal:** The cave rituals of Actun Tunichil Muknal represent sacred Maya ceremonial traditions undertaken during times of catastrophic environmental crisis. This setting presents these traditions with deep reverence for Maya cosmology, focusing on human resilience, spiritual duty, and community preservation.
 
----
+--
 
 ## 3. Core Factions & Traditions
 
@@ -56,7 +56,7 @@ Traders and maritime navigators who connect the inland river networks of Belize 
   - *"My canoe has weathered the outer reef storms that broke Spanish galleons"*
   - *"I trade barrier reef coral for Cayo jade without losing a single grain"*
 
----
+--
 
 ## 4. Unique Mechanic: Crystal Resonance
 
@@ -65,7 +65,7 @@ Characters track a **Calcite Spark Meter** (1–6):
 - **3–4 (Resonant):** Balanced state. Characters can sense hidden cave chambers and water veins. Costs 1 Momentum per scene.
 - **5–6 (Overcharged):** Subterranean Force and Finesse rolls gain +1d6. The character can manipulate rock or step through shadows, but failing a roll introduces *Subterranean Madness* (Storyteller gains narrative control of illusions).
 
----
+--
 
 ## 5. Character Archetypes
 
@@ -90,7 +90,7 @@ Characters track a **Calcite Spark Meter** (1–6):
 - **Flaw:** *"Physically frail in rough terrain."*
 - **Approach Distribution:** Force 1 | Finesse 1 | Mind 4 | Presence 2
 
----
+--
 
 ## 6. Condition Palette
 
@@ -98,7 +98,7 @@ Characters track a **Calcite Spark Meter** (1–6):
 - **Social:** *Outcast by the Council* (Minor), *Sacrificial Debt* (Moderate), *Excommunicated by the Dynasty* (Severe).
 - **Psychological:** *Shadow-Haunted* (Minor), *Whispers of Xibalba* (Moderate), *Lost in the Deep* (Severe).
 
----
+--
 
 ## 7. Starter Scenario: The Chamber of the Crystal Maiden
 
@@ -111,7 +111,7 @@ Characters track a **Calcite Spark Meter** (1–6):
   - *Traits:* Ruthless, heavy obsidian war club.
   - *Condition Track:* ☐ Wounded / ☐ Disarmed / ☐ Retreating.
 
----
+--
 
 ## 8. Why This Setting Matters
 

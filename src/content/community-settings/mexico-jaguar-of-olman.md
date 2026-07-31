@@ -17,7 +17,7 @@ publishedDate: "2026-07-30"
 > *"Before the Maya built pyramids, before the Aztec marched, Olman was. We are the blood of the jaguar and the stone: we remember the first sunrise."*
 > - Chant of the Stone Keepers of La Venta
 
----
+--
 
 ## 1. Setting Overview & Tone
 
@@ -30,7 +30,7 @@ publishedDate: "2026-07-30"
 
 **The Core Tension:** Creation vs. Oblivion. As the first great Mesoamerican culture, every ritual and discovery sets the template for thousands of years of future civilizations. Failure means wiping out the spiritual foundation of the world.
 
----
+--
 
 ## 2. Historical & Mythological Context
 
@@ -38,7 +38,7 @@ The Olmec are universally recognized as the "mother culture" (*cultura madre*) o
 
 > **Note on Respectful Portrayal:** Olmec archaeology is foundational to Indigenous Mexican heritage. This setting honors the artistic, architectural, and spiritual genius of the Olmec people.
 
----
+--
 
 ## 3. Core Factions & Traditions
 
@@ -56,7 +56,7 @@ Athletes and ritualists who play the sacred rubber ballgame to maintain cosmic o
   - *"My hip strikes can propel a heavy rubber ball through stone rings"*
   - *"I have never lost a ceremonial match when the sun's position was at stake"*
 
----
+--
 
 ## 4. Unique Mechanic: Jaguar Co-Essence
 
@@ -65,7 +65,7 @@ Characters track an **Olman Essence Meter** (1–6):
 - **3–4 (Awakened):** +1d6 to Finesse. Can sense jade deposits and subterranean water veins. Costs 1 Momentum.
 - **5–6 (Jaguar Apex):** +1d6 to Force and Finesse. Superhuman leaping and claws. Failure triggers wild predatory fury.
 
----
+--
 
 ## 5. Character Archetypes
 
@@ -90,7 +90,7 @@ Characters track an **Olman Essence Meter** (1–6):
 - **Flaw:** *"Overly competitive in non-court situations."*
 - **Approach Distribution:** Force 1 | Finesse 4 | Mind 1 | Presence 2
 
----
+--
 
 ## 6. Condition Palette
 
@@ -98,7 +98,7 @@ Characters track an **Olman Essence Meter** (1–6):
 - **Social:** *Disgraced in the Ball Court* (Minor), *Jade Cache Stripped* (Moderate), *Cast Out from Olman* (Severe).
 - **Psychological:** *Predatory Instability* (Minor), *Underworld Corruption* (Moderate), *Lost Humanity* (Severe).
 
----
+--
 
 ## 7. Starter Scenario: The Awakening at La Venta
 
@@ -111,7 +111,7 @@ Characters track an **Olman Essence Meter** (1–6):
   - *Traits:* Spectral claws, dark smoke aura.
   - *Condition Track:* ☐ Shadow Form / ☐ Distorted / ☐ Banished.
 
----
+--
 
 ## 8. Why This Setting Matters
 

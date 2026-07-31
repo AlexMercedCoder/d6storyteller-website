@@ -3,7 +3,7 @@ title: "The Beast of Gevaudan"
 subtitle: "Rural Terror & Folk Resistance in France: The Loup-Garou Legacy, Melusine's Bloodline, and the 100 Attacks That Shook the Ancien Regime"
 genre: "Historical Horror"
 tags: ["Folklore", "France", "Gevaudan", "Loup-Garou", "Melusine", "Beast", "Historical Horror"]
-premise: "In the remote Auvergne highlands of southern France in 1764, a creature of impossible size and ferocity begins systematically killing peasants--women and children primarily--in the province of Gevaudan. Over three years, it will claim over 100 victims while the King's own hunters fail to stop it. A village healer, a disgraced royal dragoon, and a young shepherdess who survived the Beast's attack must unravel whether they face a natural predator, a loup-garou (werewolf), or something conjured from the darkest strata of French folk magic."
+premise: "In the remote Auvergne highlands of southern France in 1764, a creature of impossible size and ferocity begins systematically killing peasants-women and children primarily-in the province of Gevaudan. Over three years, it will claim over 100 victims while the King's own hunters fail to stop it. A village healer, a disgraced royal dragoon, and a young shepherdess who survived the Beast's attack must unravel whether they face a natural predator, a loup-garou (werewolf), or something conjured from the darkest strata of French folk magic."
 mechanic: "Terreur (Terror Resonance): Characters track a Terreur meter (1-6). The Beast generates a supernatural field of terror that intensifies as attacks continue. High Terreur sharpens survival instincts and grants preternatural awareness of the Beast's movements, but it also fractures community trust, turning neighbor against neighbor in paranoid accusations."
 accentColor: "#991b1b"
 coverImage: "/images/supplements/france-beast-gevaudan.png"
@@ -17,32 +17,32 @@ publishedDate: "2026-07-30"
 > *"The Beast does not kill like a wolf. A wolf kills to eat. The Beast kills to be seen killing. It wants witnesses. It wants the story to spread. Whatever it is, it feeds on fear as much as flesh."*
 > - Father Pierre Pourcher, parish priest of Saint-Martin-de-Boubaux, 1765
 
----
+--
 
 ## 1. Setting Overview & Tone
 
 **High-Concept Pitch:** Between 1764 and 1767, something hunted the peasants of **Gevaudan** (modern Lozere department, south-central France). Contemporary accounts describe a creature the size of a horse, with reddish fur, a massive head, and jaws powerful enough to decapitate victims. It attacked over 200 people, killing between 100 and 130 (records vary). It targeted women and children tending livestock in isolated pastures. King Louis XV sent his best hunters. The first failed. The second claimed victory with a large wolf. The attacks continued. The actual resolution remains one of history's great unsolved mysteries.
 
-In this setting, the Beast is real--but what it *is* depends on the investigation. It may be a natural predator of unprecedented size, trained by a human handler. It may be a **loup-garou** (the French werewolf tradition, which predates and is distinct from the Germanic werewolf). It may be an avatar of **Melusine**, the legendary serpent-fairy of French folklore, manifesting as a punishment for a broken oath. Or it may be something the land itself has produced--the accumulated suffering of generations of Ancien Regime exploitation taking physical form.
+In this setting, the Beast is real-but what it *is* depends on the investigation. It may be a natural predator of unprecedented size, trained by a human handler. It may be a **loup-garou** (the French werewolf tradition, which predates and is distinct from the Germanic werewolf). It may be an avatar of **Melusine**, the legendary serpent-fairy of French folklore, manifesting as a punishment for a broken oath. Or it may be something the land itself has produced-the accumulated suffering of generations of Ancien Regime exploitation taking physical form.
 
 **Sensory Pillars:**
-1. **Sight:** The desolate beauty of the Margeride highlands--rolling granite hills covered in heather and gorse, punctuated by ancient stone farmsteads and isolated shepherd's huts; the Beast itself, seen only in glimpses: a massive shape moving through morning mist that is too large to be a wolf and too fast to be a bear, leaving prints in the mud that match no known animal; a victim's torn shepherdess cloak caught on a granite outcropping, the fabric shredded by claws no wolf possesses.
-2. **Sound:** The eerie howling that precedes an attack--not quite wolf, not quite human, carrying for miles across the empty highlands; the frantic clanging of village church bells as another attack is reported; the whispered prayers of a terrified community huddled in a stone farmhouse, listening to something large circling outside; the silence after the howling stops, which is somehow worse.
+1. **Sight:** The desolate beauty of the Margeride highlands-rolling granite hills covered in heather and gorse, punctuated by ancient stone farmsteads and isolated shepherd's huts; the Beast itself, seen only in glimpses: a massive shape moving through morning mist that is too large to be a wolf and too fast to be a bear, leaving prints in the mud that match no known animal; a victim's torn shepherdess cloak caught on a granite outcropping, the fabric shredded by claws no wolf possesses.
+2. **Sound:** The eerie howling that precedes an attack-not quite wolf, not quite human, carrying for miles across the empty highlands; the frantic clanging of village church bells as another attack is reported; the whispered prayers of a terrified community huddled in a stone farmhouse, listening to something large circling outside; the silence after the howling stops, which is somehow worse.
 3. **Touch & Smell:** The iron smell of blood on highland grass; the cold granite of a farmhouse wall pressed against your back while you listen for the Beast; the comforting weight of a silver-tipped pike in calloused hands; the acrid scent of gunpowder from a musket that missed.
 
 **The Core Tension:** Rationality vs. Superstition. The Enlightenment is in full bloom in Paris. Reason and science are the ideals of the age. But in rural Gevaudan, the peasants know what the philosophes do not: some things do not yield to reason. The characters must navigate between the Parisian establishment (which wants a rational explanation) and the rural community (which knows the truth is stranger) while the Beast continues to kill.
 
----
+--
 
 ## 2. Historical & Mythological Context
 
-The Beast of Gevaudan is one of the best-documented monster cases in history, with contemporary newspaper accounts, government records, and multiple investigations. The attacks generated the first modern media sensation--the *Courier d'Avignon* published regular dispatches, making the Beast France's first "viral" story.
+The Beast of Gevaudan is one of the best-documented monster cases in history, with contemporary newspaper accounts, government records, and multiple investigations. The attacks generated the first modern media sensation-the *Courier d'Avignon* published regular dispatches, making the Beast France's first "viral" story.
 
 French folklore features rich werewolf traditions (**loup-garou**), distinct from Germanic versions. The French loup-garou is often a cursed nobleman, a result of witchcraft, or a punishment for breaking a holy oath. **Melusine** is a powerful fairy figure associated with the Lusignan dynasty, depicted as a beautiful woman who transforms into a serpent from the waist down. She represents the wild, untameable power of nature married to civilization.
 
 > **Note on Respectful Portrayal:** The Beast of Gevaudan attacks were real historical events with real victims, primarily rural women and children. This setting treats the victims with dignity and focuses on the courage of the peasant community rather than sensationalizing violence.
 
----
+--
 
 ## 3. Core Factions & Traditions
 
@@ -68,7 +68,7 @@ The King's hunters sent from Versailles to kill the Beast and restore public con
   - *"I have hunted wolves across four provinces. This is not a wolf. I do not know what this is."*
   - *"The tracks do not match. The kill patterns do not match. The surviving witnesses describe something that cannot exist."*
 
----
+--
 
 ## 4. Unique Mechanic: Terreur (Terror Resonance)
 
@@ -76,18 +76,18 @@ The Beast generates a supernatural field of terror that intensifies with each at
 
 Characters track a **Terreur Meter** (1-6):
 
-- **1-2 (Calm / Serein):** The character maintains rational composure. +1d6 to Mind when analyzing evidence, tracking, or planning. The character cannot sense the Beast's supernatural nature--they perceive it as a natural (if unusually large) predator.
+- **1-2 (Calm / Serein):** The character maintains rational composure. +1d6 to Mind when analyzing evidence, tracking, or planning. The character cannot sense the Beast's supernatural nature-they perceive it as a natural (if unusually large) predator.
 - **3-4 (Alert / Éveillé):** The character's survival instincts are heightened. They can sense the Beast's approach through environmental cues (animals fleeing, temperature drops, the distinctive pre-attack silence). +1d6 to Finesse in pursuit or escape. Costs 1 Momentum per scene. **Risk:** The character begins to suspect their neighbors. Paranoia manifests as accusatory thoughts toward anyone who seems too calm.
 - **5-6 (Terror-Charged / Terrifié):** +1d6 to Force in direct confrontation with the Beast (adrenaline-fueled strength). The character can perceive the Beast's true nature (whatever it is) through the Terreur resonance. **Risk:** The character is so saturated with fear that they project it outward, causing panic in nearby NPCs. They may trigger mob violence, false accusations, and community breakdown.
 
----
+--
 
 ## 5. Character Archetypes
 
 ### Archetype 1: The Shepherdess Who Survived (Marie-Jeanne Valet)
 - **Concept:** Based on the real historical figure who fought off the Beast with a homemade bayonet at age twenty. She drove her improvised weapon into the Beast's chest, forcing it to retreat. She is the only person who has wounded it and lived. She carries the scar the Beast left on her arm and the certainty that whatever she stabbed was not a wolf.
 - **Quote:** *"It looked at me before it charged. Wolves do not look at you. They look at your throat. This thing looked at my eyes. It was deciding whether I was afraid enough."*
-- **Suggested Descriptors:** *"Wounded the Beast with a homemade bayonet and watched it bleed something that was not entirely blood"*, *"The scar on my arm burns when the Beast is within a league"*, *"Strongest shepherdess on the Margeride--I can carry a full-grown ewe on my shoulders"*, *"The Beast knows my scent. It avoids my pasture. I do not know if that should comfort me or terrify me."*
+- **Suggested Descriptors:** *"Wounded the Beast with a homemade bayonet and watched it bleed something that was not entirely blood"*, *"The scar on my arm burns when the Beast is within a league"*, *"Strongest shepherdess on the Margeride-I can carry a full-grown ewe on my shoulders"*, *"The Beast knows my scent. It avoids my pasture. I do not know if that should comfort me or terrify me."*
 - **Drive:** *"Finish what I started. Find the Beast, understand what it is, and end the killings."*
 - **Flaw:** *"My survival has made me reckless. I wounded it once; I believe I can kill it alone. This confidence may be fatal."*
 - **Approach Distribution:** Force 3 | Finesse 2 | Mind 1 | Presence 2
@@ -101,14 +101,14 @@ Characters track a **Terreur Meter** (1-6):
 - **Approach Distribution:** Force 2 | Finesse 3 | Mind 2 | Presence 1
 
 ### Archetype 3: The Guérisseuse of the Springs
-- **Concept:** An elderly folk healer who has served the highland villages for decades. She recognizes the Beast as something that has happened before--in old stories her grandmother told, stories about what happens when the land's spiritual balance is disrupted. She believes the Beast is not an invader but a symptom: the land itself producing a predator to punish those who have broken their covenant with it.
-- **Quote:** *"My grandmother called it 'la colère de la terre'--the anger of the earth. She said it comes when the lords take too much and give nothing back. The land grows teeth."*
+- **Concept:** An elderly folk healer who has served the highland villages for decades. She recognizes the Beast as something that has happened before-in old stories her grandmother told, stories about what happens when the land's spiritual balance is disrupted. She believes the Beast is not an invader but a symptom: the land itself producing a predator to punish those who have broken their covenant with it.
+- **Quote:** *"My grandmother called it 'la colère de la terre'-the anger of the earth. She said it comes when the lords take too much and give nothing back. The land grows teeth."*
 - **Suggested Descriptors:** *"Sixty years of highland herb-lore and spring-reading"*, *"Can diagnose whether a wound is natural or supernatural by the way it bleeds"*, *"Knows the old prayers that predate the Church and still work when the Church's prayers do not"*, *"The springs tell me when the Beast passes. Cold water in warm weather means it is close."*
 - **Drive:** *"Heal the spiritual wound that is producing the Beast, so the land can rest and the killings stop."*
 - **Flaw:** *"My belief that the Beast is the land's justice sometimes makes me slow to protect victims I unconsciously judge as complicit."*
 - **Approach Distribution:** Force 1 | Finesse 1 | Mind 3 | Presence 3
 
----
+--
 
 ## 6. Condition Palette
 
@@ -127,11 +127,11 @@ Characters track a **Terreur Meter** (1-6):
 - **Moderate:** *Accusatory Paranoia* (the Terreur makes you suspect everyone of harboring the Beast), *Philosophical Crisis* (your Enlightenment rationality cannot process what you have witnessed).
 - **Severe:** *Terreur Saturation* (you have absorbed so much fear that you radiate it, causing panic in others), *The Beast's Intelligence* (you have realized the Beast is not merely cunning but genuinely intelligent, and this knowledge is more frightening than the attacks themselves).
 
----
+--
 
 ## 7. Starter Scenario: The Fifty-First Attack
 
-**Framing:** The Beast has claimed its fiftieth victim--a twelve-year-old shepherd boy in the pastures above the village of Auvers. The village is in a state of collective terror. The King's hunter, Monsieur Denneval, has spent two months in Gevaudan and killed six ordinary wolves without affecting the attacks. He is preparing to declare victory and return to Versailles with a wolf carcass. Tonight, the Beast will attack again.
+**Framing:** The Beast has claimed its fiftieth victim-a twelve-year-old shepherd boy in the pastures above the village of Auvers. The village is in a state of collective terror. The King's hunter, Monsieur Denneval, has spent two months in Gevaudan and killed six ordinary wolves without affecting the attacks. He is preparing to declare victory and return to Versailles with a wolf carcass. Tonight, the Beast will attack again.
 
 **3-Layer Scene Design:**
 
@@ -139,16 +139,16 @@ Characters track a **Terreur Meter** (1-6):
 
 2. **Ticking Clock:** Monsieur Denneval is writing his final report declaring the crisis resolved. If he submits it to the Court in 5 beats, the King will withdraw all support, and Gevaudan will be left to face the Beast alone. The Dragoon must convince Denneval that the Beast is still active before the report is sealed.
 
-3. **Opportunity:** The Guérisseuse has identified a site on the Margeride plateau where the springs converge--a place her grandmother called "the navel of the land." She believes this is where the Beast emerged and where it can be confronted at the source. But reaching it requires crossing the Beast's hunting ground at night.
+3. **Opportunity:** The Guérisseuse has identified a site on the Margeride plateau where the springs converge-a place her grandmother called "the navel of the land." She believes this is where the Beast emerged and where it can be confronted at the source. But reaching it requires crossing the Beast's hunting ground at night.
 
-**Antagonist:** ***The Beast*** -- Whatever it is. The setting deliberately maintains ambiguity. The Storyteller chooses one of three true natures (or creates their own):
+**Antagonist:** ***The Beast*** - Whatever it is. The setting deliberately maintains ambiguity. The Storyteller chooses one of three true natures (or creates their own):
   - **Option A (Natural):** A hyena-wolf hybrid trained by a disgraced nobleman to terrorize the province as revenge against the Crown.
   - **Option B (Loup-Garou):** A cursed nobleman who transforms involuntarily and has no memory of the attacks.
   - **Option C (La Colère de la Terre):** The land itself, manifesting a predator to punish the Ancien Regime's exploitation. The Beast cannot be killed because it is not a creature; it is a condition.
 - **Traits vary by option** but all share: supernatural speed and size, resistance to ordinary weapons, preference for isolated targets, apparent intelligence, and the ability to generate Terreur.
-- **Condition Track:** ☐ Hunting (the Beast is active and selecting targets) / ☐ Wounded (someone has hurt it--it becomes more cautious but more dangerous) / ☐ Cornered (forced to fight rather than ambush) / ☐ Resolved (killed, cured, or the underlying cause addressed).
+- **Condition Track:** ☐ Hunting (the Beast is active and selecting targets) / ☐ Wounded (someone has hurt it-it becomes more cautious but more dangerous) / ☐ Cornered (forced to fight rather than ambush) / ☐ Resolved (killed, cured, or the underlying cause addressed).
 
----
+--
 
 ## 8. Why This Setting Matters
 

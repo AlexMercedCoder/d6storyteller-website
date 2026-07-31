@@ -17,7 +17,7 @@ publishedDate: "2026-07-30"
 > *"The Spanish think the Isthmus is just a narrow bridge for their silver mules. They do not know that the rivers have eyes, and the sea belongs to Guna Yala."*
 > - Sail-master of the San Blas Islands
 
----
+--
 
 ## 1. Setting Overview & Tone
 
@@ -30,7 +30,7 @@ publishedDate: "2026-07-30"
 
 **The Core Tension:** Liberty vs. Exploitation. The Isthmus is the wealthiest trade choke point on earth. Controlling its passages means freedom for indigenous nations and escaped communities; losing it means total colonial domination.
 
----
+--
 
 ## 2. Historical & Mythological Context
 
@@ -38,7 +38,7 @@ Panama's history as a global transit hub dates back to the *Camino Real* and Cha
 
 > **Note on Respectful Portrayal:** The Guna Yala nation has one of the most successful records of indigenous self-governance in the Americas. This setting highlights Guna maritime sovereignty and the historic Cimarrón-Indigenous anti-colonial alliance.
 
----
+--
 
 ## 3. Core Factions & Traditions
 
@@ -56,7 +56,7 @@ Escaped African warriors who built autonomous strongholds in the Chagres river b
   - *"I know every footstep of the Camino Real between Panama City and Portobelo"*
   - *"Spanish steel shatters when it hits our jungle barricades"*
 
----
+--
 
 ## 4. Unique Mechanic: Isthmian Flow
 
@@ -65,7 +65,7 @@ Characters track an **Isthmian Flow Meter** (1–6):
 - **3–4 (Navigable):** +1d6 to Finesse and Mind when travelling by water or river shortcuts. Costs 1 Momentum.
 - **5–6 (Torrential):** +1d6 to Force and Finesse. Double movement speed, but failure capsizes boats or triggers mudslides.
 
----
+--
 
 ## 5. Character Archetypes
 
@@ -90,7 +90,7 @@ Characters track an **Isthmian Flow Meter** (1–6):
 - **Flaw:** *"Greedy when silver bars are on the table."*
 - **Approach Distribution:** Force 1 | Finesse 2 | Mind 3 | Presence 2
 
----
+--
 
 ## 6. Condition Palette
 
@@ -98,7 +98,7 @@ Characters track an **Isthmian Flow Meter** (1–6):
 - **Social:** *Outlawed by Portobelo Governor* (Minor), *Price on Head* (Moderate), *Hunted by Royal Armada* (Severe).
 - **Psychological:** *Jungle Paranoia* (Minor), *Treasure Madness* (Moderate), *Broken Trust* (Severe).
 
----
+--
 
 ## 7. Starter Scenario: The Ambush at Cruces
 
@@ -111,7 +111,7 @@ Characters track an **Isthmian Flow Meter** (1–6):
   - *Traits:* Heavy breastplate, veteran steel sword master.
   - *Condition Track:* ☐ Guard Unit Ready / ☐ Line Broken / ☐ Captured.
 
----
+--
 
 ## 8. Why This Setting Matters
 

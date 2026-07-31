@@ -17,7 +17,7 @@ publishedDate: "2026-07-30"
 > *"The kinkajou climbs by night and remembers everything it touches. The coati walks in the open and forgets nothing it has smelled. Between them, the forest has no secrets."*
 > - Proverb of the Covenant, passed among the nagual bloodlines of the Highlands
 
----
+--
 
 ## 1. Setting Overview & Tone
 
@@ -30,7 +30,7 @@ publishedDate: "2026-07-30"
 
 **The Core Tension:** Preservation vs. Transformation. The nagual covenant was built to maintain balance between competing human powers. But no balance was ever designed to absorb a force that does not negotiate: that reframes the entire world as belonging to the Spanish Crown and the Catholic Church by divine right. Every choice the characters make (resist, collaborate, disappear, adapt) reshapes what the covenant means and what it will become.
 
----
+--
 
 ## 2. Historical Context
 
@@ -43,7 +43,7 @@ The setting spans the approximate period of 1500–1560 CE, covering:
 
 > **Note on nagualismo:** The concept of the nagual (a person capable of transforming into or spiritually merging with an animal) is authentic to Maya and Nahua traditions, documented in colonial-era sources and contemporary ethnography. This setting treats nagualismo with respect, framing the shapeshifter bloodlines as a living expression of genuine Indigenous cosmology rather than as a fantasy add-on. Storytellers should approach the setting with care and curiosity.
 
----
+--
 
 ## 3. The Two Bloodlines
 
@@ -60,7 +60,7 @@ Kinkajou-walkers are the covenant's information network. They move at night, ent
 - *"I spent three days in the rafters of Alvarado's camp and left knowing every name"*
 - *"The night has never frightened me: the night is where I do my best work"*
 
----
+--
 
 ### The Coati-Runners (B'alam Pisote: "Brave-Nose Kin")
 
@@ -75,7 +75,7 @@ Coati-runners are the covenant's scouts, negotiators, and enforcers. In their sh
 - *"When my pack-sense goes quiet, I know someone in our band is in trouble"*
 - *"I walked into Alvarado's court in daylight and nobody questioned my presence: coatis have no fear in their walk"*
 
----
+--
 
 ## 4. Unique Mechanic: Nagual Balance
 
@@ -95,7 +95,7 @@ Every nagual character tracks a **Jaguar-Spirit Meter** on a scale of 1–6, rep
 
 **Covenant Ceremonies:** The nagual covenant holds monthly ceremonies (tied to the 20-day Maya calendar cycle) to collectively reset the Jaguar-Spirit Meter toward the midpoint. Missing ceremonies costs the group a shared resource (the **Covenant Bond**) a pool of shared Momentum that all nagual characters can draw from in the same scene.
 
----
+--
 
 ## 5. Character Archetypes
 
@@ -112,7 +112,7 @@ Every nagual character tracks a **Jaguar-Spirit Meter** on a scale of 1–6, rep
 - **Flaw:** *"I remember every betrayal perfectly. I have not forgiven a single one."*
 - **Approach Distribution:** Force 1 | Finesse 3 | Mind 3 | Presence 1
 
----
+--
 
 ### Archetype 2: The Bold-Nose Runner (Coati Bloodline)
 
@@ -127,7 +127,7 @@ Every nagual character tracks a **Jaguar-Spirit Meter** on a scale of 1–6, rep
 - **Flaw:** *"I act before I plan. My boldness has cost the covenant more than my courage has won it."*
 - **Approach Distribution:** Force 2 | Finesse 3 | Mind 1 | Presence 2
 
----
+--
 
 ### Archetype 3: The Syncretic Keeper
 
@@ -142,7 +142,7 @@ Every nagual character tracks a **Jaguar-Spirit Meter** on a scale of 1–6, rep
 - **Flaw:** *"I have compromised so many times that I no longer know where my compromises end and my convictions begin."*
 - **Approach Distribution:** Force 1 | Finesse 1 | Mind 4 | Presence 2
 
----
+--
 
 ## 6. Condition Palette
 
@@ -163,7 +163,7 @@ Every nagual character tracks a **Jaguar-Spirit Meter** on a scale of 1–6, rep
 - *Jaguar-Haunted* (Moderate): The animal spirit pushing too hard; the Storyteller gains one free narrative intervention per session.
 - *Hollowed* (Severe): Loss of connection to the covenant; Covenant Bond pool inaccessible; Nagual Balance mechanic suspended until a ceremony can be performed.
 
----
+--
 
 ## 7. Starter Scenario: The Night the Ceiba Burned
 
@@ -186,7 +186,7 @@ Every nagual character tracks a **Jaguar-Spirit Meter** on a scale of 1–6, rep
 - **Condition Track:** ☐ Stubborn / ☐ Legally Cornered / ☐ Grant Suspended
 - **Shadow Cost:** 2
 
----
+--
 
 ## 8. Why This Setting Matters
 
@@ -196,6 +196,6 @@ This setting does not ask players to save the Maya world from the conquest: that
 
 The kinkajou and the coati are real animals of Guatemala's forests. They have survived the same colonial period this setting depicts. So has the nagual tradition. So has the ceiba.
 
----
+--
 
 *This setting was created for the D6 Storyteller Community Settings section. It is an original work of historical fiction designed for use with the D6 Storyteller system by Alex Merced. All historical context is based on documented sources; the nagual shapeshifter elements are fictional interpretations of authentic Mesoamerican spiritual concepts.*

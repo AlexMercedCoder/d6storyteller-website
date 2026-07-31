@@ -17,7 +17,7 @@ publishedDate: "2026-07-30"
 > *"The binary world sees only night and day, missing the infinite glory of dawn and twilight. We are the dawn. We are the twilight. We weave the sky together."*
 > - Master Kaelen, Weaver of the Third Sun
 
----
+--
 
 ## 1. Setting Overview & Tone
 
@@ -30,7 +30,7 @@ In the high mountain sanctuaries along the **Astral Silk Road**, the **Weavers o
 2. **Sound:** The rhythmic click of loom shuttles weaving cosmic threads; the resonant hum of singing bowls; the quiet whisper of mountain winds carrying starlight.
 3. **Touch & Smell:** The tactile smoothness of astral silk that feels like liquid light; the crisp, thin air of high mountain passes; the scent of burning cedar and sweetgrass.
 
----
+--
 
 ## 2. Core Factions & Traditions
 
@@ -45,7 +45,7 @@ Extremist astral conquerors who seek to flatten all complexity into rigid, oppos
 - **Descriptor Examples:**
   - *"They fear what they cannot box into simple categories"*
 
----
+--
 
 ## 3. Unique Mechanic: Limen (Boundary Walking)
 
@@ -53,7 +53,7 @@ Extremist astral conquerors who seek to flatten all complexity into rigid, oppos
 - **3-4 (Threshold Walker):** Embracing liminal power. +1d6 to Mind and Finesse. Costs 1 Momentum.
 - **5-6 (Cosmic Weaver):** Fully realized. +1d6 to all rolls. Can step between dimensions, weave forcefields of starlight, and heal trauma.
 
----
+--
 
 ## 4. Character Archetypes
 
@@ -65,7 +65,7 @@ Extremist astral conquerors who seek to flatten all complexity into rigid, oppos
 - **Quote:** *"I ride between the sun and moon. The horizon is my home."*
 - **Approach Distribution:** Force 3 | Finesse 3 | Mind 1 | Presence 1
 
----
+--
 
 ## 5-6. Conditions & Starter Scenario
 
@@ -73,7 +73,7 @@ Extremist astral conquerors who seek to flatten all complexity into rigid, oppos
 
 **Starter Scenario: The Unraveling Loom.** The Central Loom of the Third Sun is unspooling as an army of Binary Lords attacks the mountain sanctuary. The characters must rally the regional shamans, weave a temporary cosmic shield, and prove that the universe's beauty lies in its infinite spectrum.
 
----
+--
 
 ## 7. Why This Setting Matters
 

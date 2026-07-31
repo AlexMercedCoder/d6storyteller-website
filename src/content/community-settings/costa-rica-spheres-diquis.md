@@ -17,7 +17,7 @@ publishedDate: "2026-07-30"
 > *"The sphere has no corners where fear can hide. Roll it into the path of the bull, and watch the iron horns break against Sibö's stone."*
 > - Boruca warrior song, Diquís Delta
 
----
+--
 
 ## 1. Setting Overview & Tone
 
@@ -30,7 +30,7 @@ publishedDate: "2026-07-30"
 
 **The Core Tension:** Harmony vs. Encroachment. Protecting the sacred balance of Sibö's creation against a force that seeks to mine the mountains and shatter the spheres.
 
----
+--
 
 ## 2. Historical & Mythological Context
 
@@ -38,7 +38,7 @@ Costa Rica is famous for the mysterious Diquís stone spheres (a UNESCO World He
 
 > **Note on Respectful Portrayal:** The Boruca mask-making and *Baile de los Diablitos* traditions are sacred symbols of cultural survival. This setting presents Boruca heritage with deep respect for indigenous craftsmanship and environmental harmony.
 
----
+--
 
 ## 3. Core Factions & Traditions
 
@@ -56,7 +56,7 @@ Warriors who carve intricate devil and jaguar masks to embody forest spirits in 
   - *"When I wear the jaguar mask, no Spanish horse can catch my stride"*
   - *"My dance turns the enemy's momentum back upon their own lines"*
 
----
+--
 
 ## 4. Unique Mechanic: Harmonic Sphere Resonance
 
@@ -65,7 +65,7 @@ Characters track a **Sphere Balance Meter** (1–6):
 - **3–4 (Harmonic):** +1d6 to Mind and Finesse. Can roll or reposition stone spheres effortlessly regardless of weight. Costs 1 Momentum.
 - **5–6 (Granite Resonance):** +1d6 to Force and immunity to physical harm. Failure turns skin briefly to stone (reduces Finesse to 1d6).
 
----
+--
 
 ## 5. Character Archetypes
 
@@ -90,7 +90,7 @@ Characters track a **Sphere Balance Meter** (1–6):
 - **Flaw:** *"Uncomfortable in open lowland spaces."*
 - **Approach Distribution:** Force 1 | Finesse 3 | Mind 2 | Presence 2
 
----
+--
 
 ## 6. Condition Palette
 
@@ -98,7 +98,7 @@ Characters track a **Sphere Balance Meter** (1–6):
 - **Social:** *Mocked by Spanish Settlers* (Minor), *Land Grant Seized* (Moderate), *Sacred Sanctuary Desecrated* (Severe).
 - **Psychological:** *Mask-Haunted* (Minor), *Loss of Harmony* (Moderate), *Severed from Sibö* (Severe).
 
----
+--
 
 ## 7. Starter Scenario: The Charge of the Iron Bull
 
@@ -111,7 +111,7 @@ Characters track a **Sphere Balance Meter** (1–6):
   - *Traits:* Heavy plate armor, ruthless mounted charge.
   - *Condition Track:* ☐ Mounted / ☐ Unhorsed / ☐ Broken Armor.
 
----
+--
 
 ## 8. Why This Setting Matters
 

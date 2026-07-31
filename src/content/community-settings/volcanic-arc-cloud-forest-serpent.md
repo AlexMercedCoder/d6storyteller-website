@@ -17,7 +17,7 @@ publishedDate: "2026-07-30"
 > *"Where the volcano meets the clouds, the emerald serpent flies without wings. Harm the quetzal, and the mountain itself will spill fire."*
 > - High Spirit Oath of the Cloud Forest Keepers
 
----
+--
 
 ## 1. Setting Overview & Tone
 
@@ -30,7 +30,7 @@ publishedDate: "2026-07-30"
 
 **The Core Tension:** Harmony vs. Extraction. The cloud forests are the water towers of Central America. Destroying the high canopy threatens the water supply of the entire region.
 
----
+--
 
 ## 2. Historical & Mythological Context
 
@@ -38,7 +38,7 @@ The Resplendent Quetzal (*Pharomachrus mocinno*) and the Feathered Serpent (*K'u
 
 > **Note on Respectful Portrayal:** The Quetzal is a national symbol of freedom and ecological beauty across Central America. This setting emphasizes environmental preservation and mythic reverence for nature.
 
----
+--
 
 ## 3. Core Factions & Traditions
 
@@ -56,7 +56,7 @@ Warriors who protect the thermal springs and sacred volcanic vents of the high a
   - *"I can channel thermal volcanic heat into my staff during battle"*
   - *"Built to withstand the coldest high-mountain blizzards"*
 
----
+--
 
 ## 4. Unique Mechanic: Feathered Flight & Mist Weaving
 
@@ -65,7 +65,7 @@ Characters track a **Quetzal Plume Meter** (1–6):
 - **3–4 (Cloud-Woven):** +1d6 to Finesse and Mind in highland terrain. Can glide on cloud currents and blend invisibly into fog. Costs 1 Momentum.
 - **5–6 (Serpent Apex):** +1d6 to Force and Finesse. Full flight and storm call. Failure causes smoke-choking penalties if away from high altitude.
 
----
+--
 
 ## 5. Character Archetypes
 
@@ -90,7 +90,7 @@ Characters track a **Quetzal Plume Meter** (1–6):
 - **Flaw:** *"Reluctant to engage in physical violence."*
 - **Approach Distribution:** Force 1 | Finesse 1 | Mind 4 | Presence 2
 
----
+--
 
 ## 6. Condition Palette
 
@@ -98,7 +98,7 @@ Characters track a **Quetzal Plume Meter** (1–6):
 - **Social:** *Outlawed by Lowland Mining Bosses* (Minor), *Sanctuary Invaded* (Moderate), *Highland Order Shattered* (Severe).
 - **Psychological:** *Smoke-Choked Anxiety* (Minor), *Grief of the Cleared Ridge* (Moderate), *Severed from the Feathered Serpent* (Severe).
 
----
+--
 
 ## 7. Starter Scenario: The Siege of the Mist Spring
 
@@ -111,7 +111,7 @@ Characters track a **Quetzal Plume Meter** (1–6):
   - *Traits:* Heavy armored steam tractor, mercenary guards.
   - *Condition Track:* ☐ Overconfident / ☐ Machinery Sabotaged / ☐ Forced to Retreat.
 
----
+--
 
 ## 8. Why This Setting Matters
 

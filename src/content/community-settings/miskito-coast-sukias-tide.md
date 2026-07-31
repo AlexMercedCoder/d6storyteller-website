@@ -17,7 +17,7 @@ publishedDate: "2026-07-30"
 > *"The Spanish bring heavy cannons; the pirates bring cold iron. But the Sukia brings the hurricane: and the sea obeys no king."*
 > - Chant of the Miskito Sukia shamans
 
----
+--
 
 ## 1. Setting Overview & Tone
 
@@ -30,7 +30,7 @@ publishedDate: "2026-07-30"
 
 **The Core Tension:** Sovereignty vs. Colonization. Preserving the Miskito Kingdom's freedom requires navigating dangerous treaties with buccaneers without letting foreign powers gain a foothold on the land.
 
----
+--
 
 ## 2. Historical & Mythological Context
 
@@ -38,7 +38,7 @@ The Miskito Coast maintained an independent kingdom for centuries, resisting Spa
 
 > **Note on Respectful Portrayal:** The Miskito nation has a unique, resilient history of self-determination. This setting celebrates Sukia spiritual practices and Miskito maritime skill.
 
----
+--
 
 ## 3. Core Factions & Traditions
 
@@ -56,7 +56,7 @@ Maritime warriors who pilot fast, shallow-draft canoes built for lagoon warfare.
   - *"My harpoon never misses a target, above water or below"*
   - *"I can hide three war canoes inside a mangrove root maze without a trace"*
 
----
+--
 
 ## 4. Unique Mechanic: Storm Call & Tide Weaving
 
@@ -65,7 +65,7 @@ Characters track a **Sea Spirit Meter** (1–6):
 - **3–4 (Tide-Risen):** +1d6 to Finesse and Mind in coastal terrain. Can alter water currents or create fog banks. Costs 1 Momentum.
 - **5–6 (Gale Force):** +1d6 to Force and Finesse. Can summon localized lightning or mini-squalls. Failure causes ship-damaging wave surges.
 
----
+--
 
 ## 5. Character Archetypes
 
@@ -90,7 +90,7 @@ Characters track a **Sea Spirit Meter** (1–6):
 - **Flaw:** *"Constantly walking a dangerous political tightrope."*
 - **Approach Distribution:** Force 1 | Finesse 1 | Mind 4 | Presence 2
 
----
+--
 
 ## 6. Condition Palette
 
@@ -98,7 +98,7 @@ Characters track a **Sea Spirit Meter** (1–6):
 - **Social:** *Outsmarted by Buccaneers* (Minor), *Treaty Broken* (Moderate), *Exiled from the Lagoon* (Severe).
 - **Psychological:** *Storm Paranoia* (Minor), *Sea-Spirit Curse* (Moderate), *Severed from Dawan* (Severe).
 
----
+--
 
 ## 7. Starter Scenario: The Battle of Gracias a Dios
 
@@ -111,7 +111,7 @@ Characters track a **Sea Spirit Meter** (1–6):
   - *Traits:* Heavy cannons, disciplined marine musketeers.
   - *Condition Track:* ☐ Ship Aground / ☐ Cannons Silenced / ☐ Captured.
 
----
+--
 
 ## 8. Why This Setting Matters
 

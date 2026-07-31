@@ -60,4 +60,4 @@ These ten settings reward bold play. The Panache mechanic in Blade & Fleur-de-Ly
 
 Each setting is a complete playable world: atmospheric overview, sensory pillars, unique genre mechanic, three archetypes, condition palette, and a starter scenario. Weird West, piracy, and swashbuckling share a narrative tradition of high adventure with real stakes, and every mechanic in this companion serves that tradition directly.
 
-The Weird West, Piracy & Swashbuckling Companion works seamlessly with the D6 Storyteller Core Rulebook and all other companions, letting groups blend the demonic gunslinging of Brimstone & Dust with the naval tactics of Tides of Blood for campaigns that defy single-genre labels.
+The Weird West, Piracy & Swashbuckling Companion is built to work alongside the D6 Storyteller Core Rulebook and all other companions. Groups can pull settings from multiple books into a single campaign - blend the demonic gunslinging of Brimstone & Dust with the naval tactics of Tides of Blood for campaigns that refuse single-genre labels.

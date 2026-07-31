@@ -3,8 +3,8 @@ title: "The Bomoh of the Boundless Strait"
 subtitle: "Maritime Shamanism & Invisible Kingdoms in Malaysia: Orang Bunian Diplomacy, Penanggalan Hunts, and the Spice War of the Strait of Malacca"
 genre: "Maritime Dark Fantasy"
 tags: ["Mythology", "Malaysia", "Bomoh", "Penanggalan", "Orang Bunian", "Strait of Malacca", "Malacca"]
-premise: "In the golden age of the Malacca Sultanate (15th century), the Strait of Malacca is the richest maritime trade corridor on Earth. Beside the visible world of sultans, merchants, and sailors exists a parallel invisible kingdom: the realm of the Orang Bunian (the 'hidden people'--beautiful, ageless fairy-like beings who exist slightly out of phase with human perception). Bomoh shamans navigate between these worlds, brokering deals, healing spiritual afflictions, and hunting the Penanggalan--flying detached heads with trailing entrails that prey on pregnant women and newborns in the tropical night."
-mechanic: "Semangat (Spirit Essence): Characters track a Semangat meter (1-6) representing their core spiritual vitality. High Semangat grants spiritual sight, resistance to supernatural predators, and the ability to enter the Orang Bunian realm. Low Semangat makes characters vulnerable to spiritual possession, Penanggalan predation, and identity dissolution. Semangat can be stolen, gifted, or consumed--it is the currency of the spirit world."
+premise: "In the golden age of the Malacca Sultanate (15th century), the Strait of Malacca is the richest maritime trade corridor on Earth. Beside the visible world of sultans, merchants, and sailors exists a parallel invisible kingdom: the realm of the Orang Bunian (the 'hidden people'-beautiful, ageless fairy-like beings who exist slightly out of phase with human perception). Bomoh shamans navigate between these worlds, brokering deals, healing spiritual afflictions, and hunting the Penanggalan-flying detached heads with trailing entrails that prey on pregnant women and newborns in the tropical night."
+mechanic: "Semangat (Spirit Essence): Characters track a Semangat meter (1-6) representing their core spiritual vitality. High Semangat grants spiritual sight, resistance to supernatural predators, and the ability to enter the Orang Bunian realm. Low Semangat makes characters vulnerable to spiritual possession, Penanggalan predation, and identity dissolution. Semangat can be stolen, gifted, or consumed-it is the currency of the spirit world."
 accentColor: "#0e7490"
 coverImage: "/images/supplements/malaysia-bomoh-boundless-strait.png"
 coverAlt: "Pixel art cover of The Bomoh of the Boundless Strait showing a bomoh shaman with keris daggers and an Orang Bunian fairy and Penanggalan"
@@ -17,22 +17,22 @@ publishedDate: "2026-07-30"
 > *"The Strait carries every spice in the world, and every spirit. The Portuguese think they can control the trade by building a fort. The Orang Bunian have been controlling it from their invisible city for a thousand years. The bomoh stands in the middle, holding both worlds open like a door."*
 > - Bomoh Haji Ibrahim, Keeper of the Strait Threshold
 
----
+--
 
 ## 1. Setting Overview & Tone
 
-**High-Concept Pitch:** The **Malacca Sultanate** (1400-1511) was the commercial and cultural heart of Southeast Asia, positioned at the narrowest point of the Strait of Malacca--the most important maritime chokepoint in the world. Ships from China, India, Arabia, Siam, Java, and eventually Portugal converged on the port city, creating an extraordinary multicultural melting pot. But the Strait had older residents than any sultan. The **Orang Bunian** ("hidden people" or "whistling people") existed in a parallel Malaya, their elegant cities and wild forests occupying the same geography as the human world but shifted slightly out of visible frequency. Bomoh shamans--traditional Malay healers and spiritual intermediaries--served as the only reliable bridge between the worlds.
+**High-Concept Pitch:** The **Malacca Sultanate** (1400-1511) was the commercial and cultural heart of Southeast Asia, positioned at the narrowest point of the Strait of Malacca-the most important maritime chokepoint in the world. Ships from China, India, Arabia, Siam, Java, and eventually Portugal converged on the port city, creating an extraordinary multicultural melting pot. But the Strait had older residents than any sultan. The **Orang Bunian** ("hidden people" or "whistling people") existed in a parallel Malaya, their elegant cities and wild forests occupying the same geography as the human world but shifted slightly out of visible frequency. Bomoh shamans-traditional Malay healers and spiritual intermediaries-served as the only reliable bridge between the worlds.
 
 In this setting, the arrival of Portuguese warships in 1511 threatens not only the Sultanate but the fragile equilibrium between the visible and invisible worlds. The Portuguese bring cannons, Catholicism, and an aggressive refusal to believe in anything they cannot shoot. As the Sultanate prepares to defend Malacca, the bomoh must also negotiate with the Orang Bunian (whose invisible city occupies the same hill as the Portuguese are fortifying), contain the Penanggalan and Pontianak predators that thrive in wartime chaos, and hold together a spiritual ecosystem that the colonizers are accidentally dismantling.
 
 **Sensory Pillars:**
-1. **Sight:** The kaleidoscopic chaos of the Malacca waterfront--Chinese junks, Arab dhows, Javanese jong ships, and Gujarati merchantmen crammed together, their sails a patchwork of every color; the sudden shimmer of Orang Bunian architecture visible only at the corners of the eye, like looking at a heat mirage that resolves into golden minarets and crystal gardens if you don't stare directly; the horrifying beauty of a Penanggalan at full hunt--a woman's head separated at the neck, long black hair streaming behind it in the wind, trailing glowing viscera like a jellyfish, silhouetted against the full moon over the Strait.
+1. **Sight:** The kaleidoscopic chaos of the Malacca waterfront-Chinese junks, Arab dhows, Javanese jong ships, and Gujarati merchantmen crammed together, their sails a patchwork of every color; the sudden shimmer of Orang Bunian architecture visible only at the corners of the eye, like looking at a heat mirage that resolves into golden minarets and crystal gardens if you don't stare directly; the horrifying beauty of a Penanggalan at full hunt-a woman's head separated at the neck, long black hair streaming behind it in the wind, trailing glowing viscera like a jellyfish, silhouetted against the full moon over the Strait.
 2. **Sound:** The pre-dawn call to prayer echoing over the waterfront, harmonizing with Chinese temple gongs and Hindu temple bells in a sonic collage found nowhere else on earth; the eerie, high-pitched whistling that means Orang Bunian are nearby (hence "whistling people"); the wet, rhythmic *squelch* of a Penanggalan detaching from its body; a bomoh's chanted mantra interweaving with the rhythmic tapping of a healing bowl.
-3. **Touch & Smell:** The overwhelming spice-market assault of cinnamon, clove, nutmeg, black pepper, and star anise that defined Malacca's wealth and permeated everything; the electric tingle of crossing the threshold into Orang Bunian space--like stepping through a beaded curtain that isn't there; the cold, vinegar-sharp sensation of a Penanggalan's proximity (they soak their trailing viscera in vinegar to shrink them back into the body before dawn); tropical humidity so thick it feels like breathing through warm silk.
+3. **Touch & Smell:** The overwhelming spice-market assault of cinnamon, clove, nutmeg, black pepper, and star anise that defined Malacca's wealth and permeated everything; the electric tingle of crossing the threshold into Orang Bunian space-like stepping through a beaded curtain that isn't there; the cold, vinegar-sharp sensation of a Penanggalan's proximity (they soak their trailing viscera in vinegar to shrink them back into the body before dawn); tropical humidity so thick it feels like breathing through warm silk.
 
 **The Core Tension:** Sovereignty vs. Colonization, Visible vs. Invisible. The Portuguese threaten the human sultanate. But their construction on Bukit Cina (the Chinese Hill) is also demolishing the foundation of the Orang Bunian palace. Both human and invisible sovereignty are under attack by a force that refuses to believe the invisible world exists. The bomoh must fight a war on two planes simultaneously.
 
----
+--
 
 ## 2. Historical & Mythological Context
 
@@ -42,13 +42,13 @@ Malaysian folklore features one of the most vivid supernatural ecologies in Sout
 
 > **Note on Respectful Portrayal:** Bomoh practice, Orang Bunian beliefs, and Malay supernatural folklore are living cultural traditions. This setting treats these traditions as expressions of a sophisticated spiritual worldview that has maintained community health and social order for centuries.
 
----
+--
 
 ## 3. Core Factions & Traditions
 
 ### The Bomoh Council of Malacca (Keepers of the Strait Threshold)
 Traditional spiritual healers and intermediaries who maintain the boundary between the visible and invisible worlds.
-- **Cultural Association:** Bomoh combine herbal medicine, ritual chanting (*jampi*), keris-based spiritual surgery, and direct negotiation with spirit entities. They are healers, exorcists, diplomats, and, when necessary, warriors against supernatural predators. The Malacca bomoh have developed specific expertise in maritime spiritual protection--shielding ships and sailors from sea spirits, negotiating safe passage with underwater kingdoms, and hunting Penanggalan in crowded port districts.
+- **Cultural Association:** Bomoh combine herbal medicine, ritual chanting (*jampi*), keris-based spiritual surgery, and direct negotiation with spirit entities. They are healers, exorcists, diplomats, and, when necessary, warriors against supernatural predators. The Malacca bomoh have developed specific expertise in maritime spiritual protection-shielding ships and sailors from sea spirits, negotiating safe passage with underwater kingdoms, and hunting Penanggalan in crowded port districts.
 - **Descriptor Examples:**
   - *"I can diagnose whether a fever is natural or spiritual by the temperature difference between the patient's left and right hands"*
   - *"My keris was forged with seven layers of pamor by a master empu, and it vibrates when Penanggalan are within a league"*
@@ -58,7 +58,7 @@ Traditional spiritual healers and intermediaries who maintain the boundary betwe
 An ancient fairy civilization that occupies the same geography as Malacca but exists on a shifted frequency of reality.
 - **Cultural Association:** The Orang Bunian are beautiful, long-lived, and culturally sophisticated, resembling an idealized version of Malay court society. They are not inherently hostile but are fiercely territorial and bewildered by human inability to perceive them. When the Portuguese build a fortress on their palace grounds, they experience it as an earthquake that never stops.
 - **Descriptor Examples (for Orang Bunian or human-Bunian intermediaries):**
-  - *"I am half Orang Bunian--my mother was taken to their realm as a child and returned decades later with me in her arms"*
+  - *"I am half Orang Bunian-my mother was taken to their realm as a child and returned decades later with me in her arms"*
   - *"I can shift between visible and invisible frequencies, but it gives me migraines that last for days"*
   - *"The Orang Bunian ambassador gave me a golden songket cloth that renders me invisible to human eyes for one scene per day"*
 
@@ -70,11 +70,11 @@ The military maritime arm of the Malacca Sultanate, led by the Laksamana (Admira
   - *"My ship was blessed by the bomoh of Malacca and repels sea spirits within a ship-length"*
   - *"I learned five languages on the waterfront and can negotiate in any harbor from Aden to Guangzhou"*
 
----
+--
 
 ## 4. Unique Mechanic: Semangat (Spirit Essence)
 
-**Semangat** is the Malay concept of the vital spiritual force that resides in all living things (and some objects). It is not merely health or willpower--it is the fundamental essence of individual identity and spiritual integrity.
+**Semangat** is the Malay concept of the vital spiritual force that resides in all living things (and some objects). It is not merely health or willpower-it is the fundamental essence of individual identity and spiritual integrity.
 
 Characters track a **Semangat Meter** (1-6):
 
@@ -84,12 +84,12 @@ Characters track a **Semangat Meter** (1-6):
 
 **Semangat Economy:** Semangat can be transferred between individuals through ritual (a bomoh can boost a patient's semangat by temporarily lowering their own). It can be stolen by supernatural predators. It can be invested in objects (creating empowered talismans). It can be gifted as a profound act of trust and love. This creates a spiritual economy that mirrors the commercial economy of the Strait.
 
----
+--
 
 ## 5. Character Archetypes
 
 ### Archetype 1: The Bomoh of the Waterfront
-- **Concept:** A middle-aged bomoh who maintains the spiritual health of Malacca's sprawling, multicultural waterfront district. She treats everything from mundane fevers to Penanggalan bites to Orang Bunian kidnappings. She speaks six languages, knows the folk remedies of four cultures, and has negotiated with sea spirits, Chinese *gui*, Indian *bhuta*, and Arab *djinn*--because in Malacca, every culture's supernatural beings also came to trade.
+- **Concept:** A middle-aged bomoh who maintains the spiritual health of Malacca's sprawling, multicultural waterfront district. She treats everything from mundane fevers to Penanggalan bites to Orang Bunian kidnappings. She speaks six languages, knows the folk remedies of four cultures, and has negotiated with sea spirits, Chinese *gui*, Indian *bhuta*, and Arab *djinn*-because in Malacca, every culture's supernatural beings also came to trade.
 - **Quote:** *"A Chinese ghost needs different herbs than a Malay ghost. An Arab djinn needs different words than a Javanese spirit. In Malacca, even the dead are multicultural."*
 - **Suggested Descriptors:** *"Six languages, four folk pharmacopoeias, and one keris that talks to me"*, *"Can diagnose spiritual affliction by feeling the pulse in three different points"*, *"The Penanggalan that haunts the dockside warehouse fears me by name"*, *"My clinic has treated sailors from Guangzhou to Lisbon"*.
 - **Drive:** *"Keep my waterfront district spiritually clean and safe, no matter how many new spirits arrive on the morning tide."*
@@ -105,14 +105,14 @@ Characters track a **Semangat Meter** (1-6):
 - **Approach Distribution:** Force 1 | Finesse 3 | Mind 2 | Presence 2
 
 ### Archetype 3: The Penanggalan Hunter (Pemburu Penanggalan)
-- **Concept:** A former midwife who discovered her calling after a Penanggalan attacked one of her patients. She learned that the Penanggalan is not merely a monster but a cursed woman trapped in a cycle of predation. She hunts them not to kill but to cure--if possible. If cure is impossible, she kills with the precision and grief of a surgeon performing an amputation.
+- **Concept:** A former midwife who discovered her calling after a Penanggalan attacked one of her patients. She learned that the Penanggalan is not merely a monster but a cursed woman trapped in a cycle of predation. She hunts them not to kill but to cure-if possible. If cure is impossible, she kills with the precision and grief of a surgeon performing an amputation.
 - **Quote:** *"Every Penanggalan was once a woman. Someone's mother. Someone's daughter. I hunt the curse, not the person. But when the curse has eaten the person entirely, I do what must be done."*
-- **Suggested Descriptors:** *"Expert in the thorny pineapple leaf trap (placed around the Penanggalan's body to prevent reattachment)"*, *"Can track a Penanggalan by vinegar scent trails in the night air"*, *"Midwife training means I know exactly where the entrails connect and how to sever the curse"*, *"I keep a journal of every Penanggalan I have encountered--forty-seven so far, eleven cured, thirty-six destroyed"*.
+- **Suggested Descriptors:** *"Expert in the thorny pineapple leaf trap (placed around the Penanggalan's body to prevent reattachment)"*, *"Can track a Penanggalan by vinegar scent trails in the night air"*, *"Midwife training means I know exactly where the entrails connect and how to sever the curse"*, *"I keep a journal of every Penanggalan I have encountered-forty-seven so far, eleven cured, thirty-six destroyed"*.
 - **Drive:** *"Find the original source of the Penanggalan curse and end it, so no more women are consumed by it."*
 - **Flaw:** *"Each Penanggalan I destroy costs me a piece of my compassion, and I am running low."*
 - **Approach Distribution:** Force 2 | Finesse 3 | Mind 2 | Presence 1
 
----
+--
 
 ## 6. Condition Palette
 
@@ -131,11 +131,11 @@ Characters track a **Semangat Meter** (1-6):
 - **Moderate:** *World Dysphoria* (you can no longer tell which world is "real" and which is "hidden"), *Hunter's Grief* (the accumulated emotional cost of destroying cursed women).
 - **Severe:** *Semangat Fracture* (your spiritual essence has cracked, and pieces of your identity are leaking into the spirit world), *The Summons of the Deep Strait* (the sea spirits of the Strait are calling you to drown, and their song is beautiful).
 
----
+--
 
 ## 7. Starter Scenario: The Siege of Two Cities
 
-**Framing:** It is 1511. The Portuguese fleet under Afonso de Albuquerque has arrived at Malacca with eighteen ships and 1,200 soldiers. Sultan Mahmud Shah is preparing to defend the city with 20,000 warriors, war elephants, and defensive fortifications. But there is a second siege happening that the humans cannot see: the Portuguese are anchoring their ships over the entrance to the Orang Bunian underwater palace, and their construction on Bukit Cina is demolishing the foundations of the Orang Bunian royal court. The Orang Bunian are preparing their own counterattack, and they do not distinguish between Portuguese and Malay--all visible humans are aggressors.
+**Framing:** It is 1511. The Portuguese fleet under Afonso de Albuquerque has arrived at Malacca with eighteen ships and 1,200 soldiers. Sultan Mahmud Shah is preparing to defend the city with 20,000 warriors, war elephants, and defensive fortifications. But there is a second siege happening that the humans cannot see: the Portuguese are anchoring their ships over the entrance to the Orang Bunian underwater palace, and their construction on Bukit Cina is demolishing the foundations of the Orang Bunian royal court. The Orang Bunian are preparing their own counterattack, and they do not distinguish between Portuguese and Malay-all visible humans are aggressors.
 
 The bomoh must fight a war on three fronts simultaneously: support the Sultanate's defense against the Portuguese, negotiate with the Orang Bunian to prevent them from attacking all humans indiscriminately, and contain the Penanggalan outbreak that is erupting in the chaos of wartime.
 
@@ -147,12 +147,12 @@ The bomoh must fight a war on three fronts simultaneously: support the Sultanate
 
 3. **Opportunity:** The bomoh knows that the Sultanate's defensive strategy relies on the Strait's currents. If she can negotiate a temporary alliance with the Orang Bunian, the invisible kingdom can redirect the underwater currents to ground the Portuguese fleet on hidden sandbars. But the Orang Bunian demand a price: they want the bomoh to permanently close three of the five crossing points between the worlds, reducing human-Bunian contact by half. This would cripple the bomoh tradition for generations.
 
-**Antagonist:** ***Afonso de Albuquerque*** -- The Portuguese commander. He is a brilliant naval strategist and a genuinely devout man who believes he is bringing civilization and Christianity to the East. He is not personally cruel but considers everything he cannot quantify and control to be either irrelevant or diabolical. The Orang Bunian are invisible; therefore they do not exist. Bomoh are sorcerers; therefore they must be eliminated. He cannot be persuaded by supernatural demonstrations because he will interpret them as proof of demonic activity.
+**Antagonist:** ***Afonso de Albuquerque*** - The Portuguese commander. He is a brilliant naval strategist and a genuinely devout man who believes he is bringing civilization and Christianity to the East. He is not personally cruel but considers everything he cannot quantify and control to be either irrelevant or diabolical. The Orang Bunian are invisible; therefore they do not exist. Bomoh are sorcerers; therefore they must be eliminated. He cannot be persuaded by supernatural demonstrations because he will interpret them as proof of demonic activity.
 - **Traits:** Eighteen warships with superior cannons, 1,200 disciplined troops, unshakable conviction, brilliant tactician, physically aging and in declining health (historically accurate), weakness to acts of mercy that remind him of his own faith's compassion teachings.
 - **Condition Track:** ☐ Bombardment (shelling the waterfront, advancing infantry) / ☐ Bridgehead Established (Portuguese control the beach, building fortifications) / ☐ Spiritual Disruption (unexplained phenomena shake Portuguese morale) / ☐ Stalemate or Withdrawal (Portuguese pull back to regroup, buying time for evacuation).
 - **Shadow Cost:** If the bomoh closes the three crossings, the Sultanate may survive but the bomoh tradition will wither within a generation. If they refuse, the Orang Bunian phase-shift the hill and the resulting disruption collapses the Sultanate's defenses. If Albuquerque is killed, history accelerates the Portuguese conquest (another fleet arrives within months). The optimal outcome requires convincing the Orang Bunian to intervene surgically and convincing enough of the Portuguese crew that the supernatural is real to create internal dissent.
 
----
+--
 
 ## 8. Why This Setting Matters
 

@@ -17,7 +17,7 @@ publishedDate: "2026-07-30"
 > *"They call our sanctuary a den of sin because they cannot comprehend a place where love is not a cage. In the Velvet Veil, we do not hide what we are - we celebrate it, tooth, claw, and song."*
 > - Camille LeBeau, House of the Crimson Violet
 
----
+--
 
 ## 1. Setting Overview & Tone
 
@@ -30,7 +30,7 @@ The **Velvet Veil** is both a physical sanctuary - a sprawling network of hidden
 2. **Sound:** The sultry, intoxicating melody of a saxophone drifting from a cellar speakeasy; the hypnotic siren-song of a cabaret singer that makes listeners weep; the clink of crystal glasses filled with enchanted absinthe.
 3. **Touch & Smell:** The warm, humid breeze off the Mississippi River; the rich scents of chicory coffee, French perfume, and clove tobacco; the electric tingle of blood-magic shared between consenting lovers.
 
----
+--
 
 ## 2. Core Factions & Traditions
 
@@ -51,7 +51,7 @@ A reactionary order of mortal witch-hunters and moral crusaders seeking to destr
 - **Descriptor Examples:**
   - *"They carry cold iron and fanatical hatred, mistaking bigotry for holy zeal"*
 
----
+--
 
 ## 3. Unique Mechanic: Authenticity (True Self)
 
@@ -59,7 +59,7 @@ A reactionary order of mortal witch-hunters and moral crusaders seeking to destr
 - **3-4 (Emerging):** Living partially open. +1d6 to Mind. Can cast basic glamours and emotional wards. Costs 1 Momentum.
 - **5-6 (Unapologetic / Radiant):** Fully authentic. +1d6 to all rolls when protecting chosen family or loved ones. Immune to fear and compulsion. **Risk:** Drawing direct attention from the Iron Purity League.
 
----
+--
 
 ## 4. Character Archetypes
 
@@ -75,7 +75,7 @@ A reactionary order of mortal witch-hunters and moral crusaders seeking to destr
 - **Quote:** *"I carved my own name into this stone. I stand watch so no one breaks our home."*
 - **Approach Distribution:** Force 4 | Finesse 1 | Mind 2 | Presence 1
 
----
+--
 
 ## 5. Conditions & Starter Scenario
 
@@ -83,7 +83,7 @@ A reactionary order of mortal witch-hunters and moral crusaders seeking to destr
 
 **Starter Scenario: Night of the Crimson Masquerade.** The Velvet Veil is hosting its annual Midnight Ball to celebrate the union of two rival house leaders. However, the Iron Purity League has planted an infiltrator with a cold-iron bomb designed to collapse the subterranean sanctuary. The characters must identify the infiltrator, protect the masquerade guests, and prove that love is stronger than hate.
 
----
+--
 
 ## 6. Why This Setting Matters
 

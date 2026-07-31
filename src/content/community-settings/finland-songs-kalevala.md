@@ -3,8 +3,8 @@ title: "Songs of the Kalevala"
 subtitle: "Word-Magic & Mythic Quests in Finland: Sampo Forgers, Kantele Song-Sorcerers, and the Eternal Struggle Between Kalevala and Pohjola"
 genre: "Mythic Song-Magic"
 tags: ["Mythology", "Finland", "Kalevala", "Sampo", "Kantele", "Song Magic", "Nordic"]
-premise: "In the mythic age of Finland, before Christianity came to the North, the hero-sages of Kalevala (the land of heroes) wield the most powerful force in creation: the magic of song. By singing the right words in the right order, a tietäjä (sage-singer) can forge iron from nothing, heal mortal wounds, bind spirits, and reshape the landscape. The great quest is for the Sampo--a magical artifact-mill that produces grain, salt, and gold from nothing. It was forged by the smith-god Ilmarinen and stolen by the witch-queen Louhi of Pohjola (the frozen North). To reclaim it, the heroes must out-sing, out-forge, and out-riddle the most powerful sorceress in the North."
-mechanic: "Sana (Word-Power): Characters track a Sana meter (1-6). Finnish magic in the Kalevala tradition is entirely verbal--spells are sung, not cast. High Sana grants the ability to sing objects into existence, reshape terrain, and bind spirits. But every sung spell must be true. Lies reduce Sana to zero. The most powerful magic requires knowing the 'origin-word' (syntylaulu) of the thing you wish to control."
+premise: "In the mythic age of Finland, before Christianity came to the North, the hero-sages of Kalevala (the land of heroes) wield the most powerful force in creation: the magic of song. By singing the right words in the right order, a tietäjä (sage-singer) can forge iron from nothing, heal mortal wounds, bind spirits, and reshape the landscape. The great quest is for the Sampo-a magical artifact-mill that produces grain, salt, and gold from nothing. It was forged by the smith-god Ilmarinen and stolen by the witch-queen Louhi of Pohjola (the frozen North). To reclaim it, the heroes must out-sing, out-forge, and out-riddle the most powerful sorceress in the North."
+mechanic: "Sana (Word-Power): Characters track a Sana meter (1-6). Finnish magic in the Kalevala tradition is entirely verbal-spells are sung, not cast. High Sana grants the ability to sing objects into existence, reshape terrain, and bind spirits. But every sung spell must be true. Lies reduce Sana to zero. The most powerful magic requires knowing the 'origin-word' (syntylaulu) of the thing you wish to control."
 accentColor: "#0369a1"
 coverImage: "/images/supplements/finland-songs-kalevala.png"
 coverAlt: "Pixel art cover of Songs of the Kalevala showing Väinämöinen playing kantele by a frozen Finnish lake with the Sampo glowing on an island"
@@ -16,7 +16,7 @@ publishedDate: "2026-07-30"
 
 > *"In the beginning, there was the word. In Finland, the word is still the beginning. The tietäjä who knows the origin-song of iron can command every blade and nail. The one who knows the origin-song of fire can warm or burn the world. The one who knows the origin-song of death... that one is Väinämöinen, and he is still singing."*
 
----
+--
 
 ## 1. Setting Overview & Tone
 
@@ -29,7 +29,7 @@ publishedDate: "2026-07-30"
 
 **The Core Tension:** Knowledge vs. Wisdom. Knowing the origin-song of a thing gives you absolute power over it. But absolute power without wisdom is catastrophe. The Kalevala's greatest tragedy is that even the wisest sage, Väinämöinen, makes devastating mistakes. The characters must decide how much power to seek and whether they are wise enough to wield what they find.
 
----
+--
 
 ## 2. Historical & Mythological Context
 
@@ -37,7 +37,7 @@ The Kalevala was compiled by Elias Lönnrot from Finnish and Karelian oral folk 
 
 > **Note on Respectful Portrayal:** The Kalevala is central to Finnish national identity. Finnish folk magic traditions and the closely related Sami spiritual practices are treated with deep cultural respect.
 
----
+--
 
 ## 3. Core Factions & Traditions
 
@@ -60,7 +60,7 @@ Louhi's domain, where the eternal winter holds and stolen treasures accumulate.
   - *"I served Louhi for seven years and heard her sing the sun into a box. She is the most powerful singer alive. She is also mad."*
   - *"Pohjola is not evil. It is cold. Everything there is about survival, and Louhi survives better than anyone."*
 
----
+--
 
 ## 4. Unique Mechanic: Sana (Word-Power)
 
@@ -68,9 +68,9 @@ Characters track a **Sana Meter** (1-6):
 
 - **1-2 (Silent):** No song-magic ability. +1d6 to Force (physical competence compensates). The character's words have no supernatural weight.
 - **3-4 (Singer):** Can sing minor enchantments: calming animals, warming a room, finding lost objects. +1d6 to Presence when singing. Costs 1 Momentum. **Requirement:** The character must know the origin-song of the thing they wish to affect. Learning an origin-song requires research, travel, or being taught.
-- **5-6 (Tietäjä):** Full word-magic. +1d6 to all rolls when singing. Can sing objects into existence, reshape terrain, bind spirits, and heal mortal wounds. **Requirement:** The singer must speak only truth. A single deliberate lie drops Sana to 0 and inflicts the *Broken Voice* condition. **Risk:** At Sana 6, the character's voice becomes the dominant force in their personality--they begin to sing involuntarily, and their songs reshape reality around them without conscious intent.
+- **5-6 (Tietäjä):** Full word-magic. +1d6 to all rolls when singing. Can sing objects into existence, reshape terrain, bind spirits, and heal mortal wounds. **Requirement:** The singer must speak only truth. A single deliberate lie drops Sana to 0 and inflicts the *Broken Voice* condition. **Risk:** At Sana 6, the character's voice becomes the dominant force in their personality-they begin to sing involuntarily, and their songs reshape reality around them without conscious intent.
 
----
+--
 
 ## 5. Character Archetypes
 
@@ -89,7 +89,7 @@ Characters track a **Sana Meter** (1-6):
 - **Quote:** *"I have been to the land of the dead. The food is terrible and there is no music. I am in no hurry to go back."*
 - **Approach Distribution:** Force 2 | Finesse 3 | Mind 1 | Presence 2
 
----
+--
 
 ## 6. Condition Palette
 
@@ -97,16 +97,16 @@ Characters track a **Sana Meter** (1-6):
 **Social:** *Louhi's Notice* (the witch-queen knows your name), *Song-Debt* (you promised a song you cannot deliver), *Origin-Word Stolen* (someone has learned your personal origin-song).
 **Psychological:** *Eternal Singer's Fatigue* (the compulsion to sing never stops), *Sampo Obsession*, *Death Memory* (you remember drowning, and water terrifies you).
 
----
+--
 
 ## 7. Starter Scenario: The Theft of the Sampo
 
-**Framing:** The Sampo sits on Louhi's island in Pohjola, grinding out prosperity for the frozen North while Kalevala starves. Väinämöinen, Ilmarinen, and Lemminkäinen attempted to steal it once (as told in the Kalevala) and it shattered, spreading its fragments across the sea. In this version, the characters are the *second* expedition--attempting to recover the fragments before Louhi can reassemble them. Each fragment grants a specific power (grain, salt, gold) and each is guarded by a different challenge that can only be overcome through song.
+**Framing:** The Sampo sits on Louhi's island in Pohjola, grinding out prosperity for the frozen North while Kalevala starves. Väinämöinen, Ilmarinen, and Lemminkäinen attempted to steal it once (as told in the Kalevala) and it shattered, spreading its fragments across the sea. In this version, the characters are the *second* expedition-attempting to recover the fragments before Louhi can reassemble them. Each fragment grants a specific power (grain, salt, gold) and each is guarded by a different challenge that can only be overcome through song.
 
-**Antagonist:** ***Louhi, Mistress of Pohjola*** -- The most powerful singer in the world. She is not evil; she is a survivor who has used every resource--including stolen ones--to keep her people alive in the eternal winter. She will negotiate. She will trade. But she will not surrender the Sampo voluntarily because without it, Pohjola freezes.
+**Antagonist:** ***Louhi, Mistress of Pohjola*** - The most powerful singer in the world. She is not evil; she is a survivor who has used every resource-including stolen ones-to keep her people alive in the eternal winter. She will negotiate. She will trade. But she will not surrender the Sampo voluntarily because without it, Pohjola freezes.
 
----
+--
 
 ## 8. Why This Setting Matters
 
-The Kalevala is unique among world epics because its heroes are poets and singers, not warriors. Power comes from knowledge, specifically the knowledge of origins. This is a mythology that treats the bard as the most important person in the room--which, in a tabletop RPG where storytelling is the primary activity, is the most meta-appropriate mythology possible. It is also the direct ancestor of Tolkien's Middle-earth, and playing in the Kalevala's world is playing in the source that inspired modern fantasy.
+The Kalevala is unique among world epics because its heroes are poets and singers, not warriors. Power comes from knowledge, specifically the knowledge of origins. This is a mythology that treats the bard as the most important person in the room-which, in a tabletop RPG where storytelling is the primary activity, is the most meta-appropriate mythology possible. It is also the direct ancestor of Tolkien's Middle-earth, and playing in the Kalevala's world is playing in the source that inspired modern fantasy.

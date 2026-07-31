@@ -17,22 +17,22 @@ publishedDate: "2026-07-30"
 > *"The trolls did not leave when the churches were built. They went to sleep. The church bells hurt their ears, so they covered them with granite and slept. The bells have stopped ringing. The churches are burning in the witch trials. And the trolls are waking up."*
 > - Karin Runesdotter, Rune-Carver of Dalarna, 1672
 
----
+--
 
 ## 1. Setting Overview & Tone
 
-**High-Concept Pitch:** In the 1670s, Sweden was gripped by a devastating witch-trial panic--the **Blåkulla** (Blue Mountain) trials--in which over 300 people were tried and 71 executed, many based on children's testimony that they had been "taken to Blåkulla" by witches. In this setting, the children were not lying. They *were* taken somewhere--but not by human witches. The ancient trolls, stone giants, and water spirits of Scandinavian folklore have been sleeping beneath Sweden's granite hills and frozen lakes since Christianization drove them underground. The witch-trial hysteria, ironically, is destroying the very institutions (churches, church bells, consecrated ground) that kept the old spirits contained.
+**High-Concept Pitch:** In the 1670s, Sweden was gripped by a devastating witch-trial panic-the **Blåkulla** (Blue Mountain) trials-in which over 300 people were tried and 71 executed, many based on children's testimony that they had been "taken to Blåkulla" by witches. In this setting, the children were not lying. They *were* taken somewhere-but not by human witches. The ancient trolls, stone giants, and water spirits of Scandinavian folklore have been sleeping beneath Sweden's granite hills and frozen lakes since Christianization drove them underground. The witch-trial hysteria, ironically, is destroying the very institutions (churches, church bells, consecrated ground) that kept the old spirits contained.
 
-The **Trollskog** (Troll Forest) is a legendary place in Swedish folklore--the deepest, oldest part of the forest where the trolls still dwell. In this setting, it is a real location in the heart of Dalarna province, accessible only during the polar winter when the darkness is total and the Northern Lights bridge the human and spirit worlds.
+The **Trollskog** (Troll Forest) is a legendary place in Swedish folklore-the deepest, oldest part of the forest where the trolls still dwell. In this setting, it is a real location in the heart of Dalarna province, accessible only during the polar winter when the darkness is total and the Northern Lights bridge the human and spirit worlds.
 
 **Sensory Pillars:**
 1. **Sight:** The aurora borealis painting the winter sky in curtains of green, purple, and pink, so vivid they cast colored shadows on the snow; a troll disguised as a moss-covered granite boulder slowly opening one eye as you pass, so enormous you mistook it for a hillside; the haunting beauty of a frozen waterfall where the Näcken sits playing a violin made of ice, his music visible as spiraling frost patterns in the air; the warm golden glow of a Dalarna farmhouse's candlelit windows against infinite winter darkness.
 2. **Sound:** The crystalline silence of a Swedish winter forest so profound that you can hear individual snowflakes landing on pine needles; the Näcken's fiddle music, which is so beautiful it makes you weep and so dangerous it can lure you into frozen water; the low, subsonic rumble of a troll moving underground, felt in the soles of the feet; the crack of lake ice that sounds like a giant breathing.
-3. **Touch & Smell:** The bone-shattering cold of a Swedish winter that can freeze exposed skin in minutes; the comforting warmth of a birch-log fire in a *stuga* (wooden cabin); the sharp, clean scent of pine resin and frozen birch sap; the musty, mineral smell of a troll's proximity--like wet granite and old moss.
+3. **Touch & Smell:** The bone-shattering cold of a Swedish winter that can freeze exposed skin in minutes; the comforting warmth of a birch-log fire in a *stuga* (wooden cabin); the sharp, clean scent of pine resin and frozen birch sap; the musty, mineral smell of a troll's proximity-like wet granite and old moss.
 
 **The Core Tension:** Enlightenment vs. Enchantment. Sweden in the 1670s is a rising European power embracing Protestant rationalism. The witch trials are an eruption of the irrational within a culture that is trying to modernize. The trolls are the irrational made physical. The characters must find a way to address both the human hysteria and the supernatural awakening without being consumed by either.
 
----
+--
 
 ## 2. Historical & Mythological Context
 
@@ -42,7 +42,7 @@ Scandinavian troll folklore predates and is distinct from the modern "fantasy" t
 
 > **Note on Respectful Portrayal:** Sami spiritual traditions are living Indigenous practices. The Sami people of northern Scandinavia were historically persecuted for their spiritual practices, including having their sacred drums confiscated and burned by Christian missionaries. This setting treats Sami noaidi traditions with deep respect.
 
----
+--
 
 ## 3. Core Factions & Traditions
 
@@ -63,13 +63,13 @@ Sami shamans who use sacred painted drums to enter trance, walk the Northern Lig
   - *"I see the trolls as the old Sami see them: not as monsters, but as the stone-bones of the earth, waking because the earth is disturbed."*
 
 ### The Trollkin (Bortbytingar)
-Changelings--human children stolen by trolls and replaced with troll infants, or troll-human hybrids who exist between both species.
+Changelings-human children stolen by trolls and replaced with troll infants, or troll-human hybrids who exist between both species.
 - **Cultural Association:** In Scandinavian folklore, trolls steal unbaptized children and leave *bortbytingar* (changelings) in their place. In this setting, some changelings have grown up human, unaware of their troll heritage, until the Trollskog awakens and they begin to feel the pull of the stone.
 - **Descriptor Examples:**
   - *"I was always too strong, too quiet, and too fond of darkness. Now I know why."*
   - *"Sunlight gives me headaches. Granite feels warm to me. I am beginning to understand what I am."*
 
----
+--
 
 ## 4. Unique Mechanic: Midvinter (Polar Night Bond)
 
@@ -79,7 +79,7 @@ Characters track a **Midvinter Meter** (1-6):
 - **3-4 (Polar Twilight):** Between light and dark. Can perceive trolls in their stone-disguise, hear the Näcken's music, and read rune-messages left by the spirit world. +1d6 to Mind. Costs 1 Momentum. **Risk:** The polar darkness is eroding motivation. The character must succeed on a Mind roll each session or lose interest in one human relationship.
 - **5-6 (Polar Night):** +1d6 to Force and Finesse. Can walk the Northern Lights as a pathway, speak troll-tongue, and survive extreme cold. **Risk:** Emotional flattening. The character views human concerns with increasing indifference. Warmth, food, and companionship provide no comfort. At Midvinter 6, the character must perform an act of genuine human warmth (embracing a friend, laughing at a joke, weeping at beauty) or turn to stone at the next sunrise.
 
----
+--
 
 ## 5. Character Archetypes
 
@@ -100,14 +100,14 @@ Characters track a **Midvinter Meter** (1-6):
 - **Approach Distribution:** Force 1 | Finesse 2 | Mind 3 | Presence 2
 
 ### Archetype 3: The Näcken's Apprentice
-- **Concept:** A young fiddler who accepted three lessons from the Näcken at a waterfall pool. The music he learned is hauntingly beautiful and impossible for a human to play--it moves listeners to tears, calms wild animals, and can put trolls to sleep. But the Näcken's price was this: the fiddler can never stop playing entirely. If he puts down the fiddle for more than a day, the Näcken comes to collect.
+- **Concept:** A young fiddler who accepted three lessons from the Näcken at a waterfall pool. The music he learned is hauntingly beautiful and impossible for a human to play-it moves listeners to tears, calms wild animals, and can put trolls to sleep. But the Näcken's price was this: the fiddler can never stop playing entirely. If he puts down the fiddle for more than a day, the Näcken comes to collect.
 - **Quote:** *"He taught me three songs. The first makes you weep. The second makes you dance. The third puts trolls to sleep. He did not tell me the price until after the third lesson."*
 - **Suggested Descriptors:** *"Plays three supernatural songs taught by the Näcken"*, *"Cannot stop playing for more than twenty-four hours or the Näcken comes"*, *"The troll-sleep song is the only known non-violent way to return a troll to stone"*, *"My fingers bleed but the music does not stop"*.
 - **Drive:** *"Use the Näcken's music to put the trolls back to sleep, and find a way to free myself from the Näcken's contract."*
 - **Flaw:** *"The Näcken's music is changing me. I am beginning to hear water singing even when no river is near."*
 - **Approach Distribution:** Force 1 | Finesse 2 | Mind 1 | Presence 4
 
----
+--
 
 ## 6. Condition Palette
 
@@ -124,13 +124,13 @@ Characters track a **Midvinter Meter** (1-6):
 **Psychological Conditions:**
 - **Minor:** *Aurora Disorientation* (the Northern Lights' movement causes vertigo), *Fiddle Compulsion* (the Näcken's music plays in your head constantly).
 - **Moderate:** *Polar Depression* (the endless darkness erodes will to act), *Troll Sympathy* (you are beginning to understand the trolls' perspective and losing interest in human concerns).
-- **Severe:** *Stone Heart* (emotional connections have frozen--you feel nothing for anyone), *Permanent Twilight* (you can no longer tell whether it is day or night, real or spirit-world).
+- **Severe:** *Stone Heart* (emotional connections have frozen-you feel nothing for anyone), *Permanent Twilight* (you can no longer tell whether it is day or night, real or spirit-world).
 
----
+--
 
 ## 7. Starter Scenario: The Children of Blåkulla
 
-**Framing:** In the village of Mora in Dalarna province, fifteen children have testified that they were "taken to Blåkulla" (the witches' sabbath mountain) by flying through the air. The witch-trial court is preparing to execute their parents as witches. The Rune-Carver knows the children were not taken by witches but by something from the Trollskog. The Noaidi can see, through her drum-trance, that the "Blåkulla" the children describe is actually the entrance to the Trollskog itself. The Fiddler's Näcken-taught troll-sleep song could calm the situation, but playing it publicly would identify him as supernaturally gifted--and the witch-trial court is executing people for exactly that.
+**Framing:** In the village of Mora in Dalarna province, fifteen children have testified that they were "taken to Blåkulla" (the witches' sabbath mountain) by flying through the air. The witch-trial court is preparing to execute their parents as witches. The Rune-Carver knows the children were not taken by witches but by something from the Trollskog. The Noaidi can see, through her drum-trance, that the "Blåkulla" the children describe is actually the entrance to the Trollskog itself. The Fiddler's Näcken-taught troll-sleep song could calm the situation, but playing it publicly would identify him as supernaturally gifted-and the witch-trial court is executing people for exactly that.
 
 **3-Layer Scene Design:**
 
@@ -138,14 +138,14 @@ Characters track a **Midvinter Meter** (1-6):
 
 2. **Ticking Clock:** The largest troll in the Trollskog is moving toward Mora. It will arrive in 5 beats. Its footsteps are causing tremors that the villagers interpret as divine judgment confirming the witch accusations.
 
-3. **Opportunity:** If the Noaidi can drum-journey to the Trollskog entrance and the Fiddler can play the troll-sleep song there, the troll can be turned back. But the entrance is at the summit of a mountain that the children call "Blåkulla"--and reaching it means confirming that Blåkulla is a real place, which will intensify the witch panic.
+3. **Opportunity:** If the Noaidi can drum-journey to the Trollskog entrance and the Fiddler can play the troll-sleep song there, the troll can be turned back. But the entrance is at the summit of a mountain that the children call "Blåkulla"-and reaching it means confirming that Blåkulla is a real place, which will intensify the witch panic.
 
-**Antagonist:** ***Judge Commissarius Erik Noraeus*** -- The witch-trial judge. He is not cruel; he is terrified. He genuinely believes that Satan is attacking his community, and the children's testimony confirms his worst fears. Confronting him with evidence of trolls rather than witches will not calm him--it will convince him that the diabolical threat is even worse than he thought.
+**Antagonist:** ***Judge Commissarius Erik Noraeus*** - The witch-trial judge. He is not cruel; he is terrified. He genuinely believes that Satan is attacking his community, and the children's testimony confirms his worst fears. Confronting him with evidence of trolls rather than witches will not calm him-it will convince him that the diabolical threat is even worse than he thought.
 - **Traits:** Legal authority, community respect, genuine faith, absolute conviction, weakness to undeniable direct experience (seeing a troll in person will break his theological framework but may also break his mind).
 - **Condition Track:** ☐ Conducting Trial (proceeding with executions) / ☐ Presented with Evidence (conflicting testimony creates doubt) / ☐ Confronted with Truth (witnesses the troll or the Trollskog entrance) / ☐ Crisis of Faith or New Understanding.
 
----
+--
 
 ## 8. Why This Setting Matters
 
-Scandinavia's troll folklore is one of humanity's most enduring attempts to personify the wild, indifferent power of nature--the granite mountains, the frozen lakes, the endless forests that are beautiful and lethal in equal measure. Setting this mythology during the witch trials creates a devastating irony: the human institutions meant to protect against the supernatural are actually accelerating the supernatural crisis. The characters must navigate between two kinds of unreason--the irrational panic of the trials and the irrational reality of the trolls--while maintaining their own humanity in a polar winter that wants to freeze it out of them.
+Scandinavia's troll folklore is one of humanity's most enduring attempts to personify the wild, indifferent power of nature-the granite mountains, the frozen lakes, the endless forests that are beautiful and lethal in equal measure. Setting this mythology during the witch trials creates a devastating irony: the human institutions meant to protect against the supernatural are actually accelerating the supernatural crisis. The characters must navigate between two kinds of unreason-the irrational panic of the trials and the irrational reality of the trolls-while maintaining their own humanity in a polar winter that wants to freeze it out of them.

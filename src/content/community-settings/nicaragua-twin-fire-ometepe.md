@@ -17,7 +17,7 @@ publishedDate: "2026-07-30"
 > *"Speak to the Spanish governor with three meanings in every word: one he hears, one your people understand, and one that makes the twin volcanoes laugh."*
 > - Speech of El Güegüense, Nicarao trickster folk hero
 
----
+--
 
 ## 1. Setting Overview & Tone
 
@@ -30,7 +30,7 @@ publishedDate: "2026-07-30"
 
 **The Core Tension:** Open Warfare vs. Satirical Subversion. Direct battle against Spanish armor is deadly, but sharp wit, double-talk, and volcanic omens can defeat an empire without firing a shot.
 
----
+--
 
 ## 2. Historical & Mythological Context
 
@@ -38,7 +38,7 @@ Nicaragua's cultural roots blend Chorotega and Nicarao traditions with the famou
 
 > **Note on Respectful Portrayal:** *El Güegüense* is a proud symbol of Nicaraguan cultural wit and non-violent resistance. This setting honors that legacy by making humor and cleverness lethal weapons against tyranny.
 
----
+--
 
 ## 3. Core Factions & Traditions
 
@@ -56,7 +56,7 @@ Mystics who commune with the freshwater bull sharks of Lake Nicaragua (*Lake Coc
   - *"The freshwater sharks answer my drumbeat when foreign boats approach"*
   - *"I can swim across Lake Cocibolca in the dark without touching bottom"*
 
----
+--
 
 ## 4. Unique Mechanic: Satiric Wit
 
@@ -65,7 +65,7 @@ Characters track a **Trickster Meter** (1–6):
 - **3–4 (Witty):** +1d6 to Presence and Mind when using satire, bluffing, or riddles. Costs 1 Momentum.
 - **5–6 (Master Trickster):** Successes automatically cause opponents to humiliate themselves. Failure causes volcanic ash fallout.
 
----
+--
 
 ## 5. Character Archetypes
 
@@ -90,7 +90,7 @@ Characters track a **Trickster Meter** (1–6):
 - **Flaw:** *"Obsessed with ancient prophecies."*
 - **Approach Distribution:** Force 1 | Finesse 3 | Mind 3 | Presence 1
 
----
+--
 
 ## 6. Condition Palette
 
@@ -98,7 +98,7 @@ Characters track a **Trickster Meter** (1–6):
 - **Social:** *Fined by the Magistrate* (Minor), *Exposed as a Mocking Rebel* (Moderate), *Sentenced to the Galleys* (Severe).
 - **Psychological:** *Volcanic Tremor Anxiety* (Minor), *Confused by Double-Talk* (Moderate), *Spirit-Broken* (Severe).
 
----
+--
 
 ## 7. Starter Scenario: The Dance of the Governor's Tax
 
@@ -111,7 +111,7 @@ Characters track a **Trickster Meter** (1–6):
   - *Traits:* Vain, gullible when flattered.
   - *Condition Track:* ☐ Flattered / ☐ Outsmarted / ☐ Humiliated.
 
----
+--
 
 ## 8. Why This Setting Matters
 

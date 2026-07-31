@@ -17,7 +17,7 @@ publishedDate: "2026-07-30"
 > *"In the salons of the aristocracy, they debate our morals. Here in Montmartre, we weave our own truth in green fairy smoke and poetry. Let them keep their cathedrals; we have the stars and each other."*
 > - Lucian Moreau, Poet of the Lavender Coven
 
----
+--
 
 ## 1. Setting Overview & Tone
 
@@ -30,7 +30,7 @@ The **Lavender Coven** is an underground circle of queer women, trans men, and n
 2. **Sound:** The rhythmic tempo of a piano from the Moulin Rouge; the scratch of a fountain pen writing enchanted poetry; soft laughter shared over candlelight in a hidden cellar atelier.
 3. **Touch & Smell:** The sharp, herbal anise scent of absinthe; the soft velvet of a cloak; the cool night air over the Seine; the warmth of a lover's hand in yours under a cafe table.
 
----
+--
 
 ## 2. Core Factions & Traditions
 
@@ -46,7 +46,7 @@ Writers whose verse creates physical wards and dispels illusions.
   - *"My poems are incantations that banish shadow demons"*
   - *"I wrote my true name in ink and bound my magic to it"*
 
----
+--
 
 ## 3. Unique Mechanic: Glamour (Self-Creation)
 
@@ -54,7 +54,7 @@ Writers whose verse creates physical wards and dispels illusions.
 - **3-4 (Inspired):** Expressing true self. +1d6 to Mind and Presence. Costs 1 Momentum.
 - **5-6 (Radiant Euphoria):** Full magic. +1d6 to all rolls. Can craft permanent enchanted items and banish high-tier shadow entities.
 
----
+--
 
 ## 4. Character Archetypes
 
@@ -66,7 +66,7 @@ Writers whose verse creates physical wards and dispels illusions.
 - **Quote:** *"They tried to write my story for me. I took the pen and wrote my own destiny."*
 - **Approach Distribution:** Force 2 | Finesse 1 | Mind 3 | Presence 2
 
----
+--
 
 ## 5-6. Conditions & Starter Scenario
 
@@ -74,7 +74,7 @@ Writers whose verse creates physical wards and dispels illusions.
 
 **Starter Scenario: The Shadow of the Sacré-Cœur.** A giant Shadow-Shame entity fed by reactionary religious fervor is invading Montmartre, seeking to extinguish the creative and queer spirits of the district. The Lavender Coven must perform an grand ritual of art and performance at the Moulin Rouge to summon a wave of collective Glamour powerful enough to cleanse the city.
 
----
+--
 
 ## 7. Why This Setting Matters
 
