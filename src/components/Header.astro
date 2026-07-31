@@ -19,6 +19,7 @@ const navItems: NavItem[] = [
       { href: '/optional-mechanics/', label: 'Optional Mechanics',  desc: '50 plug-in rules for any campaign' },
       { href: '/prompts/',            label: 'Prompts',             desc: '30 creative prompts for Storytellers & players' },
       { href: '/downloads/',          label: 'Downloads',           desc: 'Character sheets & printable aids' },
+      { href: '/community/',          label: 'Community',           desc: 'Slack, local groups & community outlets' },
     ],
   },
   { href: '/faq/', label: 'FAQ & About' },
@@ -29,7 +30,7 @@ const isActive = (href?: string) =>
     ? currentPath === href || (href !== '/' && currentPath.startsWith(href))
     : false;
 
-const resourcePaths = ['/settings/', '/community-settings/', '/optional-mechanics/', '/prompts/', '/downloads/'];
+const resourcePaths = ['/settings/', '/community-settings/', '/optional-mechanics/', '/prompts/', '/downloads/', '/community/'];
 const resourcesActive = resourcePaths.some(p => currentPath.startsWith(p));
 ---
 
@@ -149,6 +150,7 @@ const resourcesActive = resourcePaths.some(p => currentPath.startsWith(p));
           <li><a href="/optional-mechanics/" class={`mobile-menu__sub-link${isActive('/optional-mechanics/') ? ' mobile-menu__sub-link--active' : ''}`}>Optional Mechanics <span>50 plug-in rules</span></a></li>
           <li><a href="/prompts/" class={`mobile-menu__sub-link${isActive('/prompts/') ? ' mobile-menu__sub-link--active' : ''}`}>Prompts <span>30 creative starters</span></a></li>
           <li><a href="/downloads/" class={`mobile-menu__sub-link${isActive('/downloads/') ? ' mobile-menu__sub-link--active' : ''}`}>Downloads <span>Sheets & printables</span></a></li>
+          <li><a href="/community/" class={`mobile-menu__sub-link${isActive('/community/') ? ' mobile-menu__sub-link--active' : ''}`}>Community <span>Slack & local groups</span></a></li>
         </ul>     </ul>
       </li>
 
