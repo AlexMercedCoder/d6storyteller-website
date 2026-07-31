@@ -130,6 +130,38 @@ const jsonLd = {
     </div>
   </section>
 
+  <!-- How to Play explainer video -->
+  <section class="section section--tight gs-video" aria-labelledby="video-heading">
+    <div class="container container--narrow">
+      <p class="section-label">Watch First</p>
+      <h2 id="video-heading">How to Play in 60 Seconds</h2>
+      <p class="gs-video__intro">
+        The entire core loop, animated: describe your character with Approaches, let the Storyteller set your Position and Effect, build a pool of six-sided dice, and read the single highest die. No sound needed.
+      </p>
+      <figure class="gs-video__figure">
+        <video
+          class="gs-video__player"
+          controls
+          preload="metadata"
+          playsinline
+          width="1920"
+          height="1080"
+          poster="/images/how-to-play-poster.jpg"
+          aria-describedby="video-caption"
+        >
+          <source src="/videos/how-to-play.mp4" type="video/mp4" />
+          <p class="gs-video__fallback">
+            Your browser can&rsquo;t play this video.
+            <a href="/videos/how-to-play.mp4">Download the How to Play video (MP4)</a> instead.
+          </p>
+        </video>
+        <figcaption id="video-caption" class="gs-video__caption">
+          <strong>How to Play D6 Storyteller.</strong> Roll a pool of d6 and read the single highest die: a <span class="gs-video__tier gs-video__tier--success">6 is a Full Success</span> (multiple 6s grant Great Effect), a <span class="gs-video__tier gs-video__tier--partial">4&ndash;5 is a Partial Success</span> with a cost, and a <span class="gs-video__tier gs-video__tier--fail">1&ndash;3 is a Failure</span> that still moves the story forward. Spend Momentum to push (+1d6). Silent, ~53-second animation.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
   <!-- What you need -->
   <section class="section section--tight gs-needs" aria-labelledby="needs-heading">
     <div class="container container--narrow">
@@ -475,6 +507,50 @@ const jsonLd = {
 }
 .gs-callout p { margin: 0; color: rgba(232, 224, 208, 0.85); line-height: 1.7; }
 .gs-callout strong { color: var(--gold-300); }
+
+/* How to Play video */
+.gs-video__intro {
+  font-size: var(--text-lg);
+  color: rgba(232, 224, 208, 0.8);
+  max-width: 68ch;
+  margin-bottom: var(--space-6);
+  line-height: 1.6;
+}
+.gs-video__figure {
+  margin: 0;
+  border: 1px solid rgba(201, 162, 39, 0.25);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--navy-950);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.45);
+}
+.gs-video__player {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  background: var(--navy-950);
+}
+.gs-video__player:focus-visible { outline: 2px solid var(--gold-400); outline-offset: -2px; }
+.gs-video__fallback {
+  padding: var(--space-6);
+  color: rgba(232, 224, 208, 0.8);
+  text-align: center;
+}
+.gs-video__fallback a { color: var(--gold-300); text-decoration: underline; }
+.gs-video__caption {
+  padding: var(--space-4) var(--space-6);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  color: rgba(232, 224, 208, 0.72);
+  border-top: 1px solid rgba(201, 162, 39, 0.18);
+  background: var(--navy-900);
+}
+.gs-video__caption strong { color: var(--gold-300); }
+.gs-video__tier { font-weight: 600; }
+.gs-video__tier--success { color: #2ecc71; }
+.gs-video__tier--partial { color: #e67e22; }
+.gs-video__tier--fail { color: #e74c3c; }
 
 /* Needs Grid */
 .gs-needs__grid {
