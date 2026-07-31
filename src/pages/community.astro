@@ -98,13 +98,68 @@ import AmazonCTA from '../components/AmazonCTA.astro';
         </a>
       </div>
 
+      <!-- Reddit -->
+      <div class="outlet-card outlet-card--reddit" id="reddit-community">
+        <div class="outlet-card__header">
+          <div class="outlet-card__icon">
+            <svg width="32" height="32" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="10" cy="10" r="10" fill="#FF4500"/>
+              <path d="M16.67 10a1.46 1.46 0 0 0-2.47-1 7.12 7.12 0 0 0-3.85-1.23l.65-3.07 2.13.45a1 1 0 1 0 .98-1.15 1 1 0 0 0-.95.68l-2.37-.5a.17.17 0 0 0-.2.13l-.73 3.43a7.14 7.14 0 0 0-3.89 1.24 1.46 1.46 0 1 0-1.61 2.39 2.87 2.87 0 0 0 0 .4c0 2.02 2.35 3.66 5.25 3.66s5.25-1.64 5.25-3.66a2.87 2.87 0 0 0 0-.4 1.46 1.46 0 0 0 .76-1.37zM7.5 11a1 1 0 1 1 1 1 1 1 0 0 1-1-1zm5.58 2.65a3.54 3.54 0 0 1-2.08.55 3.54 3.54 0 0 1-2.08-.55.17.17 0 0 1 .2-.27 3.2 3.2 0 0 0 1.88.48 3.2 3.2 0 0 0 1.88-.48.17.17 0 1 1 .2.27zm-.08-1.65a1 1 0 1 1 1-1 1 1 0 0 1-1 1z" fill="white"/>
+            </svg>
+          </div>
+          <div class="outlet-card__title-block">
+            <h2 class="outlet-card__name">r/d6storyteller</h2>
+            <span class="outlet-card__type">Reddit Community</span>
+          </div>
+        </div>
+
+        <p class="outlet-card__description">
+          The D6 Storyteller subreddit is a great place to share longer posts, campaign write-ups,
+          setting concepts, and questions you want the wider Reddit community to weigh in on.
+          Upvote content you find useful and leave comments to help others build better campaigns.
+        </p>
+
+        <div class="outlet-card__channels outlet-card__channels--reddit">
+          <h3>What to post here</h3>
+          <ul class="channel-list">
+            <li>
+              <span class="channel-tag channel-tag--reddit">Campaign Recaps</span>
+              Share how your sessions went - memorable moments, unexpected twists, and lessons learned.
+            </li>
+            <li>
+              <span class="channel-tag channel-tag--reddit">Setting Concepts</span>
+              Post original world-building ideas and get community feedback before you play-test them.
+            </li>
+            <li>
+              <span class="channel-tag channel-tag--reddit">Rules Questions</span>
+              Ask clarifying questions about mechanics and see how others handle edge cases at their tables.
+            </li>
+            <li>
+              <span class="channel-tag channel-tag--reddit">Homebrew Showcase</span>
+              Share finished homebrew settings, mechanics, or supplements for the community to download and use.
+            </li>
+          </ul>
+        </div>
+
+        <a
+          href="https://www.reddit.com/r/d6storyteller/"
+          class="outlet-card__cta outlet-card__cta--reddit btn"
+          target="_blank"
+          rel="noopener noreferrer"
+          id="reddit-join-button"
+        >
+          Visit r/d6storyteller
+          <span aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+
       <!-- Placeholder for future outlets -->
       <div class="more-outlets">
-        <h2>More community outlets coming</h2>
+        <h2>More community spaces coming</h2>
         <p>
-          Additional community spaces - forums, Discord, and regional groups - will be added here
-          as the community grows. If you run a D6 Storyteller community space and want it listed,
-          reach out through the Slack.
+          Additional spaces - Discord, regional groups, and more - will be listed here as the
+          community grows. If you run a D6 Storyteller community space and want it included,
+          reach out through the Slack or post in the subreddit.
         </p>
       </div>
 
@@ -289,6 +344,41 @@ import AmazonCTA from '../components/AmazonCTA.astro';
   font-size: var(--text-base);
   font-weight: 700;
   text-decoration: none;
+}
+
+/* Reddit card variants */
+.outlet-card--reddit::before {
+  background: linear-gradient(90deg, #FF4500, #FF6534, #FF4500);
+}
+
+.channel-tag--reddit {
+  background: rgba(255, 69, 0, 0.12);
+  color: #ff7a50;
+  border-color: rgba(255, 69, 0, 0.3);
+  font-family: inherit;
+  font-weight: 600;
+}
+
+.outlet-card__channels--reddit {
+  border-left: 3px solid rgba(255, 69, 0, 0.35);
+}
+
+.outlet-card__channels--reddit h3 {
+  color: #ff7a50;
+}
+
+.outlet-card__cta--reddit {
+  background: #FF4500;
+  color: #fff;
+  border: none;
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-md);
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.outlet-card__cta--reddit:hover {
+  background: #e03d00;
+  transform: translateY(-1px);
 }
 
 /* More outlets */
