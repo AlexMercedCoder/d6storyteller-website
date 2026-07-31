@@ -4,8 +4,8 @@ import AmazonCTA from '../components/AmazonCTA.astro';
 ---
 
 <BaseLayout
-  title="D6 Storyteller Resources | Character Sheets & Downloads"
-  description="Free resources for D6 Storyteller: character sheets, quick reference guides, errata, and links for players and Storytellers. More downloads coming soon."
+  title="D6 Storyteller Resources | Character Sheets, Dice Roller & Downloads"
+  description="Free resources for D6 Storyteller: printable character sheets, Storyteller aids, an online D6 dice-pool roller, quick reference guides, errata, and links for players and Storytellers."
   canonicalUrl="https://d6storyteller.alexmerced.com/resources/"
 >
   <section class="section" aria-labelledby="resources-heading">
@@ -19,17 +19,29 @@ import AmazonCTA from '../components/AmazonCTA.astro';
       <p class="section-label">Downloads & References</p>
       <h1 id="resources-heading">D6 Storyteller Resources</h1>
       <p style="color:rgba(232,224,208,0.75);margin-bottom:var(--space-8);max-width:64ch;">
-        Tools and downloads to support your D6 Storyteller campaigns: character sheets, quick reference cards, and errata. Check back as additional resources are added.
+        Tools and downloads to support your D6 Storyteller campaigns: an online dice-pool roller, printable character sheets, Storyteller aids, quick reference cards, and errata.
       </p>
 
       <div class="resource-section">
-        <h2>Character Sheets</h2>
-        <p class="coming-soon-notice">Character sheets for the Core Rulebook and all companion volumes are coming soon. Subscribe to updates at <a href="https://WhoIsAlexMerced.com" target="_blank" rel="noopener noreferrer">WhoIsAlexMerced.com</a> to be notified when downloads become available.</p>
+        <h2>Online Tools</h2>
+        <ul class="resource-list">
+          <li>
+            <a href="/resources/dice-roller/"><strong>D6 Dice-Pool Roller</strong></a>
+            <span>Set your pool size, roll a handful of six-sided dice, and read the single highest die. The roller highlights the deciding die and shows which outcome tier you hit &mdash; a play aid for running fiction-first D6 scenes at the table or online.</span>
+          </li>
+        </ul>
       </div>
 
       <div class="resource-section">
-        <h2>Quick Reference</h2>
-        <p class="coming-soon-notice">A printable quick reference card for the core D6 mechanics is in preparation.</p>
+        <h2>Character Sheets</h2>
+        <p>Printable character sheets for the Core Rulebook are <strong>available now</strong> on the <a href="/downloads/">Downloads page</a> &mdash; including the core character sheet and an optional-mechanics add-on sheet. Print-ready and free to use at your table.</p>
+        <p style="margin-top:var(--space-4);"><a href="/downloads/" class="btn btn--primary btn--sm">Go to Downloads &rarr;</a></p>
+      </div>
+
+      <div class="resource-section">
+        <h2>Storyteller Aids &amp; Quick Reference</h2>
+        <p>Storyteller aids are <strong>available now</strong> on the <a href="/downloads/">Downloads page</a>, including a Storyteller quick-reference sheet and a session planner to help you prep and run scenes. All are free printable HTML aids.</p>
+        <p style="margin-top:var(--space-4);"><a href="/downloads/" class="btn btn--secondary btn--sm">Browse Storyteller aids &rarr;</a></p>
       </div>
 
       <div class="resource-section">
@@ -62,4 +74,14 @@ import AmazonCTA from '../components/AmazonCTA.astro';
   color: rgba(232,224,208,0.7);
   font-style: italic;
 }
+.resource-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-4); }
+.resource-list li {
+  background: var(--navy-800);
+  border: 1px solid rgba(201,162,39,0.2);
+  border-radius: var(--radius-md);
+  padding: var(--space-5) var(--space-6);
+}
+.resource-list li a strong { font-size: var(--text-lg); }
+.resource-list li span { display: block; margin-top: var(--space-2); color: rgba(232,224,208,0.7); font-size: var(--text-sm); line-height: 1.6; }
+.btn--sm { font-size: var(--text-sm); padding: 0.5em 1.1em; }
 </style>

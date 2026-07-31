@@ -1,0 +1,467 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AmazonCTA from '../../components/AmazonCTA.astro';
+
+const SITE_URL = 'https://d6storyteller.alexmerced.com';
+const pageUrl = `${SITE_URL}/resources/dice-roller/`;
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "@id": `${pageUrl}#app`,
+    "name": "D6 Storyteller Dice-Pool Roller",
+    "url": pageUrl,
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Any (web browser)",
+    "description": "A free online dice-pool roller for the D6 Storyteller tabletop system. Set your pool size, roll a handful of six-sided dice, and read the single highest die to find your outcome tier.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "isPartOf": { "@id": `${SITE_URL}/#website` },
+    "author": { "@type": "Person", "name": "Alex Merced", "@id": `${SITE_URL}/#alex-merced` }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": `${SITE_URL}/` },
+      { "@type": "ListItem", "position": 2, "name": "Resources", "item": `${SITE_URL}/resources/` },
+      { "@type": "ListItem", "position": 3, "name": "Dice Roller", "item": pageUrl }
+    ]
+  }
+];
+---
+
+<BaseLayout
+  title="D6 Dice-Pool Roller | D6 Storyteller Play Aid"
+  description="Free online dice-pool roller for D6 Storyteller. Set your pool size, roll the six-sided dice, and read the highest die to see your outcome tier: Full Success, Partial Success, or Failure."
+  canonicalUrl={pageUrl}
+  jsonLd={jsonLd}
+>
+  <section class="section" aria-labelledby="roller-heading">
+    <div class="container container--narrow">
+      <nav aria-label="Breadcrumb" class="breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb__separator" aria-hidden="true">&rsaquo;</span>
+        <a href="/resources/">Resources</a>
+        <span class="breadcrumb__separator" aria-hidden="true">&rsaquo;</span>
+        <span aria-current="page">Dice Roller</span>
+      </nav>
+
+      <p class="section-label">Online Play Aid</p>
+      <h1 id="roller-heading">D6 Dice-Pool Roller</h1>
+      <p class="roller-intro">
+        Assemble your pool, roll, and read the <strong>single highest die</strong>. No arithmetic, no modifiers &mdash; the highest face on the table decides the outcome tier. Use this at the table or when running D6 Storyteller online.
+      </p>
+
+      <!-- ROLLER WIDGET -->
+      <div class="roller card" id="roller">
+        <!-- Controls -->
+        <div class="roller__controls">
+          <div class="roller__pool">
+            <label id="pool-label" class="roller__pool-label" for="pool-size">Dice in pool</label>
+            <div class="roller__stepper" role="group" aria-labelledby="pool-label">
+              <button type="button" class="roller__step-btn" id="pool-minus" aria-label="Remove one die">&minus;</button>
+              <input
+                type="number"
+                id="pool-size"
+                class="roller__pool-input"
+                min="1"
+                max="12"
+                step="1"
+                value="3"
+                inputmode="numeric"
+                aria-describedby="pool-hint"
+              />
+              <button type="button" class="roller__step-btn" id="pool-plus" aria-label="Add one die">+</button>
+            </div>
+            <p id="pool-hint" class="roller__pool-hint">1&ndash;12 dice</p>
+          </div>
+
+          <button type="button" class="btn btn--primary roller__roll-btn" id="roll-btn">
+            <span aria-hidden="true">🎲</span> Roll <span id="roll-count">3d6</span>
+          </button>
+        </div>
+
+        <!-- Dice display -->
+        <div class="roller__dice" id="dice-tray" aria-live="polite" aria-label="Dice results">
+          <p class="roller__placeholder" id="dice-placeholder">Set your pool size and press <strong>Roll</strong> to begin.</p>
+        </div>
+
+        <!-- Outcome -->
+        <div class="roller__outcome" id="outcome" hidden aria-live="polite">
+          <div class="roller__outcome-face" id="outcome-face" aria-hidden="true"></div>
+          <div class="roller__outcome-info">
+            <p class="roller__outcome-highest" id="outcome-highest"></p>
+            <strong class="roller__outcome-tier" id="outcome-tier"></strong>
+            <p class="roller__outcome-desc" id="outcome-desc"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Outcome tier reference -->
+      <section class="roller-ref" aria-labelledby="ref-heading">
+        <h2 id="ref-heading">Reading the Highest Die</h2>
+        <div class="roller-ref__grid">
+          <div class="roller-ref__row roller-ref__row--success">
+            <span class="roller-ref__face" aria-hidden="true">⚅</span>
+            <div>
+              <strong class="roller-ref__value">6 &mdash; Full Success</strong>
+              <p>You achieve what you set out to do. Multiple 6s = Great Effect (more, faster, or lasting impact).</p>
+            </div>
+          </div>
+          <div class="roller-ref__row roller-ref__row--partial">
+            <span class="roller-ref__face" aria-hidden="true">⚄</span>
+            <div>
+              <strong class="roller-ref__value">4&ndash;5 &mdash; Partial Success</strong>
+              <p>You accomplish your goal, but at a cost: a complication, minor harm, or reduced effect. The story moves forward.</p>
+            </div>
+          </div>
+          <div class="roller-ref__row roller-ref__row--fail">
+            <span class="roller-ref__face" aria-hidden="true">⚀</span>
+            <div>
+              <strong class="roller-ref__value">1&ndash;3 &mdash; Failure</strong>
+              <p>You don't get what you wanted, and a consequence strikes. Failure is never a dead stop; it propels the narrative.</p>
+            </div>
+          </div>
+        </div>
+        <p class="roller-ref__note">
+          <strong>Position affects consequences, not roll math.</strong> Your Storyteller sets how big the cost or consequence is. For the full rules on approaches, position, effect, and Momentum, see the <a href="/books/core-rulebook/">D6 Storyteller Core Rulebook</a> or the <a href="/get-started/">Get Started guide</a>.
+        </p>
+      </section>
+
+      <div style="margin-top:var(--space-10);">
+        <AmazonCTA placement="dice_roller_bottom" variant="banner" label="Get the D6 Storyteller Core Rulebook on Amazon" />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const DIE_FACES = ['', '⚀', '⚁', '⚂', '⚃', '⚄', '⚅'];
+
+  const poolInput = document.getElementById('pool-size') as HTMLInputElement | null;
+  const minusBtn = document.getElementById('pool-minus') as HTMLButtonElement | null;
+  const plusBtn = document.getElementById('pool-plus') as HTMLButtonElement | null;
+  const rollBtn = document.getElementById('roll-btn') as HTMLButtonElement | null;
+  const rollCount = document.getElementById('roll-count');
+  const tray = document.getElementById('dice-tray');
+  const placeholder = document.getElementById('dice-placeholder');
+  const outcome = document.getElementById('outcome');
+  const outcomeFace = document.getElementById('outcome-face');
+  const outcomeHighest = document.getElementById('outcome-highest');
+  const outcomeTier = document.getElementById('outcome-tier');
+  const outcomeDesc = document.getElementById('outcome-desc');
+
+  const MIN = 1;
+  const MAX = 12;
+
+  function clampPool(): number {
+    if (!poolInput) return 3;
+    let n = parseInt(poolInput.value, 10);
+    if (isNaN(n)) n = 3;
+    n = Math.max(MIN, Math.min(MAX, n));
+    poolInput.value = String(n);
+    if (rollCount) rollCount.textContent = `${n}d6`;
+    if (minusBtn) minusBtn.disabled = n <= MIN;
+    if (plusBtn) plusBtn.disabled = n >= MAX;
+    return n;
+  }
+
+  function rollDie(): number {
+    // Fair 1-6 using crypto when available, Math.random otherwise.
+    if (window.crypto && window.crypto.getRandomValues) {
+      const buf = new Uint32Array(1);
+      window.crypto.getRandomValues(buf);
+      return (buf[0] % 6) + 1;
+    }
+    return Math.floor(Math.random() * 6) + 1;
+  }
+
+  function classify(values: number[]) {
+    const highest = Math.max(...values);
+    const sixes = values.filter(v => v === 6).length;
+    if (highest === 6) {
+      return {
+        tierClass: 'success',
+        tier: sixes >= 2 ? 'Full Success — Great Effect' : 'Full Success',
+        face: '⚅',
+        desc: sixes >= 2
+          ? `You achieve your goal, and the multiple 6s deliver a Great Effect: more, faster, or lasting impact. (${sixes} sixes rolled.)`
+          : 'You achieve what you set out to do.',
+      };
+    }
+    if (highest >= 4) {
+      return {
+        tierClass: 'partial',
+        tier: 'Partial Success',
+        face: highest === 5 ? '⚄' : '⚃',
+        desc: 'You accomplish your goal, but at a cost — a complication, minor harm, or reduced effect. The story moves forward.',
+      };
+    }
+    return {
+      tierClass: 'fail',
+      tier: 'Failure',
+      face: DIE_FACES[highest],
+      desc: "You don't get what you wanted, and a consequence strikes. Failure is never a dead stop; it propels the narrative.",
+    };
+  }
+
+  function render(values: number[]) {
+    if (!tray) return;
+    const highest = Math.max(...values);
+    tray.innerHTML = '';
+    if (placeholder) placeholder.remove();
+
+    values.forEach((v, i) => {
+      const die = document.createElement('span');
+      die.className = 'die' + (v === highest ? ' die--highest' : '');
+      die.textContent = DIE_FACES[v];
+      die.setAttribute('role', 'img');
+      die.setAttribute('aria-label', v === highest ? `Die ${i + 1}: ${v} (highest)` : `Die ${i + 1}: ${v}`);
+      die.style.animationDelay = `${i * 45}ms`;
+      tray.appendChild(die);
+    });
+
+    const result = classify(values);
+
+    if (outcome) {
+      outcome.hidden = false;
+      outcome.className = `roller__outcome roller__outcome--${result.tierClass}`;
+    }
+    if (outcomeFace) outcomeFace.textContent = result.face;
+    if (outcomeHighest) outcomeHighest.textContent = `Highest die: ${highest}`;
+    if (outcomeTier) outcomeTier.textContent = result.tier;
+    if (outcomeDesc) outcomeDesc.textContent = result.desc;
+  }
+
+  function doRoll() {
+    const n = clampPool();
+    const values = Array.from({ length: n }, () => rollDie());
+    render(values);
+  }
+
+  poolInput?.addEventListener('input', clampPool);
+  poolInput?.addEventListener('change', clampPool);
+  minusBtn?.addEventListener('click', () => {
+    if (!poolInput) return;
+    poolInput.value = String(parseInt(poolInput.value, 10) - 1);
+    clampPool();
+  });
+  plusBtn?.addEventListener('click', () => {
+    if (!poolInput) return;
+    poolInput.value = String(parseInt(poolInput.value, 10) + 1);
+    clampPool();
+  });
+  rollBtn?.addEventListener('click', doRoll);
+
+  clampPool();
+</script>
+
+<style>
+.roller-intro {
+  max-width: 64ch;
+  font-size: var(--text-lg);
+  color: rgba(232, 224, 208, 0.85);
+  line-height: 1.6;
+  margin-bottom: var(--space-8);
+}
+
+/* ── Widget ── */
+.roller {
+  padding: var(--space-8);
+  margin-bottom: var(--space-12);
+}
+
+.roller__controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--space-6);
+  padding-bottom: var(--space-6);
+  margin-bottom: var(--space-6);
+  border-bottom: 1px solid rgba(201, 162, 39, 0.2);
+}
+
+.roller__pool-label {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: var(--text-xs);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-400);
+  margin-bottom: var(--space-2);
+}
+
+.roller__stepper {
+  display: inline-flex;
+  align-items: stretch;
+  border: 1px solid rgba(201, 162, 39, 0.35);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--navy-900);
+}
+
+.roller__step-btn {
+  width: 44px;
+  min-height: 44px;
+  background: none;
+  border: none;
+  color: var(--gold-300);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+.roller__step-btn:hover:not(:disabled) { background: rgba(201, 162, 39, 0.12); }
+.roller__step-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+.roller__pool-input {
+  width: 64px;
+  text-align: center;
+  background: none;
+  border: none;
+  border-left: 1px solid rgba(201, 162, 39, 0.25);
+  border-right: 1px solid rgba(201, 162, 39, 0.25);
+  color: var(--gold-300);
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+.roller__pool-input::-webkit-outer-spin-button,
+.roller__pool-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.roller__pool-input:focus-visible { outline: 2px solid var(--gold-400); outline-offset: -2px; }
+
+.roller__pool-hint {
+  font-size: var(--text-xs);
+  color: rgba(232, 224, 208, 0.4);
+  margin: var(--space-2) 0 0;
+}
+
+.roller__roll-btn {
+  font-size: var(--text-base);
+  padding: 0.7em 1.6em;
+  margin-left: auto;
+}
+@media (max-width: 520px) {
+  .roller__roll-btn { margin-left: 0; width: 100%; justify-content: center; }
+}
+
+/* ── Dice tray ── */
+.roller__dice {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
+  justify-content: center;
+  min-height: 96px;
+  padding: var(--space-4);
+}
+
+.roller__placeholder {
+  color: rgba(232, 224, 208, 0.5);
+  font-size: var(--text-sm);
+  text-align: center;
+  margin: 0;
+}
+
+.die {
+  font-size: 3.4rem;
+  line-height: 1;
+  color: rgba(232, 224, 208, 0.55);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+  animation: dieIn 260ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.die--highest {
+  color: var(--gold-300);
+  text-shadow: 0 0 18px rgba(201, 162, 39, 0.7);
+  transform: scale(1.12);
+}
+
+@keyframes dieIn {
+  from { opacity: 0; transform: translateY(-10px) rotate(-12deg) scale(0.7); }
+  to   { opacity: 1; transform: translateY(0) rotate(0) scale(1); }
+}
+.die--highest { animation-name: dieInHighest; }
+@keyframes dieInHighest {
+  from { opacity: 0; transform: translateY(-10px) rotate(-12deg) scale(0.7); }
+  to   { opacity: 1; transform: translateY(0) rotate(0) scale(1.12); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .die { animation: none; }
+}
+
+/* ── Outcome banner ── */
+.roller__outcome {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+  padding: var(--space-5) var(--space-6);
+  border: 1px solid rgba(201, 162, 39, 0.25);
+  border-radius: var(--radius-lg);
+  background: var(--navy-900);
+}
+.roller__outcome--success { background: rgba(39, 174, 96, 0.08);  border-color: rgba(39, 174, 96, 0.35); }
+.roller__outcome--partial { background: rgba(230, 126, 34, 0.08); border-color: rgba(230, 126, 34, 0.35); }
+.roller__outcome--fail    { background: rgba(192, 57, 43, 0.08);  border-color: rgba(192, 57, 43, 0.35); }
+
+.roller__outcome-face { font-size: 3rem; line-height: 1; flex-shrink: 0; }
+.roller__outcome--success .roller__outcome-face { color: #27ae60; }
+.roller__outcome--partial .roller__outcome-face { color: #e67e22; }
+.roller__outcome--fail    .roller__outcome-face { color: #c0392b; }
+
+.roller__outcome-highest {
+  font-family: var(--font-heading);
+  font-size: var(--text-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(232, 224, 208, 0.55);
+  margin: 0 0 var(--space-1);
+}
+.roller__outcome-tier {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-1);
+}
+.roller__outcome--success .roller__outcome-tier { color: #27ae60; }
+.roller__outcome--partial .roller__outcome-tier { color: #e67e22; }
+.roller__outcome--fail    .roller__outcome-tier { color: #c0392b; }
+.roller__outcome-desc { font-size: var(--text-sm); color: rgba(232, 224, 208, 0.75); margin: 0; }
+
+/* ── Reference ── */
+.roller-ref { margin-top: var(--space-4); }
+.roller-ref h2 { font-size: var(--text-2xl); margin-bottom: var(--space-5); }
+.roller-ref__grid { display: flex; flex-direction: column; gap: var(--space-3); }
+.roller-ref__row {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+  padding: var(--space-4) var(--space-5);
+  border: 1px solid rgba(201, 162, 39, 0.2);
+  border-radius: var(--radius-md);
+}
+.roller-ref__row--success { background: rgba(39, 174, 96, 0.07);  border-color: rgba(39, 174, 96, 0.25); }
+.roller-ref__row--partial { background: rgba(230, 126, 34, 0.07); border-color: rgba(230, 126, 34, 0.25); }
+.roller-ref__row--fail    { background: rgba(192, 57, 43, 0.07);  border-color: rgba(192, 57, 43, 0.25); }
+.roller-ref__face { font-size: 2.2rem; flex-shrink: 0; }
+.roller-ref__value { display: block; font-family: var(--font-heading); font-size: var(--text-base); margin-bottom: var(--space-1); }
+.roller-ref__row--success .roller-ref__value { color: #27ae60; }
+.roller-ref__row--partial .roller-ref__value { color: #e67e22; }
+.roller-ref__row--fail    .roller-ref__value { color: #c0392b; }
+.roller-ref__row p { font-size: var(--text-sm); color: rgba(232, 224, 208, 0.7); margin: 0; line-height: 1.55; }
+.roller-ref__note {
+  margin-top: var(--space-6);
+  padding: var(--space-5);
+  background: var(--navy-800);
+  border-left: 3px solid var(--gold-400);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-size: var(--text-sm);
+  color: rgba(232, 224, 208, 0.75);
+  line-height: 1.6;
+}
+.roller-ref__note strong { color: var(--gold-300); }
+</style>
