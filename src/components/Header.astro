@@ -144,10 +144,20 @@ const resourcesActive = resourcePaths.some(p => currentPath.startsWith(p));
 
       <!-- Resources group -->
       <li class="mobile-menu__group">
-        <button class="mobile-menu__group-toggle" aria-expanded={resourcesActive ? 'true' : 'false'} type="button">
-          Resources
+        <button
+          class="mobile-menu__group-toggle"
+          aria-expanded={resourcesActive ? 'true' : 'false'}
+          aria-controls="mobile-resources-sub"
+          type="button"
+        >
+          <span>Resources</span>
           <span class="mobile-menu__chevron" aria-hidden="true">▾</span>
-                <ul class={`mobile-menu__sub${resourcesActive ? ' mobile-menu__sub--open' : ''}`} role="list">
+        </button>
+        <ul
+          id="mobile-resources-sub"
+          class={`mobile-menu__sub${resourcesActive ? ' mobile-menu__sub--open' : ''}`}
+          role="list"
+        >
           <li><a href="/settings/" class={`mobile-menu__sub-link${isActive('/settings/') ? ' mobile-menu__sub-link--active' : ''}`}>Settings Directory <span>Every world</span></a></li>
           <li><a href="/supplements/" class={`mobile-menu__sub-link${isActive('/supplements/') ? ' mobile-menu__sub-link--active' : ''}`}>Online Supplements <span>Web settings & mechanics</span></a></li>
           <li><a href="/optional-mechanics/" class={`mobile-menu__sub-link${isActive('/optional-mechanics/') ? ' mobile-menu__sub-link--active' : ''}`}>Optional Mechanics <span>50 plug-in rules</span></a></li>
@@ -155,7 +165,7 @@ const resourcesActive = resourcePaths.some(p => currentPath.startsWith(p));
           <li><a href="/resources/dice-roller/" class={`mobile-menu__sub-link${isActive('/resources/dice-roller/') ? ' mobile-menu__sub-link--active' : ''}`}>Dice Roller <span>Roll a D6 pool</span></a></li>
           <li><a href="/downloads/" class={`mobile-menu__sub-link${isActive('/downloads/') ? ' mobile-menu__sub-link--active' : ''}`}>Downloads <span>Sheets & printables</span></a></li>
           <li><a href="/community/" class={`mobile-menu__sub-link${isActive('/community/') ? ' mobile-menu__sub-link--active' : ''}`}>Community <span>Slack & local groups</span></a></li>
-        </ul>     </ul>
+        </ul>
       </li>
 
       <li>
@@ -234,6 +244,12 @@ const resourcesActive = resourcePaths.some(p => currentPath.startsWith(p));
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && mobileMenu?.classList.contains('mobile-menu--open')) closeMobile();
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 960 && mobileMenu?.classList.contains('mobile-menu--open')) {
+      closeMobile();
+    }
   });
 
   /* ── Mobile Resources accordion ── */
