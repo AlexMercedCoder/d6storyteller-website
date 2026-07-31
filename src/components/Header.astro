@@ -20,6 +20,7 @@ const navItems: NavItem[] = [
       { href: '/optional-mechanics/', label: 'Optional Mechanics',  desc: '50 plug-in rules for any campaign' },
       { href: '/prompts/',            label: 'Prompts',             desc: '30 creative prompts for Storytellers & players' },
       { href: '/resources/dice-roller/', label: 'Dice Roller',      desc: 'Roll a D6 pool & read the outcome' },
+      { href: '/resources/solo-runs/', label: 'Solo Runs',           desc: 'Interactive mini-campaigns to play alone' },
       { href: '/downloads/',          label: 'Downloads',           desc: 'Character sheets & printable aids' },
       { href: '/community/',          label: 'Community',           desc: 'Slack, local groups & community outlets' },
     ],
@@ -163,6 +164,7 @@ const resourcesActive = resourcePaths.some(p => currentPath.startsWith(p));
           <li><a href="/optional-mechanics/" class={`mobile-menu__sub-link${isActive('/optional-mechanics/') ? ' mobile-menu__sub-link--active' : ''}`}>Optional Mechanics <span>50 plug-in rules</span></a></li>
           <li><a href="/prompts/" class={`mobile-menu__sub-link${isActive('/prompts/') ? ' mobile-menu__sub-link--active' : ''}`}>Prompts <span>30 creative starters</span></a></li>
           <li><a href="/resources/dice-roller/" class={`mobile-menu__sub-link${isActive('/resources/dice-roller/') ? ' mobile-menu__sub-link--active' : ''}`}>Dice Roller <span>Roll a D6 pool</span></a></li>
+          <li><a href="/resources/solo-runs/" class={`mobile-menu__sub-link${isActive('/resources/solo-runs/') ? ' mobile-menu__sub-link--active' : ''}`}>Solo Runs <span>Play-alone mini-campaigns</span></a></li>
           <li><a href="/downloads/" class={`mobile-menu__sub-link${isActive('/downloads/') ? ' mobile-menu__sub-link--active' : ''}`}>Downloads <span>Sheets & printables</span></a></li>
           <li><a href="/community/" class={`mobile-menu__sub-link${isActive('/community/') ? ' mobile-menu__sub-link--active' : ''}`}>Community <span>Slack & local groups</span></a></li>
         </ul>

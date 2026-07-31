@@ -1,0 +1,876 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AmazonCTA from '../../components/AmazonCTA.astro';
+
+const SITE_URL = 'https://d6storyteller.alexmerced.com';
+const pageUrl = `${SITE_URL}/resources/solo-runs/`;
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "@id": `${pageUrl}#app`,
+    "name": "D6 Storyteller Solo Runs — The Burrow Kingdoms",
+    "url": pageUrl,
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Any (web browser)",
+    "description": "Three free interactive solo mini-campaigns for the D6 Storyteller system, set in The Burrow Kingdoms — a subterranean world of humanoids evolved from naked mole rats. Roll dice, read branching outcomes, and play without a group.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "isPartOf": { "@id": `${SITE_URL}/#website` },
+    "author": { "@type": "Person", "name": "Alex Merced", "@id": `${SITE_URL}/#alex-merced` }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": `${SITE_URL}/` },
+      { "@type": "ListItem", "position": 2, "name": "Resources", "item": `${SITE_URL}/resources/` },
+      { "@type": "ListItem", "position": 3, "name": "Solo Runs", "item": pageUrl }
+    ]
+  }
+];
+---
+
+<BaseLayout
+  title="Solo Runs — The Burrow Kingdoms | D6 Storyteller"
+  description="Three free interactive solo mini-campaigns for D6 Storyteller. Explore The Burrow Kingdoms — a subterranean world of humanoids evolved from naked mole rats. Roll dice, face branching outcomes, and play alone."
+  canonicalUrl={pageUrl}
+  jsonLd={jsonLd}
+>
+  <section class="section" aria-labelledby="solo-heading">
+    <div class="container container--narrow">
+      <nav aria-label="Breadcrumb" class="breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb__separator" aria-hidden="true">&rsaquo;</span>
+        <a href="/resources/">Resources</a>
+        <span class="breadcrumb__separator" aria-hidden="true">&rsaquo;</span>
+        <span aria-current="page">Solo Runs</span>
+      </nav>
+
+      <p class="section-label">Interactive Play Aid</p>
+      <h1 id="solo-heading">Solo Runs</h1>
+      <p class="solo-intro">
+        No group? No problem. These <strong>mini solo campaigns</strong> let you experience the D6 Storyteller system on your own. Each scenario gives you a pre-built character, a tense situation, and <strong>three actions</strong> resolved by dice rolls. A Full Success or Partial Success moves the story forward — but a Failure ends your run. How far can you get?
+      </p>
+
+      <!-- ═══════════════════════════════════════════
+           SETTING INTRODUCTION
+      ═══════════════════════════════════════════ -->
+      <div class="setting-card card" id="setting-intro">
+        <div class="setting-card__header">
+          <span class="setting-card__icon" aria-hidden="true">🕳️</span>
+          <div>
+            <h2 class="setting-card__title">The Burrow Kingdoms</h2>
+            <p class="setting-card__subtitle">A Subterranean World of Evolved Molari</p>
+          </div>
+        </div>
+
+        <div class="setting-card__body">
+          <p>
+            Deep beneath the cracked, sun-scorched earth — far below where roots dare reach — the <strong>Molari</strong> have built a civilization in darkness. Descended from naked mole rats across thousands of generations of accelerated evolution, these sturdy humanoids stand roughly four feet tall, with thick, wrinkled skin ranging from pale pink to dusty grey. Their small, dark-adapted eyes navigate by the faint luminescence of bioluminescent fungi and phosphorescent mineral veins that streak through rock like frozen lightning.
+          </p>
+          <p>
+            The Molari organize into <strong>Warrens</strong> — interconnected tunnel-cities carved from bedrock, each governed by a Queen who leads through pheromonal influence, political cunning, and sheer force of will. Society divides into three castes:
+          </p>
+          <ul class="setting-card__castes">
+            <li><strong>Tunnelers</strong> — Engineers and excavators who expand the network, shore up passages, and maintain the delicate geothermal vents that warm the Warrens.</li>
+            <li><strong>Surfacers</strong> — Scouts who brave the deadly overworld to harvest sun-dependent resources: mosses, insects, rainwater, and the rare minerals that fuel Molari bio-lamps.</li>
+            <li><strong>Claw-Guards</strong> — Warriors and protectors who defend against predators, rival Warrens, and the strange burrowing horrors that lurk in the Deeprift below.</li>
+          </ul>
+          <p>
+            Life in the Burrow Kingdoms is communal, tactile, and vibrating with low-frequency hums that carry meaning across miles of stone. But threats are constant: tunnel collapses, surface predators, and the ever-present tension between Warrens competing for territory and resources.
+          </p>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════════
+           HOW TO PLAY
+      ═══════════════════════════════════════════ -->
+      <div class="how-to-play">
+        <h2 id="how-to-play-heading">How Solo Runs Work</h2>
+        <div class="how-to-play__grid">
+          <div class="how-to-play__step">
+            <span class="how-to-play__num" aria-hidden="true">1</span>
+            <div>
+              <strong>Choose a scenario</strong>
+              <p>Each scenario gives you a pre-built character with a set dice pool.</p>
+            </div>
+          </div>
+          <div class="how-to-play__step">
+            <span class="how-to-play__num" aria-hidden="true">2</span>
+            <div>
+              <strong>Read &amp; Roll</strong>
+              <p>When prompted, roll your dice pool. The <strong>highest die</strong> determines the outcome: 6 = Full Success, 4–5 = Partial Success, 1–3 = Failure.</p>
+            </div>
+          </div>
+          <div class="how-to-play__step">
+            <span class="how-to-play__num" aria-hidden="true">3</span>
+            <div>
+              <strong>Branch or End</strong>
+              <p>Success or Partial Success advances the story to the next action. Failure ends the run — but you can always try again.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════════
+           SCENARIO SELECTOR
+      ═══════════════════════════════════════════ -->
+      <h2 class="scenarios-heading">Choose Your Scenario</h2>
+
+      <div class="scenario-grid" id="scenario-grid">
+        <!-- Scenario 1 -->
+        <button class="scenario-pick card" data-scenario="collapse" type="button" id="pick-collapse">
+          <span class="scenario-pick__icon" aria-hidden="true">⛏️</span>
+          <h3 class="scenario-pick__title">The Collapse</h3>
+          <p class="scenario-pick__role">Play as <strong>Kex</strong>, a Tunneler</p>
+          <p class="scenario-pick__hook">A catastrophic cave-in has trapped the nursery brood behind tonnes of rubble. Your crew is buried. You're the only one still standing.</p>
+          <span class="scenario-pick__cta">Begin Scenario →</span>
+        </button>
+
+        <!-- Scenario 2 -->
+        <button class="scenario-pick card" data-scenario="surface" type="button" id="pick-surface">
+          <span class="scenario-pick__icon" aria-hidden="true">☀️</span>
+          <h3 class="scenario-pick__title">The Surface Run</h3>
+          <p class="scenario-pick__role">Play as <strong>Vessk</strong>, a Surfacer</p>
+          <p class="scenario-pick__hook">The Warren's bio-lamps are dying. Only fresh sun-moss from the overworld can rekindle them — but the surface is a killing field.</p>
+          <span class="scenario-pick__cta">Begin Scenario →</span>
+        </button>
+
+        <!-- Scenario 3 -->
+        <button class="scenario-pick card" data-scenario="proving" type="button" id="pick-proving">
+          <span class="scenario-pick__icon" aria-hidden="true">⚔️</span>
+          <h3 class="scenario-pick__title">The Proving</h3>
+          <p class="scenario-pick__role">Play as <strong>Tharn</strong>, a Claw-Guard</p>
+          <p class="scenario-pick__hook">The Queen's champion has fallen. To take her place, you must survive three trials in the Proving Pit — or die trying.</p>
+          <span class="scenario-pick__cta">Begin Scenario →</span>
+        </button>
+      </div>
+
+      <!-- ═══════════════════════════════════════════
+           ACTIVE SCENARIO AREA
+      ═══════════════════════════════════════════ -->
+      <div class="scenario-play" id="scenario-play" hidden>
+        <!-- Populated by JS -->
+      </div>
+
+      <div style="margin-top:var(--space-10);">
+        <AmazonCTA placement="solo_runs_bottom" variant="banner" label="Get the D6 Storyteller Core Rulebook on Amazon" />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  /* ═══════════════════════════════════════════════════════════
+     SCENARIO DATA
+  ═══════════════════════════════════════════════════════════ */
+  const DIE_FACES = ['', '⚀', '⚁', '⚂', '⚃', '⚄', '⚅'];
+
+  interface Action {
+    title: string;
+    narrative: string;
+    prompt: string;
+    success: string;
+    partial: string;
+    failure: string;
+  }
+
+  interface Scenario {
+    id: string;
+    title: string;
+    characterName: string;
+    characterCaste: string;
+    characterDesc: string;
+    pool: number;
+    actions: Action[];
+    victory: string;
+  }
+
+  const SCENARIOS: Record<string, Scenario> = {
+    collapse: {
+      id: 'collapse',
+      title: 'The Collapse',
+      characterName: 'Kex',
+      characterCaste: 'Tunneler',
+      characterDesc: 'Kex is a wiry, pink-skinned Tunneler with oversized claws honed from years of carving stone. She carries a vibration pick, a coil of fungal rope, and an instinct for reading stress fractures in rock the way a Surfacer reads the wind. Pool: 2d6.',
+      pool: 2,
+      actions: [
+        {
+          title: 'Action 1 — Shore Up the Ceiling',
+          narrative: 'Dust rains down in sheets. The nursery tunnel behind you groans — the ceiling is fracturing in a widening web of cracks. You can hear the muffled whimpers of the broodlings on the other side. If the ceiling fully collapses, they\'re gone. You need to jam your vibration pick into the keystone fracture and lock it before the next tremor.',
+          prompt: 'Kex drives her pick into the crumbling keystone fracture…',
+          success: 'The pick bites deep. The fracture seals with a grinding crack and the ceiling holds — for now. Dust settles. You hear the broodlings crying but alive on the other side. The main passage is choked with rubble, but you spot a narrow side-tunnel veering left. It\'s uncharted, but it\'s your only way around.',
+          partial: 'The pick catches, but the keystone only partially locks. A chunk of ceiling the size of your torso crashes down inches from your head. The ceiling holds — barely — but the constant creaking tells you it won\'t last long. You need to move fast. A narrow side-tunnel yawns open to the left. It\'s pitch-black and uncharted, but the main passage is sealed.',
+          failure: 'The pick glances off wet stone. The keystone fracture widens with a sound like tearing cloth, and the ceiling comes down in a roar of rock and dust. You throw yourself backward but the avalanche is faster. Tonnes of rubble slam into the passage. When the dust clears, you\'re pinned — breathing, but trapped. Hours later, a rescue crew finds you, bruised but alive. The broodlings, mercifully, survived in an air pocket. But the shame of the failed shoring will follow you for seasons.\n\n**RUN ENDED — FAILURE**'
+        },
+        {
+          title: 'Action 2 — Navigate the Uncharted Tunnel',
+          narrative: 'The side-tunnel spirals downward at a steep angle, slick with condensation. Your claws scrape against unfamiliar rock — this passage is old, maybe pre-Warren. The bioluminescent fungi here glow an eerie violet instead of the usual green, and the air tastes metallic. Then you hear it: a low, rhythmic clicking from somewhere ahead. That sound could be dripping water. It could also be a Stone-Jaw — one of the blind burrowing predators that hunt by vibration.',
+          prompt: 'Kex presses forward through the clicking darkness…',
+          success: 'You flatten your body against the tunnel floor and move in perfect silence, matching your breathing to the rhythm of the clicks. Your Tunneler training kicks in — you read the vibrations through your claws and realize it\'s water, not a predator. A thin underground stream cuts across the passage. You wade through it and emerge into a wider chamber that connects back to the nursery access corridor. You can feel warm air from the other side.',
+          partial: 'You creep forward, but your pick scrapes against a mineral vein and sends a sharp ring echoing through the tunnel. The clicking stops. Then resumes — faster. You press yourself into a wall niche and hold your breath as something large and eyeless slides past in the dark, close enough that you feel the displaced air on your skin. It doesn\'t find you, but your heart hammers loud enough to shake the walls. Once it passes, you scramble through to a wider chamber that connects to the nursery corridor. Your hands are shaking.',
+          failure: 'The tunnel narrows without warning. You push forward, but the walls tighten around your shoulders. Your pick gets jammed. The clicking grows louder — directly above. A Stone-Jaw drops from the ceiling onto the tunnel floor behind you, its eyeless head swiveling. You wrench free and run, but the creature is faster in its own territory. Its jaw clamps onto your fungal rope and pulls you backward. You escape its grip, but the rope is gone, your pick is lost, and you\'re forced to retreat back to the collapse site. The rescue crew finds you hours later, exhausted and empty-handed. The broodlings are saved through another route — but not by you.\n\n**RUN ENDED — FAILURE**'
+        },
+        {
+          title: 'Action 3 — Breach the Rubble Wall',
+          narrative: 'You\'ve reached the back side of the collapse — a wall of loose stone, fungal root tangles, and shattered support beams separating you from the nursery chamber. You can hear the broodlings clearly now, their high-pitched keening echoing through gaps in the debris. The wall is unstable; one wrong move and it collapses inward, crushing everything on the other side. You need to extract a single load-bearing slab near the base to create an opening without destabilizing the rest.',
+          prompt: 'Kex works her claws into the rubble wall, feeling for the keystone slab…',
+          success: 'Years of reading stone pay off. Your claws find the slab — a flat piece of basalt wedged at the base like the lynchpin of an arch. You brace your shoulder against the wall, grip the slab, and pull with everything you\'ve got. It slides free with a grinding moan, and a gap opens at the bottom of the rubble wall — just wide enough. Warm, stale air rushes out, carrying the scent of the broodlings. One by one, you coax them through the gap: twelve squirming, squealing pups, all alive. By the time the main rescue crew arrives, you\'re sitting against the tunnel wall with a pile of broodlings in your lap, exhausted but victorious. The Queen herself sends word of commendation. Kex the Tunneler saved the next generation.\n\n**FULL VICTORY — THE BROOD IS SAVED!** 🎉',
+          partial: 'You find the slab, but it\'s fused to the surrounding stone by mineral deposits. You claw at the crust until your nails crack and bleed, then throw your weight against it. The slab shifts — then jams. The wall groans. For a horrible moment you think it\'s all coming down. But the slab pops loose and a narrow gap opens at the base. It\'s barely wide enough for the smallest broodlings. You manage to pull eight of the twelve through before the gap narrows further. The remaining four are trapped until the rescue crew arrives with proper tools an hour later. All twelve survive, but you know four of them were terrified and alone in the dark because you couldn\'t get the gap wide enough. Still — eight pups in your arms when the crew arrives. The Queen\'s commendation is earned.\n\n**PARTIAL VICTORY — MOST OF THE BROOD IS SAVED** 🎉',
+          failure: 'You misjudge the keystone. The slab you pull is load-bearing in the wrong way — it\'s holding back the upper mass, not bridging it. The moment it shifts, the entire rubble wall shudders and collapses inward. You throw yourself backward as a cascade of stone fills the corridor. When the dust settles, the gap is gone. Sealed solid. You scream and claw at the new wall until your fingers are raw, but it\'s over. The rescue crew breaches from the other side four hours later. All the broodlings survive — but you weren\'t the one who saved them. You sit in the empty corridor, staring at your bloodied claws, and listen to the cheering on the other side of the stone.\n\n**RUN ENDED — FAILURE**'
+        }
+      ],
+      victory: ''
+    },
+
+    surface: {
+      id: 'surface',
+      title: 'The Surface Run',
+      characterName: 'Vessk',
+      characterCaste: 'Surfacer',
+      characterDesc: 'Vessk is a lean, grey-skinned Surfacer with sun-scarred eyelids and a twitchy nose that can smell a hawk from half a mile. She carries darkened goggles, a harvest satchel, and a bone-handled scraping blade. The overworld terrifies her — as it should — but nobody else volunteers. Pool: 3d6.',
+      pool: 3,
+      actions: [
+        {
+          title: 'Action 1 — Ascend the Exit Shaft',
+          narrative: 'The exit shaft is a vertical chimney of rough stone, sixty feet straight up to a circle of blinding white sky. The shaft is supposed to be clear, but halfway up you see the problem: a hawk has built a nest on the rim. The huge raptor is perched right at the top, preening its feathers in the sun. To a hawk, a Molari is the perfect meal — warm-blooded, slow on the surface, and roughly the size of a fat rabbit. You need to get past it without being spotted.',
+          prompt: 'Vessk begins the climb, pressing tight against the shadow side of the shaft…',
+          success: 'You time it perfectly. The hawk lifts off to hunt — you hear the whoosh of its wings leaving the rim — and you scramble up the final stretch like your claws are on fire. You crest the rim, roll into the tall grass, and flatten yourself against the earth. The sunlight is agonizing even through your goggles, but you\'re out. The hawk is a shrinking silhouette over the eastern ridge. The sun-moss fields are a quarter mile north, across open ground.',
+          partial: 'You climb in silence, but near the top a loose stone breaks free under your claw and clatters down the shaft. The hawk\'s head snaps toward you — a single golden eye, enormous and unblinking, stares directly into yours. For one terrible heartbeat, neither of you moves. Then the hawk screams and launches. You hurl yourself over the rim and tumble into the grass as talons rake the air inches above your head. The hawk circles twice, screams again, then banks away toward easier prey. You\'re out — but shaking, and the hawk knows you\'re here now. You need to move fast toward the sun-moss fields.',
+          failure: 'You\'re ten feet from the rim when the hawk spots you. Its scream is like a knife in your ears. It drops from the nest rim with talons extended, and you have nowhere to go — the shaft is too narrow to dodge. The talons catch your satchel strap and rip you away from the wall. You fall twenty feet before catching yourself on a root, dangling in the shaft with your satchel torn away and your scraping blade lost in the dark below. Bruised, bleeding, and tool-less, you have no choice but to descend. The Warren\'s bio-lamps dim further that night. Another Surfacer will have to try tomorrow.\n\n**RUN ENDED — FAILURE**'
+        },
+        {
+          title: 'Action 2 — Harvest the Sun-Moss',
+          narrative: 'The sun-moss fields glow amber and gold across a stretch of exposed rock shelf — a quarter-mile of open ground with no cover. The moss grows in thick, spongy mats that Molari alchemists process into bio-lamp fuel. You need to harvest at least two full satchels\' worth, which means spending several minutes completely exposed under the open sky. The sun is punishing, and you can see movement on the far ridge — a fox den, maybe two. If they spot you, you\'re prey.',
+          prompt: 'Vessk sprints for the moss fields, scraping blade ready…',
+          success: 'You work like a machine. Your blade shears through the moss in clean strips, and you stuff the satchel with practiced efficiency. Two full loads in four minutes — a personal record. The foxes on the ridge don\'t stir. You pack the moss tight, sling the satchel, and start the return route along the shaded gully. The Warren will eat tonight, and the bio-lamps will burn bright for another season.',
+          partial: 'You fill the first satchel quickly, but the second batch is stubborn — the moss has bonded to the rock with deep rhizoids. While you\'re wrestling it free, a fox appears on the ridge and stares down at you with amber eyes. Then a second. They don\'t charge, but they begin trotting along the ridgeline parallel to your position — flanking. You rip out one more handful, stuff it into the satchel, and run. You\'ve got maybe one and a half loads — enough to keep the lamps burning, but not to refill the reserves. The foxes follow you at a distance as you head for the return gully.',
+          failure: 'The sun is brutal. You make it to the moss fields, but the heat and light overwhelm you faster than expected. Your vision swims behind the goggles. While you\'re scraping the first batch, you don\'t notice the fox until it\'s thirty yards away, low to the ground, ears flat. You freeze — too late. It charges. You abandon the satchel and run, but your surface-blind eyes misjudge the terrain and you stumble into a shallow ditch. The fox snaps at your heels as you scramble into a crevice barely wide enough to shelter you. You wait there for hours, wedged in rock, until the fox loses interest. You crawl back to the shaft at dusk, empty-handed. The bio-lamps dim again.\n\n**RUN ENDED — FAILURE**'
+        },
+        {
+          title: 'Action 3 — The Return Descent',
+          narrative: 'You\'re almost home. The exit shaft is fifty yards ahead, but the foxes from the ridge have followed you into the gully. You can hear them — padding footsteps, low growls, the click of claws on stone. There are at least three, spread out behind you in a loose hunting formation. Foxes on the surface are patient pack hunters, nothing like the blind burrowing predators you\'re used to. The shaft is your only escape, but you need to reach it, get inside, and descend fast enough that they can\'t follow.',
+          prompt: 'Vessk makes a break for the shaft entrance…',
+          success: 'You grab a fistful of luminescent powder from your belt pouch — emergency signal dust — and hurl it behind you in a wide arc. The powder ignites on contact with air, blazing phosphorescent green. The foxes yelp and scatter, blinded by the flash. You sprint the final stretch, vault over the shaft rim, and drop inside, catching the first handhold ten feet down. Your satchels thump against your back as you descend into blessed darkness. By the time the foxes reach the rim and peer down with their golden eyes, you\'re already forty feet below, laughing breathlessly in the dark. The bio-lamps will burn. Vessk the Surfacer returns victorious.\n\n**FULL VICTORY — THE WARREN GLOWS TONIGHT!** 🎉',
+          partial: 'You run. The foxes run faster. One lunges and catches the trailing satchel strap in its teeth. You twist, slash with the scraping blade, and the strap snaps — the fox tumbles away with half your harvest. You don\'t look back. You throw yourself into the shaft and descend in a controlled fall, catching handholds every few feet, skin tearing, claws screaming. When you hit the bottom, you\'ve got one full satchel and half of another — the rest is fox food. It\'s enough. Barely. The alchemists will ration the bio-lamp fuel, and the Warren will dim but not go dark. Vessk the Surfacer returns, bloodied and bruised, with just enough to keep the light alive.\n\n**PARTIAL VICTORY — ENOUGH MOSS TO SURVIVE** 🎉',
+          failure: 'You run, but the gully narrows and the foxes close in from both sides. One leaps and catches your leg. You go down hard, satchels flying, moss scattering across the rocks. You fight — scraping blade slashing — but a second fox grabs the satchel and drags it away. The third circles, waiting. You abandon everything and crawl into a crack in the gully wall, pressing yourself flat. The foxes tear apart the satchels and eat the moss, which is apparently delicious to surface predators. When they finally leave, there\'s nothing left to salvage. You descend the shaft empty-handed, again. The Warren dims. Another Surfacer will have to run tomorrow, and the foxes will be watching.\n\n**RUN ENDED — FAILURE**'
+        }
+      ],
+      victory: ''
+    },
+
+    proving: {
+      id: 'proving',
+      title: 'The Proving',
+      characterName: 'Tharn',
+      characterCaste: 'Claw-Guard',
+      characterDesc: 'Tharn is a stocky, pink-and-grey Claw-Guard with ritual scars across his shoulders and forearms — one for each year of service. His claws are filed to points and reinforced with mineral resin. He carries no weapons; a Claw-Guard\'s body is the weapon. The Proving is combat, endurance, and loyalty made manifest. Pool: 2d6.',
+      pool: 2,
+      actions: [
+        {
+          title: 'Action 1 — The Sparring Circle',
+          narrative: 'The Proving Pit is carved into the deepest chamber of the Warren, lit by a ring of blue-burning bio-lamps. Hundreds of Molari crowd the terraced galleries above, their humming vibrations filling the air like a living heartbeat. Your first trial: defeat a Brood-Rival in open combat. Your opponent is Griss — younger, faster, with longer reach. She circles you with bared teeth, claws clicking against the stone floor. First to pin wins. No biting, no eye-strikes. Everything else is legal.',
+          prompt: 'Tharn meets his rival in the Sparring Circle…',
+          success: 'Griss lunges first — predictable. You sidestep, catch her extended arm, and use her momentum to swing her into the pit wall. Before she can recover, you\'re on her back with your forearm locked across her shoulders, pressing her flat against the stone. She thrashes, but your weight advantage holds. The crowd\'s hum shifts to a rising note of approval. Griss slaps the stone twice — the signal of yield. You release her, offer a claw to help her up, and she takes it with a grudging nod. First trial: cleared.',
+          partial: 'Griss is fast. She tags you twice with raking claw strikes across your ribs before you can close the distance. Blood seeps through your scars. You absorb a third hit, grab her wrist, and pull her into a grapple. It\'s ugly — you trade knee strikes in the clinch until you finally get her off-balance and slam her to the ground. The pin is sloppy, and she nearly squirms free before slapping the stone in yield. You stand up bleeding from six shallow cuts. The crowd\'s hum is uncertain — you won, but it wasn\'t clean. First trial: passed, but the judges are watching closely.',
+          failure: 'Griss is a blur. She feints left, goes right, and sweeps your legs before you can react. You hit the stone hard, and she\'s on top of you in an instant, forearm across your throat. You buck and roll, but she shifts her weight perfectly — she\'s trained for this. Your shoulders touch stone. The hum of the crowd drops to a flat, disappointed tone. Two heartbeats later, you slap the stone. Yield. Griss rises without offering a claw. The Pit Master\'s voice echoes across the chamber: "Tharn of the Third Tunnel — eliminated." You walk out of the pit to silence. The Proving is over for you.\n\n**RUN ENDED — FAILURE**'
+        },
+        {
+          title: 'Action 2 — The Echo Maze',
+          narrative: 'The second trial takes you into the Echo Maze — a labyrinth of smooth-walled tunnels deep below the Proving Pit where every sound bounces and distorts. The walls hum at different frequencies, designed to disorient. Your task: navigate from the entrance to the Queen\'s Chamber marker stone without losing your way. The maze shifts — sections rotate on ancient mechanisms — and the disorienting echoes can drive even experienced Claw-Guards to panic. You have no light, no guide, and no tools. Just your claws, your instincts, and the vibrations in the stone.',
+          prompt: 'Tharn enters the Echo Maze, feeling the vibrations through his claws…',
+          success: 'You place your palm flat against the wall and close your eyes — they\'re useless here anyway. The stone speaks. Every Tunneler knows how to read vibration, and your years as a Claw-Guard haven\'t dulled that skill. You feel the subtle temperature gradient — the Queen\'s Chamber is warm from the geothermal vents, and warm air flows downhill. You follow the warmth. Left, right, left, straight, right. The echoes try to confuse you — phantom footsteps, dripping water that isn\'t there — but you trust the stone. Twenty minutes later, your palm touches carved basalt: the marker stone. You press your forehead against it and breathe. Second trial: cleared.',
+          partial: 'The maze fights you. Twice you follow a promising passage only to hit a dead end when the walls rotate behind you. The echoes are maddening — your own breathing comes back to you from three directions. Panic claws at the edges of your mind. You stop, crouch, and press both palms against the floor. Breathe. Feel. There — the faintest warmth, coming from below and to the right. You follow it on hands and knees, moving slowly. You take two wrong turns but correct each time by returning to the warmth. Forty-five minutes later — far longer than a strong showing — your hand finds the marker stone. You\'ve passed, but the time penalty will weigh against you in the final trial. Second trial: passed, but barely.',
+          failure: 'The echoes overwhelm you. Every direction sounds the same — your own heartbeat echoes back as footsteps, dripping water that moves when you move. You follow a passage that curves gently to the right, and you realize after twenty minutes that you\'ve been walking in a circle. Panic takes root. You press against the wall, trying to read vibrations, but your hands are shaking too badly. You lose the temperature gradient. Left. Dead end. Right. The wall rotates, and you stumble into a passage you\'ve already crossed. An hour passes. Then two. When the Pit Master\'s rescue hum finally reverberates through the maze, you follow it to the exit like a lost pup. The crowd is silent as you emerge, blinking. The Proving is over.\n\n**RUN ENDED — FAILURE**'
+        },
+        {
+          title: 'Action 3 — The Queen\'s Judgment',
+          narrative: 'The final trial is not combat. It\'s worse. You kneel in the Queen\'s Chamber — a vast dome of crystal-veined stone pulsing with bioluminescent light. The Queen herself sits on the Bone Throne, a massive figure wreathed in pheromonal haze. Her eyes — milky, ancient, seeing everything — fix on you. "Claw-Guard," she hums, her voice vibrating in your chest. "Tell me why you would serve. Not with words. With truth." She extends a claw toward you. The Pheromonal Trial. She will touch your throat and read your body\'s chemical truth — your fear, your loyalty, your ambition, everything you are laid bare. You cannot lie. You can only control your breathing, slow your heart, and hold steady.',
+          prompt: 'Tharn kneels before the Queen and bares his throat…',
+          success: 'You breathe. You let the fear exist without fighting it — fear is honest, and the Queen respects honesty. Her claw touches your throat, cold and precise. You feel the pheromonal exchange like a wave of heat through your blood. Every memory surfaces: the years of training, the fights won and lost, the comrades carried from collapsed tunnels, the quiet nights spent patrolling the outer perimeter alone. Your loyalty is not blind obedience — it\'s a choice, renewed every day, to stand between the Warren and what would destroy it. The Queen\'s hum deepens to a tone you\'ve never heard before — approval from the marrow. She withdraws her claw. "Rise, Champion." The chamber erupts in vibration. Tharn the Claw-Guard, Champion of the Warren.\n\n**FULL VICTORY — YOU ARE THE QUEEN\'S CHAMPION!** 🎉',
+          partial: 'Your heart races despite your training. The Queen\'s claw touches your throat and you flinch — just barely, but she feels it. The pheromonal exchange is turbulent: loyalty tangled with ambition, duty threaded with doubt. You are not a perfect soldier. You have questioned orders. You have resented the caste you were born into. These truths rise unbidden, chemical confessions you cannot retract. The Queen\'s hum wavers. She holds the contact longer than is comfortable, reading deeper. Then she finds it: beneath the doubt, beneath the ambition, a core of something unbreakable. Not obedience. Stubbornness. You will protect this Warren because it is yours — every imperfect, crumbling tunnel of it. The Queen withdraws her claw. Her hum settles into a low, measured tone. "Rise, Guard. You are not Champion. But you will serve the Champion well. And in time…" She lets the silence carry the rest. It is not glory. But it is enough.\n\n**PARTIAL VICTORY — YOU EARN YOUR PLACE** 🎉',
+          failure: 'Fear wins. The Queen\'s claw touches your throat and your body betrays you — a flood of cortisol, adrenaline, the chemical signature of a creature that wants to flee. You try to breathe through it, but the pheromonal exchange is merciless: the Queen reads not just your fear but the fear you\'ve been hiding for years. The fear that you\'re not strong enough. The fear that you chose the Claw-Guard caste to prove something to yourself, not to protect others. The Queen withdraws her claw abruptly. Her hum drops to a flat, neutral tone. No judgment, no contempt — just a cold chemical statement of fact: "You are not ready." You rise on shaking legs. The chamber is silent. You walk out of the Queen\'s dome and into the tunnels, alone with a truth you cannot unlearn.\n\n**RUN ENDED — FAILURE**'
+        }
+      ],
+      victory: ''
+    }
+  };
+
+  /* ═══════════════════════════════════════════════════════════
+     DICE ROLLING
+  ═══════════════════════════════════════════════════════════ */
+  function rollDie(): number {
+    if (window.crypto && window.crypto.getRandomValues) {
+      const buf = new Uint32Array(1);
+      window.crypto.getRandomValues(buf);
+      return (buf[0] % 6) + 1;
+    }
+    return Math.floor(Math.random() * 6) + 1;
+  }
+
+  function rollPool(size: number): number[] {
+    return Array.from({ length: size }, () => rollDie());
+  }
+
+  function classify(values: number[]): { tier: 'success' | 'partial' | 'failure'; highest: number } {
+    const highest = Math.max(...values);
+    if (highest === 6) return { tier: 'success', highest };
+    if (highest >= 4) return { tier: 'partial', highest };
+    return { tier: 'failure', highest };
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     RENDERING
+  ═══════════════════════════════════════════════════════════ */
+  const playArea = document.getElementById('scenario-play')!;
+  const grid = document.getElementById('scenario-grid')!;
+
+  let currentScenario: Scenario | null = null;
+  let currentAction = 0;
+
+  function renderCharacterCard(s: Scenario): string {
+    return `
+      <div class="char-card">
+        <div class="char-card__header">
+          <div class="char-card__avatar" aria-hidden="true">${s.characterCaste === 'Tunneler' ? '⛏️' : s.characterCaste === 'Surfacer' ? '☀️' : '⚔️'}</div>
+          <div>
+            <h3 class="char-card__name">${s.characterName}</h3>
+            <p class="char-card__caste">${s.characterCaste} · ${s.pool}d6 Pool</p>
+          </div>
+        </div>
+        <p class="char-card__desc">${s.characterDesc}</p>
+      </div>
+    `;
+  }
+
+  function renderDiceTray(values: number[], highest: number): string {
+    return `
+      <div class="solo-dice-tray" aria-label="Dice results">
+        ${values.map((v, i) => `
+          <span class="solo-die${v === highest ? ' solo-die--highest' : ''}"
+                role="img"
+                aria-label="Die ${i + 1}: ${v}${v === highest ? ' (highest)' : ''}"
+                style="animation-delay: ${i * 60}ms">
+            ${DIE_FACES[v]}
+          </span>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  function renderAction(s: Scenario, actionIdx: number): void {
+    const action = s.actions[actionIdx];
+    playArea.innerHTML = `
+      <div class="solo-scene" role="region" aria-label="${action.title}">
+        <button class="solo-back-btn" id="solo-back" type="button" aria-label="Return to scenario selection">← Back to Scenarios</button>
+        <h2 class="solo-scene__title">${s.title}</h2>
+        ${renderCharacterCard(s)}
+        <div class="solo-scene__progress">
+          ${s.actions.map((_, i) => `<span class="solo-pip${i < actionIdx ? ' solo-pip--done' : i === actionIdx ? ' solo-pip--active' : ''}"></span>`).join('')}
+        </div>
+        <h3 class="solo-scene__action-title">${action.title}</h3>
+        <div class="solo-scene__narrative">${action.narrative.split('\n').map(p => `<p>${p}</p>`).join('')}</div>
+        <div class="solo-scene__prompt">
+          <p><em>${action.prompt}</em></p>
+          <button class="btn btn--primary solo-roll-btn" id="solo-roll" type="button">
+            <span aria-hidden="true">🎲</span> Roll ${s.pool}d6
+          </button>
+        </div>
+        <div id="solo-result"></div>
+      </div>
+    `;
+
+    document.getElementById('solo-back')!.addEventListener('click', resetToGrid);
+    document.getElementById('solo-roll')!.addEventListener('click', () => executeRoll(s, actionIdx));
+  }
+
+  function executeRoll(s: Scenario, actionIdx: number): void {
+    const action = s.actions[actionIdx];
+    const values = rollPool(s.pool);
+    const { tier, highest } = classify(values);
+
+    const resultDiv = document.getElementById('solo-result')!;
+    const rollBtn = document.getElementById('solo-roll') as HTMLButtonElement;
+    rollBtn.disabled = true;
+    rollBtn.classList.add('solo-roll-btn--spent');
+
+    const tierLabels = { success: 'Full Success', partial: 'Partial Success', failure: 'Failure' };
+    const outcomeText = tier === 'success' ? action.success : tier === 'partial' ? action.partial : action.failure;
+    const isEnd = tier === 'failure' || actionIdx >= s.actions.length - 1;
+    const sixes = values.filter(v => v === 6).length;
+
+    resultDiv.innerHTML = `
+      <div class="solo-result solo-result--${tier}" aria-live="polite">
+        ${renderDiceTray(values, highest)}
+        <div class="solo-result__banner">
+          <span class="solo-result__tier-label">${tierLabels[tier]}${tier === 'success' && sixes >= 2 ? ' — Great Effect' : ''}</span>
+          <span class="solo-result__highest">Highest die: ${highest}</span>
+        </div>
+        <div class="solo-result__text">${outcomeText.split('\n').map(p => `<p>${p}</p>`).join('')}</div>
+        ${(!isEnd && tier !== 'failure') ? `<button class="btn btn--primary solo-continue-btn" id="solo-continue" type="button">Continue to Next Action →</button>` : ''}
+        ${isEnd ? `<button class="btn btn--secondary solo-retry-btn" id="solo-retry" type="button">Try Again</button> <button class="btn btn--secondary solo-retry-btn" id="solo-pick-new" type="button">Choose Another Scenario</button>` : ''}
+      </div>
+    `;
+
+    // Scroll to result
+    resultDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    if (!isEnd && tier !== 'failure') {
+      document.getElementById('solo-continue')!.addEventListener('click', () => {
+        currentAction = actionIdx + 1;
+        renderAction(s, currentAction);
+        playArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }
+
+    if (isEnd) {
+      document.getElementById('solo-retry')?.addEventListener('click', () => {
+        currentAction = 0;
+        renderAction(s, 0);
+        playArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+      document.getElementById('solo-pick-new')?.addEventListener('click', resetToGrid);
+    }
+  }
+
+  function resetToGrid(): void {
+    playArea.hidden = true;
+    playArea.innerHTML = '';
+    grid.hidden = false;
+    currentScenario = null;
+    currentAction = 0;
+    grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     SCENARIO SELECTION
+  ═══════════════════════════════════════════════════════════ */
+  document.querySelectorAll<HTMLButtonElement>('.scenario-pick').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = btn.dataset.scenario ?? '';
+      const scenario = SCENARIOS[id];
+      if (!scenario) return;
+
+      currentScenario = scenario;
+      currentAction = 0;
+      grid.hidden = true;
+      playArea.hidden = false;
+      renderAction(scenario, 0);
+      playArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+
+<style>
+/* ═══════════════════════════════════════
+   SOLO RUNS — Page Styles
+═══════════════════════════════════════ */
+.solo-intro {
+  max-width: 64ch;
+  font-size: var(--text-lg);
+  color: rgba(232, 224, 208, 0.85);
+  line-height: 1.6;
+  margin-bottom: var(--space-10);
+}
+
+/* ── Setting Card ── */
+.setting-card {
+  margin-bottom: var(--space-12);
+  padding: var(--space-8);
+}
+.setting-card:hover {
+  transform: none;
+}
+.setting-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid rgba(201, 162, 39, 0.2);
+}
+.setting-card__icon {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+.setting-card__title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--gold-300);
+  margin: 0;
+  line-height: 1.2;
+}
+.setting-card__subtitle {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-400);
+  margin: var(--space-1) 0 0;
+}
+.setting-card__body p {
+  color: rgba(232, 224, 208, 0.8);
+  line-height: 1.7;
+}
+.setting-card__castes {
+  padding-left: var(--space-6);
+  margin: var(--space-4) 0;
+}
+.setting-card__castes li {
+  color: rgba(232, 224, 208, 0.75);
+  margin-bottom: var(--space-3);
+  line-height: 1.6;
+}
+
+/* ── How to Play ── */
+.how-to-play {
+  margin-bottom: var(--space-12);
+}
+.how-to-play h2 {
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-6);
+}
+.how-to-play__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-4);
+}
+.how-to-play__step {
+  display: flex;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  background: var(--navy-900);
+  border: 1px solid rgba(201, 162, 39, 0.15);
+  border-radius: var(--radius-lg);
+}
+.how-to-play__num {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--gold-400);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 32px;
+  text-align: center;
+}
+.how-to-play__step strong {
+  display: block;
+  margin-bottom: var(--space-1);
+  font-family: var(--font-heading);
+  font-size: var(--text-base);
+  letter-spacing: 0.04em;
+}
+.how-to-play__step p {
+  font-size: var(--text-sm);
+  color: rgba(232, 224, 208, 0.65);
+  margin: 0;
+}
+
+/* ── Scenario Selector ── */
+.scenarios-heading {
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-6);
+}
+.scenario-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-5);
+  margin-bottom: var(--space-10);
+}
+.scenario-pick {
+  text-align: left;
+  cursor: pointer;
+  border: 1px solid rgba(201, 162, 39, 0.25);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.scenario-pick:hover {
+  border-color: var(--gold-400);
+}
+.scenario-pick__icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+.scenario-pick__title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  color: var(--gold-300);
+  margin: 0;
+}
+.scenario-pick__role {
+  font-family: var(--font-heading);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-400);
+  margin: 0;
+}
+.scenario-pick__hook {
+  font-size: var(--text-sm);
+  color: rgba(232, 224, 208, 0.7);
+  margin: 0;
+  flex: 1;
+}
+.scenario-pick__cta {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-300);
+  margin-top: var(--space-2);
+}
+
+/* ═══════════════════════════════════════
+   ACTIVE SCENARIO
+═══════════════════════════════════════ */
+.solo-back-btn {
+  background: none;
+  border: 1px solid rgba(201, 162, 39, 0.25);
+  color: rgba(232, 224, 208, 0.6);
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  margin-bottom: var(--space-6);
+  transition: all var(--transition-fast);
+}
+.solo-back-btn:hover {
+  color: var(--gold-300);
+  border-color: var(--gold-400);
+}
+
+.solo-scene__title {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  margin-bottom: var(--space-6);
+}
+
+/* Character Card */
+.char-card {
+  background: var(--navy-800);
+  border: 1px solid rgba(201, 162, 39, 0.2);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  margin-bottom: var(--space-6);
+}
+.char-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+.char-card__avatar {
+  font-size: 2rem;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(201, 162, 39, 0.1);
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+}
+.char-card__name {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  color: var(--gold-300);
+  margin: 0;
+  line-height: 1.2;
+}
+.char-card__caste {
+  font-family: var(--font-heading);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-400);
+  margin: 0;
+}
+.char-card__desc {
+  font-size: var(--text-sm);
+  color: rgba(232, 224, 208, 0.7);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Progress Pips */
+.solo-scene__progress {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+.solo-pip {
+  width: 40px;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(201, 162, 39, 0.15);
+  transition: background var(--transition-base);
+}
+.solo-pip--done {
+  background: var(--gold-400);
+}
+.solo-pip--active {
+  background: linear-gradient(90deg, var(--gold-400), var(--gold-300));
+  box-shadow: 0 0 8px rgba(201, 162, 39, 0.4);
+}
+
+/* Action */
+.solo-scene__action-title {
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-4);
+  color: var(--gold-300);
+}
+.solo-scene__narrative p {
+  color: rgba(232, 224, 208, 0.8);
+  line-height: 1.7;
+}
+.solo-scene__prompt {
+  background: var(--navy-800);
+  border-left: 3px solid var(--gold-400);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: var(--space-5);
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+.solo-scene__prompt p {
+  color: var(--gold-300);
+  font-size: var(--text-lg);
+  margin: 0 0 var(--space-4);
+}
+
+.solo-roll-btn {
+  font-size: var(--text-base);
+  padding: 0.8em 2em;
+}
+.solo-roll-btn--spent {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* ── Dice Tray ── */
+.solo-dice-tray {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  justify-content: center;
+  padding: var(--space-4) 0;
+  margin-bottom: var(--space-4);
+}
+.solo-die {
+  font-size: clamp(4rem, 8vw, 5.5rem);
+  line-height: 1;
+  color: rgba(232, 224, 208, 0.55);
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6));
+  animation: soloDieIn 280ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.solo-die--highest {
+  color: var(--gold-300);
+  text-shadow: 0 0 24px rgba(201, 162, 39, 0.85), 0 0 45px rgba(201, 162, 39, 0.4);
+  transform: scale(1.15);
+  animation-name: soloDieInHighest;
+}
+@keyframes soloDieIn {
+  from { opacity: 0; transform: translateY(-12px) rotate(-12deg) scale(0.7); }
+  to   { opacity: 1; transform: translateY(0) rotate(0) scale(1); }
+}
+@keyframes soloDieInHighest {
+  from { opacity: 0; transform: translateY(-12px) rotate(-12deg) scale(0.7); }
+  to   { opacity: 1; transform: translateY(0) rotate(0) scale(1.15); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .solo-die { animation: none; }
+}
+
+/* ── Result ── */
+.solo-result {
+  border: 1px solid rgba(201, 162, 39, 0.25);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin-top: var(--space-4);
+  background: var(--navy-900);
+  animation: resultFadeIn 300ms ease both;
+}
+@keyframes resultFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.solo-result--success {
+  background: rgba(39, 174, 96, 0.06);
+  border-color: rgba(39, 174, 96, 0.35);
+}
+.solo-result--partial {
+  background: rgba(230, 126, 34, 0.06);
+  border-color: rgba(230, 126, 34, 0.35);
+}
+.solo-result--failure {
+  background: rgba(192, 57, 43, 0.06);
+  border-color: rgba(192, 57, 43, 0.35);
+}
+
+.solo-result__banner {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid rgba(201, 162, 39, 0.15);
+}
+.solo-result__tier-label {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+}
+.solo-result--success .solo-result__tier-label { color: #27ae60; }
+.solo-result--partial .solo-result__tier-label { color: #e67e22; }
+.solo-result--failure .solo-result__tier-label { color: #c0392b; }
+
+.solo-result__highest {
+  font-family: var(--font-heading);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(232, 224, 208, 0.5);
+}
+
+.solo-result__text p {
+  color: rgba(232, 224, 208, 0.82);
+  line-height: 1.7;
+}
+.solo-result__text p:last-child strong {
+  display: block;
+  margin-top: var(--space-3);
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+}
+.solo-result--success .solo-result__text p:last-child strong { color: #27ae60; }
+.solo-result--partial .solo-result__text p:last-child strong { color: #e67e22; }
+.solo-result--failure .solo-result__text p:last-child strong { color: #c0392b; }
+
+.solo-continue-btn {
+  margin-top: var(--space-6);
+  display: block;
+  width: 100%;
+  justify-content: center;
+}
+
+.solo-retry-btn {
+  margin-top: var(--space-4);
+  display: inline-flex;
+}
+.solo-retry-btn + .solo-retry-btn {
+  margin-left: var(--space-3);
+}
+
+@media (max-width: 520px) {
+  .solo-retry-btn {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-left: 0 !important;
+  }
+}
+</style>
