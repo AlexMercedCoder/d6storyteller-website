@@ -52,23 +52,25 @@ import AmazonCTA from '../components/AmazonCTA.astro';
         </p>
 
         <div class="outlet-card__channels">
-          <h3>What to do when you join</h3>
+          <h3>Channels you join automatically</h3>
+          <p class="channels-note">Every new member is added to these channels the moment they join:</p>
           <ul class="channel-list">
             <li>
-              <span class="channel-tag">#general</span>
-              Introduce yourself and jump into the main conversation.
+              <span class="channel-tag">#all-d6storyteller-community</span>
+              The workspace-wide channel. Every member is here - great for announcements that reach everyone.
             </li>
             <li>
-              <span class="channel-tag">#homebrew-workshop</span>
-              Share your own settings, mechanics, and campaign ideas for feedback.
+              <span class="channel-tag channel-tag--landing">#announcements</span>
+              <span class="channel-landing-badge">Landing channel</span>
+              Your first stop on arrival. Watch here for news, new releases, and official updates from the D6 Storyteller team.
             </li>
             <li>
-              <span class="channel-tag">#looking-for-group</span>
-              Post when you are looking for players or a Storyteller for your next campaign.
+              <span class="channel-tag">#social</span>
+              General conversation, introductions, off-topic chat, and everything that does not fit neatly somewhere else.
             </li>
             <li>
               <span class="channel-tag">#resources</span>
-              Share and discover community-made supplements, tools, and reference materials.
+              Share and discover community-made supplements, settings, tools, and reference materials.
             </li>
           </ul>
         </div>
@@ -227,6 +229,32 @@ import AmazonCTA from '../components/AmazonCTA.astro';
   padding: 2px 8px;
   white-space: nowrap;
   flex-shrink: 0;
+}
+
+.channel-tag--landing {
+  background: rgba(52, 168, 83, 0.15);
+  color: #6fcf97;
+  border-color: rgba(52, 168, 83, 0.35);
+}
+
+.channel-landing-badge {
+  font-size: var(--text-xs);
+  background: rgba(52, 168, 83, 0.2);
+  color: #6fcf97;
+  border: 1px solid rgba(52, 168, 83, 0.35);
+  border-radius: 999px;
+  padding: 1px 8px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.channels-note {
+  font-size: var(--text-sm);
+  color: rgba(232, 224, 208, 0.5);
+  margin: 0 0 var(--space-4) 0;
+  font-style: italic;
 }
 
 /* Local section */
