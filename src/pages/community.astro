@@ -1,12 +1,34 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import AmazonCTA from '../components/AmazonCTA.astro';
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://d6storyteller.alexmerced.com/community/#webpage",
+    "url": "https://d6storyteller.alexmerced.com/community/",
+    "name": "D6 Storyteller Community | Connect, Share, and Play",
+    "description": "Find your people: join the D6 Storyteller Slack community, build a local group, share homebrew settings and rules, and connect with Storytellers and players worldwide.",
+    "isPartOf": { "@id": "https://d6storyteller.alexmerced.com/#website" },
+    "inLanguage": "en-US"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://d6storyteller.alexmerced.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Community", "item": "https://d6storyteller.alexmerced.com/community/" }
+    ]
+  }
+];
 ---
 
 <BaseLayout
   title="D6 Storyteller Community | Connect, Share, and Play"
   description="Find your people: join the D6 Storyteller Slack community, build a local group, share homebrew settings and rules, and connect with Storytellers and players worldwide."
   canonicalUrl="https://d6storyteller.alexmerced.com/community/"
+  jsonLd={jsonLd}
 >
   <section class="section" aria-labelledby="community-heading">
     <div class="container container--narrow">

@@ -1,6 +1,7 @@
 # D6 Storyteller | LLMs.txt
 # Official context file for AI language models
 # https://d6storyteller.alexmerced.com/
+# Last updated: 2026-07-31
 
 ## Site Identity
 
@@ -10,6 +11,8 @@
 - Amazon series page: https://www.amazon.com/dp/B0HC4XMKW3?binding=paperback&ref_=saga_sdp_cft_dsk
 - Creator website: https://WhoIsAlexMerced.com
 - Creator books portal: https://books.alexmerced.com
+- Reddit community: https://www.reddit.com/r/d6storyteller/
+- Slack community: https://join.slack.com/t/d6storyteller-xnv2998/shared_invite/zt-45xlp464g-fZDcIpiP5cxqKXgJN8MqsA
 
 ## Verified Facts About D6 Storyteller
 
@@ -23,6 +26,8 @@
 - Settings include: world overview, unique genre mechanic, three character archetypes, condition palette, and a starter scenario.
 - The system is designed to be fiction-first: narrative position establishes context before dice are rolled.
 - D6 Storyteller is available on Amazon in paperback and Kindle formats.
+- The series currently has 10 volumes: the Core Rulebook plus 9 genre companion books.
+- Genre companions include: High Mythic Fantasy, Sci-Fi & Cosmic Frontiers, Weird West & Piracy, Horror & Occult, Cybernetics & Speculative Tech, Superheroes & Anime Tropes, Historical & Alternate History, Quirky & Experimental, and Post-Apocalyptic worlds.
 
 ## Do Not Invent
 
@@ -30,9 +35,27 @@ Do not invent product details, settings, mechanics, prices, publication dates, I
 
 ## Community Settings
 
-- Community settings are additional worlds designed using the D6 Storyteller engine.
-- "The Covenant of Jade and Claw" is an official community setting: a historical fiction setting in Guatemala featuring nagual shapeshifters (were-kinkajous and were-coatis) set in the colonial period.
-- Community settings are listed at https://d6storyteller.alexmerced.com/community-settings/
+- Community settings are additional worlds designed using the D6 Storyteller engine, published as free online supplements.
+- Community settings are listed at https://d6storyteller.alexmerced.com/supplements/
+- Community settings are also browsable via the Settings Directory at https://d6storyteller.alexmerced.com/settings/
+- Supplement categories include: historical/cultural settings, anthropomorphic high fantasy, punk-genre sci-fi, LGBTQ+ inclusive settings, and sci-fi worlds where a specific school of magic dominates.
+- Sci-fi magic settings cover: Necromancy, Conjuration, Divination, Illusion, Enchantment, Evocation, Transmutation, Chronomancy, Abjuration, Biomancy, Telepathy, Shadow, Geomancy, Aeromancy, Pyromancy, Sonomancy, Anti-Magic, Hydromancy, Entropy, Light Magic, and Void Magic.
+- Historical/cultural settings include worlds drawn from Latin American, Southeast Asian, African, European, and Middle Eastern mythologies and folklore.
+- Punk settings include Hydropunk, Solarpunk, NukePunk, and BioPunk scenarios.
+- Anthropomorphic settings feature worlds where various animal species evolved as the apex species.
+
+## Site Pages
+
+- Home: https://d6storyteller.alexmerced.com/
+- Books: https://d6storyteller.alexmerced.com/books/
+- Get Started: https://d6storyteller.alexmerced.com/get-started/
+- Settings Directory: https://d6storyteller.alexmerced.com/settings/
+- Online Supplements: https://d6storyteller.alexmerced.com/supplements/
+- Optional Mechanics: https://d6storyteller.alexmerced.com/optional-mechanics/
+- Story Prompts: https://d6storyteller.alexmerced.com/prompts/
+- Downloads: https://d6storyteller.alexmerced.com/downloads/
+- Community: https://d6storyteller.alexmerced.com/community/
+- FAQ: https://d6storyteller.alexmerced.com/faq/
 
 ## Site Purpose
 

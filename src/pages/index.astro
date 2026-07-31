@@ -57,13 +57,25 @@ const jsonLd = {
       "url": "https://d6storyteller.alexmerced.com/",
       "name": "D6 Storyteller",
       "description": "A fiction-first tabletop roleplaying system and book series by Alex Merced.",
-      "inLanguage": "en-US"
+      "inLanguage": "en-US",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://d6storyteller.alexmerced.com/settings/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
     },
     {
       "@type": "Person",
       "@id": "https://d6storyteller.alexmerced.com/#alex-merced",
       "name": "Alex Merced",
-      "url": "https://d6storyteller.alexmerced.com/about/"
+      "url": "https://WhoIsAlexMerced.com",
+      "sameAs": [
+        "https://WhoIsAlexMerced.com",
+        "https://books.alexmerced.com",
+        "https://www.amazon.com/stores/Alex-Merced/author/B00S978KCE",
+        "https://www.reddit.com/r/d6storyteller/",
+        "https://d6storyteller.alexmerced.com/"
+      ]
     },
     {
       "@type": "WebPage",
@@ -71,7 +83,8 @@ const jsonLd = {
       "url": "https://d6storyteller.alexmerced.com/",
       "name": "D6 Storyteller | Fiction-First Tabletop RPG by Alex Merced",
       "isPartOf": { "@id": "https://d6storyteller.alexmerced.com/#website" },
-      "inLanguage": "en-US"
+      "inLanguage": "en-US",
+      "author": { "@id": "https://d6storyteller.alexmerced.com/#alex-merced" }
     },
     {
       "@type": "CreativeWorkSeries",
@@ -79,7 +92,9 @@ const jsonLd = {
       "name": "D6 Storyteller",
       "description": "A fiction-first tabletop roleplaying system and companion book series.",
       "creator": { "@id": "https://d6storyteller.alexmerced.com/#alex-merced" },
-      "url": "https://d6storyteller.alexmerced.com/books/"
+      "url": "https://d6storyteller.alexmerced.com/books/",
+      "genre": ["Tabletop RPG", "Game Design"],
+      "inLanguage": "en-US"
     }
   ]
 };

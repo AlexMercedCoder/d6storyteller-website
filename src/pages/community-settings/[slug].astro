@@ -26,25 +26,42 @@ const breadcrumbs = [
   { label: data.title, href: `/community-settings/${setting.slug}/` },
 ];
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "@id": `${settingUrl}#article`,
-  "headline": data.title,
-  "description": data.seoDescription,
-  "url": settingUrl,
-  "author": {
-    "@type": "Person",
-    "name": data.author,
-    "@id": `${SITE_URL}/#alex-merced`
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${settingUrl}#article`,
+    "headline": data.title,
+    "description": data.seoDescription,
+    "url": settingUrl,
+    "datePublished": data.publishedDate,
+    "author": {
+      "@type": "Person",
+      "name": data.author,
+      "@id": `${SITE_URL}/#alex-merced`
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Alex Merced",
+      "@id": `${SITE_URL}/#alex-merced`
+    },
+    "isPartOf": { "@id": `${SITE_URL}/#website` },
+    "about": {
+      "@type": "Game",
+      "name": "D6 Storyteller",
+      "url": SITE_URL
+    }
   },
-  "isPartOf": { "@id": `${SITE_URL}/#website` },
-  "about": {
-    "@type": "Game",
-    "name": "D6 Storyteller",
-    "url": SITE_URL
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": `${SITE_URL}/` },
+      { "@type": "ListItem", "position": 2, "name": "Online Supplements", "item": `${SITE_URL}/supplements/` },
+      { "@type": "ListItem", "position": 3, "name": data.title, "item": settingUrl }
+    ]
   }
-};
+];
 ---
 
 <BaseLayout

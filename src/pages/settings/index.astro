@@ -37,12 +37,25 @@ const suppSettings = supplements.map(supp => ({
 // Combine all settings
 const allSettings = [...suppSettings, ...bookSettings];
 const allTags = [...new Set(allSettings.flatMap(s => s.tags))].sort();
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "https://d6storyteller.alexmerced.com/settings/#webpage",
+  "url": "https://d6storyteller.alexmerced.com/settings/",
+  "name": "Settings Directory | D6 Storyteller World Index",
+  "description": "All settings across the D6 Storyteller universe: core book worlds plus supplemental settings.",
+  "isPartOf": { "@id": "https://d6storyteller.alexmerced.com/#website" },
+  "about": { "@id": "https://d6storyteller.alexmerced.com/#series" },
+  "inLanguage": "en-US"
+};
 ---
 
 <BaseLayout
   title="Settings Directory | D6 Storyteller World Index"
   description="Explore all settings across the D6 Storyteller universe: core book worlds plus online supplemental settings with custom artwork and unique mechanics. Filter by tag, genre, or keyword."
   canonicalUrl="https://d6storyteller.alexmerced.com/settings/"
+  jsonLd={jsonLd}
 >
   <section class="section" aria-labelledby="settings-heading">
     <div class="container">
