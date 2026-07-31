@@ -15,7 +15,7 @@ const navItems: NavItem[] = [
     label: 'Resources',
     id: 'resources-dropdown',
     children: [
-      { href: '/settings/',           label: 'Settings Directory',  desc: 'All 137 worlds across books & supplements' },
+      { href: '/settings/',           label: 'Settings Directory',  desc: 'Worlds across books & supplements' },
       { href: '/optional-mechanics/', label: 'Optional Mechanics',  desc: '50 plug-in rules for any campaign' },
       { href: '/prompts/',            label: 'Prompts',             desc: '30 creative prompts for Storytellers & players' },
       { href: '/downloads/',          label: 'Downloads',           desc: 'Character sheets & printable aids' },
@@ -145,7 +145,7 @@ const resourcesActive = resourcePaths.some(p => currentPath.startsWith(p));
           Resources
           <span class="mobile-menu__chevron" aria-hidden="true">▾</span>
                 <ul class={`mobile-menu__sub${resourcesActive ? ' mobile-menu__sub--open' : ''}`} role="list">
-          <li><a href="/settings/" class={`mobile-menu__sub-link${isActive('/settings/') ? ' mobile-menu__sub-link--active' : ''}`}>Settings Directory <span>All 137 worlds</span></a></li>
+          <li><a href="/settings/" class={`mobile-menu__sub-link${isActive('/settings/') ? ' mobile-menu__sub-link--active' : ''}`}>Settings Directory <span>All worlds</span></a></li>
           <li><a href="/optional-mechanics/" class={`mobile-menu__sub-link${isActive('/optional-mechanics/') ? ' mobile-menu__sub-link--active' : ''}`}>Optional Mechanics <span>50 plug-in rules</span></a></li>
           <li><a href="/prompts/" class={`mobile-menu__sub-link${isActive('/prompts/') ? ' mobile-menu__sub-link--active' : ''}`}>Prompts <span>30 creative starters</span></a></li>
           <li><a href="/downloads/" class={`mobile-menu__sub-link${isActive('/downloads/') ? ' mobile-menu__sub-link--active' : ''}`}>Downloads <span>Sheets & printables</span></a></li>
