@@ -9,7 +9,7 @@ accentColor: "#b91c1c"
 coverImage: "/images/supplements/humor-barbarian-lifecoach.png"
 coverAlt: "Pixel art cover of Unleash Your Inner Berserker showing a massive barbarian warrior in motivational speaker attire presenting to a corporate audience on a stage with a flip chart"
 seoTitle: "Unleash Your Inner Berserker | D6 Storyteller Online Supplements"
-seoDescription: "Apply barbarian philosophy to modern life: get coached by Grug the Unstoppable, master the Seven Pillars, and discover that everything is better with rage properly channeled."
+seoDescription: "Apply barbarian philosophy to modern life: get coached by Grug the Unstoppable, master the Seven Pillars, and find everything is better with rage channeled."
 author: "Alex Merced"
 publishedDate: "2026-07-31"
 ---

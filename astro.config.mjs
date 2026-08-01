@@ -17,6 +17,7 @@ export default defineConfig({
   redirects: {
     '/system': '/get-started/',
     '/community-settings': '/supplements/',
+    '/about': '/faq/#about',
   },
   image: {
     remotePatterns: [],

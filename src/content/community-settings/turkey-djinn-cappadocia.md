@@ -9,7 +9,7 @@ accentColor: "#b45309"
 coverImage: "/images/supplements/turkey-djinn-cappadocia.png"
 coverAlt: "Pixel art cover of The Djinn Courts of Cappadocia showing the iconic Cappadocian fairy chimney landscape at sunset with Djinn fire-forms emerging from cave entrances below"
 seoTitle: "The Djinn Courts of Cappadocia | D6 Storyteller Online Supplements"
-seoDescription: "Navigate the Djinn pacts beneath Cappadocia: explore ancient underground cities, mediate between wind-spirits and communities, and discover what disturbs even the Djinn."
+seoDescription: "Navigate the Djinn pacts beneath Cappadocia: explore ancient underground cities, mediate between wind-spirits and towns, and discover what disturbs the Djinn."
 author: "Alex Merced"
 publishedDate: "2026-07-31"
 ---

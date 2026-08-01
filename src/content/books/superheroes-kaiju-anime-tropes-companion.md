@@ -4,13 +4,13 @@ subtitle: "A Fiction-First Tabletop Roleplaying Expansion & 10 Superheroes, Kaij
 shortTitle: "Superheroes & Anime Tropes"
 order: 7
 description: "The Superheroes, Kaiju & Anime Tropes Companion charges the D6 Storyteller engine with collateral damage clocks, Ki charge chains, mech sync ratios, and magical girl transformations. Ten settings spanning superhero dystopias, kaiju defense forces, martial arts tournaments, and cosmic space police."
-coverImage: "/images/covers/superheroes-kaiju-anime-tropes-companion.png"
+coverImage: "/images/covers/superheroes-kaiju-anime-tropes-companion.webp"
 coverAlt: "Pixel-art cover of D6 Storyteller: Superheroes, Kaiju & Anime Tropes Companion by Alex Merced"
 genres: ["Superheroes", "Kaiju", "Anime", "Mecha"]
 amazonUrl: "https://www.amazon.com/dp/B0HC4XMKW3?binding=paperback&ref_=saga_sdp_cft_dsk"
 formats: ["Paperback", "Kindle"]
 seoTitle: "Superheroes, Kaiju & Anime Tropes Companion | D6 Storyteller"
-seoDescription: "Play ten superhero, kaiju, and anime-inspired settings for D6 Storyteller: from magical girls and mech academies to martial arts tournaments and cosmic ring-bearers: with custom mechanics."
+seoDescription: "Play ten superhero, kaiju, and anime-inspired settings for D6 Storyteller: from magical girls and mech academies to martial arts tournaments and cosmic ring-bearers."
 settings:
   - name: "Titan Response"
     premise: "Military officers and mech operators defend coastal cities against giant monsters rising from ocean trenches."

@@ -9,7 +9,7 @@ accentColor: "#7c3aed"
 coverImage: "/images/supplements/humor-adventurers-anonymous.png"
 coverAlt: "Pixel art cover of Adventurers Anonymous showing heroes in a support group circle with weapons stacked by the door and a poster reading 'One Quest at a Time'"
 seoTitle: "Adventurers Anonymous | D6 Storyteller Online Supplements"
-seoDescription: "Recover from adventure addiction: work the twelve steps, resist the compulsion to investigate mysterious doors, and discover that some quests are worth choosing."
+seoDescription: "Recover from adventure addiction: work the twelve steps, resist the compulsion to investigate mysterious doors, and discover which quests are worth choosing."
 author: "Alex Merced"
 publishedDate: "2026-07-31"
 ---

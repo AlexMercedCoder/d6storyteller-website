@@ -29,7 +29,11 @@ const robotsContent = noIndex
   ? 'noindex,follow'
   : 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1';
 
-const ogImageType = absoluteOgImage.endsWith('.png') ? 'image/png' : 'image/jpeg';
+const ogImageType = absoluteOgImage.endsWith('.png')
+  ? 'image/png'
+  : absoluteOgImage.endsWith('.webp')
+    ? 'image/webp'
+    : 'image/jpeg';
 ---
 
 <title>{title}</title>

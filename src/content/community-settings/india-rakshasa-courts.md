@@ -9,7 +9,7 @@ accentColor: "#b45309"
 coverImage: "/images/supplements/india-rakshasa-courts.png"
 coverAlt: "Pixel art cover of The Rakshasa Courts of Kishkindha showing a Vanara warrior and a human sage facing a multi-armed Rakshasa shapeshifter in an ancient forest temple"
 seoTitle: "The Rakshasa Courts of Kishkindha | D6 Storyteller Online Supplements"
-seoDescription: "Hunt shapeshifting demons through ancient India: navigate dharma, ally with Vanara warriors, and discover the face that the Rakshasa wore was always the one you trusted."
+seoDescription: "Hunt shapeshifting demons through ancient India: navigate dharma, ally with Vanara warriors, and discover the Rakshasa's face was always the one you trusted."
 author: "Alex Merced"
 publishedDate: "2026-07-31"
 ---

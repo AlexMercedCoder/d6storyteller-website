@@ -9,7 +9,7 @@ accentColor: "#6d28d9"
 coverImage: "/images/supplements/japan-yokai-twilight.png"
 coverAlt: "Pixel art cover of The Yokai Twilight showing a ronin at a torii gate with kitsune, tengu, and ghost yokai in the mist"
 seoTitle: "The Yokai Twilight | D6 Storyteller Online Supplements"
-seoDescription: "Navigate Sengoku Japan's supernatural politics: walk between the human and yokai worlds, negotiate with kitsune and tengu, and survive the hour when reality dissolves."
+seoDescription: "Navigate Sengoku Japan's supernatural politics: walk between human and yokai worlds, negotiate with kitsune and tengu, and survive when reality dissolves."
 author: "Alex Merced"
 publishedDate: "2026-07-30"
 ---

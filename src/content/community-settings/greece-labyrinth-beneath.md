@@ -9,7 +9,7 @@ accentColor: "#ca8a04"
 coverImage: "/images/supplements/greece-labyrinth-beneath.png"
 coverAlt: "Pixel art cover of The Labyrinth Beneath showing a Greek heroine entering the Cretan Labyrinth with Ariadne's thread and the Minotaur's shadow within"
 seoTitle: "The Labyrinth Beneath | D6 Storyteller Online Supplements"
-seoDescription: "Descend into the Labyrinth beneath Knossos: confront the truth about the Minotaur, resist the gods' manipulation, and seal the Chthonic realm before the Titans escape."
+seoDescription: "Descend into the Labyrinth beneath Knossos: confront the truth about the Minotaur, resist the gods, and seal the Chthonic realm before the Titans escape."
 author: "Alex Merced"
 publishedDate: "2026-07-30"
 ---

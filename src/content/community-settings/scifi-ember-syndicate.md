@@ -9,7 +9,7 @@ accentColor: "#7c2d12"
 coverImage: "/images/supplements/scifi-ember-syndicate.png"
 coverAlt: "Pixel art cover of The Ember Syndicate showing fire refineries, a fire union strike, pyromancer workers on fire corridors, and a cold dark district in the background"
 seoTitle: "The Ember Syndicate: Fire Magic and the Energy Barons | D6 Storyteller Sci-Fi Magic Settings"
-seoDescription: "Navigate the fire workers' strike in a pyromancy energy world where winter is coming, fuel reserves are counting down, and the Syndicate thinks it has already won."
+seoDescription: "Navigate the fire workers' strike in a pyromancy energy world where winter is coming, fuel reserves count down, and the Syndicate thinks it has already won."
 author: "Alex Merced"
 publishedDate: "2026-07-31"
 ---

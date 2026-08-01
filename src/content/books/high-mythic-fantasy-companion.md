@@ -4,13 +4,13 @@ subtitle: "A Fiction-First Tabletop Roleplaying Expansion & 10 High & Mythic Fan
 shortTitle: "High & Mythic Fantasy"
 order: 2
 description: "The High & Mythic Fantasy Companion expands the D6 Storyteller engine into realms of divine warfare, sky-sailing kingdoms, deep oceanic civilizations, and primal beast-shapers. Ten fully realized high-fantasy settings, each with unique mechanics, archetypes, and adventure seeds."
-coverImage: "/images/covers/high-mythic-fantasy-companion.png"
+coverImage: "/images/covers/high-mythic-fantasy-companion.webp"
 coverAlt: "Pixel-art cover of D6 Storyteller: High & Mythic Fantasy Companion by Alex Merced"
 genres: ["Fantasy", "Mythic", "High Fantasy"]
 amazonUrl: "https://www.amazon.com/dp/B0HC4XMKW3?binding=paperback&ref_=saga_sdp_cft_dsk"
 formats: ["Paperback", "Kindle"]
 seoTitle: "High & Mythic Fantasy Companion | D6 Storyteller"
-seoDescription: "Explore ten high fantasy settings for D6 Storyteller: from shattered heavens and sky-drift archipelagos to feywild courts and undead empires: with custom mechanics and archetypes."
+seoDescription: "Explore ten high fantasy settings for D6 Storyteller: from shattered heavens and sky-drift archipelagos to feywild courts and undead empires."
 settings:
   - name: "Shattered Heavens"
     premise: "The pantheon of gods died in a cosmic war, leaving their fallen divine corpses as continent-sized biomes."

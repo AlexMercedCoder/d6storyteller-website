@@ -9,7 +9,7 @@ accentColor: "#6366f1"
 coverImage: "/images/supplements/soul-bound-animists.png"
 coverAlt: "Pixel art cover of The Soul-Bound showing a human warrior with wolf, eagle, bear, panther, and fox animal spirits orbiting them on a twilight mountaintop"
 seoTitle: "The Soul-Bound: Chronicles of the Animist Hunters | D6 Storyteller Online Supplements"
-seoDescription: "Absorb animal souls for unique powers and navigate the ethics of soul-keeping in this supernatural adventure RPG setting about animist hunters and the war over spirit freedom."
+seoDescription: "Absorb animal souls for unique powers and navigate the ethics of soul-keeping in this supernatural RPG about animist hunters and the war over spirit freedom."
 author: "Alex Merced"
 publishedDate: "2026-07-31"
 ---

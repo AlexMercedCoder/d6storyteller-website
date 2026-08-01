@@ -4,13 +4,13 @@ subtitle: "A Fiction-First Tabletop Roleplaying Engine & 10 Starter Worlds"
 shortTitle: "The Core Rulebook"
 order: 1
 description: "D6 Storyteller: The Core Rulebook is the complete foundation of the fiction-first D6 engine. Inside you'll find everything a group needs to run dramatic stories across any genre: character creation, dice mechanics, conflict resolution, the Storyteller's guide, and ten ready-to-play starter worlds spanning high fantasy, cyberpunk, sci-fi, noir, horror, superheroes, and more."
-coverImage: "/images/covers/core-rulebook.png"
+coverImage: "/images/covers/core-rulebook.webp"
 coverAlt: "Pixel-art cover of D6 Storyteller: The Core Rulebook by Alex Merced"
 genres: ["Fantasy", "Sci-Fi", "Horror", "Noir", "Superheroes", "Post-Apocalyptic"]
 amazonUrl: "https://www.amazon.com/dp/B0HC4XMKW3?binding=paperback&ref_=saga_sdp_cft_dsk"
 formats: ["Paperback", "Kindle"]
 seoTitle: "D6 Storyteller: The Core Rulebook"
-seoDescription: "The complete D6 Storyteller Core Rulebook: a fiction-first tabletop RPG engine with D6 dice pools, full rules, and 10 ready-to-play starter worlds by Alex Merced."
+seoDescription: "The D6 Storyteller Core Rulebook: a fiction-first tabletop RPG engine with D6 dice pools, full rules, and 10 ready-to-play starter worlds by Alex Merced."
 settings:
   - name: "Aether & Iron"
     premise: "Wild elemental magic clashes with industrial alchemy in an empire powered by harvested ley lines."

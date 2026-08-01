@@ -9,7 +9,7 @@ accentColor: "#f59e0b"
 coverImage: "/images/supplements/solarpunk-heliarchy.png"
 coverAlt: "Pixel art cover of The Heliarchy showing a luminous green solar city with sunflower turbines, living architecture, and crystal photovoltaic spires"
 seoTitle: "The Heliarchy: A Solarpunk Chronicle | D6 Storyteller Online Supplements"
-seoDescription: "Defend a solar-powered utopia from fossil baron saboteurs: grow living architecture, harness collective solar power, and preserve the Heliarchy in this Solarpunk RPG setting."
+seoDescription: "Defend a solar-powered utopia from fossil baron saboteurs: grow living architecture, harness collective power, and preserve the Heliarchy in this Solarpunk RPG."
 author: "Alex Merced"
 publishedDate: "2026-07-31"
 ---

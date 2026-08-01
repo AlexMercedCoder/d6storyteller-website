@@ -9,7 +9,7 @@ accentColor: "#475569"
 coverImage: "/images/supplements/chile-caleuche-call.png"
 coverAlt: "Pixel art cover of The Caleuche's Call showing a spectral ghost ship in the fog channels of Chiloé with a bruja on the shore"
 seoTitle: "The Caleuche's Call | D6 Storyteller Online Supplements"
-seoDescription: "Navigate the fog-bound channels of Chiloé Island: confront the brujos' secret society, escape the ghost ship Caleuche, and heal the wounds of Chile's southernmost folklore."
+seoDescription: "Navigate the fog-bound channels of Chiloé Island: confront the brujos' secret society, escape the ghost ship Caleuche, and heal Chile's southernmost folklore."
 author: "Alex Merced"
 publishedDate: "2026-07-30"
 ---

@@ -297,12 +297,37 @@ const tagTextColors: Record<string, string> = {
   "Hook":            "#806000",
   "Skills":          "#1a6a30",
 };
+
+const SITE_URL = 'https://d6storyteller.alexmerced.com';
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": `${SITE_URL}/prompts/#webpage`,
+      "url": `${SITE_URL}/prompts/`,
+      "name": "D6 Storyteller Storyteller & Player Prompts",
+      "description": "Creative prompts for D6 Storyteller Storytellers and players: turn a raw campaign idea into a fleshed-out world, or deepen a character concept with targeted questions.",
+      "isPartOf": { "@id": `${SITE_URL}/#website` },
+      "breadcrumb": { "@id": `${SITE_URL}/prompts/#breadcrumb` }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${SITE_URL}/prompts/#breadcrumb`,
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": `${SITE_URL}/` },
+        { "@type": "ListItem", "position": 2, "name": "Prompts", "item": `${SITE_URL}/prompts/` }
+      ]
+    }
+  ]
+};
 ---
 
 <BaseLayout
   title="D6 Storyteller Prompts | Storyteller & Player Idea Starters"
-  description="30 prompts for D6 Storyteller Storytellers and players - turn a raw campaign idea into a fully fleshed world, or take a character concept to the next level with targeted creative questions."
+  description="30 creative prompts for D6 Storyteller Storytellers and players: turn a raw campaign idea into a fleshed-out world, or deepen a character concept with targeted questions."
   canonicalUrl="https://d6storyteller.alexmerced.com/prompts/"
+  jsonLd={jsonLd}
 >
   <section class="section" aria-labelledby="prompts-heading">
     <div class="container">

@@ -4,13 +4,13 @@ subtitle: "A Fiction-First Tabletop Roleplaying Expansion & 10 Horror, Occult & 
 shortTitle: "Horror & Supernatural"
 order: 5
 description: "The Horror, Occult & Supernatural Companion plunges the D6 Storyteller engine into eldritch noir, slasher camps, vampire syndicates, and dreamscape horror. Ten complete settings of dread, occult mystery, and supernatural terror: each with mechanics that put sanity, survival, and the unknown at stake."
-coverImage: "/images/covers/horror-occult-supernatural-companion.png"
+coverImage: "/images/covers/horror-occult-supernatural-companion.webp"
 coverAlt: "Pixel-art cover of D6 Storyteller: Horror, Occult & Supernatural Companion by Alex Merced"
 genres: ["Horror", "Occult", "Supernatural", "Gothic"]
 amazonUrl: "https://www.amazon.com/dp/B0HC4XMKW3?binding=paperback&ref_=saga_sdp_cft_dsk"
 formats: ["Paperback", "Kindle"]
 seoTitle: "Horror & Supernatural Companion | D6 Storyteller"
-seoDescription: "Explore ten horror, occult, and supernatural settings for D6 Storyteller: eldritch cults, vampire syndicates, liminal backrooms, zombie apocalypses, and dreamscape horror: with custom mechanics."
+seoDescription: "Explore ten horror and occult settings for D6 Storyteller: eldritch cults, vampire syndicates, liminal backrooms, zombie apocalypses, and dreamscape horror."
 settings:
   - name: "Cult of the City"
     premise: "Private investigators in 1930s New York uncover cosmic horror cults operating out of high-society speakeasies."

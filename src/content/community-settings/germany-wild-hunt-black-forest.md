@@ -9,7 +9,7 @@ accentColor: "#1e3a2f"
 coverImage: "/images/supplements/germany-wild-hunt-black-forest.png"
 coverAlt: "Pixel art cover of The Wild Hunt of the Black Forest showing spectral riders in the sky above the Schwarzwald with a herbalist woman watching from a clearing"
 seoTitle: "The Wild Hunt of the Black Forest | D6 Storyteller Online Supplements"
-seoDescription: "Survive the Thirty Years' War in the Black Forest: face Wodan's Wild Hunt, navigate living Grimm fairy tales, and protect what remains when armies and spirits devour the land."
+seoDescription: "Survive the Thirty Years' War in the Black Forest: face Wodan's Wild Hunt, navigate living Grimm fairy tales, and protect what armies and spirits devour."
 author: "Alex Merced"
 publishedDate: "2026-07-30"
 ---

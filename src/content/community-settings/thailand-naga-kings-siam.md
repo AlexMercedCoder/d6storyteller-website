@@ -9,7 +9,7 @@ accentColor: "#d4a017"
 coverImage: "/images/supplements/thailand-naga-kings-siam.png"
 coverAlt: "Pixel art cover of The Naga Kings of Siam showing a warrior monk fighting before a golden temple as a seven-headed Naga rises from the flood"
 seoTitle: "The Naga Kings of Siam | D6 Storyteller Online Supplements"
-seoDescription: "Defend Ayutthaya in this D6 Storyteller setting: master Muay Boran sacred martial arts, activate Sak Yant tattoo power, and negotiate with Naga Kings beneath the river."
+seoDescription: "Defend Ayutthaya in this D6 Storyteller setting: master Muay Boran martial arts, activate Sak Yant tattoo power, and negotiate with Naga Kings under the river."
 author: "Alex Merced"
 publishedDate: "2026-07-30"
 ---

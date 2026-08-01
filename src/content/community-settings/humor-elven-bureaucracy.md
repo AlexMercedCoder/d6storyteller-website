@@ -9,7 +9,7 @@ accentColor: "#166534"
 coverImage: "/images/supplements/humor-elven-bureaucracy.png"
 coverAlt: "Pixel art cover of Forms in Triplicate showing beautiful ancient elf administrators in a vast marble hall filled ceiling to floor with filing systems containing thousands of years of documents"
 seoTitle: "Forms in Triplicate, Eternal | D6 Storyteller Online Supplements"
-seoDescription: "Navigate elven bureaucracy: submit your application, wait the appropriate millennia, and discover that the form you need was discontinued 400 years ago but is still required."
+seoDescription: "Navigate elven bureaucracy: submit your application, wait appropriate millennia, and find the form you need was discontinued 400 years ago but still required."
 author: "Alex Merced"
 publishedDate: "2026-07-31"
 ---

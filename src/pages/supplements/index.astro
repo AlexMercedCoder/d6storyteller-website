@@ -6,12 +6,48 @@ import { optionalMechanics } from '../../data/optional-mechanics';
 
 const settings = await getCollection('community-settings');
 const allMechanicTags = [...new Set(optionalMechanics.flatMap(m => m.tags))].sort();
+
+const SITE_URL = 'https://d6storyteller.alexmerced.com';
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": `${SITE_URL}/supplements/#webpage`,
+      "url": `${SITE_URL}/supplements/`,
+      "name": "D6 Storyteller Online Supplements",
+      "description": "Official D6 Storyteller online supplements: additional fully designed settings with custom artwork, plus fifty modular optional plug-in mechanics.",
+      "isPartOf": { "@id": `${SITE_URL}/#website` },
+      "breadcrumb": { "@id": `${SITE_URL}/supplements/#breadcrumb` },
+      "mainEntity": {
+        "@type": "ItemList",
+        "name": "D6 Storyteller Additional Settings",
+        "numberOfItems": settings.length,
+        "itemListElement": settings.map((s, i) => ({
+          "@type": "ListItem",
+          "position": i + 1,
+          "name": s.data.title,
+          "url": `${SITE_URL}/community-settings/${s.slug}/`
+        }))
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${SITE_URL}/supplements/#breadcrumb`,
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": `${SITE_URL}/` },
+        { "@type": "ListItem", "position": 2, "name": "Online Supplements", "item": `${SITE_URL}/supplements/` }
+      ]
+    }
+  ]
+};
 ---
 
 <BaseLayout
-  title="Online Supplements | D6 Storyteller Additional Settings & Optional Mechanics"
-  description="Explore official D6 Storyteller online supplements: additional fully designed settings with custom artwork, plus ten modular optional plug-in mechanics for any table."
+  title="Online Supplements | D6 Storyteller Settings & Mechanics"
+  description="Official D6 Storyteller online supplements: additional fully designed settings with custom artwork, plus fifty modular optional plug-in mechanics for any table."
   canonicalUrl="https://d6storyteller.alexmerced.com/supplements/"
+  jsonLd={jsonLd}
 >
   <section class="section" aria-labelledby="supplements-heading">
     <div class="container">

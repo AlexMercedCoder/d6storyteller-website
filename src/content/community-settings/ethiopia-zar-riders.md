@@ -9,7 +9,7 @@ accentColor: "#16a34a"
 coverImage: "/images/supplements/ethiopia-zar-riders.png"
 coverAlt: "Pixel art cover of The Zar Riders of the Blue Nile showing an Ethiopian Zar healer in ceremonial dress performing a ritual negotiation with spirit forms visible in the incense smoke"
 seoTitle: "The Zar Riders of the Blue Nile | D6 Storyteller Online Supplements"
-seoDescription: "Negotiate with Zar spirits in the Ethiopian highlands: heal the possessed, build a spirit network, and investigate the foreign spirits disrupting an ancient healing tradition."
+seoDescription: "Negotiate with Zar spirits in the Ethiopian highlands: heal the possessed, build a spirit network, and find the foreign spirits disrupting an old tradition."
 author: "Alex Merced"
 publishedDate: "2026-07-31"
 ---

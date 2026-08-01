@@ -9,7 +9,7 @@ accentColor: "#ca8a04"
 coverImage: "/images/supplements/humor-goblin-stockmarket.png"
 coverAlt: "Pixel art cover of Stonks and Sorcery showing goblins in business suits shouting at a massive rune-covered stock ticker board in a chaotic trading floor"
 seoTitle: "Stonks & Sorcery | D6 Storyteller Online Supplements"
-seoDescription: "Trade on the Goblin Stock Exchange: navigate market chaos, exploit regulations written to be exploitable, and survive the most volatile financial system in the known world."
+seoDescription: "Trade on the Goblin Stock Exchange: navigate market chaos, exploit regulations written to be exploited, and survive the most volatile financial system known."
 author: "Alex Merced"
 publishedDate: "2026-07-31"
 ---

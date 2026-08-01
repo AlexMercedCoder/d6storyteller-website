@@ -9,7 +9,7 @@ accentColor: "#57534e"
 coverImage: "/images/supplements/scifi-entropy-corps.png"
 coverAlt: "Pixel art cover of Entropy Corps showing a city half-decayed and half-pristine, entropy engineers demolishing buildings, preservation mages protecting artworks, and a black market dealer aging objects"
 seoTitle: "Entropy Corps: Decay and Preservation for Hire | D6 Storyteller Sci-Fi Magic Settings"
-seoDescription: "Expose entropy black market contracts in a world where decay is an industry: work demolition, run preservation, or follow the evidence trail inside Entropy Corps."
+seoDescription: "Expose entropy black market contracts in a world where decay is an industry: work demolition, run preservation, or follow the evidence inside Entropy Corps."
 author: "Alex Merced"
 publishedDate: "2026-07-31"
 ---

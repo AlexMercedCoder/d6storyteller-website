@@ -4,13 +4,13 @@ subtitle: "A Fiction-First Tabletop Roleplaying Expansion & 10 Historical & Alte
 shortTitle: "Historical & Alternate History"
 order: 8
 description: "The Historical & Alternate History Companion anchors the D6 Storyteller engine in the Roman Empire, Norse apocalypse, Sengoku Japan, Aztec-cursed seas, and WWII occult frontlines. Ten settings where real history and speculative fiction collide: with mechanics grounded in the stakes of their eras."
-coverImage: "/images/covers/historical-alternate-history-companion.png"
+coverImage: "/images/covers/historical-alternate-history-companion.webp"
 coverAlt: "Pixel-art cover of D6 Storyteller: Historical & Alternate History Companion by Alex Merced"
 genres: ["Historical", "Alternate History", "Mythology"]
 amazonUrl: "https://www.amazon.com/dp/B0HC4XMKW3?binding=paperback&ref_=saga_sdp_cft_dsk"
 formats: ["Paperback", "Kindle"]
 seoTitle: "Historical & Alternate History Companion | D6 Storyteller"
-seoDescription: "Explore ten historical and alternate history settings for D6 Storyteller: Roman legions, Norse Ragnarök, Sengoku Japan, WWII occult warfare, and wuxia Tang Dynasty: with custom mechanics."
+seoDescription: "Explore ten historical and alternate-history settings for D6 Storyteller: Roman legions, Norse Ragnarök, Sengoku Japan, WWII occult warfare, and wuxia Tang Dynasty."
 settings:
   - name: "Legions of Mars"
     premise: "The Roman Empire expands across Europe using war beasts, divine blessings from Mars, and siege magic."

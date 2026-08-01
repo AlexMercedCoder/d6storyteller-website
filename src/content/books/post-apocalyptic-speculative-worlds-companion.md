@@ -4,13 +4,13 @@ subtitle: "A Fiction-First Tabletop Roleplaying Expansion & 10 Post-Apocalyptic 
 shortTitle: "Post-Apocalyptic Worlds"
 order: 10
 description: "The Post-Apocalyptic & Speculative Worlds Companion pushes the D6 Storyteller engine past the end of civilization: into frozen wastelands, overgrown cities, vehicle-gang highways, shattered moons, radioactive swamps, and the very end of time. Ten complete post-apocalyptic settings where survival is never guaranteed."
-coverImage: "/images/covers/post-apocalyptic-speculative-worlds-companion.png"
+coverImage: "/images/covers/post-apocalyptic-speculative-worlds-companion.webp"
 coverAlt: "Pixel-art cover of D6 Storyteller: Post-Apocalyptic & Speculative Worlds Companion by Alex Merced"
 genres: ["Post-Apocalyptic", "Survival", "Speculative Fiction"]
 amazonUrl: "https://www.amazon.com/dp/B0HC4XMKW3?binding=paperback&ref_=saga_sdp_cft_dsk"
 formats: ["Paperback", "Kindle"]
 seoTitle: "Post-Apocalyptic Worlds Companion | D6 Storyteller"
-seoDescription: "Survive ten post-apocalyptic settings for D6 Storyteller: frozen wastelands, overgrown cities, car gangs, shattered moons, radioactive swamps, AI ghost wastelands, and the end of time."
+seoDescription: "Survive ten post-apocalyptic settings for D6 Storyteller: frozen wastelands, overgrown cities, car gangs, shattered moons, radioactive swamps, and AI ghost wastes."
 settings:
   - name: "Ice-Age 2099"
     premise: "A sudden global ice age has frozen the earth; survivors live in geothermal underground cities under the permafrost."

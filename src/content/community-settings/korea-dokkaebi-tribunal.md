@@ -9,7 +9,7 @@ accentColor: "#059669"
 coverImage: "/images/supplements/korea-dokkaebi-tribunal.png"
 coverAlt: "Pixel art cover of The Dokkaebi Tribunal showing Korean goblins with their iconic clubs dancing around a celestial records bureau officials desk while the official looks exasperated"
 seoTitle: "The Dokkaebi Tribunal | D6 Storyteller Online Supplements"
-seoDescription: "Partner with Dokkaebi chaos agents in Three Kingdoms Korea: navigate celestial bureaucracy, manage creative goblin enforcement methods, and discover that chaotic justice is still justice."
+seoDescription: "Partner with Dokkaebi chaos agents in Three Kingdoms Korea: navigate celestial bureaucracy, manage goblin enforcement, and learn chaotic justice is justice."
 author: "Alex Merced"
 publishedDate: "2026-07-31"
 ---

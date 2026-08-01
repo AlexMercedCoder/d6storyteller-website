@@ -9,7 +9,7 @@ accentColor: "#2e1065"
 coverImage: "/images/supplements/scifi-void-engineers.png"
 coverAlt: "Pixel art cover of The Void Engineers showing void rift installations in an industrial city, void engineers in pressure suits, and a void rift expanding uncontrollably on one side"
 seoTitle: "The Void Engineers: Controlled Nothingness | D6 Storyteller Sci-Fi Magic Settings"
-seoDescription: "Race to expose the void rift stability crisis before a 40-year-old installation fails and dissolves a city district in a world that built its infrastructure on controlled nothingness."
+seoDescription: "Race to expose the void rift stability crisis before a 40-year-old installation fails and dissolves a city district in a world built on controlled nothingness."
 author: "Alex Merced"
 publishedDate: "2026-07-31"
 ---

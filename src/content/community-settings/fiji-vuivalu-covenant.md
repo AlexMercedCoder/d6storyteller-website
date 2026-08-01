@@ -9,7 +9,7 @@ accentColor: "#0369a1"
 coverImage: "/images/supplements/fiji-vuivalu-covenant.png"
 coverAlt: "Pixel art cover of The Vuivalu's Deep Covenant showing Fijian Dato practitioners on an outrigger canoe performing a ceremony at a glowing reef while Vuivalu sea spirit forms rise from the water"
 seoTitle: "The Vuivalu's Deep Covenant | D6 Storyteller Online Supplements"
-seoDescription: "Maintain the Fijian sea spirit covenant: build Reef Rapport with Vuivalu, navigate disrupted currents, and discover what from the deep ocean is disturbing the ancient pact."
+seoDescription: "Maintain the Fijian sea spirit covenant: build Reef Rapport with Vuivalu, navigate disrupted currents, and discover what from the deep is disturbing the pact."
 author: "Alex Merced"
 publishedDate: "2026-07-31"
 ---

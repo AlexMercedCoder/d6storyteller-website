@@ -9,7 +9,7 @@ accentColor: "#dc2626"
 coverImage: "/images/supplements/china-fox-tribunal.png"
 coverAlt: "Pixel art cover of The Fox Tribunal of the Nine Tails showing Spirit Investigators in imperial robes reviewing evidence at a hearing where fox spirits in human form face an imperial tribunal"
 seoTitle: "The Fox Tribunal of the Nine Tails | D6 Storyteller Online Supplements"
-seoDescription: "Investigate supernatural crimes in Imperial China: navigate celestial bureaucracy, handle Huli Jing jurisdiction disputes, and discover what happens when spirit and earthly law collide."
+seoDescription: "Investigate supernatural crimes in Imperial China: navigate celestial bureaucracy, handle Huli Jing disputes, and see spirit and earthly law collide."
 author: "Alex Merced"
 publishedDate: "2026-07-31"
 ---

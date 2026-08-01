@@ -9,7 +9,7 @@ accentColor: "#a855f7"
 coverImage: "/images/supplements/biopunk-gene-forge.png"
 coverAlt: "Pixel art cover of The Gene-Forge showing a bioluminescent organic city with flesh-towers, DNA-strand bridges, and a marketplace of living modifications"
 seoTitle: "The Gene-Forge: A BioPunk Chronicle | D6 Storyteller Online Supplements"
-seoDescription: "Navigate a civilization built from living technology: fight Gene-Forge Guilds, track a rogue Wild Sequence, and decide how much of yourself you'll sacrifice to the biome."
+seoDescription: "Biopunk civilization built from living technology: fight Gene-Forge Guilds, track a rogue Wild Sequence, and decide how much of yourself you'll give the biome."
 author: "Alex Merced"
 publishedDate: "2026-07-31"
 ---

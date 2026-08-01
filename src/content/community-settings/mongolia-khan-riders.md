@@ -9,7 +9,7 @@ accentColor: "#0369a1"
 coverImage: "/images/supplements/mongolia-khan-riders.png"
 coverAlt: "Pixel art cover of The Khan's Eternal Riders showing Mongolian warrior-shamans on horseback against a vast sky with spirit forms visible in the clouds above the steppe"
 seoTitle: "The Khan's Eternal Riders | D6 Storyteller Online Supplements"
-seoDescription: "Guard the sacred steppe geography as Duureg warrior-shamans: ride Spirit Horses between worlds, maintain Tengri's relationships, and protect the eternal blue sky's boundary."
+seoDescription: "Guard the sacred steppe as Duureg warrior-shamans: ride Spirit Horses between worlds, keep Tengri's bonds, and protect the eternal blue sky's boundary."
 author: "Alex Merced"
 publishedDate: "2026-07-31"
 ---

@@ -9,7 +9,7 @@ accentColor: "#16a34a"
 coverImage: "/images/supplements/humor-orcs-in-orbit.png"
 coverAlt: "Pixel art cover of Orcs in Orbit showing armored orcs in space suits floating in a spacecraft corridor looking determined while other alien crew members look concerned"
 seoTitle: "Orcs in Orbit | D6 Storyteller Online Supplements"
-seoDescription: "Navigate space with the Ironclaw Warband: bring honor culture to the cosmos, solve diplomatic incidents with directness, and discover what cannot be challenged to single combat."
+seoDescription: "Navigate space with the Ironclaw Warband: bring honor culture to the cosmos, solve diplomatic incidents bluntly, and find what cannot be challenged to combat."
 author: "Alex Merced"
 publishedDate: "2026-07-31"
 ---

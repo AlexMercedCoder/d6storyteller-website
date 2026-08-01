@@ -191,12 +191,55 @@ const categories: Category[] = [
     downloads: storytellerDownloads,
   },
 ];
+
+const SITE_URL = 'https://d6storyteller.alexmerced.com';
+const allDownloads = categories.flatMap(c => c.downloads);
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": `${SITE_URL}/downloads/#webpage`,
+      "url": `${SITE_URL}/downloads/`,
+      "name": "D6 Storyteller Free Downloads",
+      "description": "Free printable downloads for D6 Storyteller: character sheets, optional mechanics add-on sheets, party trackers, a Storyteller reference card, and a session planner.",
+      "isPartOf": { "@id": `${SITE_URL}/#website` },
+      "breadcrumb": { "@id": `${SITE_URL}/downloads/#breadcrumb` },
+      "mainEntity": {
+        "@type": "ItemList",
+        "name": "D6 Storyteller Printable Sheets",
+        "numberOfItems": allDownloads.length,
+        "itemListElement": allDownloads.map((d, i) => ({
+          "@type": "ListItem",
+          "position": i + 1,
+          "item": {
+            "@type": "DigitalDocument",
+            "name": d.title,
+            "description": d.subtitle,
+            "url": `${SITE_URL}${d.href}`,
+            "isAccessibleForFree": true,
+            "encodingFormat": "text/html"
+          }
+        }))
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${SITE_URL}/downloads/#breadcrumb`,
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": `${SITE_URL}/` },
+        { "@type": "ListItem", "position": 2, "name": "Downloads", "item": `${SITE_URL}/downloads/` }
+      ]
+    }
+  ]
+};
 ---
 
 <BaseLayout
   title="D6 Storyteller Free Downloads | Character Sheets & Storyteller Aids"
-  description="Free printable downloads for D6 Storyteller: core character sheets, optional mechanics add-on sheets, party trackers, Storyteller reference card, and session planner. Print directly or save as PDF."
+  description="Free printable D6 Storyteller downloads: character sheets, optional mechanics add-on sheets, party trackers, a Storyteller reference card, and a session planner."
   canonicalUrl="https://d6storyteller.alexmerced.com/downloads/"
+  jsonLd={jsonLd}
 >
   <section class="section" aria-labelledby="downloads-heading">
     <div class="container">

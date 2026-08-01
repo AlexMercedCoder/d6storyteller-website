@@ -9,7 +9,7 @@ accentColor: "#9333ea"
 coverImage: "/images/supplements/humor-great-bardoff.png"
 coverAlt: "Pixel art cover of The Great Bard-Off showing competing bards on a massive stage with magical music effects filling the air as judges watch and audience members are visibly overwhelmed"
 seoTitle: "The Great Bard-Off | D6 Storyteller Online Supplements"
-seoDescription: "Compete in the magical Bard-Off: build performance power, navigate competition politics, contain resonance events, and discover that music can literally change reality."
+seoDescription: "Compete in the magical Bard-Off: build performance power, navigate competition politics, contain resonance events, and discover music can change reality."
 author: "Alex Merced"
 publishedDate: "2026-07-31"
 ---

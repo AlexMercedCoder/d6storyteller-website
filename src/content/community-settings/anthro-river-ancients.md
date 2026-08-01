@@ -9,7 +9,7 @@ accentColor: "#92400e"
 coverImage: "/images/supplements/anthro-river-ancients.png"
 coverAlt: "Pixel art cover of River of Ancients showing capybara diplomat, hippo warrior, rhino paladin, and elephant mage in a savanna river delta city at sunset"
 seoTitle: "River of Ancients: The Savanna Kindred Kingdoms | D6 Storyteller Online Supplements"
-seoDescription: "Navigate diplomacy and ancient drought prophecy with capybara mediators, hippo warriors, rhino paladins, and elephant memory-keepers in this gentle-giant high fantasy setting."
+seoDescription: "Navigate diplomacy and drought prophecy with capybara mediators, hippo warriors, rhino paladins, and elephant memory-keepers in a gentle-giant fantasy setting."
 author: "Alex Merced"
 publishedDate: "2026-07-31"
 ---

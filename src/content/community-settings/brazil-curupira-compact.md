@@ -9,7 +9,7 @@ accentColor: "#166534"
 coverImage: "/images/supplements/brazil-curupira-compact.png"
 coverAlt: "Pixel art cover of The Curupira's Forest Compact showing a Pajé in an Amazon clearing meeting with the Curupira forest guardian and river spirit forms at the water's edge at sunset"
 seoTitle: "The Curupira's Forest Compact | D6 Storyteller Online Supplements"
-seoDescription: "Navigate the Amazon's spiritual ecology as a Pajé: negotiate with Curupira guardians, manage the Forest Balance, and protect the compact between human and spirit communities."
+seoDescription: "Navigate the Amazon's spiritual ecology as a Pajé: negotiate with Curupira guardians, manage the Forest Balance, and protect the human-spirit compact."
 author: "Alex Merced"
 publishedDate: "2026-07-31"
 ---

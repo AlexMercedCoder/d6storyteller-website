@@ -4,12 +4,48 @@ import AmazonCTA from '../../components/AmazonCTA.astro';
 import { optionalMechanics } from '../../data/optional-mechanics';
 
 const allMechanicTags = [...new Set(optionalMechanics.flatMap(m => m.tags))].sort();
+
+const SITE_URL = 'https://d6storyteller.alexmerced.com';
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": `${SITE_URL}/optional-mechanics/#webpage`,
+      "url": `${SITE_URL}/optional-mechanics/`,
+      "name": "50 Optional Plug-In Mechanics",
+      "description": "Fifty modular, opt-in rules additions for the D6 Storyteller system that can drop into any campaign, regardless of setting or genre.",
+      "isPartOf": { "@id": `${SITE_URL}/#website` },
+      "breadcrumb": { "@id": `${SITE_URL}/optional-mechanics/#breadcrumb` },
+      "mainEntity": {
+        "@type": "ItemList",
+        "name": "D6 Storyteller Optional Mechanics",
+        "numberOfItems": optionalMechanics.length,
+        "itemListElement": optionalMechanics.map((m, i) => ({
+          "@type": "ListItem",
+          "position": i + 1,
+          "name": m.name,
+          "url": `${SITE_URL}/optional-mechanics/#${m.id}`
+        }))
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${SITE_URL}/optional-mechanics/#breadcrumb`,
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": `${SITE_URL}/` },
+        { "@type": "ListItem", "position": 2, "name": "Optional Mechanics", "item": `${SITE_URL}/optional-mechanics/` }
+      ]
+    }
+  ]
+};
 ---
 
 <BaseLayout
   title="50 Optional Plug-In Mechanics | D6 Storyteller Rules Library"
-  description="Browse 50 modular optional plug-in mechanics for the D6 Storyteller system: Wound Clocks, Momentum Banks, Sanity Thresholds, Flashback Frames, Supply Dice, and more. Filter by tag or keyword."
+  description="Browse 50 modular optional plug-in mechanics for D6 Storyteller: Wound Clocks, Momentum Banks, Sanity Thresholds, Flashback Frames, Supply Dice, and more."
   canonicalUrl="https://d6storyteller.alexmerced.com/optional-mechanics/"
+  jsonLd={jsonLd}
 >
   <section class="section" aria-labelledby="om-page-heading">
     <div class="container">

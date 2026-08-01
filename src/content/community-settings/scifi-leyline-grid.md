@@ -9,7 +9,7 @@ accentColor: "#78350f"
 coverImage: "/images/supplements/scifi-leyline-grid.png"
 coverAlt: "Pixel art cover of The Leyline Grid showing geomancers drilling into ley-nodes, power crystals being harvested, and a nomadic Line-Walker tribe following glowing earth channels"
 seoTitle: "The Leyline Grid: Earth Magic Energy Infrastructure | D6 Storyteller Sci-Fi Magic Settings"
-seoDescription: "Fight extraction rates or protect dying ley-nodes in a geomancy-powered world where the ancient earth voices are going quiet and the Grid Authority is not listening."
+seoDescription: "Fight extraction rates or protect dying ley-nodes in a geomancy-powered world where the ancient earth voices go quiet and the Grid Authority is not listening."
 author: "Alex Merced"
 publishedDate: "2026-07-31"
 ---

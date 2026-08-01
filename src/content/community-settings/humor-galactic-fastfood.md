@@ -9,7 +9,7 @@ accentColor: "#ea580c"
 coverImage: "/images/supplements/humor-galactic-fastfood.png"
 coverAlt: "Pixel art cover of Fries with That Prophecy showing alien fast food workers in uniform at a counter serving beings of many species in a neon-lit space station restaurant"
 seoTitle: "Fries with That Prophecy | D6 Storyteller Online Supplements"
-seoDescription: "Work a galactic fast food franchise: serve 600 species, maintain your Service Score, and discover why the secret sauce should never have been classified as food."
+seoDescription: "Work a galactic fast food franchise: serve 600 species, maintain your Service Score, and learn why the secret sauce should never have been classified as food."
 author: "Alex Merced"
 publishedDate: "2026-07-31"
 ---

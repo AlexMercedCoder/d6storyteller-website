@@ -9,7 +9,7 @@ accentColor: "#78350f"
 coverImage: "/images/supplements/humor-dungeon-realestate.png"
 coverAlt: "Pixel art cover of Dungeon Flippers showing adventurers in hard hats reviewing blueprints inside a dungeon with monsters watching cautiously"
 seoTitle: "Dungeon Flippers | D6 Storyteller Online Supplements"
-seoDescription: "Flip dungeons for profit: acquire former monster lairs, navigate supernatural encumbrances, and evict reluctant undead tenants in the booming dungeon property market."
+seoDescription: "Flip dungeons for profit: acquire former monster lairs, navigate supernatural encumbrances, and evict reluctant undead tenants in a booming property market."
 author: "Alex Merced"
 publishedDate: "2026-07-31"
 ---

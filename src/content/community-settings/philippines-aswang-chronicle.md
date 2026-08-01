@@ -9,7 +9,7 @@ accentColor: "#7b2d8e"
 coverImage: "/images/supplements/philippines-aswang-chronicle.png"
 coverAlt: "Pixel art cover of The Aswang Chronicle showing a Filipina warrior facing an Aswang with a Bakunawa serpent in the sky"
 seoTitle: "The Aswang Chronicle | D6 Storyteller Online Supplements"
-seoDescription: "Explore pre-colonial Philippine mythology in this D6 Storyteller setting: hunt Aswang shape-shifters, bargain with Diwata spirits, and defend your barrio during the seven moonless nights."
+seoDescription: "Explore pre-colonial Philippine mythology in this D6 Storyteller: hunt Aswang shifters, bargain with Diwata spirits, and defend your barrio at moonless night."
 author: "Alex Merced"
 publishedDate: "2026-07-30"
 ---

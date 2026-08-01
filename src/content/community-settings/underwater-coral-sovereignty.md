@@ -9,7 +9,7 @@ accentColor: "#0369a1"
 coverImage: "/images/supplements/underwater-coral-sovereignty.png"
 coverAlt: "Pixel art cover of The Coral Sovereignty showing an elaborate underwater city built into a massive coral formation lit by bioluminescence with various aquatic beings moving through its streets"
 seoTitle: "The Coral Sovereignty | D6 Storyteller Online Supplements"
-seoDescription: "Navigate an underwater empire: operate across ocean depths as Intelligence Bureau agents, manage Sovereignty politics, and investigate the Pressure Front consuming the deep."
+seoDescription: "Navigate an underwater empire: operate across ocean depths as Intelligence Bureau agents, manage Sovereignty politics, and investigate the Pressure Front."
 author: "Alex Merced"
 publishedDate: "2026-07-31"
 ---

@@ -9,7 +9,7 @@ accentColor: "#1e3a5f"
 coverImage: "/images/supplements/scotland-selkie-warden.png"
 coverAlt: "Pixel art cover of The Selkie Warden of the Outer Isles showing a Highland figure with second sight standing at the shore watching both the physical sea and the spirit forms of Selkies in the water"
 seoTitle: "The Selkie Warden of the Outer Isles | D6 Storyteller Online Supplements"
-seoDescription: "Serve as Selkie Warden in the Scottish outer islands: use the Second Sight, investigate stolen selkie skins, and protect the ancient accord between shore and deep."
+seoDescription: "Serve as Selkie Warden in the Scottish outer islands: use the Second Sight, investigate stolen selkie skins, and protect the accord between shore and deep."
 author: "Alex Merced"
 publishedDate: "2026-07-31"
 ---

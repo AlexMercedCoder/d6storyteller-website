@@ -9,7 +9,7 @@ accentColor: "#26a69a"
 coverImage: "/images/supplements/covenant-of-jade-and-claw.png"
 coverAlt: "Pixel art cover of The Covenant of Jade and Claw by Alex Merced"
 seoTitle: "The Covenant of Jade and Claw | D6 Storyteller Online Supplements"
-seoDescription: "A historical fiction D6 Storyteller setting set in Guatemala: were-kinkajous and were-coatis navigate the collision of Maya kingdoms and Spanish conquest in the age of the nagual covenant."
+seoDescription: "Historical fiction D6 Storyteller in Guatemala: were-kinkajous and were-coatis navigate the collision of Maya kingdoms and Spanish conquest in the nagual age."
 author: "Alex Merced"
 publishedDate: "2026-07-30"
 ---

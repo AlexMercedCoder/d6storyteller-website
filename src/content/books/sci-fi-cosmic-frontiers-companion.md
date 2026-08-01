@@ -4,13 +4,13 @@ subtitle: "A Fiction-First Tabletop Roleplaying Expansion & 10 Sci-Fi & Cosmic F
 shortTitle: "Sci-Fi & Cosmic Frontiers"
 order: 3
 description: "The Sci-Fi & Cosmic Frontiers Companion charts the D6 Storyteller engine across generation ships, Dyson spheres, corporate moons, and transhuman fleets. Ten complete science fiction and cosmic settings with unique mechanics for survival, exploration, and the limits of humanity."
-coverImage: "/images/covers/sci-fi-cosmic-frontiers-companion.png"
+coverImage: "/images/covers/sci-fi-cosmic-frontiers-companion.webp"
 coverAlt: "Pixel-art cover of D6 Storyteller: Sci-Fi & Cosmic Frontiers Companion by Alex Merced"
 genres: ["Sci-Fi", "Space Opera", "Cyberpunk", "Solarpunk"]
 amazonUrl: "https://www.amazon.com/dp/B0HC4XMKW3?binding=paperback&ref_=saga_sdp_cft_dsk"
 formats: ["Paperback", "Kindle"]
 seoTitle: "Sci-Fi & Cosmic Frontiers Companion | D6 Storyteller"
-seoDescription: "Navigate ten science fiction settings for D6 Storyteller: generation ships, alien megastructures, corporate moons, and transhuman digital consciousness: with custom mechanics and archetypes."
+seoDescription: "Navigate ten science fiction settings for D6 Storyteller: generation ships, alien megastructures, corporate moons, and transhuman digital consciousness."
 settings:
   - name: "Ark 9"
     premise: "A centuries-long journey toward a distant star system where social castes have degraded into tribal factions aboard the ship."

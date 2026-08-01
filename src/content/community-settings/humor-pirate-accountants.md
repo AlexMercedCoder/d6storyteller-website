@@ -9,7 +9,7 @@ accentColor: "#b45309"
 coverImage: "/images/supplements/humor-pirate-accountants.png"
 coverAlt: "Pixel art cover of Swashbucklers and Spreadsheets showing pirates in a ship's cabin surrounded by ledgers and gold coins with quill pens drawn instead of swords"
 seoTitle: "Swashbucklers & Spreadsheets | D6 Storyteller Online Supplements"
-seoDescription: "Sail with the Balanced Ledger: plunder the seas with accounting expertise, audit enemy ships, and discover that compound interest is the deadliest weapon afloat."
+seoDescription: "Sail with the Balanced Ledger: plunder the seas with accounting expertise, audit enemy ships, and discover compound interest is the deadliest weapon afloat."
 author: "Alex Merced"
 publishedDate: "2026-07-31"
 ---

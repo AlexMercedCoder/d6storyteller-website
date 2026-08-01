@@ -4,13 +4,13 @@ subtitle: "A Fiction-First Tabletop Roleplaying Expansion & 10 Quirky, Experimen
 shortTitle: "Quirky & Experimental"
 order: 9
 description: "The Quirky, Experimental & Micro-Scale Companion invites the D6 Storyteller engine into worlds of four-inch borrowers, culinary dungeon-hunters, sentient toy soldiers, board-game empires, and time-traveling chrono agents. Ten settings that defy expectation and expand what tabletop RPG play can be."
-coverImage: "/images/covers/quirky-experimental-micro-scale-companion.png"
+coverImage: "/images/covers/quirky-experimental-micro-scale-companion.webp"
 coverAlt: "Pixel-art cover of D6 Storyteller: Quirky, Experimental & Micro-Scale Companion by Alex Merced"
 genres: ["Experimental", "Cozy", "Comedy", "Adventure"]
 amazonUrl: "https://www.amazon.com/dp/B0HC4XMKW3?binding=paperback&ref_=saga_sdp_cft_dsk"
 formats: ["Paperback", "Kindle"]
 seoTitle: "Quirky & Experimental Companion | D6 Storyteller"
-seoDescription: "Play ten quirky, experimental, and micro-scale settings for D6 Storyteller: borrowers in suburban walls, culinary dungeon chefs, sentient toys, living board games, and time patrol agents."
+seoDescription: "Play ten quirky, experimental, and micro-scale settings for D6 Storyteller: borrowers in the walls, dungeon chefs, sentient toys, living board games, and time patrol."
 settings:
   - name: "Borrowers of the Hearth"
     premise: "Tiny four-inch-tall people live inside the walls of a suburban home, scavenging needles and defending against cats."

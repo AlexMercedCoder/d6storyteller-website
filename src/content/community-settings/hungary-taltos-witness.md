@@ -9,7 +9,7 @@ accentColor: "#7f1d1d"
 coverImage: "/images/supplements/hungary-taltos-witness.png"
 coverAlt: "Pixel art cover of The Tatros Witness showing a Táltos shaman in animal transformation form on a Carpathian mountain summit with ancient Magyar spirit forms in the mist below"
 seoTitle: "The Tatros Witness | D6 Storyteller Online Supplements"
-seoDescription: "Practice the Táltos tradition in the Carpathian highlands: navigate between shamanic and Christian worlds, combat the Lidérc, and accept the spirit challenges that maintain your power."
+seoDescription: "Practice the Táltos tradition in the Carpathians: navigate shamanic and Christian worlds, combat the Lidérc, and accept the trials that hold your power."
 author: "Alex Merced"
 publishedDate: "2026-07-31"
 ---

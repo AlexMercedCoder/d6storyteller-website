@@ -9,7 +9,7 @@ accentColor: "#0f172a"
 coverImage: "/images/supplements/humor-spy-vacation.png"
 coverAlt: "Pixel art cover of Recon and Relaxation showing a spy in beach attire with cocktail and sunglasses clearly surveilling the beach while other vacationers relax normally"
 seoTitle: "Recon & Relaxation | D6 Storyteller Online Supplements"
-seoDescription: "Take a mandatory spy vacation: try to relax, fail completely, discover your paranoia is justified, and determine whether solving the resort crisis counts as vacation."
+seoDescription: "Take a mandatory spy vacation: try to relax, fail completely, discover your paranoia is justified, and determine whether solving the resort crisis counts."
 author: "Alex Merced"
 publishedDate: "2026-07-31"
 ---

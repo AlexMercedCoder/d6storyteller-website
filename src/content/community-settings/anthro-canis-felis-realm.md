@@ -9,7 +9,7 @@ accentColor: "#f59e0b"
 coverImage: "/images/supplements/anthro-canis-felis-realm.png"
 coverAlt: "Pixel art cover of Canis and Felis showing dog knights in sunlit armor and cat wizards casting moon magic across a divided fantasy city"
 seoTitle: "Canis & Felis: The Broken Treaty | D6 Storyteller Online Supplements"
-seoDescription: "Navigate a cold war between dog-knight kingdoms and cat-wizard sovereignty in this political high fantasy RPG setting where a murder threatens a century of peace."
+seoDescription: "Navigate a cold war between dog-knight kingdoms and cat-wizard sovereignty in this political high fantasy RPG where a murder threatens a century of peace."
 author: "Alex Merced"
 publishedDate: "2026-07-31"
 ---

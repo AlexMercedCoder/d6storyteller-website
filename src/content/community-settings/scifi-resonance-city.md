@@ -9,7 +9,7 @@ accentColor: "#134e4a"
 coverImage: "/images/supplements/scifi-resonance-city.png"
 coverAlt: "Pixel art cover of Resonance City showing sound mages constructing buildings with singing frequencies, a sonic weapon crumbling a wall, and musicians powering city infrastructure"
 seoTitle: "Resonance City: Sound as Infrastructure | D6 Storyteller Sci-Fi Magic Settings"
-seoDescription: "Defend buildings from the Cartel of Silence or learn what the Resonance Authority is hiding in a city built by sound and threatened by its weaponized disruption."
+seoDescription: "Defend buildings from the Cartel of Silence or learn what the Resonance Authority hides in a city built by sound and threatened by its weaponized disruption."
 author: "Alex Merced"
 publishedDate: "2026-07-31"
 ---

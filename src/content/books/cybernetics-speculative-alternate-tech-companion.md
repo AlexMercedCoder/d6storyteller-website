@@ -4,13 +4,13 @@ subtitle: "A Fiction-First Tabletop Roleplaying Expansion & 10 Cybernetics, Spec
 shortTitle: "Cybernetics & Alternate Tech"
 order: 6
 description: "The Cybernetics, Speculative & Alternate Tech Companion wires the D6 Storyteller engine into dieselpunk trenches, biopunk gene clinics, virtual reality hacker grids, clockwork nature realms, and sub-microscopic nano wars. Ten settings where technology defines the stakes."
-coverImage: "/images/covers/cybernetics-speculative-alternate-tech-companion.png"
+coverImage: "/images/covers/cybernetics-speculative-alternate-tech-companion.webp"
 coverAlt: "Pixel-art cover of D6 Storyteller: Cybernetics, Speculative & Alternate Tech Companion by Alex Merced"
 genres: ["Cyberpunk", "Speculative", "Dieselpunk", "Biopunk", "Steampunk"]
 amazonUrl: "https://www.amazon.com/dp/B0HC4XMKW3?binding=paperback&ref_=saga_sdp_cft_dsk"
 formats: ["Paperback", "Kindle"]
 seoTitle: "Cybernetics & Alternate Tech Companion | D6 Storyteller"
-seoDescription: "Explore ten speculative and alternate tech settings for D6 Storyteller: dieselpunk wars, biopunk genome clinics, VR hacker grids, clockwork nature, and nano wars: with custom mechanics."
+seoDescription: "Explore ten speculative and alternate-tech settings for D6 Storyteller: dieselpunk wars, biopunk genome clinics, VR hacker grids, clockwork nature, and nano wars."
 settings:
   - name: "Iron Siege"
     premise: "An alternate 1940s world locked in endless trench warfare fought with massive diesel-powered bipedal tanks."

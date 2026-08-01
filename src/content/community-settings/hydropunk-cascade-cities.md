@@ -9,7 +9,7 @@ accentColor: "#0ea5e9"
 coverImage: "/images/supplements/hydropunk-cascade-cities.png"
 coverAlt: "Pixel art cover of Cascade Cities showing a dam city carved into a canyon with blue neon turbine towers and waterfall bridges"
 seoTitle: "Cascade Cities: A Hydropunk Chronicle | D6 Storyteller Online Supplements"
-seoDescription: "Navigate a world of water-powered mega-cities and turbine dynasties: sabotage aqueduct empires, fight for current rights, and survive in the Spray Districts of Cascade Cities."
+seoDescription: "Navigate water-powered mega-cities and turbine dynasties: sabotage aqueduct empires, fight for current rights, and survive Spray Districts of Cascade Cities."
 author: "Alex Merced"
 publishedDate: "2026-07-31"
 ---

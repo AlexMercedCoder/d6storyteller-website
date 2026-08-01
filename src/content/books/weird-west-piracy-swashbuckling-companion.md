@@ -4,13 +4,13 @@ subtitle: "A Fiction-First Tabletop Roleplaying Expansion & 10 Weird West, Pirac
 shortTitle: "Weird West & Swashbuckling"
 order: 4
 description: "The Weird West, Piracy & Swashbuckling Companion saddles the D6 Storyteller engine with demons in dusty frontier towns, cursed seas full of kraken, sky pirate fleets, voodoo bayous, and dueling musketeers. Ten complete settings of grit, adventure, and swashbuckling drama."
-coverImage: "/images/covers/weird-west-piracy-swashbuckling-companion.png"
+coverImage: "/images/covers/weird-west-piracy-swashbuckling-companion.webp"
 coverAlt: "Pixel-art cover of D6 Storyteller: Weird West, Piracy & Swashbuckling Companion by Alex Merced"
 genres: ["Weird West", "Piracy", "Swashbuckling", "Historical"]
 amazonUrl: "https://www.amazon.com/dp/B0HC4XMKW3?binding=paperback&ref_=saga_sdp_cft_dsk"
 formats: ["Paperback", "Kindle"]
 seoTitle: "Weird West & Swashbuckling Companion | D6 Storyteller"
-seoDescription: "Ride into ten Weird West, piracy, and swashbuckling settings for D6 Storyteller: demon-haunted frontiers, cursed seas, voodoo bayous, and sky pirate fleets: with custom mechanics."
+seoDescription: "Ride into ten Weird West, piracy, and swashbuckling settings for D6 Storyteller: demon-haunted frontiers, cursed seas, voodoo bayous, and sky pirate fleets."
 settings:
   - name: "Brimstone & Dust"
     premise: "Gunslingers and occult preachers battle demonic horrors and corrupt railroad barons in 1880s Arizona."

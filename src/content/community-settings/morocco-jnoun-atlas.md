@@ -9,7 +9,7 @@ accentColor: "#a16207"
 coverImage: "/images/supplements/morocco-jnoun-atlas.png"
 coverAlt: "Pixel art cover of The Jnoun Courts of the Atlas showing a Gnawa Maalem performing the lila ceremony with Jnoun spirit forms appearing in the incense smoke above them in a Moroccan courtyard"
 seoTitle: "The Jnoun Courts of the Atlas | D6 Storyteller Online Supplements"
-seoDescription: "Navigate the Jnoun civilization in Morocco: perform the Gnawa lila ceremony, build relationships with parallel spirit courts, and discover why the Jnoun ruler has gone silent."
+seoDescription: "Navigate the Jnoun civilization in Morocco: perform the Gnawa lila ceremony, build ties with spirit courts, and discover why the Jnoun ruler has gone silent."
 author: "Alex Merced"
 publishedDate: "2026-07-31"
 ---

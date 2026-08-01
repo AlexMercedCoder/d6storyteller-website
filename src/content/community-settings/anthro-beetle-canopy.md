@@ -9,7 +9,7 @@ accentColor: "#065f46"
 coverImage: "/images/supplements/anthro-beetle-canopy.png"
 coverAlt: "Pixel art cover of The Canopy Empire showing iridescent beetle warriors, a scarab mage, and a beetle king under leaf-canopy lanterns with firefly lights"
 seoTitle: "The Canopy Empire: Chronicles of the Shell-Lords | D6 Storyteller Online Supplements"
-seoDescription: "Rule and rebel in the ancient beetle empire beneath the World-Forest's vast canopy-shell dynasties, firefly lights, and a white-shelled prophecy threaten ten thousand years of order."
+seoDescription: "Rule and rebel in the ancient beetle empire beneath the World-Forest: shell dynasties, firefly lights, and a white-shelled prophecy threaten millennia of order."
 author: "Alex Merced"
 publishedDate: "2026-07-31"
 ---

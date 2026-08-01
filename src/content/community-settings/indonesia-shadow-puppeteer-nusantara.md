@@ -9,7 +9,7 @@ accentColor: "#c9790a"
 coverImage: "/images/supplements/indonesia-shadow-puppeteer-nusantara.png"
 coverAlt: "Pixel art cover of The Shadow Puppeteer of Nusantara showing a dalang puppeteer with shadow demons emerging behind the screen"
 seoTitle: "The Shadow Puppeteer of Nusantara | D6 Storyteller Online Supplements"
-seoDescription: "Explore 14th-century Java and the Majapahit Empire in this D6 Storyteller setting: master wayang shadow sorcery, wield enchanted keris blades, and defend Nusantara from raksasa demons."
+seoDescription: "Explore 14th-century Java and the Majapahit Empire in this D6 Storyteller setting: master wayang shadow sorcery, wield keris blades, and defend Nusantara."
 author: "Alex Merced"
 publishedDate: "2026-07-30"
 ---

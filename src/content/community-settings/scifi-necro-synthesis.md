@@ -9,7 +9,7 @@ accentColor: "#14532d"
 coverImage: "/images/supplements/scifi-necro-synthesis.png"
 coverAlt: "Pixel art cover of Necro-Synthesis showing skeletal workers on assembly lines, soul-capture machines, and a corporate executive with a ghost advisor in a sci-fi megacity"
 seoTitle: "Necro-Synthesis: The Dead Labor Economy | D6 Storyteller Sci-Fi Magic Settings"
-seoDescription: "Fight or exploit the corporate afterlife in this sci-fi necromancy RPG setting where bound souls are the labor force and the Unbounded are the only ones truly free."
+seoDescription: "Fight or exploit the corporate afterlife in this sci-fi necromancy RPG where bound souls are the labor force and the Unbounded are the only ones truly free."
 author: "Alex Merced"
 publishedDate: "2026-07-31"
 ---

@@ -1,12 +1,37 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import AmazonCTA from '../components/AmazonCTA.astro';
+
+const SITE_URL = 'https://d6storyteller.alexmerced.com';
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": `${SITE_URL}/resources/#webpage`,
+      "url": `${SITE_URL}/resources/`,
+      "name": "D6 Storyteller Resources",
+      "description": "Free resources for D6 Storyteller: printable character sheets, Storyteller aids, an online D6 dice-pool roller, and quick reference guides.",
+      "isPartOf": { "@id": `${SITE_URL}/#website` },
+      "breadcrumb": { "@id": `${SITE_URL}/resources/#breadcrumb` }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${SITE_URL}/resources/#breadcrumb`,
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": `${SITE_URL}/` },
+        { "@type": "ListItem", "position": 2, "name": "Resources", "item": `${SITE_URL}/resources/` }
+      ]
+    }
+  ]
+};
 ---
 
 <BaseLayout
-  title="D6 Storyteller Resources | Character Sheets, Dice Roller & Downloads"
-  description="Free resources for D6 Storyteller: printable character sheets, Storyteller aids, an online D6 dice-pool roller, quick reference guides, errata, and links for players and Storytellers."
+  title="D6 Storyteller Resources | Sheets, Dice Roller & Downloads"
+  description="Free D6 Storyteller resources: printable character sheets, Storyteller aids, an online D6 dice-pool roller, and quick reference guides for players and Storytellers."
   canonicalUrl="https://d6storyteller.alexmerced.com/resources/"
+  jsonLd={jsonLd}
 >
   <section class="section" aria-labelledby="resources-heading">
     <div class="container container--narrow">

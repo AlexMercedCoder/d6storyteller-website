@@ -9,7 +9,7 @@ accentColor: "#6d28d9"
 coverImage: "/images/supplements/humor-necromancer-pta.png"
 coverAlt: "Pixel art cover of Raise the Stakes showing necromancers in parent volunteer t-shirts at a school bake sale table with undead helpers and a child in necromancy robes"
 seoTitle: "Raise the Stakes, Not the Dead | D6 Storyteller Online Supplements"
-seoDescription: "Navigate the necromancer PTA: manage undead parent participation, survive the fundraiser, and explain to the School Board why the bake sale items keep reanimating."
+seoDescription: "Navigate the necromancer PTA: manage undead parents, survive the fundraiser, and explain to the School Board why the bake sale items keep reanimating."
 author: "Alex Merced"
 publishedDate: "2026-07-31"
 ---
