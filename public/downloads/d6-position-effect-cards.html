@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>D6 Storyteller: Position &amp; Effect Cards</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0c1a2e;
+      --navy-light: #162d52;
+      --gold: #c9a227;
+      --gold-light: #f0d080;
+      --ink: #1a1a2e;
+      --heading: 'Cinzel', Georgia, serif;
+      --body: 'Inter', system-ui, sans-serif;
+      --controlled: #1a9a50;
+      --controlled-bg: #e8f8ef;
+      --controlled-border: #2ecc71;
+      --risky: #d4820a;
+      --risky-bg: #fdf2e0;
+      --risky-border: #e67e22;
+      --desperate: #b8291a;
+      --desperate-bg: #fde8e5;
+      --desperate-border: #e74c3c;
+      --great: #1a6a9a;
+      --great-bg: #e5f0f8;
+      --great-border: #3498db;
+      --standard: #2e7d32;
+      --standard-bg: #e8f5e9;
+      --standard-border: #4caf50;
+      --limited: #6d4c00;
+      --limited-bg: #fef9e7;
+      --limited-border: #f1c40f;
+    }
+    body {
+      background: #e8e4dc;
+      font-family: var(--body);
+      padding: 2rem;
+      color: var(--ink);
+      font-size: 14px;
+    }
+
+    /* ── Screen instructions ── */
+    .screen-only {
+      max-width: 816px;
+      margin: 0 auto 2rem;
+      background: #fdf9f0;
+      border: 2px solid var(--gold);
+      border-radius: 8px;
+      padding: 1.5rem 2rem;
+      text-align: center;
+    }
+    .screen-only h1 {
+      font-family: var(--heading);
+      font-size: 1.4rem;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.1em;
+    }
+    .screen-only p {
+      color: #555;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 0.3rem;
+    }
+    .screen-only strong { color: var(--navy); }
+
+    /* ── Card grid (screen) ── */
+    .card-page {
+      max-width: 816px;
+      margin: 0 auto 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .card-page--three {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    /* ── Individual card ── */
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      border: 3px solid;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .card__header {
+      padding: 1.25rem 1.5rem 1rem;
+      text-align: center;
+    }
+    .card__type {
+      font-family: var(--heading);
+      font-size: 0.55rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+      opacity: 0.7;
+    }
+    .card__name {
+      font-family: var(--heading);
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+
+    .card__body {
+      padding: 0 1.5rem 1.25rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .card__rule {
+      height: 2px;
+      border: none;
+      margin: 0 1.5rem 0.1rem;
+    }
+
+    .card__desc {
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: #333;
+      text-align: center;
+    }
+    .card__desc strong {
+      color: var(--ink);
+    }
+
+    .card__detail {
+      background: rgba(0,0,0,0.03);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+    }
+    .card__detail-label {
+      font-family: var(--heading);
+      font-size: 0.5rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+      opacity: 0.6;
+    }
+    .card__detail-text {
+      font-size: 0.78rem;
+      line-height: 1.45;
+      color: #444;
+    }
+
+    .card__icon {
+      font-size: 2.5rem;
+      text-align: center;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .card__footer {
+      padding: 0.5rem 1.5rem 0.75rem;
+      text-align: center;
+    }
+    .card__footer-text {
+      font-family: var(--heading);
+      font-size: 0.5rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      opacity: 0.4;
+    }
+
+    /* ── Position card colors ── */
+    .card--controlled {
+      border-color: var(--controlled-border);
+    }
+    .card--controlled .card__header {
+      background: var(--controlled-bg);
+      color: var(--controlled);
+    }
+    .card--controlled .card__rule { background: var(--controlled-border); }
+    .card--controlled .card__detail { background: rgba(46,204,113,0.06); }
+    .card--controlled .card__detail-label { color: var(--controlled); }
+
+    .card--risky {
+      border-color: var(--risky-border);
+    }
+    .card--risky .card__header {
+      background: var(--risky-bg);
+      color: var(--risky);
+    }
+    .card--risky .card__rule { background: var(--risky-border); }
+    .card--risky .card__detail { background: rgba(230,126,34,0.06); }
+    .card--risky .card__detail-label { color: var(--risky); }
+
+    .card--desperate {
+      border-color: var(--desperate-border);
+    }
+    .card--desperate .card__header {
+      background: var(--desperate-bg);
+      color: var(--desperate);
+    }
+    .card--desperate .card__rule { background: var(--desperate-border); }
+    .card--desperate .card__detail { background: rgba(231,76,60,0.06); }
+    .card--desperate .card__detail-label { color: var(--desperate); }
+
+    /* ── Effect card colors ── */
+    .card--great {
+      border-color: var(--great-border);
+    }
+    .card--great .card__header {
+      background: var(--great-bg);
+      color: var(--great);
+    }
+    .card--great .card__rule { background: var(--great-border); }
+    .card--great .card__detail { background: rgba(52,152,219,0.06); }
+    .card--great .card__detail-label { color: var(--great); }
+
+    .card--standard {
+      border-color: var(--standard-border);
+    }
+    .card--standard .card__header {
+      background: var(--standard-bg);
+      color: var(--standard);
+    }
+    .card--standard .card__rule { background: var(--standard-border); }
+    .card--standard .card__detail { background: rgba(76,175,80,0.06); }
+    .card--standard .card__detail-label { color: var(--standard); }
+
+    .card--limited {
+      border-color: var(--limited-border);
+    }
+    .card--limited .card__header {
+      background: var(--limited-bg);
+      color: var(--limited);
+    }
+    .card--limited .card__rule { background: var(--limited-border); }
+    .card--limited .card__detail { background: rgba(241,196,15,0.06); }
+    .card--limited .card__detail-label { color: var(--limited); }
+
+    /* ── Section divider ── */
+    .section-divider {
+      max-width: 816px;
+      margin: 0.5rem auto 1.5rem;
+      text-align: center;
+      position: relative;
+    }
+    .section-divider::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.4;
+    }
+    .section-divider span {
+      position: relative;
+      background: #e8e4dc;
+      padding: 0 1.5rem;
+      font-family: var(--heading);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ── Print styles ── */
+    @media print {
+      body { background: #fff; padding: 0; }
+      .screen-only { display: none; }
+      .section-divider { display: none; }
+
+      .card-page {
+        max-width: 100%;
+        margin: 0;
+        padding: 0.5in;
+        gap: 0.3in;
+      }
+      .card-page--position {
+        grid-template-columns: 1fr 1fr 1fr;
+        page-break-after: always;
+      }
+      .card-page--effect {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      .card {
+        box-shadow: none;
+        border-width: 2px;
+      }
+      .card__name {
+        font-size: 1.4rem;
+      }
+      .card__icon {
+        font-size: 2rem;
+      }
+    }
+
+    @page {
+      size: letter landscape;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Screen instructions -->
+  <div class="screen-only">
+    <h1>Position &amp; Effect Cards</h1>
+    <p>Print these cards, cut them out, and use them at the table. When a player declares an action, place the appropriate <strong>Position</strong> and <strong>Effect</strong> card face-up so everyone can see the stakes before the dice hit the table.</p>
+    <p><strong>Tip:</strong> Print on cardstock for durability. Use <kbd>Ctrl+P</kbd> &rarr; Landscape &rarr; Save as PDF.</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       POSITION CARDS
+  ═══════════════════════════════════════ -->
+
+  <div class="card-page card-page--three card-page--position">
+
+    <!-- Controlled -->
+    <div class="card card--controlled">
+      <div class="card__header">
+        <div class="card__type">Position</div>
+        <div class="card__icon">🛡️</div>
+        <div class="card__name">Controlled</div>
+      </div>
+      <hr class="card__rule" />
+      <div class="card__body">
+        <p class="card__desc">You have the <strong>upper hand</strong>. The situation is manageable. Even if things go wrong, the fallout is minor.</p>
+        <div class="card__detail">
+          <div class="card__detail-label">On Failure</div>
+          <div class="card__detail-text">Minor setback or complication. You lose your advantage or the situation shifts, but nothing catastrophic happens.</div>
+        </div>
+        <div class="card__detail">
+          <div class="card__detail-label">When to Use</div>
+          <div class="card__detail-text">The character has leverage, preparation, surprise, or safety. The worst realistic outcome is inconvenience.</div>
+        </div>
+      </div>
+      <div class="card__footer">
+        <div class="card__footer-text">D6 Storyteller</div>
+      </div>
+    </div>
+
+    <!-- Risky -->
+    <div class="card card--risky">
+      <div class="card__header">
+        <div class="card__type">Position</div>
+        <div class="card__icon">⚠️</div>
+        <div class="card__name">Risky</div>
+      </div>
+      <hr class="card__rule" />
+      <div class="card__body">
+        <p class="card__desc">The default. Things could go either way. Failure here carries <strong>real consequences</strong>.</p>
+        <div class="card__detail">
+          <div class="card__detail-label">On Failure</div>
+          <div class="card__detail-text">Meaningful consequence: harm, lost resources, escalation, or an opportunity that closes. The situation gets harder.</div>
+        </div>
+        <div class="card__detail">
+          <div class="card__detail-label">When to Use</div>
+          <div class="card__detail-text">Standard action under pressure. No special advantage or disadvantage. Most rolls in play are Risky.</div>
+        </div>
+      </div>
+      <div class="card__footer">
+        <div class="card__footer-text">D6 Storyteller</div>
+      </div>
+    </div>
+
+    <!-- Desperate -->
+    <div class="card card--desperate">
+      <div class="card__header">
+        <div class="card__type">Position</div>
+        <div class="card__icon">🔥</div>
+        <div class="card__name">Desperate</div>
+      </div>
+      <hr class="card__rule" />
+      <div class="card__body">
+        <p class="card__desc">You are <strong>cornered, outmatched, or out of options</strong>. This is your last shot. Failure is devastating.</p>
+        <div class="card__detail">
+          <div class="card__detail-label">On Failure</div>
+          <div class="card__detail-text">Severe harm, major loss, capture, or the worst-case scenario you were afraid of. The fiction escalates hard.</div>
+        </div>
+        <div class="card__detail">
+          <div class="card__detail-label">When to Use</div>
+          <div class="card__detail-text">Outnumbered, unarmed, trapped, acting against overwhelming odds, or trying something with no safety net.</div>
+        </div>
+      </div>
+      <div class="card__footer">
+        <div class="card__footer-text">D6 Storyteller</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-divider"><span>✂ Cut Here</span></div>
+
+  <!-- ═══════════════════════════════════════
+       EFFECT CARDS
+  ═══════════════════════════════════════ -->
+
+  <div class="card-page card-page--three card-page--effect">
+
+    <!-- Great Effect -->
+    <div class="card card--great">
+      <div class="card__header">
+        <div class="card__type">Effect</div>
+        <div class="card__icon">⚡</div>
+        <div class="card__name">Great</div>
+      </div>
+      <hr class="card__rule" />
+      <div class="card__body">
+        <p class="card__desc">On success, you accomplish <strong>more than expected</strong>. Faster, bigger, and with lasting impact.</p>
+        <div class="card__detail">
+          <div class="card__detail-label">What It Means</div>
+          <div class="card__detail-text">The action achieves extra: you disarm and intimidate, you heal fully instead of partially, you bypass the entire obstacle. Multiple 6s or exceptional fictional advantage often earn Great Effect.</div>
+        </div>
+        <div class="card__detail">
+          <div class="card__detail-label">Example</div>
+          <div class="card__detail-text">Picking a lock while the guards are away and the lock is a simple model you've cracked before.</div>
+        </div>
+      </div>
+      <div class="card__footer">
+        <div class="card__footer-text">D6 Storyteller</div>
+      </div>
+    </div>
+
+    <!-- Standard Effect -->
+    <div class="card card--standard">
+      <div class="card__header">
+        <div class="card__type">Effect</div>
+        <div class="card__icon">✅</div>
+        <div class="card__name">Standard</div>
+      </div>
+      <hr class="card__rule" />
+      <div class="card__body">
+        <p class="card__desc">On success, you accomplish <strong>what you set out to do</strong>. No more, no less.</p>
+        <div class="card__detail">
+          <div class="card__detail-label">What It Means</div>
+          <div class="card__detail-text">The expected result for the action. You achieve your goal as described. A single 6 under normal circumstances typically produces Standard Effect. This is the default.</div>
+        </div>
+        <div class="card__detail">
+          <div class="card__detail-label">Example</div>
+          <div class="card__detail-text">Persuading a cautious merchant to share information. He tells you what you asked for, nothing extra.</div>
+        </div>
+      </div>
+      <div class="card__footer">
+        <div class="card__footer-text">D6 Storyteller</div>
+      </div>
+    </div>
+
+    <!-- Limited Effect -->
+    <div class="card card--limited">
+      <div class="card__header">
+        <div class="card__type">Effect</div>
+        <div class="card__icon">⏳</div>
+        <div class="card__name">Limited</div>
+      </div>
+      <hr class="card__rule" />
+      <div class="card__body">
+        <p class="card__desc">On success, you <strong>make progress, but it's partial or constrained</strong>. More work is needed.</p>
+        <div class="card__detail">
+          <div class="card__detail-label">What It Means</div>
+          <div class="card__detail-text">Success is real but reduced. You weaken the guard instead of knocking him out. You open the door a crack, not all the way. The fiction constrains how much one action can achieve.</div>
+        </div>
+        <div class="card__detail">
+          <div class="card__detail-label">Example</div>
+          <div class="card__detail-text">Trying to break down a reinforced steel door with your bare hands. Even on a 6, you dent it. You'll need another approach.</div>
+        </div>
+      </div>
+      <div class="card__footer">
+        <div class="card__footer-text">D6 Storyteller</div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
