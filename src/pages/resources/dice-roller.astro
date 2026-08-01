@@ -50,7 +50,7 @@ const jsonLd = [
       <p class="section-label">Online Play Aid</p>
       <h1 id="roller-heading">D6 Dice-Pool Roller</h1>
       <p class="roller-intro">
-        Assemble your pool, roll, and read the <strong>single highest die</strong>. No arithmetic, no modifiers  -  the highest face on the table decides the outcome tier. Use this at the table or when running D6 Storyteller online.
+        Assemble your pool, roll, and read the <strong>single highest die</strong>. No arithmetic, no modifiers. The highest face on the table decides the outcome tier. Use this at the table or when running D6 Storyteller online.
       </p>
 
       <!-- ROLLER WIDGET -->
@@ -105,21 +105,21 @@ const jsonLd = [
           <div class="roller-ref__row roller-ref__row--success">
             <span class="roller-ref__face" aria-hidden="true">⚅</span>
             <div>
-              <strong class="roller-ref__value">6  -  Full Success</strong>
+              <strong class="roller-ref__value">6: Full Success</strong>
               <p>You achieve what you set out to do. Multiple 6s = Great Effect (more, faster, or lasting impact).</p>
             </div>
           </div>
           <div class="roller-ref__row roller-ref__row--partial">
             <span class="roller-ref__face" aria-hidden="true">⚄</span>
             <div>
-              <strong class="roller-ref__value">4&ndash;5  -  Partial Success</strong>
+              <strong class="roller-ref__value">4&ndash;5: Partial Success</strong>
               <p>You accomplish your goal, but at a cost: a complication, minor harm, or reduced effect. The story moves forward.</p>
             </div>
           </div>
           <div class="roller-ref__row roller-ref__row--fail">
             <span class="roller-ref__face" aria-hidden="true">⚀</span>
             <div>
-              <strong class="roller-ref__value">1&ndash;3  -  Failure</strong>
+              <strong class="roller-ref__value">1&ndash;3: Failure</strong>
               <p>You don't get what you wanted, and a consequence strikes. Failure is never a dead stop; it propels the narrative.</p>
             </div>
           </div>
@@ -137,8 +137,6 @@ const jsonLd = [
 </BaseLayout>
 
 <script>
-  const DIE_FACES = ['', '⚀', '⚁', '⚂', '⚃', '⚄', '⚅'];
-
   const poolInput = document.getElementById('pool-size') as HTMLInputElement | null;
   const minusBtn = document.getElementById('pool-minus') as HTMLButtonElement | null;
   const plusBtn = document.getElementById('pool-plus') as HTMLButtonElement | null;
@@ -155,6 +153,37 @@ const jsonLd = [
   const MIN = 1;
   const MAX = 12;
 
+  /* Dot layout positions for each face (3x3 grid: tl,tc,tr, ml,mc,mr, bl,bc,br) */
+  const DOT_LAYOUTS: Record<number, string[]> = {
+    1: ['mc'],
+    2: ['tr', 'bl'],
+    3: ['tr', 'mc', 'bl'],
+    4: ['tl', 'tr', 'bl', 'br'],
+    5: ['tl', 'tr', 'mc', 'bl', 'br'],
+    6: ['tl', 'tr', 'ml', 'mr', 'bl', 'br'],
+  };
+
+  function createDieElement(value: number, isHighest: boolean, index: number): HTMLElement {
+    const die = document.createElement('div');
+    die.className = 'die' + (isHighest ? ' die--highest' : '');
+    die.setAttribute('role', 'img');
+    die.setAttribute('aria-label', isHighest ? `Die ${index + 1}: ${value} (highest)` : `Die ${index + 1}: ${value}`);
+    die.style.animationDelay = `${index * 60}ms`;
+
+    const face = document.createElement('div');
+    face.className = 'die__face';
+
+    const dots = DOT_LAYOUTS[value] || [];
+    dots.forEach(pos => {
+      const dot = document.createElement('span');
+      dot.className = `die__dot die__dot--${pos}`;
+      face.appendChild(dot);
+    });
+
+    die.appendChild(face);
+    return die;
+  }
+
   function clampPool(): number {
     if (!poolInput) return 3;
     let n = parseInt(poolInput.value, 10);
@@ -168,7 +197,6 @@ const jsonLd = [
   }
 
   function rollDie(): number {
-    // Fair 1-6 using crypto when available, Math.random otherwise.
     if (window.crypto && window.crypto.getRandomValues) {
       const buf = new Uint32Array(1);
       window.crypto.getRandomValues(buf);
@@ -183,8 +211,8 @@ const jsonLd = [
     if (highest === 6) {
       return {
         tierClass: 'success',
-        tier: sixes >= 2 ? 'Full Success  -  Great Effect' : 'Full Success',
-        face: '⚅',
+        tier: sixes >= 2 ? 'Full Success + Great Effect' : 'Full Success',
+        faceValue: 6,
         desc: sixes >= 2
           ? `You achieve your goal, and the multiple 6s deliver a Great Effect: more, faster, or lasting impact. (${sixes} sixes rolled.)`
           : 'You achieve what you set out to do.',
@@ -194,14 +222,14 @@ const jsonLd = [
       return {
         tierClass: 'partial',
         tier: 'Partial Success',
-        face: highest === 5 ? '⚄' : '⚃',
-        desc: 'You accomplish your goal, but at a cost  -  a complication, minor harm, or reduced effect. The story moves forward.',
+        faceValue: highest,
+        desc: 'You accomplish your goal, but at a cost: a complication, minor harm, or reduced effect. The story moves forward.',
       };
     }
     return {
       tierClass: 'fail',
       tier: 'Failure',
-      face: DIE_FACES[highest],
+      faceValue: highest,
       desc: "You don't get what you wanted, and a consequence strikes. Failure is never a dead stop; it propels the narrative.",
     };
   }
@@ -213,12 +241,7 @@ const jsonLd = [
     if (placeholder) placeholder.remove();
 
     values.forEach((v, i) => {
-      const die = document.createElement('span');
-      die.className = 'die' + (v === highest ? ' die--highest' : '');
-      die.textContent = DIE_FACES[v];
-      die.setAttribute('role', 'img');
-      die.setAttribute('aria-label', v === highest ? `Die ${i + 1}: ${v} (highest)` : `Die ${i + 1}: ${v}`);
-      die.style.animationDelay = `${i * 45}ms`;
+      const die = createDieElement(v, v === highest, i);
       tray.appendChild(die);
     });
 
@@ -228,7 +251,17 @@ const jsonLd = [
       outcome.hidden = false;
       outcome.className = `roller__outcome roller__outcome--${result.tierClass}`;
     }
-    if (outcomeFace) outcomeFace.textContent = result.face;
+    if (outcomeFace) {
+      outcomeFace.innerHTML = '';
+      const miniFace = document.createElement('div');
+      miniFace.className = 'die__face die__face--mini';
+      (DOT_LAYOUTS[result.faceValue] || []).forEach(pos => {
+        const dot = document.createElement('span');
+        dot.className = `die__dot die__dot--${pos}`;
+        miniFace.appendChild(dot);
+      });
+      outcomeFace.appendChild(miniFace);
+    }
     if (outcomeHighest) outcomeHighest.textContent = `Highest die: ${highest}`;
     if (outcomeTier) outcomeTier.textContent = result.tier;
     if (outcomeDesc) outcomeDesc.textContent = result.desc;
@@ -352,58 +385,86 @@ const jsonLd = [
 .roller__dice {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-6);
+  gap: var(--space-4);
   align-items: center;
   justify-content: center;
-  min-height: 180px;
-  padding: var(--space-8) var(--space-4);
+  min-height: 120px;
+  padding: var(--space-6);
 }
 
 .roller__placeholder {
   color: rgba(232, 224, 208, 0.5);
-  font-size: var(--text-base);
+  font-size: var(--text-sm);
   text-align: center;
   margin: 0;
 }
 
+/* ── CSS-drawn die ── */
 .die {
-  font-size: 5rem;
-  line-height: 1;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.2em;
-  height: 1.2em;
-  color: rgba(232, 224, 208, 0.55);
-  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.6));
-  animation: dieIn 260ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: dieIn 300ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.die--highest .die__face {
+  background: rgba(201, 162, 39, 0.18);
+  border-color: var(--gold-400);
+  box-shadow: 0 0 20px rgba(201, 162, 39, 0.4), 0 4px 16px rgba(0,0,0,0.5);
+}
+.die--highest .die__dot {
+  background: var(--gold-300);
+  box-shadow: 0 0 6px rgba(201, 162, 39, 0.7);
 }
 
-.die--highest {
-  color: var(--gold-300);
-  text-shadow: 0 0 28px rgba(201, 162, 39, 0.9), 0 0 60px rgba(201, 162, 39, 0.4);
-  transform: scale(1.18);
+.die__face {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  background: var(--navy-800);
+  border: 2px solid rgba(201, 162, 39, 0.3);
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+.die__face--mini {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+}
+.die__face--mini .die__dot {
+  width: 7px;
+  height: 7px;
+}
+
+.die__dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(232, 224, 208, 0.6);
+}
+/* 3x3 grid positions */
+.die__dot--tl { top: 15%; left: 15%; }
+.die__dot--tc { top: 15%; left: 50%; transform: translateX(-50%); }
+.die__dot--tr { top: 15%; right: 15%; }
+.die__dot--ml { top: 50%; left: 15%; transform: translateY(-50%); }
+.die__dot--mc { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.die__dot--mr { top: 50%; right: 15%; transform: translateY(-50%); }
+.die__dot--bl { bottom: 15%; left: 15%; }
+.die__dot--bc { bottom: 15%; left: 50%; transform: translateX(-50%); }
+.die__dot--br { bottom: 15%; right: 15%; }
+
+@media (min-width: 640px) {
+  .die__face { width: 80px; height: 80px; border-radius: var(--radius-lg); }
+  .die__dot { width: 13px; height: 13px; }
+  .roller__dice { gap: var(--space-5); }
+}
+@media (min-width: 960px) {
+  .die__face { width: 100px; height: 100px; }
+  .die__dot { width: 16px; height: 16px; }
+  .roller__dice { gap: var(--space-6); min-height: 160px; }
 }
 
 @keyframes dieIn {
-  from { opacity: 0; transform: translateY(-14px) rotate(-12deg) scale(0.6); }
+  from { opacity: 0; transform: translateY(-10px) rotate(-8deg) scale(0.7); }
   to   { opacity: 1; transform: translateY(0) rotate(0) scale(1); }
 }
-.die--highest { animation-name: dieInHighest; }
-@keyframes dieInHighest {
-  from { opacity: 0; transform: translateY(-14px) rotate(-12deg) scale(0.6); }
-  to   { opacity: 1; transform: translateY(0) rotate(0) scale(1.18); }
-}
-
-/* Scale dice up even more on wider screens */
-@media (min-width: 640px) {
-  .die { font-size: 7rem; }
-}
-@media (min-width: 960px) {
-  .die { font-size: 9rem; }
-  .roller__dice { gap: var(--space-8); min-height: 240px; }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .die { animation: none; }
 }
@@ -423,7 +484,7 @@ const jsonLd = [
 .roller__outcome--partial { background: rgba(230, 126, 34, 0.08); border-color: rgba(230, 126, 34, 0.35); }
 .roller__outcome--fail    { background: rgba(192, 57, 43, 0.08);  border-color: rgba(192, 57, 43, 0.35); }
 
-.roller__outcome-face { font-size: clamp(3.5rem, 5vw, 4.5rem); line-height: 1; flex-shrink: 0; }
+.roller__outcome-face { flex-shrink: 0; }
 .roller__outcome--success .roller__outcome-face { color: #27ae60; }
 .roller__outcome--partial .roller__outcome-face { color: #e67e22; }
 .roller__outcome--fail    .roller__outcome-face { color: #c0392b; }
