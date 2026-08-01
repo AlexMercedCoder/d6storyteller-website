@@ -50,7 +50,7 @@ const jsonLd = [
       <p class="section-label">Online Play Aid</p>
       <h1 id="roller-heading">D6 Dice-Pool Roller</h1>
       <p class="roller-intro">
-        Assemble your pool, roll, and read the <strong>single highest die</strong>. No arithmetic, no modifiers &mdash; the highest face on the table decides the outcome tier. Use this at the table or when running D6 Storyteller online.
+        Assemble your pool, roll, and read the <strong>single highest die</strong>. No arithmetic, no modifiers  -  the highest face on the table decides the outcome tier. Use this at the table or when running D6 Storyteller online.
       </p>
 
       <!-- ROLLER WIDGET -->
@@ -105,21 +105,21 @@ const jsonLd = [
           <div class="roller-ref__row roller-ref__row--success">
             <span class="roller-ref__face" aria-hidden="true">⚅</span>
             <div>
-              <strong class="roller-ref__value">6 &mdash; Full Success</strong>
+              <strong class="roller-ref__value">6  -  Full Success</strong>
               <p>You achieve what you set out to do. Multiple 6s = Great Effect (more, faster, or lasting impact).</p>
             </div>
           </div>
           <div class="roller-ref__row roller-ref__row--partial">
             <span class="roller-ref__face" aria-hidden="true">⚄</span>
             <div>
-              <strong class="roller-ref__value">4&ndash;5 &mdash; Partial Success</strong>
+              <strong class="roller-ref__value">4&ndash;5  -  Partial Success</strong>
               <p>You accomplish your goal, but at a cost: a complication, minor harm, or reduced effect. The story moves forward.</p>
             </div>
           </div>
           <div class="roller-ref__row roller-ref__row--fail">
             <span class="roller-ref__face" aria-hidden="true">⚀</span>
             <div>
-              <strong class="roller-ref__value">1&ndash;3 &mdash; Failure</strong>
+              <strong class="roller-ref__value">1&ndash;3  -  Failure</strong>
               <p>You don't get what you wanted, and a consequence strikes. Failure is never a dead stop; it propels the narrative.</p>
             </div>
           </div>
@@ -183,7 +183,7 @@ const jsonLd = [
     if (highest === 6) {
       return {
         tierClass: 'success',
-        tier: sixes >= 2 ? 'Full Success — Great Effect' : 'Full Success',
+        tier: sixes >= 2 ? 'Full Success  -  Great Effect' : 'Full Success',
         face: '⚅',
         desc: sixes >= 2
           ? `You achieve your goal, and the multiple 6s deliver a Great Effect: more, faster, or lasting impact. (${sixes} sixes rolled.)`
@@ -195,7 +195,7 @@ const jsonLd = [
         tierClass: 'partial',
         tier: 'Partial Success',
         face: highest === 5 ? '⚄' : '⚃',
-        desc: 'You accomplish your goal, but at a cost — a complication, minor harm, or reduced effect. The story moves forward.',
+        desc: 'You accomplish your goal, but at a cost  -  a complication, minor harm, or reduced effect. The story moves forward.',
       };
     }
     return {
