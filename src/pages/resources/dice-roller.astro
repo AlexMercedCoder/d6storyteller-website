@@ -399,21 +399,21 @@ const jsonLd = [
   margin: 0;
 }
 
-/* ── CSS-drawn die ── */
-.die {
+/* ── CSS-drawn die (global: JS-created elements) ── */
+:global(.die) {
   animation: dieIn 300ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
-.die--highest .die__face {
+:global(.die--highest .die__face) {
   background: rgba(201, 162, 39, 0.18);
   border-color: var(--gold-400);
   box-shadow: 0 0 20px rgba(201, 162, 39, 0.4), 0 4px 16px rgba(0,0,0,0.5);
 }
-.die--highest .die__dot {
+:global(.die--highest .die__dot) {
   background: var(--gold-300);
   box-shadow: 0 0 6px rgba(201, 162, 39, 0.7);
 }
 
-.die__face {
+:global(.die__face) {
   position: relative;
   width: 64px;
   height: 64px;
@@ -422,17 +422,17 @@ const jsonLd = [
   border-radius: var(--radius-md);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
-.die__face--mini {
+:global(.die__face--mini) {
   width: 40px;
   height: 40px;
   border-radius: 6px;
 }
-.die__face--mini .die__dot {
+:global(.die__face--mini .die__dot) {
   width: 7px;
   height: 7px;
 }
 
-.die__dot {
+:global(.die__dot) {
   position: absolute;
   width: 10px;
   height: 10px;
@@ -440,24 +440,24 @@ const jsonLd = [
   background: rgba(232, 224, 208, 0.6);
 }
 /* 3x3 grid positions */
-.die__dot--tl { top: 15%; left: 15%; }
-.die__dot--tc { top: 15%; left: 50%; transform: translateX(-50%); }
-.die__dot--tr { top: 15%; right: 15%; }
-.die__dot--ml { top: 50%; left: 15%; transform: translateY(-50%); }
-.die__dot--mc { top: 50%; left: 50%; transform: translate(-50%, -50%); }
-.die__dot--mr { top: 50%; right: 15%; transform: translateY(-50%); }
-.die__dot--bl { bottom: 15%; left: 15%; }
-.die__dot--bc { bottom: 15%; left: 50%; transform: translateX(-50%); }
-.die__dot--br { bottom: 15%; right: 15%; }
+:global(.die__dot--tl) { top: 15%; left: 15%; }
+:global(.die__dot--tc) { top: 15%; left: 50%; transform: translateX(-50%); }
+:global(.die__dot--tr) { top: 15%; right: 15%; }
+:global(.die__dot--ml) { top: 50%; left: 15%; transform: translateY(-50%); }
+:global(.die__dot--mc) { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+:global(.die__dot--mr) { top: 50%; right: 15%; transform: translateY(-50%); }
+:global(.die__dot--bl) { bottom: 15%; left: 15%; }
+:global(.die__dot--bc) { bottom: 15%; left: 50%; transform: translateX(-50%); }
+:global(.die__dot--br) { bottom: 15%; right: 15%; }
 
 @media (min-width: 640px) {
-  .die__face { width: 80px; height: 80px; border-radius: var(--radius-lg); }
-  .die__dot { width: 13px; height: 13px; }
+  :global(.die__face) { width: 80px; height: 80px; border-radius: var(--radius-lg); }
+  :global(.die__dot) { width: 13px; height: 13px; }
   .roller__dice { gap: var(--space-5); }
 }
 @media (min-width: 960px) {
-  .die__face { width: 100px; height: 100px; }
-  .die__dot { width: 16px; height: 16px; }
+  :global(.die__face) { width: 100px; height: 100px; }
+  :global(.die__dot) { width: 16px; height: 16px; }
   .roller__dice { gap: var(--space-6); min-height: 160px; }
 }
 
@@ -466,7 +466,7 @@ const jsonLd = [
   to   { opacity: 1; transform: translateY(0) rotate(0) scale(1); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .die { animation: none; }
+  :global(.die) { animation: none; }
 }
 
 /* ── Outcome banner ── */
