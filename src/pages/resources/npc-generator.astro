@@ -1,0 +1,445 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AmazonCTA from '../../components/AmazonCTA.astro';
+
+const SITE_URL = 'https://d6storyteller.alexmerced.com';
+const pageUrl = `${SITE_URL}/resources/npc-generator/`;
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "@id": `${pageUrl}#app`,
+    "name": "D6 Storyteller NPC Generator",
+    "url": pageUrl,
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Any (web browser)",
+    "description": "A free random NPC generator for the D6 Storyteller tabletop system. Instantly create named NPCs with a dominant approach, want, method, flaw, and secret for any setting.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "isPartOf": { "@id": `${SITE_URL}/#website` },
+    "author": { "@type": "Person", "name": "Alex Merced", "@id": `${SITE_URL}/#alex-merced` }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": `${SITE_URL}/` },
+      { "@type": "ListItem", "position": 2, "name": "Resources", "item": `${SITE_URL}/resources/` },
+      { "@type": "ListItem", "position": 3, "name": "NPC Generator", "item": pageUrl }
+    ]
+  }
+];
+---
+
+<BaseLayout
+  title="NPC Generator | D6 Storyteller Free Online Tool"
+  description="Instantly generate named NPCs with a dominant approach, want, method, flaw, and secret for any D6 Storyteller campaign. Free, no account required."
+  canonicalUrl={pageUrl}
+  jsonLd={jsonLd}
+>
+  <section class="section" aria-labelledby="npc-heading">
+    <div class="container container--narrow">
+
+      <nav aria-label="Breadcrumb" class="breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb__separator" aria-hidden="true">&rsaquo;</span>
+        <a href="/resources/">Resources</a>
+        <span class="breadcrumb__separator" aria-hidden="true">&rsaquo;</span>
+        <span aria-current="page">NPC Generator</span>
+      </nav>
+
+      <p class="section-label">Storyteller Tool</p>
+      <h1 id="npc-heading">NPC Generator</h1>
+      <p class="npc-intro">
+        Need an NPC on the fly? Hit the button below to generate a character with a name, dominant approach, want, method, flaw, and secret. Setting-agnostic by design, so the results work in any D6 Storyteller campaign. Re-roll any field individually or generate an entirely new character.
+      </p>
+
+      <!-- Generator card -->
+      <div class="npc-card card" id="npc-card">
+        <div class="npc-card__empty" id="npc-empty">
+          <p>No NPC generated yet. Press the button below.</p>
+        </div>
+
+        <div class="npc-card__content" id="npc-content" style="display:none;">
+          <!-- Name row -->
+          <div class="npc-field" id="field-name">
+            <div class="npc-field__header">
+              <span class="npc-field__label">Name</span>
+              <button class="npc-field__reroll" data-field="name" aria-label="Re-roll name">⟳</button>
+            </div>
+            <div class="npc-field__value" id="val-name"></div>
+          </div>
+
+          <!-- Approach -->
+          <div class="npc-field" id="field-approach">
+            <div class="npc-field__header">
+              <span class="npc-field__label">Dominant Approach</span>
+              <button class="npc-field__reroll" data-field="approach" aria-label="Re-roll approach">⟳</button>
+            </div>
+            <div class="npc-field__value" id="val-approach"></div>
+            <div class="npc-field__desc" id="desc-approach"></div>
+          </div>
+
+          <!-- Want -->
+          <div class="npc-field" id="field-want">
+            <div class="npc-field__header">
+              <span class="npc-field__label">Want</span>
+              <button class="npc-field__reroll" data-field="want" aria-label="Re-roll want">⟳</button>
+            </div>
+            <div class="npc-field__value" id="val-want"></div>
+          </div>
+
+          <!-- Method -->
+          <div class="npc-field" id="field-method">
+            <div class="npc-field__header">
+              <span class="npc-field__label">Method</span>
+              <button class="npc-field__reroll" data-field="method" aria-label="Re-roll method">⟳</button>
+            </div>
+            <div class="npc-field__value" id="val-method"></div>
+          </div>
+
+          <!-- Flaw -->
+          <div class="npc-field" id="field-flaw">
+            <div class="npc-field__header">
+              <span class="npc-field__label">Flaw</span>
+              <button class="npc-field__reroll" data-field="flaw" aria-label="Re-roll flaw">⟳</button>
+            </div>
+            <div class="npc-field__value" id="val-flaw"></div>
+          </div>
+
+          <!-- Secret -->
+          <div class="npc-field npc-field--secret" id="field-secret">
+            <div class="npc-field__header">
+              <span class="npc-field__label">🔒 Secret</span>
+              <button class="npc-field__reroll" data-field="secret" aria-label="Re-roll secret">⟳</button>
+            </div>
+            <div class="npc-field__value" id="val-secret"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="npc-actions">
+        <button class="btn btn--primary npc-generate-btn" id="generate-btn">
+          <span aria-hidden="true">🎲</span> Generate NPC
+        </button>
+      </div>
+
+      <div class="npc-tip">
+        <p><strong>Tip:</strong> The Want and Method together tell you what the NPC will do in any scene. The Flaw tells you how they will fail. The Secret is for you, the Storyteller, to reveal when the moment is right.</p>
+      </div>
+
+      <AmazonCTA placement="npc_generator_bottom" variant="banner" />
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  // ── NPC Data Tables ──
+  const FIRST_NAMES = [
+    'Aldric','Brenna','Cael','Dasha','Elara','Fenn','Gideon','Hana','Isen','Jael',
+    'Kira','Linden','Maren','Niko','Orin','Petra','Quinn','Reva','Soren','Talia',
+    'Ulric','Vesper','Wren','Xara','Yael','Zara','Ash','Brin','Corvin','Delphine',
+    'Ember','Frost','Gareth','Harlow','Idris','Jorin','Kael','Lysander','Maeve','Nox',
+    'Orla','Pike','Ren','Sage','Theron','Una','Vale','Wynn','Yarrow','Zephyr',
+    'Alder','Briar','Cass','Duren','Eira','Flint','Grey','Haven','Ivo','Juno',
+  ];
+
+  const SURNAMES = [
+    'Ashworth','Blackthorn','Carvell','Dunmore','Eldridge','Fairholm','Greymane',
+    'Holloway','Ironside','Jarrow','Kettlewell','Lark','Moorecroft','Nightwood',
+    'Oakenshield','Pembroke','Quarren','Ravenscar','Silverlock','Thornwall',
+    'Underhill','Valeheart','Windhaven','Yarrow','Ashford','Brightwell','Coldwater',
+    'Duskfall','Everhart','Foxglove','Glenmore','Hartwood','Inkwell','Jade',
+  ];
+
+  const APPROACHES = [
+    { name: 'Force', desc: 'This NPC leads with directness, physicality, and intimidation. They solve problems through strength, endurance, and blunt action.' },
+    { name: 'Finesse', desc: 'This NPC is precise, quick, and subtle. They prefer stealth, dexterity, and carefully timed action over brute force.' },
+    { name: 'Mind', desc: 'This NPC thinks before acting. They rely on analysis, planning, knowledge, and careful observation to get what they want.' },
+    { name: 'Presence', desc: 'This NPC leads with personality. They persuade, deceive, inspire, or command through social influence and force of will.' },
+  ];
+
+  const WANTS = [
+    'Wealth and material security',
+    'Political power or influence',
+    'Revenge against someone who wronged them',
+    'Protection for someone they love',
+    'Freedom from an obligation or debt',
+    'Knowledge of a forbidden truth',
+    'Recognition and status',
+    'To be left alone',
+    'To atone for a past mistake',
+    'Control over a specific resource or territory',
+    'To find a missing person',
+    'To preserve a tradition or institution',
+    'To destroy a tradition or institution',
+    'Safety for their community',
+    'To escape their current situation',
+    'An audience with someone powerful',
+    'Proof that they were right all along',
+    'A second chance at something they lost',
+    'To keep a dangerous secret buried',
+    'To see justice done, whatever the cost',
+  ];
+
+  const METHODS = [
+    'Bribery and favors',
+    'Blackmail and leverage',
+    'Honest negotiation',
+    'Lies and misdirection',
+    'Violence or threats of violence',
+    'Patience and long-term planning',
+    'Gathering allies and building coalitions',
+    'Exploiting bureaucracy and rules',
+    'Charm and personal magnetism',
+    'Stealing what they need',
+    'Trading information',
+    'Working through intermediaries',
+    'Public pressure and reputation',
+    'Sabotage and disruption',
+    'Religious or ideological authority',
+    'Offering protection in exchange for loyalty',
+    'Playing factions against each other',
+    'Feigning weakness to draw enemies out',
+    'Relentless persistence',
+    'Making themselves indispensable',
+  ];
+
+  const FLAWS = [
+    'Trusts too easily',
+    'Cannot let go of a grudge',
+    'Addicted to a substance or habit',
+    'Compulsively lies, even when unnecessary',
+    'Paralyzed by guilt over a past action',
+    'Refuses to ask for help',
+    'Desperate for approval',
+    'Cruel when frightened',
+    'Cannot resist a gamble or wager',
+    'Loyal to someone who does not deserve it',
+    'Dangerously overconfident',
+    'Hides a physical weakness or injury',
+    'Obsessed with a single goal to the exclusion of everything else',
+    'Cannot read people well',
+    'Cowardly when the stakes are real',
+    'Jealous of anyone more successful',
+    'Cannot keep a secret',
+    'Quick to anger, slow to forgive',
+    'Chronically dishonest with themselves',
+    'Terrified of being forgotten',
+  ];
+
+  const SECRETS = [
+    'They are not who they claim to be',
+    'They are working for a rival faction',
+    'They have already betrayed someone the players trust',
+    'They are dying and hiding it',
+    'They witnessed something terrible and said nothing',
+    'They owe a debt to someone dangerous',
+    'They are the reason the current crisis started',
+    'They are protecting someone the players are hunting',
+    'They once held the position of someone powerful and were removed',
+    'They have access to something everyone else wants',
+    'They are planning to leave the moment they get what they need',
+    'They killed someone and no one knows',
+    'They are immune to whatever threat everyone else fears',
+    'They are feeding information to both sides',
+    'They are related to someone important in the setting',
+    'They were exiled from their home and can never return',
+    'They are slowly losing their grip on reality',
+    'They are stockpiling resources for a personal escape plan',
+    'They were the one who sent the warning',
+    'They have been watching the players for some time',
+  ];
+
+  function pick(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+  }
+
+  const state = {};
+
+  function rollField(field) {
+    switch (field) {
+      case 'name':
+        state.name = `${pick(FIRST_NAMES)} ${pick(SURNAMES)}`;
+        document.getElementById('val-name').textContent = state.name;
+        break;
+      case 'approach':
+        state.approach = pick(APPROACHES);
+        document.getElementById('val-approach').textContent = state.approach.name;
+        document.getElementById('desc-approach').textContent = state.approach.desc;
+        break;
+      case 'want':
+        state.want = pick(WANTS);
+        document.getElementById('val-want').textContent = state.want;
+        break;
+      case 'method':
+        state.method = pick(METHODS);
+        document.getElementById('val-method').textContent = state.method;
+        break;
+      case 'flaw':
+        state.flaw = pick(FLAWS);
+        document.getElementById('val-flaw').textContent = state.flaw;
+        break;
+      case 'secret':
+        state.secret = pick(SECRETS);
+        document.getElementById('val-secret').textContent = state.secret;
+        break;
+    }
+    // Animate the field
+    const el = document.getElementById(`field-${field}`);
+    el.classList.remove('npc-field--pop');
+    void el.offsetWidth;
+    el.classList.add('npc-field--pop');
+  }
+
+  function generateAll() {
+    ['name', 'approach', 'want', 'method', 'flaw', 'secret'].forEach((f, i) => {
+      setTimeout(() => rollField(f), i * 80);
+    });
+    document.getElementById('npc-empty').style.display = 'none';
+    document.getElementById('npc-content').style.display = 'flex';
+    document.getElementById('generate-btn').innerHTML = '<span aria-hidden="true">🎲</span> Re-Generate';
+  }
+
+  document.getElementById('generate-btn').addEventListener('click', generateAll);
+
+  document.querySelectorAll('.npc-field__reroll').forEach(btn => {
+    btn.addEventListener('click', () => rollField(btn.dataset.field));
+  });
+</script>
+
+<style>
+.npc-intro {
+  max-width: 64ch;
+  color: rgba(232, 224, 208, 0.75);
+  margin-bottom: var(--space-8);
+}
+
+/* NPC Card */
+.npc-card {
+  padding: var(--space-6) var(--space-8);
+  min-height: 320px;
+}
+
+.npc-card__empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+}
+.npc-card__empty p {
+  color: rgba(232, 224, 208, 0.4);
+  font-size: var(--text-sm);
+  text-align: center;
+}
+
+.npc-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* Field */
+:global(.npc-field) {
+  background: rgba(201, 162, 39, 0.04);
+  border: 1px solid rgba(201, 162, 39, 0.15);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  transition: border-color var(--transition-fast);
+}
+:global(.npc-field--secret) {
+  background: rgba(192, 57, 43, 0.04);
+  border-color: rgba(192, 57, 43, 0.2);
+}
+:global(.npc-field--pop) {
+  animation: fieldPop 300ms ease;
+}
+
+.npc-field__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-1);
+}
+.npc-field__label {
+  font-family: var(--font-heading);
+  font-size: var(--text-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-400);
+}
+:global(.npc-field--secret .npc-field__label) {
+  color: #c0392b;
+}
+.npc-field__reroll {
+  background: none;
+  border: 1px solid rgba(201, 162, 39, 0.3);
+  color: var(--gold-400);
+  font-size: 1rem;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  line-height: 1;
+}
+.npc-field__reroll:hover {
+  background: rgba(201, 162, 39, 0.1);
+  border-color: var(--gold-400);
+  color: var(--gold-300);
+}
+
+:global(.npc-field__value) {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  color: var(--parchment-100);
+}
+:global(#field-name .npc-field__value) {
+  font-size: var(--text-2xl);
+}
+
+:global(.npc-field__desc) {
+  font-size: var(--text-sm);
+  color: rgba(232, 224, 208, 0.6);
+  margin-top: var(--space-1);
+  line-height: 1.5;
+}
+
+/* Actions */
+.npc-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+.npc-generate-btn {
+  font-size: var(--text-lg);
+  padding: 0.8em 2.5em;
+}
+
+.npc-tip {
+  background: var(--navy-800);
+  border: 1px solid rgba(201, 162, 39, 0.15);
+  border-radius: var(--radius-md);
+  padding: var(--space-4) var(--space-5);
+  margin-bottom: var(--space-8);
+}
+.npc-tip p {
+  color: rgba(232, 224, 208, 0.6);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
+.npc-tip strong {
+  color: var(--gold-300);
+}
+
+@keyframes fieldPop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.015); border-color: var(--gold-400); }
+  100% { transform: scale(1); }
+}
+</style>

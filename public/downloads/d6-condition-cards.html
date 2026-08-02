@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>D6 Storyteller: Condition Tracker Cards</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0c1a2e;
+      --navy-light: #162d52;
+      --gold: #c9a227;
+      --gold-light: #f0d080;
+      --ink: #1a1a2e;
+      --heading: 'Cinzel', Georgia, serif;
+      --body: 'Inter', system-ui, sans-serif;
+    }
+    body { background: #e8e4dc; font-family: var(--body); padding: 2rem; color: var(--ink); font-size: 14px; }
+
+    /* Screen instructions */
+    .screen-only {
+      max-width: 816px;
+      margin: 0 auto 2rem;
+      background: #fdf9f0;
+      border: 2px solid var(--gold);
+      border-radius: 8px;
+      padding: 1.5rem 2rem;
+      text-align: center;
+    }
+    .screen-only h1 {
+      font-family: var(--heading);
+      font-size: 1.4rem;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.1em;
+    }
+    .screen-only p {
+      color: #555;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 0.3rem;
+    }
+    .screen-only strong { color: var(--navy); }
+
+    /* Card grid */
+    .card-page {
+      max-width: 816px;
+      margin: 0 auto 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    /* Individual card */
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      border: 3px solid;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .card__header {
+      padding: 1.1rem 1.25rem 0.75rem;
+      text-align: center;
+    }
+    .card__type {
+      font-family: var(--heading);
+      font-size: 0.5rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-bottom: 0.15rem;
+      opacity: 0.6;
+    }
+    .card__icon {
+      font-size: 2.2rem;
+      line-height: 1;
+      margin-bottom: 0.2rem;
+    }
+    .card__name {
+      font-family: var(--heading);
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+
+    .card__rule {
+      height: 2px;
+      border: none;
+      margin: 0 1.25rem;
+    }
+
+    .card__body {
+      padding: 0.75rem 1.25rem 1rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .card__desc {
+      font-size: 0.82rem;
+      line-height: 1.45;
+      color: #333;
+      text-align: center;
+    }
+    .card__desc strong { color: var(--ink); }
+
+    .card__detail {
+      background: rgba(0,0,0,0.03);
+      border-radius: 8px;
+      padding: 0.6rem 0.85rem;
+    }
+    .card__detail-label {
+      font-family: var(--heading);
+      font-size: 0.48rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 0.2rem;
+      opacity: 0.6;
+    }
+    .card__detail-text {
+      font-size: 0.75rem;
+      line-height: 1.4;
+      color: #444;
+    }
+
+    .card__char-field {
+      border-bottom: 1.5px dotted rgba(0,0,0,0.2);
+      min-height: 1.2rem;
+      margin-top: 0.25rem;
+    }
+    .card__char-label {
+      font-family: var(--heading);
+      font-size: 0.45rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #999;
+      margin-top: 0.4rem;
+    }
+
+    .card__footer {
+      padding: 0.4rem 1.25rem 0.6rem;
+      text-align: center;
+    }
+    .card__footer-text {
+      font-family: var(--heading);
+      font-size: 0.45rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      opacity: 0.35;
+    }
+
+    /* Shaken */
+    .card--shaken { border-color: #e67e22; }
+    .card--shaken .card__header { background: #fef6ee; color: #b35c00; }
+    .card--shaken .card__rule { background: #e67e22; }
+    .card--shaken .card__detail { background: rgba(230,126,34,0.05); }
+    .card--shaken .card__detail-label { color: #b35c00; }
+
+    /* Hurt */
+    .card--hurt { border-color: #e74c3c; }
+    .card--hurt .card__header { background: #fdecea; color: #a82315; }
+    .card--hurt .card__rule { background: #e74c3c; }
+    .card--hurt .card__detail { background: rgba(231,76,60,0.05); }
+    .card--hurt .card__detail-label { color: #a82315; }
+
+    /* Out */
+    .card--out { border-color: #501414; }
+    .card--out .card__header { background: #f5e8e8; color: #501414; }
+    .card--out .card__rule { background: #501414; }
+    .card--out .card__detail { background: rgba(80,20,20,0.04); }
+    .card--out .card__detail-label { color: #501414; }
+
+    /* Section divider */
+    .section-divider {
+      max-width: 816px;
+      margin: 0.5rem auto 1.5rem;
+      text-align: center;
+      position: relative;
+    }
+    .section-divider::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.4;
+    }
+    .section-divider span {
+      position: relative;
+      background: #e8e4dc;
+      padding: 0 1.5rem;
+      font-family: var(--heading);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* Recovery section */
+    .recovery-strip {
+      max-width: 816px;
+      margin: 0 auto 1.5rem;
+      background: #fdf9f0;
+      border: 2px solid var(--gold);
+      border-radius: 8px;
+      padding: 1rem 1.5rem;
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+    .recovery-strip__icon { font-size: 1.5rem; flex-shrink: 0; }
+    .recovery-strip h2 {
+      font-family: var(--heading);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 0.25rem;
+    }
+    .recovery-strip p {
+      font-size: 0.8rem;
+      color: #444;
+      line-height: 1.5;
+    }
+    .recovery-strip strong { color: var(--navy); }
+
+    @media print {
+      body { background: #fff; padding: 0; }
+      .screen-only { display: none; }
+      .section-divider { display: none; }
+      .card-page { max-width: 100%; margin: 0; padding: 0.4in; gap: 0.25in; }
+      .card { box-shadow: none; border-width: 2px; }
+      .recovery-strip { box-shadow: none; max-width: 100%; margin: 0 0.4in; }
+      @page { size: letter landscape; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="screen-only">
+    <h1>Condition Tracker Cards</h1>
+    <p>Print and cut out one set of three cards per player. When a character takes a condition, place the matching card face-up in front of them. The mechanical effects are printed right on the card so nobody forgets them.</p>
+    <p><strong>Tip:</strong> Print on cardstock. Use <kbd>Ctrl+P</kbd> &rarr; Landscape &rarr; Save as PDF.</p>
+  </div>
+
+  <!-- Player 1 set -->
+  <div class="card-page">
+
+    <!-- Shaken -->
+    <div class="card card--shaken">
+      <div class="card__header">
+        <div class="card__type">Condition</div>
+        <div class="card__icon">😰</div>
+        <div class="card__name">Shaken</div>
+      </div>
+      <hr class="card__rule" />
+      <div class="card__body">
+        <p class="card__desc">Rattled, distracted, winded, or unnerved. You can still act, but you are off your game.</p>
+        <div class="card__detail">
+          <div class="card__detail-label">Mechanical Effect</div>
+          <div class="card__detail-text">The Storyteller may narrow your available approaches or note reduced effectiveness on related actions. Minor, but present.</div>
+        </div>
+        <div class="card__detail">
+          <div class="card__detail-label">Recovery</div>
+          <div class="card__detail-text">Brief rest, a moment to collect yourself, or a calming interaction. Clears quickly when the fiction supports it.</div>
+        </div>
+        <div class="card__char-label">Character Name</div>
+        <div class="card__char-field"></div>
+      </div>
+      <div class="card__footer">
+        <div class="card__footer-text">D6 Storyteller</div>
+      </div>
+    </div>
+
+    <!-- Hurt -->
+    <div class="card card--hurt">
+      <div class="card__header">
+        <div class="card__type">Condition</div>
+        <div class="card__icon">🩸</div>
+        <div class="card__name">Hurt</div>
+      </div>
+      <hr class="card__rule" />
+      <div class="card__body">
+        <p class="card__desc">Injured, compromised, or in real pain. You can keep going, but it costs you.</p>
+        <div class="card__detail">
+          <div class="card__detail-label">Mechanical Effect</div>
+          <div class="card__detail-text">The Storyteller may reduce your dice pool, limit your options, or shift your position to Desperate for related actions. Meaningful impact.</div>
+        </div>
+        <div class="card__detail">
+          <div class="card__detail-label">Recovery</div>
+          <div class="card__detail-text">Medical attention, extended rest, or significant fictional effort. Does not clear on its own.</div>
+        </div>
+        <div class="card__char-label">Character Name</div>
+        <div class="card__char-field"></div>
+      </div>
+      <div class="card__footer">
+        <div class="card__footer-text">D6 Storyteller</div>
+      </div>
+    </div>
+
+    <!-- Out -->
+    <div class="card card--out">
+      <div class="card__header">
+        <div class="card__type">Condition</div>
+        <div class="card__icon">💀</div>
+        <div class="card__name">Out</div>
+      </div>
+      <hr class="card__rule" />
+      <div class="card__body">
+        <p class="card__desc">Unconscious, captured, incapacitated, or otherwise unable to act. You are removed from the scene.</p>
+        <div class="card__detail">
+          <div class="card__detail-label">Mechanical Effect</div>
+          <div class="card__detail-text">You cannot take actions or assist. Other characters must help you, rescue you, or wait for circumstances to change.</div>
+        </div>
+        <div class="card__detail">
+          <div class="card__detail-label">Recovery</div>
+          <div class="card__detail-text">Requires major fictional intervention: rescue, surgery, magical healing, or passage of significant time. The Storyteller decides when.</div>
+        </div>
+        <div class="card__char-label">Character Name</div>
+        <div class="card__char-field"></div>
+      </div>
+      <div class="card__footer">
+        <div class="card__footer-text">D6 Storyteller</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-divider"><span>✂ Cut &amp; repeat for each player</span></div>
+
+  <!-- Recovery reference strip -->
+  <div class="recovery-strip">
+    <span class="recovery-strip__icon" aria-hidden="true">🔄</span>
+    <div>
+      <h2>Condition Recovery Quick Reference</h2>
+      <p>Conditions improve through the fiction, not through mechanics. <strong>Shaken</strong> clears with a brief rest or a calming moment. <strong>Hurt</strong> requires medical attention, extended rest, or a deliberate recovery scene. <strong>Out</strong> needs rescue, intervention, or significant time. The Storyteller decides when recovery happens based on what the story demands. Conditions do not automatically clear between sessions.</p>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>D6 Storyteller: Session Zero Worksheet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0c1a2e;
+      --navy-light: #162d52;
+      --gold: #c9a227;
+      --gold-light: #f0d080;
+      --ink: #1a1a2e;
+      --heading: 'Cinzel', Georgia, serif;
+      --body: 'Inter', system-ui, sans-serif;
+    }
+    body { background: #e8e4dc; font-family: var(--body); padding: 2rem; color: var(--ink); font-size: 13px; }
+    .sheet-wrapper {
+      max-width: 816px;
+      margin: 0 auto;
+      background: #fdf9f0;
+      border: 2px solid var(--gold);
+      border-radius: 4px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+      overflow: hidden;
+    }
+    .sheet-header {
+      background: var(--navy);
+      color: var(--gold-light);
+      padding: 0.85rem 1.5rem;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 1rem;
+    }
+    .sheet-header__logo { font-size: 1.75rem; }
+    .sheet-header__title { font-family: var(--heading); font-size: 1.1rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-light); }
+    .sheet-header__subtitle { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.6; font-family: var(--heading); }
+    .sheet-header__version { font-family: var(--heading); font-size: 0.62rem; letter-spacing: 0.1em; opacity: 0.5; white-space: nowrap; }
+    .gold-rule { height: 3px; background: linear-gradient(to right, var(--navy), var(--gold), var(--navy)); }
+    .body { padding: 1rem 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+    .col { display: flex; flex-direction: column; gap: 0.65rem; }
+    .col--full { grid-column: 1 / -1; }
+    .block { }
+    .block__heading {
+      font-family: var(--heading);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--navy);
+      border-bottom: 1.5px solid var(--gold);
+      padding-bottom: 0.2rem;
+      margin-bottom: 0.35rem;
+    }
+    .block__subheading {
+      font-family: var(--heading);
+      font-size: 0.55rem;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      margin-bottom: 0.2rem;
+      margin-top: 0.25rem;
+    }
+    .block p { font-size: 0.72rem; color: #333; line-height: 1.55; margin-bottom: 0.3rem; }
+    strong { color: var(--navy); font-weight: 600; }
+    em { color: #555; }
+
+    /* Write-in fields */
+    .field { border-bottom: 1px solid rgba(0,0,0,0.15); min-height: 1.1rem; margin-bottom: 0.3rem; }
+    .field--tall { min-height: 2rem; }
+    .field-label { font-family: var(--heading); font-size: 0.52rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.15rem; }
+
+    /* Checkbox rows */
+    .check-row { display: flex; align-items: center; gap: 0.35rem; margin-bottom: 0.2rem; font-size: 0.72rem; color: #333; }
+    .check-box { width: 11px; height: 11px; border: 1.5px solid var(--gold); border-radius: 2px; flex-shrink: 0; }
+
+    /* Tone scale */
+    .tone-scale { display: flex; gap: 0; margin: 0.25rem 0; }
+    .tone-scale__pip { flex: 1; height: 14px; border: 1px solid rgba(0,0,0,0.15); background: rgba(201,162,39,0.04); }
+    .tone-scale__pip:first-child { border-radius: 3px 0 0 3px; }
+    .tone-scale__pip:last-child { border-radius: 0 3px 3px 0; }
+    .tone-labels { display: flex; justify-content: space-between; font-size: 0.55rem; color: #888; font-family: var(--heading); letter-spacing: 0.06em; }
+
+    /* Connection grid */
+    .connection-row { display: grid; grid-template-columns: 1fr 1fr 2fr; gap: 0.3rem; margin-bottom: 0.15rem; }
+    .connection-row--header { font-family: var(--heading); font-size: 0.5rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); padding-bottom: 0.15rem; border-bottom: 1px solid rgba(201,162,39,0.3); }
+    .connection-cell { border-bottom: 1px solid rgba(0,0,0,0.1); min-height: 0.95rem; font-size: 0.68rem; }
+
+    .sheet-footer { background: var(--navy); padding: 0.45rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+    .sheet-footer__text { font-family: var(--heading); font-size: 0.58rem; color: rgba(240,208,128,0.5); letter-spacing: 0.1em; }
+    .print-btn { display: block; max-width: 816px; margin: 1.5rem auto 0; background: var(--navy); color: var(--gold-light); font-family: var(--heading); font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; border: 2px solid var(--gold); border-radius: 4px; padding: 0.75rem 2rem; cursor: pointer; text-align: center; }
+    .print-btn:hover { background: var(--navy-light); }
+    @media print {
+      body { background: white; padding: 0; }
+      .sheet-wrapper { box-shadow: none; border: 1.5px solid #ccc; max-width: 100%; border-radius: 0; }
+      .print-btn { display: none; }
+      @page { size: letter; margin: 0.4in; }
+    }
+  </style>
+</head>
+<body>
+<div class="sheet-wrapper">
+  <div class="sheet-header">
+    <span class="sheet-header__logo" aria-hidden="true">⚄</span>
+    <div>
+      <div class="sheet-header__title">Session Zero Worksheet</div>
+      <div class="sheet-header__subtitle">Complete before your first session</div>
+    </div>
+    <div class="sheet-header__version">D6 Storyteller v1</div>
+  </div>
+  <div class="gold-rule"></div>
+
+  <div class="body">
+    <!-- Left column -->
+    <div class="col">
+
+      <div class="block">
+        <div class="block__heading">Campaign Basics</div>
+        <div class="field-label">Campaign Name</div>
+        <div class="field"></div>
+        <div class="field-label">Storyteller</div>
+        <div class="field"></div>
+        <div class="field-label">Setting / Companion Book</div>
+        <div class="field"></div>
+        <div class="field-label">Expected Length</div>
+        <div class="check-row"><span class="check-box"></span> One-shot</div>
+        <div class="check-row"><span class="check-box"></span> Short arc (3-5 sessions)</div>
+        <div class="check-row"><span class="check-box"></span> Full campaign (6+ sessions)</div>
+        <div class="check-row"><span class="check-box"></span> Open-ended</div>
+      </div>
+
+      <div class="block">
+        <div class="block__heading">Tone &amp; Genre</div>
+        <p><em>Mark where your campaign sits on each scale.</em></p>
+        <div class="field-label">Serious ← → Lighthearted</div>
+        <div class="tone-scale"><div class="tone-scale__pip"></div><div class="tone-scale__pip"></div><div class="tone-scale__pip"></div><div class="tone-scale__pip"></div><div class="tone-scale__pip"></div></div>
+        <div class="field-label">Gritty ← → Cinematic</div>
+        <div class="tone-scale"><div class="tone-scale__pip"></div><div class="tone-scale__pip"></div><div class="tone-scale__pip"></div><div class="tone-scale__pip"></div><div class="tone-scale__pip"></div></div>
+        <div class="field-label">Mystery ← → Action</div>
+        <div class="tone-scale"><div class="tone-scale__pip"></div><div class="tone-scale__pip"></div><div class="tone-scale__pip"></div><div class="tone-scale__pip"></div><div class="tone-scale__pip"></div></div>
+        <div class="field-label">Political ← → Personal</div>
+        <div class="tone-scale"><div class="tone-scale__pip"></div><div class="tone-scale__pip"></div><div class="tone-scale__pip"></div><div class="tone-scale__pip"></div><div class="tone-scale__pip"></div></div>
+        <div class="field-label">Genre / Touchstones (films, books, shows)</div>
+        <div class="field field--tall"></div>
+      </div>
+
+      <div class="block">
+        <div class="block__heading">Safety Tools</div>
+        <p><em>Agree on which safety tools your group will use.</em></p>
+        <div class="check-row"><span class="check-box"></span> <strong>Lines &amp; Veils:</strong> Lines are hard limits. Veils happen off-screen.</div>
+        <div class="check-row"><span class="check-box"></span> <strong>X-Card:</strong> Anyone can tap the X to skip a scene, no questions asked.</div>
+        <div class="check-row"><span class="check-box"></span> <strong>Open Door:</strong> Anyone can step away from the table at any time.</div>
+        <div class="check-row"><span class="check-box"></span> <strong>Stars &amp; Wishes:</strong> End each session with what you liked and what you want more of.</div>
+        <div class="field-label">Lines (topics completely off the table)</div>
+        <div class="field field--tall"></div>
+        <div class="field-label">Veils (can happen, but off-screen)</div>
+        <div class="field field--tall"></div>
+      </div>
+
+    </div>
+
+    <!-- Right column -->
+    <div class="col">
+
+      <div class="block">
+        <div class="block__heading">Optional Mechanics In Use</div>
+        <p><em>Only check the mechanics your group has agreed to use. All are opt-in.</em></p>
+        <div class="block__subheading">Per-Character Mechanics</div>
+        <div class="check-row"><span class="check-box"></span> Wound Clock (physical harm tracker)</div>
+        <div class="check-row"><span class="check-box"></span> Momentum Bank (bankable tokens)</div>
+        <div class="check-row"><span class="check-box"></span> Emotional Burden (psychological stress)</div>
+        <div class="check-row"><span class="check-box"></span> Reputation Web (faction standing)</div>
+        <div class="check-row"><span class="check-box"></span> Legacy Move (once-per-arc defining moment)</div>
+        <div class="block__subheading">Table-Wide Mechanics</div>
+        <div class="check-row"><span class="check-box"></span> Ticking Clocks</div>
+        <div class="check-row"><span class="check-box"></span> Escalating Stakes</div>
+        <div class="field-label">Other optional mechanics</div>
+        <div class="field"></div>
+      </div>
+
+      <div class="block">
+        <div class="block__heading">Table Expectations</div>
+        <div class="check-row"><span class="check-box"></span> PvP (player vs. player conflict) is allowed</div>
+        <div class="check-row"><span class="check-box"></span> Character death is possible</div>
+        <div class="check-row"><span class="check-box"></span> Romance subplots are welcome</div>
+        <div class="check-row"><span class="check-box"></span> Players can introduce world details</div>
+        <div class="check-row"><span class="check-box"></span> Sessions will have a hard end time</div>
+        <div class="field-label">Session frequency &amp; duration</div>
+        <div class="field"></div>
+        <div class="field-label">Other expectations or house rules</div>
+        <div class="field field--tall"></div>
+      </div>
+
+      <div class="block">
+        <div class="block__heading">Character Connections</div>
+        <p><em>Each pair of characters should have at least one connection.</em></p>
+        <div class="connection-row connection-row--header">
+          <span>Character A</span>
+          <span>Character B</span>
+          <span>Connection</span>
+        </div>
+        <div class="connection-row"><div class="connection-cell"></div><div class="connection-cell"></div><div class="connection-cell"></div></div>
+        <div class="connection-row"><div class="connection-cell"></div><div class="connection-cell"></div><div class="connection-cell"></div></div>
+        <div class="connection-row"><div class="connection-cell"></div><div class="connection-cell"></div><div class="connection-cell"></div></div>
+        <div class="connection-row"><div class="connection-cell"></div><div class="connection-cell"></div><div class="connection-cell"></div></div>
+        <div class="connection-row"><div class="connection-cell"></div><div class="connection-cell"></div><div class="connection-cell"></div></div>
+        <div class="connection-row"><div class="connection-cell"></div><div class="connection-cell"></div><div class="connection-cell"></div></div>
+      </div>
+
+      <div class="block">
+        <div class="block__heading">Opening Question</div>
+        <p><em>What is the one question this campaign will answer?</em></p>
+        <div class="field field--tall"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="gold-rule"></div>
+  <div class="sheet-footer">
+    <span class="sheet-footer__text">d6storyteller.alexmerced.com</span>
+    <span class="sheet-footer__text">Complete as a group before Session 1</span>
+  </div>
+</div>
+<button class="print-btn" onclick="window.print()">🖨️ Print / Save as PDF</button>
+</body>
+</html>

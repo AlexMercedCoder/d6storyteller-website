@@ -1,0 +1,442 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AmazonCTA from '../../components/AmazonCTA.astro';
+
+const SITE_URL = 'https://d6storyteller.alexmerced.com';
+const pageUrl = `${SITE_URL}/resources/scene-starter/`;
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "@id": `${pageUrl}#app`,
+    "name": "D6 Storyteller Scene Starter Generator",
+    "url": pageUrl,
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Any (web browser)",
+    "description": "A free random scene starter generator for the D6 Storyteller tabletop system. Instantly generate a location, complication, ticking clock, NPC with a want, and an opening question.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "isPartOf": { "@id": `${SITE_URL}/#website` },
+    "author": { "@type": "Person", "name": "Alex Merced", "@id": `${SITE_URL}/#alex-merced` }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": `${SITE_URL}/` },
+      { "@type": "ListItem", "position": 2, "name": "Resources", "item": `${SITE_URL}/resources/` },
+      { "@type": "ListItem", "position": 3, "name": "Scene Starter", "item": pageUrl }
+    ]
+  }
+];
+---
+
+<BaseLayout
+  title="Scene Starter Generator | D6 Storyteller Free Online Tool"
+  description="Instantly generate a scene starter with a location, complication, ticking clock, NPC, and opening question for any D6 Storyteller campaign. Free, no account required."
+  canonicalUrl={pageUrl}
+  jsonLd={jsonLd}
+>
+  <section class="section" aria-labelledby="scene-heading">
+    <div class="container container--narrow">
+
+      <nav aria-label="Breadcrumb" class="breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb__separator" aria-hidden="true">&rsaquo;</span>
+        <a href="/resources/">Resources</a>
+        <span class="breadcrumb__separator" aria-hidden="true">&rsaquo;</span>
+        <span aria-current="page">Scene Starter</span>
+      </nav>
+
+      <p class="section-label">Storyteller Tool</p>
+      <h1 id="scene-heading">Scene Starter Generator</h1>
+      <p class="scene-intro">
+        Stuck mid-session? Need an opening scene for a one-shot? Hit the button below to generate a location, a complication, a ticking clock, an NPC with a want, and an opening question. Setting-agnostic, so flavor the details to fit your world.
+      </p>
+
+      <!-- Generator card -->
+      <div class="scene-card card" id="scene-card">
+        <div class="scene-card__empty" id="scene-empty">
+          <p>No scene generated yet. Press the button below.</p>
+        </div>
+
+        <div class="scene-card__content" id="scene-content" style="display:none;">
+
+          <div class="scene-field scene-field--location" id="field-location">
+            <div class="scene-field__header">
+              <span class="scene-field__icon" aria-hidden="true">📍</span>
+              <span class="scene-field__label">Location</span>
+              <button class="scene-field__reroll" data-field="location" aria-label="Re-roll location">⟳</button>
+            </div>
+            <div class="scene-field__value" id="val-location"></div>
+          </div>
+
+          <div class="scene-field scene-field--complication" id="field-complication">
+            <div class="scene-field__header">
+              <span class="scene-field__icon" aria-hidden="true">⚠️</span>
+              <span class="scene-field__label">Complication</span>
+              <button class="scene-field__reroll" data-field="complication" aria-label="Re-roll complication">⟳</button>
+            </div>
+            <div class="scene-field__value" id="val-complication"></div>
+          </div>
+
+          <div class="scene-field scene-field--clock" id="field-clock">
+            <div class="scene-field__header">
+              <span class="scene-field__icon" aria-hidden="true">⏱️</span>
+              <span class="scene-field__label">Ticking Clock</span>
+              <button class="scene-field__reroll" data-field="clock" aria-label="Re-roll clock">⟳</button>
+            </div>
+            <div class="scene-field__value" id="val-clock"></div>
+          </div>
+
+          <div class="scene-field scene-field--npc" id="field-npc">
+            <div class="scene-field__header">
+              <span class="scene-field__icon" aria-hidden="true">🧑</span>
+              <span class="scene-field__label">NPC Present</span>
+              <button class="scene-field__reroll" data-field="npc" aria-label="Re-roll NPC">⟳</button>
+            </div>
+            <div class="scene-field__value" id="val-npc"></div>
+            <div class="scene-field__sub" id="sub-npc"></div>
+          </div>
+
+          <div class="scene-field scene-field--question" id="field-question">
+            <div class="scene-field__header">
+              <span class="scene-field__icon" aria-hidden="true">❓</span>
+              <span class="scene-field__label">Opening Question</span>
+              <button class="scene-field__reroll" data-field="question" aria-label="Re-roll question">⟳</button>
+            </div>
+            <div class="scene-field__value" id="val-question"></div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="scene-actions">
+        <button class="btn btn--primary scene-generate-btn" id="generate-btn">
+          <span aria-hidden="true">🎲</span> Generate Scene
+        </button>
+      </div>
+
+      <div class="scene-tip">
+        <p><strong>How to use this:</strong> Read each element aloud to your table. Ask the opening question to a player. Let their answer establish the fiction, then introduce the complication. The Ticking Clock gives the scene urgency; set it at 4 or 6 segments depending on pacing.</p>
+      </div>
+
+      <AmazonCTA placement="scene_starter_bottom" variant="banner" />
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const LOCATIONS = [
+    'A crowded market at the end of the day, vendors packing up',
+    'A narrow bridge over a gorge, one end blocked',
+    'The cellar of a burned-out building',
+    'A harbor at dawn, fog rolling in off the water',
+    'A crossroads where three trade routes meet',
+    'A library or archive nobody has visited in years',
+    'The roof of the tallest building in town',
+    'A tavern during a wake for someone important',
+    'A prison courtyard during the changing of the guard',
+    'A temple or shrine in the middle of a forest',
+    'An abandoned mine entrance, tools still scattered on the ground',
+    'A government office, late at night, one light still on',
+    'A festival ground the morning after, everything torn apart',
+    'A ferry crossing during a storm',
+    'A wealthy estate with the gates standing wide open',
+    'An underground passage connecting two rival territories',
+    'A field hospital overflowing with the wounded',
+    'A clock tower, the mechanism grinding to a halt',
+    'A border checkpoint where papers are being checked',
+    'A rooftop garden above a noisy district',
+    'A well-guarded vault with one lock already broken',
+    'A kitchen in a palace, servants whispering',
+    'A collapsed section of road, travelers stranded',
+    'A graveyard during a burial, mourners watching the treeline',
+    'A workshop where something is being built in secret',
+  ];
+
+  const COMPLICATIONS = [
+    'Someone the players trust is lying to them',
+    'Two factions are about to clash here',
+    'The exit is blocked or watched',
+    'An innocent bystander is about to make things worse',
+    'The information they have is wrong or outdated',
+    'The weather turns dangerous',
+    'Someone important has gone missing',
+    'The people here are afraid and suspicious of outsiders',
+    'Resources are running out faster than expected',
+    'An ally arrives with bad news',
+    'The person they came to meet is already dead',
+    'A rival group has the same goal',
+    'Someone in the group is being followed',
+    'The local authority is corrupt and looking for a scapegoat',
+    'A fire, flood, or tremor forces immediate action',
+    'A hidden trap or ambush has been set',
+    'The one person who could help refuses to get involved',
+    'Communication has been cut off',
+    'A hostage or prisoner changes the dynamic',
+    'The players discover they are not the first to try this',
+  ];
+
+  const CLOCKS = [
+    'Reinforcements arrive in 4 segments',
+    'The building becomes structurally unsafe in 6 segments',
+    'The suspect flees the city in 4 segments',
+    'The poison takes effect in 6 segments',
+    'The tide comes in and floods the lower level in 4 segments',
+    'The deal closes and the opportunity is lost in 6 segments',
+    'The riot reaches this street in 4 segments',
+    'The disease spreads to the next district in 6 segments',
+    'The ship departs with the only witness in 4 segments',
+    'The bomb or device detonates in 6 segments',
+    'The eclipse ends and the window closes in 4 segments',
+    'The prisoner is moved to an unreachable location in 6 segments',
+    'Supplies run out completely in 4 segments',
+    'The informant loses their nerve and recants in 6 segments',
+    'The wall or barrier collapses in 4 segments',
+  ];
+
+  const NPC_ROLES = [
+    'A local leader who is losing control',
+    'A merchant who knows more than they should',
+    'A child who saw something terrible',
+    'A soldier who has deserted their post',
+    'A healer who is being pressured to pick a side',
+    'A thief who has stolen something they cannot sell',
+    'A scholar obsessed with a dangerous theory',
+    'A courier carrying a message they have not read',
+    'An old rival of one of the player characters',
+    'A religious figure questioning their faith',
+    'A spy pretending to be someone ordinary',
+    'A craftsperson whose work has been sabotaged',
+    'A performer who is actually gathering intelligence',
+    'A refugee who refuses to talk about where they came from',
+    'A bureaucrat willing to bend the rules for the right price',
+    'A retired fighter looking for one last cause',
+    'A parent searching for their missing child',
+    'A prisoner who claims to be innocent',
+    'A noble who has lost everything and will do anything to get it back',
+    'A stranger who already knows the players by name',
+  ];
+
+  const NPC_WANTS = [
+    'Wants safe passage out of the area',
+    'Wants the players to deliver something',
+    'Wants to hire the players for a dangerous job',
+    'Wants information the players have',
+    'Wants the players to protect them through the night',
+    'Wants revenge and needs help getting it',
+    'Wants the players to witness something',
+    'Wants to warn the players but is afraid to be seen talking',
+    'Wants the players to take the blame for something',
+    'Wants to trade: what they know for what the players can do',
+  ];
+
+  const QUESTIONS = [
+    'Which one of you has been here before, and what happened last time?',
+    'Who do you trust least in this room, and why?',
+    'What did you promise someone you would never do again?',
+    'Which of you noticed something was wrong first?',
+    'What are you carrying that you should not have?',
+    'Who sent you here, and what did they leave out?',
+    'What is the one thing you are not willing to lose today?',
+    'Which one of you owes someone in this place?',
+    'What rumor about this place did you hear before arriving?',
+    'Who is the last person you spoke to before coming here, and what did they say?',
+    'What do the people here think you are, and are they right?',
+    'Which of you is hiding an injury?',
+    'What deal did you make to get this far?',
+    'Who are you expecting to show up, and are you glad about it?',
+    'What did you leave behind that you might need?',
+  ];
+
+  function pick(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+  }
+
+  function rollField(field) {
+    let val;
+    switch (field) {
+      case 'location':
+        val = pick(LOCATIONS);
+        document.getElementById('val-location').textContent = val;
+        break;
+      case 'complication':
+        val = pick(COMPLICATIONS);
+        document.getElementById('val-complication').textContent = val;
+        break;
+      case 'clock':
+        val = pick(CLOCKS);
+        document.getElementById('val-clock').textContent = val;
+        break;
+      case 'npc':
+        const role = pick(NPC_ROLES);
+        const want = pick(NPC_WANTS);
+        document.getElementById('val-npc').textContent = role;
+        document.getElementById('sub-npc').textContent = want;
+        break;
+      case 'question':
+        val = pick(QUESTIONS);
+        document.getElementById('val-question').textContent = val;
+        break;
+    }
+    const el = document.getElementById(`field-${field}`);
+    el.classList.remove('scene-field--pop');
+    void el.offsetWidth;
+    el.classList.add('scene-field--pop');
+  }
+
+  function generateAll() {
+    ['location', 'complication', 'clock', 'npc', 'question'].forEach((f, i) => {
+      setTimeout(() => rollField(f), i * 100);
+    });
+    document.getElementById('scene-empty').style.display = 'none';
+    document.getElementById('scene-content').style.display = 'flex';
+    document.getElementById('generate-btn').innerHTML = '<span aria-hidden="true">🎲</span> Re-Generate';
+  }
+
+  document.getElementById('generate-btn').addEventListener('click', generateAll);
+  document.querySelectorAll('.scene-field__reroll').forEach(btn => {
+    btn.addEventListener('click', () => rollField(btn.dataset.field));
+  });
+</script>
+
+<style>
+.scene-intro {
+  max-width: 64ch;
+  color: rgba(232, 224, 208, 0.75);
+  margin-bottom: var(--space-8);
+}
+
+.scene-card {
+  padding: var(--space-6) var(--space-8);
+  min-height: 320px;
+}
+.scene-card__empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+}
+.scene-card__empty p {
+  color: rgba(232, 224, 208, 0.4);
+  font-size: var(--text-sm);
+  text-align: center;
+}
+.scene-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* Field */
+:global(.scene-field) {
+  background: rgba(201, 162, 39, 0.04);
+  border: 1px solid rgba(201, 162, 39, 0.15);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  transition: border-color var(--transition-fast);
+}
+:global(.scene-field--pop) {
+  animation: scenePop 300ms ease;
+}
+:global(.scene-field--complication) {
+  background: rgba(230, 126, 34, 0.04);
+  border-color: rgba(230, 126, 34, 0.2);
+}
+:global(.scene-field--clock) {
+  background: rgba(192, 57, 43, 0.04);
+  border-color: rgba(192, 57, 43, 0.2);
+}
+:global(.scene-field--question) {
+  background: rgba(52, 152, 219, 0.04);
+  border-color: rgba(52, 152, 219, 0.2);
+}
+
+.scene-field__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-1);
+}
+.scene-field__icon { font-size: 1rem; flex-shrink: 0; }
+.scene-field__label {
+  font-family: var(--font-heading);
+  font-size: var(--text-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-400);
+  flex: 1;
+}
+:global(.scene-field--complication .scene-field__label) { color: #e67e22; }
+:global(.scene-field--clock .scene-field__label) { color: #c0392b; }
+:global(.scene-field--question .scene-field__label) { color: #3498db; }
+
+.scene-field__reroll {
+  background: none;
+  border: 1px solid rgba(201, 162, 39, 0.3);
+  color: var(--gold-400);
+  font-size: 1rem;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  line-height: 1;
+}
+.scene-field__reroll:hover {
+  background: rgba(201, 162, 39, 0.1);
+  border-color: var(--gold-400);
+  color: var(--gold-300);
+}
+
+:global(.scene-field__value) {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  color: var(--parchment-100);
+  line-height: 1.4;
+}
+
+:global(.scene-field__sub) {
+  font-size: var(--text-sm);
+  color: rgba(232, 224, 208, 0.55);
+  margin-top: var(--space-1);
+  font-style: italic;
+}
+
+/* Actions */
+.scene-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+.scene-generate-btn {
+  font-size: var(--text-lg);
+  padding: 0.8em 2.5em;
+}
+
+.scene-tip {
+  background: var(--navy-800);
+  border: 1px solid rgba(201, 162, 39, 0.15);
+  border-radius: var(--radius-md);
+  padding: var(--space-4) var(--space-5);
+  margin-bottom: var(--space-8);
+}
+.scene-tip p {
+  color: rgba(232, 224, 208, 0.6);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
+.scene-tip strong { color: var(--gold-300); }
+
+@keyframes scenePop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.015); border-color: var(--gold-400); }
+  100% { transform: scale(1); }
+}
+</style>

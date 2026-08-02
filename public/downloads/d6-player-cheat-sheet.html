@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>D6 Storyteller: Player Rules Cheat Sheet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0c1a2e;
+      --navy-light: #162d52;
+      --gold: #c9a227;
+      --gold-light: #f0d080;
+      --ink: #1a1a2e;
+      --heading: 'Cinzel', Georgia, serif;
+      --body: 'Inter', system-ui, sans-serif;
+    }
+    body { background: #e8e4dc; font-family: var(--body); padding: 2rem; color: var(--ink); font-size: 13px; }
+    .sheet-wrapper {
+      max-width: 816px;
+      margin: 0 auto;
+      background: #fdf9f0;
+      border: 2px solid var(--gold);
+      border-radius: 4px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+      overflow: hidden;
+    }
+    .sheet-header {
+      background: var(--navy);
+      color: var(--gold-light);
+      padding: 0.85rem 1.5rem;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 1rem;
+    }
+    .sheet-header__logo { font-size: 1.75rem; }
+    .sheet-header__title { font-family: var(--heading); font-size: 1.2rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-light); }
+    .sheet-header__subtitle { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.6; font-family: var(--heading); }
+    .sheet-header__version { font-family: var(--heading); font-size: 0.62rem; letter-spacing: 0.1em; opacity: 0.5; white-space: nowrap; }
+    .gold-rule { height: 3px; background: linear-gradient(to right, var(--navy), var(--gold), var(--navy)); }
+    .body { padding: 1rem 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+    .col { display: flex; flex-direction: column; gap: 0.75rem; }
+    .block { }
+    .block__heading {
+      font-family: var(--heading);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--navy);
+      border-bottom: 1.5px solid var(--gold);
+      padding-bottom: 0.2rem;
+      margin-bottom: 0.35rem;
+    }
+    .block p { font-size: 0.72rem; color: #333; line-height: 1.55; margin-bottom: 0.3rem; }
+    .block ul { padding-left: 1rem; }
+    .block li { font-size: 0.72rem; color: #333; line-height: 1.55; margin-bottom: 0.2rem; }
+    .block li::marker { color: var(--gold); }
+    strong { color: var(--navy); font-weight: 600; }
+    em { color: #555; }
+
+    /* Result rows */
+    .result-row { display: flex; gap: 0.4rem; align-items: flex-start; padding: 0.3rem 0.5rem; border-radius: 3px; margin-bottom: 0.25rem; }
+    .result-row--success { background: rgba(39,174,96,0.08); border: 1px solid rgba(39,174,96,0.25); }
+    .result-row--partial  { background: rgba(230,126,34,0.08); border: 1px solid rgba(230,126,34,0.25); }
+    .result-row--fail     { background: rgba(192,57,43,0.08);  border: 1px solid rgba(192,57,43,0.25); }
+    .result-row__value { font-family: var(--heading); font-size: 0.8rem; font-weight: 700; flex-shrink: 0; width: 32px; text-align: center; }
+    .result-row--success .result-row__value { color: #1a7a40; }
+    .result-row--partial  .result-row__value { color: #a05010; }
+    .result-row--fail     .result-row__value { color: #8a1a10; }
+    .result-row__text { font-size: 0.72rem; color: #333; line-height: 1.4; }
+
+    /* Approach grid */
+    .approach-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.3rem; }
+    .approach-item { background: rgba(12,26,46,0.05); border-radius: 3px; padding: 0.35rem 0.5rem; }
+    .approach-item strong { font-family: var(--heading); font-size: 0.65rem; display: block; color: var(--navy); margin-bottom: 2px; letter-spacing: 0.04em; }
+    .approach-item span { font-size: 0.68rem; color: #555; line-height: 1.4; }
+
+    /* Steps */
+    .step { display: flex; gap: 0.5rem; align-items: flex-start; margin-bottom: 0.35rem; }
+    .step__num { font-family: var(--heading); font-size: 0.65rem; font-weight: 700; color: var(--gold); flex-shrink: 0; width: 18px; text-align: center; }
+    .step__text { font-size: 0.72rem; color: #333; line-height: 1.5; }
+
+    /* Condition badges */
+    .condition-row { display: flex; gap: 0.35rem; align-items: center; padding: 0.25rem 0.45rem; border-radius: 3px; margin-bottom: 0.2rem; font-size: 0.7rem; }
+    .condition-row strong { font-family: var(--heading); font-size: 0.6rem; letter-spacing: 0.06em; flex-shrink: 0; width: 52px; }
+    .condition-row span { color: #444; font-size: 0.68rem; }
+    .condition-row--shaken { background: rgba(230,126,34,0.06); border: 1px solid rgba(230,126,34,0.2); }
+    .condition-row--shaken strong { color: #a05010; }
+    .condition-row--hurt { background: rgba(192,57,43,0.06); border: 1px solid rgba(192,57,43,0.2); }
+    .condition-row--hurt strong { color: #8a1a10; }
+    .condition-row--out { background: rgba(80,20,20,0.06); border: 1px solid rgba(80,20,20,0.25); }
+    .condition-row--out strong { color: #501414; }
+
+    /* Highlight box */
+    .highlight-box {
+      background: rgba(201,162,39,0.06);
+      border: 1px solid rgba(201,162,39,0.2);
+      border-radius: 4px;
+      padding: 0.45rem 0.6rem;
+      margin-top: 0.3rem;
+    }
+    .highlight-box p { font-size: 0.68rem; color: #444; margin: 0; }
+
+    .sheet-footer { background: var(--navy); padding: 0.45rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+    .sheet-footer__text { font-family: var(--heading); font-size: 0.58rem; color: rgba(240,208,128,0.5); letter-spacing: 0.1em; }
+    .print-btn { display: block; max-width: 816px; margin: 1.5rem auto 0; background: var(--navy); color: var(--gold-light); font-family: var(--heading); font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; border: 2px solid var(--gold); border-radius: 4px; padding: 0.75rem 2rem; cursor: pointer; text-align: center; }
+    .print-btn:hover { background: var(--navy-light); }
+    @media print {
+      body { background: white; padding: 0; }
+      .sheet-wrapper { box-shadow: none; border: 1.5px solid #ccc; max-width: 100%; border-radius: 0; }
+      .print-btn { display: none; }
+      @page { size: letter; margin: 0.4in; }
+    }
+  </style>
+</head>
+<body>
+<div class="sheet-wrapper">
+  <div class="sheet-header">
+    <span class="sheet-header__logo" aria-hidden="true">⚄</span>
+    <div>
+      <div class="sheet-header__title">Player Quick Reference</div>
+      <div class="sheet-header__subtitle">Everything you need at the table</div>
+    </div>
+    <div class="sheet-header__version">D6 Storyteller v1</div>
+  </div>
+  <div class="gold-rule"></div>
+
+  <div class="body">
+    <!-- Left column -->
+    <div class="col">
+
+      <div class="block">
+        <div class="block__heading">How a Roll Works</div>
+        <div class="step"><span class="step__num">1</span><span class="step__text">Describe what your character does and how they do it.</span></div>
+        <div class="step"><span class="step__num">2</span><span class="step__text">The Storyteller sets <strong>Position</strong> (how dangerous) and <strong>Effect</strong> (how much you can accomplish).</span></div>
+        <div class="step"><span class="step__num">3</span><span class="step__text">Pick the <strong>Approach</strong> that matches your action.</span></div>
+        <div class="step"><span class="step__num">4</span><span class="step__text">Gather your dice pool (approach rating, plus any bonuses).</span></div>
+        <div class="step"><span class="step__num">5</span><span class="step__text">Roll. Read the <strong>single highest die</strong>.</span></div>
+      </div>
+
+      <div class="block">
+        <div class="block__heading">Reading the Dice</div>
+        <div class="result-row result-row--success">
+          <span class="result-row__value">6</span>
+          <span class="result-row__text"><strong>Full Success.</strong> You do it. No complications. Multiple 6s can mean even greater effect.</span>
+        </div>
+        <div class="result-row result-row--partial">
+          <span class="result-row__value">4-5</span>
+          <span class="result-row__text"><strong>Partial Success.</strong> You succeed, but there is a cost, complication, or reduced effect.</span>
+        </div>
+        <div class="result-row result-row--fail">
+          <span class="result-row__value">1-3</span>
+          <span class="result-row__text"><strong>Failure.</strong> The action fails and a consequence follows. The story moves forward.</span>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block__heading">The Four Approaches</div>
+        <div class="approach-grid">
+          <div class="approach-item">
+            <strong>Force</strong>
+            <span>Direct physical action, strength, endurance, intimidation through physicality</span>
+          </div>
+          <div class="approach-item">
+            <strong>Finesse</strong>
+            <span>Precision, speed, stealth, dexterity, subtle physical action</span>
+          </div>
+          <div class="approach-item">
+            <strong>Mind</strong>
+            <span>Analysis, planning, knowledge, memory, perception, problem-solving</span>
+          </div>
+          <div class="approach-item">
+            <strong>Presence</strong>
+            <span>Social influence, persuasion, deception, leadership, performance</span>
+          </div>
+        </div>
+        <div class="highlight-box">
+          <p>Your approach rating (1d6 to 4d6) is how many dice you roll. Higher rating = more dice = better odds.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right column -->
+    <div class="col">
+
+      <div class="block">
+        <div class="block__heading">Position (Set by the Storyteller)</div>
+        <p><em>Position tells you what happens if you fail. It does not change your chance of success.</em></p>
+        <div class="condition-row condition-row--shaken">
+          <strong>Controlled</strong>
+          <span>You have the upper hand. Failure means a minor setback.</span>
+        </div>
+        <div class="condition-row condition-row--hurt">
+          <strong>Risky</strong>
+          <span>Standard stakes. Failure means real consequences.</span>
+        </div>
+        <div class="condition-row condition-row--out">
+          <strong>Desperate</strong>
+          <span>You are cornered. Failure is severe.</span>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block__heading">Effect (Set by the Storyteller)</div>
+        <p><em>Effect tells you how much you accomplish on a success.</em></p>
+        <ul>
+          <li><strong>Great:</strong> More than expected. Faster, bigger, lasting impact.</li>
+          <li><strong>Standard:</strong> You accomplish what you set out to do.</li>
+          <li><strong>Limited:</strong> Progress is real but partial. More work is needed.</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="block__heading">Assists</div>
+        <p>Another player character can help if they have a plausible reason. They add their relevant approach dice to your pool. On a Partial or Failure, <strong>both characters share the consequence</strong>.</p>
+      </div>
+
+      <div class="block">
+        <div class="block__heading">Conditions</div>
+        <p><em>Conditions are consequences that affect your character.</em></p>
+        <div class="condition-row condition-row--shaken">
+          <strong>Shaken</strong>
+          <span>Rattled, distracted, or winded. Minor mechanical effect.</span>
+        </div>
+        <div class="condition-row condition-row--hurt">
+          <strong>Hurt</strong>
+          <span>Injured, compromised, or in pain. Meaningful mechanical effect.</span>
+        </div>
+        <div class="condition-row condition-row--out">
+          <strong>Out</strong>
+          <span>Unconscious, captured, or unable to act. Removed from the scene.</span>
+        </div>
+        <div class="highlight-box">
+          <p><strong>Recovery:</strong> Conditions improve through fiction (rest, medical attention, time). The Storyteller decides when recovery happens based on what makes narrative sense.</p>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block__heading">Your Character Sheet</div>
+        <ul>
+          <li><strong>Descriptors:</strong> Short phrases describing who your character is.</li>
+          <li><strong>Drive:</strong> What pushes your character forward.</li>
+          <li><strong>Flaw:</strong> A weakness or complication that creates drama.</li>
+          <li><strong>Bonds:</strong> Connections to other characters and NPCs.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="gold-rule"></div>
+  <div class="sheet-footer">
+    <span class="sheet-footer__text">d6storyteller.alexmerced.com</span>
+    <span class="sheet-footer__text">Hand to new players before Session 1</span>
+  </div>
+</div>
+<button class="print-btn" onclick="window.print()">🖨️ Print / Save as PDF</button>
+</body>
+</html>
