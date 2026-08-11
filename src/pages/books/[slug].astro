@@ -108,7 +108,7 @@ const jsonLd = {
         "@id": `${SITE_URL}/#alex-merced`,
         "name": "Alex Merced"
       },
-      "publisher": { "@type": "Person", "@id": `${SITE_URL}/#alex-merced` },
+      "publisher": { "@type": "Person", "@id": `${SITE_URL}/#alex-merced`, "name": "Alex Merced" },
       ...(data.publicationDate && { "datePublished": data.publicationDate }),
       ...(data.isbn13 && { "isbn": data.isbn13 }),
       ...(bookEditions.length > 0 && { "workExample": bookEditions }),

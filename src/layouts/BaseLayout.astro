@@ -23,6 +23,31 @@ const {
   noIndex = false,
   jsonLd,
 } = Astro.props;
+
+// Page templates reference these by @id (isPartOf, author, publisher). Google resolves
+// @id only within a single page's graph, so define them on every page.
+const SITE_URL = 'https://d6storyteller.alexmerced.com';
+const siteEntities = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${SITE_URL}/#website`,
+      url: `${SITE_URL}/`,
+      name: 'D6 Storyteller',
+      description:
+        'A fiction-first tabletop roleplaying system and book series by Alex Merced.',
+      inLanguage: 'en-US',
+      publisher: { '@id': `${SITE_URL}/#alex-merced` },
+    },
+    {
+      '@type': 'Person',
+      '@id': `${SITE_URL}/#alex-merced`,
+      name: 'Alex Merced',
+      url: SITE_URL,
+    },
+  ],
+};
 ---
 
 <!DOCTYPE html>
@@ -44,6 +69,8 @@ const {
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="theme-color" content="#07111f" />
+    <!-- Site entities, emitted on every page so page-level @id references resolve -->
+    <StructuredData data={siteEntities} />
     {jsonLd && <StructuredData data={jsonLd} />}
   </head>
   <body>

@@ -40,14 +40,24 @@ const allTags = [...new Set(allSettings.flatMap(s => s.tags))].sort();
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "@id": "https://d6storyteller.alexmerced.com/settings/#webpage",
-  "url": "https://d6storyteller.alexmerced.com/settings/",
-  "name": "Settings Directory | D6 Storyteller World Index",
-  "description": "All settings across the D6 Storyteller universe: core book worlds plus supplemental settings.",
-  "isPartOf": { "@id": "https://d6storyteller.alexmerced.com/#website" },
-  "about": { "@id": "https://d6storyteller.alexmerced.com/#series" },
-  "inLanguage": "en-US"
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://d6storyteller.alexmerced.com/settings/#webpage",
+      "url": "https://d6storyteller.alexmerced.com/settings/",
+      "name": "Settings Directory | D6 Storyteller World Index",
+      "description": "All settings across the D6 Storyteller universe: core book worlds plus supplemental settings.",
+      "isPartOf": { "@id": "https://d6storyteller.alexmerced.com/#website" },
+      "about": { "@id": "https://d6storyteller.alexmerced.com/#series" },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "CreativeWorkSeries",
+      "@id": "https://d6storyteller.alexmerced.com/#series",
+      "name": "D6 Storyteller",
+      "url": "https://d6storyteller.alexmerced.com/books/"
+    }
+  ]
 };
 ---
 
