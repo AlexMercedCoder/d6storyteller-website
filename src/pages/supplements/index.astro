@@ -4,7 +4,7 @@ import AmazonCTA from '../../components/AmazonCTA.astro';
 import { getCollection } from 'astro:content';
 import { optionalMechanics } from '../../data/optional-mechanics';
 
-const settings = await getCollection('community-settings');
+const settings = (await getCollection('community-settings')).sort((a, b) => a.id.localeCompare(b.id));
 const allMechanicTags = [...new Set(optionalMechanics.flatMap(m => m.tags))].sort();
 
 const SITE_URL = 'https://d6storyteller.alexmerced.com';
@@ -27,7 +27,7 @@ const jsonLd = {
           "@type": "ListItem",
           "position": i + 1,
           "name": s.data.title,
-          "url": `${SITE_URL}/community-settings/${s.slug}/`
+          "url": `${SITE_URL}/community-settings/${s.id}/`
         }))
       }
     },
@@ -154,14 +154,14 @@ const jsonLd = {
                   ))}
                 </div>
                 <h3 class="supp-card__title">
-                  <a href={`/community-settings/${setting.slug}/`}>{setting.data.title}</a>
+                  <a href={`/community-settings/${setting.id}/`}>{setting.data.title}</a>
                 </h3>
                 <p class="supp-card__subtitle">{setting.data.subtitle}</p>
                 <p class="supp-card__premise">{setting.data.premise}</p>
                 <p class="supp-card__mechanic">
                   <strong>Mechanic:</strong> {setting.data.mechanic}
                 </p>
-                <a href={`/community-settings/${setting.slug}/`} class="btn btn--primary supp-card__btn">
+                <a href={`/community-settings/${setting.id}/`} class="btn btn--primary supp-card__btn">
                   Read Full Setting →
                 </a>
               </div>

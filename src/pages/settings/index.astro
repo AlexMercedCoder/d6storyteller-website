@@ -4,32 +4,32 @@ import SettingCard from '../../components/SettingCard.astro';
 import { getCollection } from 'astro:content';
 
 const books = (await getCollection('books')).sort((a, b) => a.data.order - b.data.order);
-const supplements = await getCollection('community-settings');
+const supplements = (await getCollection('community-settings')).sort((a, b) => a.id.localeCompare(b.id));
 
 // 1. Flatten all book settings
 const bookSettings = books.flatMap(book =>
   book.data.settings.map(setting => ({
     name: setting.name,
-    bookSlug: book.slug,
+    bookSlug: book.id,
     bookTitle: book.data.shortTitle,
     premise: setting.premise,
     mechanic: setting.mechanic,
     tags: setting.tags,
     type: 'book' as const,
-    link: `/books/${book.slug}/`,
+    link: `/books/${book.id}/`,
   }))
 );
 
 // 2. Map all supplemental settings
 const suppSettings = supplements.map(supp => ({
   name: supp.data.title,
-  bookSlug: supp.slug,
+  bookSlug: supp.id,
   bookTitle: 'Online Supplement',
   premise: supp.data.premise,
   mechanic: supp.data.mechanic,
   tags: [supp.data.genre, ...supp.data.tags],
   type: 'supplement' as const,
-  link: `/community-settings/${supp.slug}/`,
+  link: `/community-settings/${supp.id}/`,
   coverImage: supp.data.coverImage,
   coverAlt: supp.data.coverAlt,
 }));

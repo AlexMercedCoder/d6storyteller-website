@@ -2,12 +2,12 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import AmazonCTA from '../../components/AmazonCTA.astro';
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
 
 export async function getStaticPaths() {
   const settings = await getCollection('community-settings');
   return settings.map(setting => ({
-    params: { slug: setting.slug },
+    params: { slug: setting.id },
     props: { setting },
   }));
 }
@@ -15,15 +15,15 @@ export async function getStaticPaths() {
 type Props = { setting: CollectionEntry<'community-settings'> };
 const { setting } = Astro.props;
 const { data } = setting;
-const { Content } = await setting.render();
+const { Content } = await render(setting);
 
 const SITE_URL = 'https://d6storyteller.alexmerced.com';
-const settingUrl = `${SITE_URL}/community-settings/${setting.slug}/`;
+const settingUrl = `${SITE_URL}/community-settings/${setting.id}/`;
 
 const breadcrumbs = [
   { label: 'Home', href: '/' },
   { label: 'Online Supplements', href: '/supplements/' },
-  { label: data.title, href: `/community-settings/${setting.slug}/` },
+  { label: data.title, href: `/community-settings/${setting.id}/` },
 ];
 
 const jsonLd = [
@@ -107,7 +107,7 @@ const jsonLd = [
             This setting uses the D6 Storyteller engine. To run it, you'll need the <a href="/books/core-rulebook/">D6 Storyteller Core Rulebook</a> for the full rules, or refer to the <a href="/get-started/">Get Started & How It Works</a> guide for a primer on fiction-first D6 play.
           </p>
         </div>
-        <AmazonCTA placement={`community_setting_${setting.slug}`} variant="banner" label="Get the D6 Storyteller Core Rulebook on Amazon" />
+        <AmazonCTA placement={`community_setting_${setting.id}`} variant="banner" label="Get the D6 Storyteller Core Rulebook on Amazon" />
         <div class="setting-footer__nav">
           <a href="/supplements/" class="btn btn--secondary">← All Online Supplements</a>
           <a href="/settings/" class="btn btn--ghost">Browse All 100 Settings →</a>

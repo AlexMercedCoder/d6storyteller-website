@@ -3,12 +3,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import AmazonCTA from '../../components/AmazonCTA.astro';
 import FAQ from '../../components/FAQ.astro';
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
 
 export async function getStaticPaths() {
   const books = await getCollection('books');
   return books.map(book => ({
-    params: { slug: book.slug },
+    params: { slug: book.id },
     props: { book },
   }));
 }
@@ -17,21 +17,21 @@ type Props = { book: CollectionEntry<'books'> };
 
 const { book } = Astro.props;
 const { data } = book;
-const { Content } = await book.render();
+const { Content } = await render(book);
 
 // Get prev/next books
 const allBooks = (await getCollection('books')).sort((a, b) => a.data.order - b.data.order);
-const currentIndex = allBooks.findIndex(b => b.slug === book.slug);
+const currentIndex = allBooks.findIndex(b => b.id === book.id);
 const prevBook = currentIndex > 0 ? allBooks[currentIndex - 1] : null;
 const nextBook = currentIndex < allBooks.length - 1 ? allBooks[currentIndex + 1] : null;
 
 const SITE_URL = 'https://d6storyteller.alexmerced.com';
-const bookUrl = `${SITE_URL}/books/${book.slug}/`;
+const bookUrl = `${SITE_URL}/books/${book.id}/`;
 
 const breadcrumbs = [
   { label: 'Home', href: '/' },
   { label: 'Books', href: '/books/' },
-  { label: data.shortTitle, href: `/books/${book.slug}/` },
+  { label: data.shortTitle, href: `/books/${book.id}/` },
 ];
 
 const genreTagClass = (g: string): string => {
@@ -201,8 +201,8 @@ const jsonLd = {
 
         <div class="book-hero__actions">
           <AmazonCTA
-            placement={`book_page_hero_${book.slug}`}
-            bookSlug={book.slug}
+            placement={`book_page_hero_${book.id}`}
+            bookSlug={book.id}
             variant="primary"
             label="Buy on Amazon →"
           />
@@ -299,8 +299,8 @@ const jsonLd = {
   <section class="section section--tight" aria-label="Purchase">
     <div class="container container--narrow">
       <AmazonCTA
-        placement={`book_page_bottom_${book.slug}`}
-        bookSlug={book.slug}
+        placement={`book_page_bottom_${book.id}`}
+        bookSlug={book.id}
         variant="banner"
         label={`Get ${data.shortTitle} on Amazon`}
       />
@@ -311,13 +311,13 @@ const jsonLd = {
   <nav class="section section--tight book-nav" aria-label="Previous and next books">
     <div class="container book-nav__inner">
       {prevBook ? (
-        <a href={`/books/${prevBook.slug}/`} class="book-nav__link book-nav__link--prev">
+        <a href={`/books/${prevBook.id}/`} class="book-nav__link book-nav__link--prev">
           <span class="book-nav__direction">← Previous</span>
           <span class="book-nav__title">{prevBook.data.shortTitle}</span>
         </a>
       ) : <div />}
       {nextBook ? (
-        <a href={`/books/${nextBook.slug}/`} class="book-nav__link book-nav__link--next">
+        <a href={`/books/${nextBook.id}/`} class="book-nav__link book-nav__link--next">
           <span class="book-nav__direction">Next →</span>
           <span class="book-nav__title">{nextBook.data.shortTitle}</span>
         </a>

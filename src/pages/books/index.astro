@@ -24,7 +24,7 @@ const jsonLd = {
     "itemListElement": books.map((book, i) => ({
       "@type": "ListItem",
       "position": i + 1,
-      "url": `https://d6storyteller.alexmerced.com/books/${book.slug}/`
+      "url": `https://d6storyteller.alexmerced.com/books/${book.id}/`
     }))
   }
 };
@@ -57,7 +57,7 @@ const jsonLd = {
         <div class="grid-books">
           {books.map((book, i) => (
             <BookCard
-              slug={book.slug}
+              slug={book.id}
               title={book.data.title}
               shortTitle={book.data.shortTitle}
               subtitle={book.data.subtitle}
