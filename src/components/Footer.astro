@@ -1,6 +1,37 @@
 ---
 const AMAZON_URL = 'https://www.amazon.com/dp/B0HC4XMKW3?binding=paperback&ref_=saga_sdp_cft_dsk';
 const year = new Date().getFullYear();
+
+/** The Alex Merced network, listed the way sibling sites list it in their footers. */
+const NETWORK = [
+  { label: 'AlexMerced.com', url: 'https://alexmerced.com' },
+  { label: 'WhoIsAlexMerced.com', url: 'https://whoisalexmerced.com' },
+  { label: 'AlexMercedMedia.com', url: 'https://alexmercedmedia.com' },
+  { label: 'Books.AlexMerced.com', url: 'https://books.alexmerced.com' },
+  { label: 'Branding.AlexMerced.com', url: 'https://branding.alexmerced.com' },
+  { label: 'AlexMercedCoder.dev', url: 'https://alexmercedcoder.dev' },
+  { label: 'AlexMercedAI.com', url: 'https://www.alexmercedai.com' },
+  { label: 'AlexMercedData.com', url: 'https://alexmerceddata.com' },
+  { label: 'Resources.AlexMerced.com', url: 'https://resources.alexmerced.com' },
+  { label: 'OpenDataLakehouse.com', url: 'https://opendatalakehouse.com' },
+  { label: 'OpenLakehouse.AlexMerced.com', url: 'https://openlakehouse.alexmerced.com' },
+  { label: 'SemanticLakehouse.com', url: 'https://semanticlakehouse.com' },
+  { label: 'AgenticLakehouse.com', url: 'https://agenticlakehouse.com' },
+  { label: 'AgenticAnalyticsNow.com', url: 'https://agenticanalyticsnow.com' },
+  { label: 'OpenAgenticPlatform.com', url: 'https://openagenticplatform.com' },
+  { label: 'DataEngnr.com', url: 'https://dataengnr.com' },
+  { label: 'DataLakehouse.help', url: 'https://datalakehouse.help' },
+  { label: 'DataAIWiki.com', url: 'https://dataaiwiki.com' },
+  { label: 'IcebergLakehouse.com', url: 'https://iceberglakehouse.com' },
+  { label: 'DataLakehouseHub.com', url: 'https://datalakehousehub.com' },
+  { label: 'Tuts.AlexMercedCoder.dev', url: 'https://tuts.alexmercedcoder.dev' },
+  { label: 'WeekOfData.com', url: 'https://weekofdata.com' },
+  { label: 'AlexMerced.blog', url: 'https://alexmerced.blog' },
+  { label: 'IngestThis.com', url: 'https://ingestthis.com' },
+  { label: 'GrokOverflow.com', url: 'https://grokoverflow.com' },
+  { label: 'AlexMercedLibertarian.com', url: 'https://alexmercedlibertarian.com' },
+  { label: 'AlexMercedMusic.com', url: 'https://alexmercedmusic.com' },
+];
 ---
 
 <footer class="site-footer">
@@ -49,7 +80,7 @@ const year = new Date().getFullYear();
           <h3 class="site-footer__col-heading">About</h3>
           <ul>
             <li><a href="/faq/#about">About D6 Storyteller</a></li>
-            <li><a href="https://WhoIsAlexMerced.com" target="_blank" rel="noopener noreferrer">About Alex Merced ↗</a></li>
+            <li><a href="https://whoisalexmerced.com" target="_blank" rel="noopener noreferrer">About Alex Merced ↗</a></li>
             <li><a href="https://books.alexmerced.com" target="_blank" rel="noopener noreferrer">books.alexmerced.com ↗</a></li>
             <li><a href="https://opendatalakehouse.com" target="_blank" rel="noopener noreferrer">OpenDataLakehouse.com</a></li>
             <li><a href="/privacy/">Privacy Policy</a></li>
@@ -57,6 +88,15 @@ const year = new Date().getFullYear();
         </div>
       </nav>
     </div>
+
+    <nav class="site-footer__network" aria-label="The Alex Merced Network">
+      <h3 class="site-footer__col-heading">The Alex Merced Network</h3>
+      <ul>
+        {NETWORK.map((site) => (
+          <li><a href={site.url} target="_blank" rel="noopener noreferrer">{site.label}</a></li>
+        ))}
+      </ul>
+    </nav>
 
     <div class="site-footer__bottom">
       <p class="site-footer__legal">
@@ -147,6 +187,32 @@ const year = new Date().getFullYear();
 }
 
 .site-footer__col a:hover {
+  color: var(--gold-300);
+  text-shadow: none;
+}
+
+.site-footer__network {
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding-block: var(--space-6);
+}
+
+.site-footer__network ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+}
+
+.site-footer__network a {
+  font-size: var(--text-sm);
+  color: rgba(232, 224, 208, 0.55);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.site-footer__network a:hover {
   color: var(--gold-300);
   text-shadow: none;
 }
