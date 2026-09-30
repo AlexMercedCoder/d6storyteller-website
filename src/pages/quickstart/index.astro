@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Free D6 Storyteller Quickstart PDF | D6 Storyteller"
+  description="A free 7-page PDF for your first D6 Storyteller session: player rules cheat sheet, Storyteller quick reference, character sheet, and session zero worksheet."
+  canonicalUrl="https://d6storyteller.alexmerced.com/quickstart/"
+>
+  <section class="section" aria-labelledby="quickstart-heading">
+    <div class="container container--narrow">
+      <p class="section-label">Free Download</p>
+      <h1 id="quickstart-heading">The D6 Storyteller Quickstart</h1>
+      <p class="quickstart__lede">One PDF with everything a new table needs for a first session. Print it, run session zero, and play.</p>
+
+      <ul class="quickstart__contents">
+        <li><strong>Player Rules Cheat Sheet.</strong> How a roll works, the four approaches, position and effect, assists, and conditions.</li>
+        <li><strong>Storyteller Quick Reference.</strong> Dice results, failure costs by position, effect levels, Ticking Clocks, and Storyteller principles.</li>
+        <li><strong>Core Character Sheet.</strong> Approaches, descriptors, Drive and Flaw, conditions, and bonds.</li>
+        <li><strong>Session Zero Worksheet.</strong> Tone, safety tools, table expectations, and the opening question for your campaign.</li>
+      </ul>
+
+      <form
+        name="d6-quickstart"
+        method="POST"
+        action="/quickstart/thanks/"
+        data-netlify="true"
+        netlify-honeypot="company"
+        class="quickstart__form"
+      >
+        <input type="hidden" name="form-name" value="d6-quickstart" />
+        <p class="quickstart__hp" aria-hidden="true">
+          <label>Leave this empty <input name="company" tabindex="-1" autocomplete="off" /></label>
+        </p>
+        <label for="qs-email">Email address</label>
+        <div class="quickstart__row">
+          <input id="qs-email" type="email" name="email" required autocomplete="email" placeholder="you@example.com" />
+          <button type="submit" class="btn btn--primary" data-network-event="quickstart_signup">Send me the quickstart</button>
+        </div>
+        <p class="quickstart__note">Your email is used for D6 Storyteller updates only and is never sold. See the <a href="/privacy/">privacy policy</a>.</p>
+      </form>
+
+      <p class="quickstart__alt">Prefer single sheets? Every printable is also on the <a href="/downloads/">downloads page</a>.</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+.quickstart__lede { font-size: var(--text-lg); margin-bottom: var(--space-6); }
+.quickstart__contents { margin: 0 0 var(--space-8); padding-left: 1.25rem; display: flex; flex-direction: column; gap: var(--space-2); }
+.quickstart__form { padding: var(--space-6); border: 1px solid rgba(201,162,39,0.3); border-radius: 6px; background: rgba(12,26,46,0.6); }
+.quickstart__form label { display: block; font-size: var(--text-sm); margin-bottom: var(--space-2); }
+.quickstart__row { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+.quickstart__row input { flex: 1 1 16rem; min-height: 44px; padding: 0 var(--space-3); border-radius: 4px; border: 1px solid rgba(201,162,39,0.4); background: #0c1a2e; color: inherit; font: inherit; }
+.quickstart__note { font-size: var(--text-xs); margin: var(--space-3) 0 0; opacity: 0.7; }
+.quickstart__hp { position: absolute; left: -9999px; }
+.quickstart__alt { margin-top: var(--space-6); font-size: var(--text-sm); }
+</style>

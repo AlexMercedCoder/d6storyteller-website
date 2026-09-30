@@ -11,7 +11,8 @@ export default defineConfig({
       filter: (page) =>
         !page.includes('/404') &&
         !page.includes('/privacy') &&
-        !page.includes('/about'),
+        !page.includes('/about') &&
+        !page.includes('/quickstart/thanks'),
     }),
   ],
   redirects: {

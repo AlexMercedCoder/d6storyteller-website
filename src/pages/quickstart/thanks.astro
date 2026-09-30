@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Your D6 Storyteller Quickstart | D6 Storyteller"
+  description="Download the free D6 Storyteller quickstart PDF."
+  canonicalUrl="https://d6storyteller.alexmerced.com/quickstart/thanks/"
+  noIndex={true}
+>
+  <section class="section" aria-labelledby="thanks-heading">
+    <div class="container container--narrow">
+      <p class="section-label">Free Download</p>
+      <h1 id="thanks-heading">Thanks. Here is your quickstart.</h1>
+      <p>Print it double-sided or one sheet at a time. The character sheet is two pages.</p>
+      <p style="margin-top:var(--space-6);">
+        <a class="btn btn--primary" href="/downloads/d6-storyteller-quickstart.pdf" download data-network-event="quickstart_download">Download the quickstart (PDF, 7 pages)</a>
+      </p>
+      <p style="margin-top:var(--space-8);">Next steps: learn the flow on <a href="/get-started/">Get Started</a>, try the <a href="/resources/dice-roller/">dice roller</a>, or pick a world from the <a href="/supplements/">free settings</a>.</p>
+    </div>
+  </section>
+</BaseLayout>
