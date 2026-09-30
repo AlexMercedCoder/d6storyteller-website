@@ -1,7 +1,10 @@
 ---
 const SITE_URL = 'https://d6storyteller.alexmerced.com';
 const SITE_NAME = 'D6 Storyteller';
-const TWITTER_HANDLE = '@AlexMercedCoder';
+import network from '../../network/network.json';
+
+// D11: data and personal sites use the network handle; @alexmercedcoder is for the coding sites.
+const TWITTER_HANDLE = network.twitterSite;
 
 export interface Props {
   title: string;

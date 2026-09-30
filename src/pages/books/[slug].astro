@@ -80,7 +80,7 @@ const bookEditions = bookFormats.map((fmt) => ({
   "bookFormat": BOOK_FORMAT_MAP[fmt] ?? 'https://schema.org/Paperback',
   "name": `${data.title} (${fmt})`,
   "inLanguage": "en-US",
-  "author": { "@id": `${SITE_URL}/#alex-merced` },
+  "author": { "@id": "https://alexmerced.com/#alexmerced" },
   "offers": {
     "@type": "Offer",
     "url": data.amazonUrl,
@@ -103,12 +103,8 @@ const jsonLd = {
       ...(bookFormats.length > 0 && {
         "bookFormat": BOOK_FORMAT_MAP[bookFormats[0]] ?? 'https://schema.org/Paperback',
       }),
-      "author": {
-        "@type": "Person",
-        "@id": `${SITE_URL}/#alex-merced`,
-        "name": "Alex Merced"
-      },
-      "publisher": { "@type": "Person", "@id": `${SITE_URL}/#alex-merced`, "name": "Alex Merced" },
+      "author": { "@id": "https://alexmerced.com/#alexmerced" },
+      "publisher": { "@id": "https://alexmerced.com/#alexmerced" },
       ...(data.publicationDate && { "datePublished": data.publicationDate }),
       ...(data.isbn13 && { "isbn": data.isbn13 }),
       ...(bookEditions.length > 0 && { "workExample": bookEditions }),
