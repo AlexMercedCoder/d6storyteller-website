@@ -93,13 +93,13 @@
     "heading": "Start playing",
     "links": [
       {
-        "label": "Get the core rulebook",
-        "url": "https://books.alexmerced.com/books/d6-storyteller-the-core-rulebook/",
-        "event": "cta_books"
+        "label": "Get the free quickstart",
+        "url": "https://d6storyteller.alexmerced.com/quickstart/",
+        "event": "cta_d6_quickstart"
       },
       {
-        "label": "More books by Alex",
-        "url": "https://books.alexmerced.com",
+        "label": "Get the core rulebook",
+        "url": "https://books.alexmerced.com/books/d6-storyteller-the-core-rulebook/",
         "event": "cta_books"
       }
     ]
