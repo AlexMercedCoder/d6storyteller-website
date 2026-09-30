@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import AmazonCTA from '../../components/AmazonCTA.astro';
 import { getCollection, render, type CollectionEntry } from 'astro:content';
+import { companionsForGenre, coreRulebook, settingPageTitle } from '../../data/setting-companions';
 
 export async function getStaticPaths() {
   const settings = await getCollection('community-settings');
@@ -18,6 +19,10 @@ const { data } = setting;
 const { Content } = await render(setting);
 
 const SITE_URL = 'https://d6storyteller.alexmerced.com';
+const pageTitle = settingPageTitle(data.title, data.genre);
+const companions = companionsForGenre(data.genre);
+// Local overview pages use the book id without the series prefix.
+const localBookPath = (slug: string) => `/books/${slug.replace(/^d6-storyteller-(the-)?/, '')}/`;
 const settingUrl = `${SITE_URL}/community-settings/${setting.id}/`;
 
 const breadcrumbs = [
@@ -35,16 +40,8 @@ const jsonLd = [
     "description": data.seoDescription,
     "url": settingUrl,
     "datePublished": data.publishedDate,
-    "author": {
-      "@type": "Person",
-      "name": data.author,
-      "@id": `${SITE_URL}/#alex-merced`
-    },
-    "publisher": {
-      "@type": "Person",
-      "name": "Alex Merced",
-      "@id": `${SITE_URL}/#alex-merced`
-    },
+    "author": { "@id": "https://alexmerced.com/#alexmerced" },
+    "publisher": { "@id": "https://alexmerced.com/#alexmerced" },
     "isPartOf": { "@id": `${SITE_URL}/#website` },
     "about": {
       "@type": "Game",
@@ -65,7 +62,7 @@ const jsonLd = [
 ---
 
 <BaseLayout
-  title={data.seoTitle}
+  title={pageTitle}
   description={data.seoDescription}
   canonicalUrl={settingUrl}
   jsonLd={jsonLd}
@@ -107,6 +104,21 @@ const jsonLd = [
             This setting uses the D6 Storyteller engine. To run it, you'll need the <a href="/books/core-rulebook/">D6 Storyteller Core Rulebook</a> for the full rules, or refer to the <a href="/get-started/">Get Started & How It Works</a> guide for a primer on fiction-first D6 play.
           </p>
         </div>
+        <div class="setting-footer__books">
+          <h2>Books for This Setting</h2>
+          <p>{data.genre} play draws on the core rules{companions.length > 0 ? ' and the companion toolkit that covers this genre' : ''}.</p>
+          <ul>
+            {[coreRulebook, ...companions].map((b) => (
+              <li>
+                <a href={b.canonicalPage} target="_blank" rel="noopener noreferrer">{b.title}</a>
+                <span class="setting-footer__book-links">
+                  <a href={localBookPath(b.slug)}>Overview</a>
+                  <a href={b.amazon} target="_blank" rel="noopener noreferrer" data-network-event="amazon_click">Buy on Amazon</a>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
         <AmazonCTA placement={`community_setting_${setting.id}`} variant="banner" label="Get the D6 Storyteller Core Rulebook on Amazon" />
         <div class="setting-footer__nav">
           <a href="/supplements/" class="btn btn--secondary">← All Online Supplements</a>
@@ -118,6 +130,14 @@ const jsonLd = [
 </BaseLayout>
 
 <style>
+.setting-footer__books {
+  margin-bottom: var(--space-8);
+}
+.setting-footer__books h2 { font-size: var(--text-xl); margin-bottom: var(--space-3); }
+.setting-footer__books ul { list-style: none; padding: 0; margin: var(--space-4) 0 0; display: flex; flex-direction: column; gap: var(--space-3); }
+.setting-footer__books li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-2) var(--space-4); }
+.setting-footer__book-links { display: inline-flex; gap: var(--space-4); font-size: var(--text-sm); }
+
 .setting-header {
   margin-bottom: var(--space-10);
   padding-bottom: var(--space-8);

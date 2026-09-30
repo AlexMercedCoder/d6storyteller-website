@@ -7,7 +7,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "check": "tsc --noEmit"
+    "check": "tsc --noEmit",
+    "sync:books": "node scripts/sync-d6-books.mjs",
+    "build:quickstart": "node scripts/build-quickstart.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
