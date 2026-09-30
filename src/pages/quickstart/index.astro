@@ -45,6 +45,20 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   </section>
 </BaseLayout>
 
+<script>
+  // Submit in the background so readers always reach the download page, even if
+  // Netlify form detection is off for this site (a plain POST would then fail).
+  const form = document.querySelector<HTMLFormElement>('form[name="d6-quickstart"]');
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const body = new URLSearchParams(new FormData(form) as unknown as Record<string, string>).toString();
+    try {
+      await fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body });
+    } catch { /* still send the reader on */ }
+    window.location.href = form.action;
+  });
+</script>
+
 <style>
 .quickstart__lede { font-size: var(--text-lg); margin-bottom: var(--space-6); }
 .quickstart__contents { margin: 0 0 var(--space-8); padding-left: 1.25rem; display: flex; flex-direction: column; gap: var(--space-2); }
