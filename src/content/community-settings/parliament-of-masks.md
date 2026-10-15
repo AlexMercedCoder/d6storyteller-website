@@ -118,3 +118,52 @@ You work for the Registry, verifying mask lineages and investigating fraud. You 
 **The Binding Vote:** The binding law comes to a floor vote in three days. Mask 037 has the votes to pass it. Mask 144 needs four more votes to block it. Glass has announced that the Bare Quarter will stage a public unmasking at the Parliament entrance on voting day, forcing every citizen to see the faces of people the system has erased. The Sculptor has offered to forge enough masks to give the entire Bare Quarter voting rights before the deadline, which would be illegal, transformative, and impossible to undo once the binding takes effect. The characters must decide which outcome they are working toward, knowing that the vote will permanently define what identity means in Palladia.
 
 **Why It Matters:** Parliament of Masks asks whether identity is something you are born with or something you build. The mask system was designed to answer that question in favor of merit. It created a new form of inequality instead: one based on access to masks rather than access to blood. The binding vote is not a choice between freedom and order. It is a choice between two imperfect systems, and the people most affected by the decision are the ones with the least power to influence it. The characters are in the middle, wearing masks that give them authority they may not have earned, making decisions about faces they may never see.
+
+## 7. Alternate City: Cadenza
+
+Want a different take on the same idea? Run the setting in Cadenza instead of Palladia. Here masks are narrow civic licenses that expire, so the pressure comes from a calendar rather than a vote.
+
+> *"The law does not ask who you are. It asks who is speaking."*
+> - Cadenza civic oath
+
+Masks in Cadenza are neither disguises nor costumes. They are registered civic instruments. A baker's mask lets its wearer sell bread, a mourning mask may speak for a dead household, and an ambassador's mask permits a foreign state to be present. Personal names exist in private, but public life runs through faces designed, licensed, and contested by the Parliament.
+
+### City Pressures
+
+The annual Re-Masking is approaching. Thousands of identities will expire, including one mask that has held a district together for sixty years. Someone is forging new faces in bulk, and the forged masks appear to carry authority nobody voted to grant.
+
+**The Hall of Faces** is Parliament's circular chamber and the only place where an identity can be challenged in public. Its galleries are packed during controversial hearings because a successful challenge can make someone legally unable to finish a sentence.
+
+**The Unmasked Quarter** is a temporary market built every Re-Masking season for people between identities. It is also where the city's poor go when their work mask expires before they can afford another. The law calls this a free interval. The residents call it the long queue.
+
+**The Archive of Retired Faces** stores masks with unresolved obligations. A person may take one only with a judge's consent, but the archive's keepers can tell when a supposedly dead face has been worn recently.
+
+### Factions
+
+**The Face Registry** protects a system that makes identity legible. Its clerks see masks as the only reason a large city can grant rights consistently, and they are terrified of what happens when a forgery can command a public institution.
+
+**The Bare Name Society** wants legal personhood without masks. Its members disagree about reform: some seek a gradual constitutional change, while others are preparing to publish every private name held by the Registry.
+
+**The House of Reprises** brokers old masks and specializes in identities whose previous wearers have disappeared. It offers useful second chances, but its ledgers reveal how many identities were sold because their owners had no other way to pay a debt.
+
+### Variant Mechanic: Authority Types and Marks
+
+Instead of an Authority score, choose one Authority for each mask: Command, Testimony, Passage, Sanctuary, or Commerce. A mask can invoke its Authority once per scene to gain +1d6 when the right is publicly recognized. Mark Authority after using it in a politically significant situation, whether the roll succeeds or fails.
+
+At two marks, someone begins asking who benefits from the mask. At three, a rival may issue a formal challenge. Resolve the challenge with evidence of past obligation, witnesses who recognize the wearer, or a public action that proves the mask's purpose still matters. Clearing a mark requires fulfilling an obligation attached to the face, not simply waiting for attention to pass. Changing masks clears all marks but creates a new problem: who loses the rights you just stopped carrying?
+
+### Cadenza Archetypes
+
+**The Registry Forger.** You can make a face that passes a cursory inspection, but you know every forged identity owes someone.
+
+- **Drive:** *"Find the source of the new masks before they turn the city into a private monarchy."*
+- **Approach Distribution:** Force 1 | Finesse 3 | Mind 2 | Presence 2
+
+**The Mourning Speaker.** You wear a mask that lets you speak for a household after a death. The family believes you are protecting their interests. You have learned that the deceased left instructions for a public scandal.
+
+- **Drive:** *"Give the dead an honest hearing without letting their last request destroy the living."*
+- **Approach Distribution:** Force 1 | Finesse 2 | Mind 2 | Presence 3
+
+### Cadenza Starter Scenario
+
+**The Mask That Voted:** A mask used by three generations of a respected family casts a vote at midnight, though its current wearer is in the characters' custody. The vote changes the succession law. Proving fraud may expose a private name the family has protected for decades. Letting the vote stand could make every retired mask a possible political weapon. The characters must find where the mask was worn, decide whose identity is actually at stake, and survive a challenge hearing before the city wakes to its new law.
