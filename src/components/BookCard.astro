@@ -1,4 +1,5 @@
 ---
+import { responsive } from '../lib/images';
 export interface Props {
   slug: string;
   title: string;
@@ -36,7 +37,8 @@ const eventData = JSON.stringify({ event: 'book_card_click', book_slug: slug });
     aria-label={`View details for ${title}`}
   >
     <img
-      src={coverImage}
+      {...responsive(coverImage)}
+      sizes="(max-width: 640px) 45vw, 300px"
       alt={coverAlt}
       width="300"
       height="400"

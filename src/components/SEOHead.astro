@@ -32,6 +32,21 @@ const robotsContent = noIndex
   ? 'noindex,follow'
   : 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1';
 
+// Search titles stay under about 60 characters. Long three-part titles
+// ("Name | Genre RPG Setting | D6 Storyteller") drop the middle part, then
+// the brand; social titles (og/twitter) keep the full form.
+const MAX_TITLE = 60;
+const searchTitle = (() => {
+  if (title.length <= MAX_TITLE) return title;
+  const parts = title.split(' | ');
+  const candidates = [
+    parts.length >= 3 ? `${parts[0]} | ${parts[parts.length - 1]}` : '',
+    parts.length >= 2 && !parts[0].includes('D6 Storyteller') ? `${parts[0]} | D6 Storyteller` : '',
+    parts[0],
+  ];
+  return candidates.find((c) => c && c.length <= MAX_TITLE) ?? parts[0];
+})();
+
 const ogImageType = absoluteOgImage.endsWith('.png')
   ? 'image/png'
   : absoluteOgImage.endsWith('.webp')
@@ -39,7 +54,7 @@ const ogImageType = absoluteOgImage.endsWith('.png')
     : 'image/jpeg';
 ---
 
-<title>{title}</title>
+<title>{searchTitle}</title>
 <meta name="description" content={description} />
 <meta name="keywords" content={keywords} />
 <link rel="canonical" href={absoluteCanonical} />

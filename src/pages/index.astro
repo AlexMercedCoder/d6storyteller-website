@@ -1,4 +1,5 @@
 ---
+import { responsive } from '../lib/images';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import AmazonCTA from '../components/AmazonCTA.astro';
 import BookCard from '../components/BookCard.astro';
@@ -121,7 +122,8 @@ const jsonLd = {
       </div>
       <div class="hero__covers">
         <img
-          src={books[0].data.coverImage}
+          {...responsive(books[0].data.coverImage)}
+          sizes="(max-width: 640px) 70vw, 280px"
           alt={books[0].data.coverAlt}
           width="280"
           height="373"
@@ -132,11 +134,13 @@ const jsonLd = {
         <div class="hero__cover-fan" aria-hidden="true">
           {books.slice(1, 4).map((book, i) => (
             <img
-              src={book.data.coverImage}
+              {...responsive(book.data.coverImage)}
+              sizes="180px"
               alt=""
               width="180"
               height="240"
-              loading="eager"
+              loading="lazy"
+              decoding="async"
               class={`hero__cover-fan-item hero__cover-fan-item--${i}`}
             />
           ))}
@@ -191,7 +195,6 @@ const jsonLd = {
             coverAlt={book.data.coverAlt}
             genres={book.data.genres}
             amazonUrl={book.data.amazonUrl}
-            eager={i < 4}
           />
         ))}
       </div>

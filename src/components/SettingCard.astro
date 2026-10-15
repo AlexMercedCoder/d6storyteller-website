@@ -1,4 +1,5 @@
 ---
+import { responsive } from '../lib/images';
 export interface Props {
   name: string;
   bookSlug: string;
@@ -23,7 +24,7 @@ const targetLink = link || `/books/${bookSlug}/`;
 >
   {coverImage && (
     <div class="setting-card__image-wrap">
-      <img src={coverImage} alt={coverAlt || name} width="300" height="180" loading="lazy" class="setting-card__cover" />
+      <img {...responsive(coverImage)} sizes="(max-width: 640px) 92vw, 360px" alt={coverAlt || name} width="300" height="180" loading="lazy" decoding="async" class="setting-card__cover" />
     </div>
   )}
   <header class="setting-card__header">

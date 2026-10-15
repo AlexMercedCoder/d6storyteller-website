@@ -1,4 +1,5 @@
 ---
+import { responsive } from '../../lib/images';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import AmazonCTA from '../../components/AmazonCTA.astro';
 import { getCollection } from 'astro:content';
@@ -137,7 +138,9 @@ const jsonLd = {
               {setting.data.coverImage && (
                 <div class="supp-card__image-wrap">
                   <img
-                    src={setting.data.coverImage}
+                    {...responsive(setting.data.coverImage)}
+                    sizes="(max-width: 640px) 92vw, 400px"
+                    decoding="async"
                     alt={setting.data.coverAlt || setting.data.title}
                     width="400"
                     height="400"
