@@ -1,13 +1,13 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
-import { readdirSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 
 const SITE = 'https://d6storyteller.alexmerced.com';
-// Printable sheets are plain HTML in public/downloads/, which Astro copies
-// without routing, so the sitemap integration never sees them. List them here.
-const downloadPages = readdirSync(new URL('./public/downloads/', import.meta.url))
-  .filter((f) => f.endsWith('.html'))
-  .map((f) => `${SITE}/downloads/${f.replace(/\.html$/, '')}`);
+// Printable sheets in public/downloads/ are deliberately left out of the
+// sitemap and served with noindex (meta tag plus public/_headers): they are
+// tools to print, not pages to land on.
+// lastmod is each page's content date (scripts/page-dates.mjs), never build time.
+const pageDates = JSON.parse(readFileSync(new URL('./src/data/page-dates.json', import.meta.url), 'utf8'));
 
 export default defineConfig({
   site: SITE,
@@ -16,12 +16,16 @@ export default defineConfig({
     sitemap({
       changefreq: 'monthly',
       priority: 0.7,
-      customPages: downloadPages,
       filter: (page) =>
         !page.includes('/404') &&
         !page.includes('/privacy') &&
         !page.includes('/about') &&
         !page.includes('/quickstart/thanks'),
+      serialize(item) {
+        const date = pageDates[new URL(item.url).pathname];
+        if (date) item.lastmod = date;
+        return item;
+      },
     }),
   ],
   redirects: {
